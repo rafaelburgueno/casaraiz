@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventoController;
+use App\Http\Controllers\TalleresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,9 +42,7 @@ Route::get('/comunidad_raiz', function () {
 /*
 talleres
 */
-Route::get('/talleres', function () {
-    return view('talleres');
-})->name('talleres');
+Route::get('/talleres', TalleresController::class)->name('talleres');
 
 
 /*
@@ -75,6 +75,26 @@ perfil
 Route::get('/perfil', function () {
     return view('perfil');
 })->name('perfil');
+
+
+/*
+eventos
+*/
+Route::resource('eventos', EventoController::class);
+//
+/*Route::controller(EventoController::class)->group(function () {
+    Route::get('eventos', 'index')->name('eventos.index');
+    //Route::get('eventos/create', 'create')->name('eventos.create');
+    //Route::post('eventos', 'store')->name('eventos.store');
+    Route::get('eventos/{evento}', 'show')->name('eventos.show');
+    //Route::get('eventos/{evento}/edit', 'edit')->name('eventos.edit');
+    //Route::put('eventos/{evento}', 'update')->name('eventos.update');
+    //Route::delete('eventos/{evento}', 'destroy')->name('eventos.destroy');
+});*/
+
+
+
+
 
 
 
