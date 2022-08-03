@@ -18,10 +18,17 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
 
-            $table->string('rol')->default('user');
-            $table->string('documento_de_identidad')->nullable();
-            $table->string('telefono')->nullable();
-            $table->string('fecha_de_nacimiento')->nullable();
+            $table->string('rol', 20)->default('usuario');
+            /*$table->unsignedBigInteger('role_id')->nullable();
+            $table->foreign('role_id')
+                ->references('id')
+                ->on('roles')
+                ->onDelete('set null')
+                ->onUpdate('cascade');*/
+
+            $table->string('documento_de_identidad', 20)->nullable();
+            $table->string('telefono', 20)->nullable();
+            $table->date('fecha_de_nacimiento')->nullable();
             $table->boolean('activo')->default(true);
             
             $table->timestamp('email_verified_at')->nullable();
