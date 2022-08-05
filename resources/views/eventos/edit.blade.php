@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="form-group mb-3">
-                            <label for="responsable">responsable (opcional)</label>
+                            <label for="responsable">Responsable</label>
                             <input type="text" class="form-control" id="responsable" name="responsable" placeholder="..." value="{{old('responsable', $evento->responsable)}}">
                             @error('responsable')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -84,15 +84,15 @@
 
                         <!--checkbox para indicar la frecuencia del evento o taller-->
                         <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="frecuencia_semanal" name="frecuencia_semanal" value="1" checked>
+                            <input type="checkbox" class="form-check-input" id="frecuencia_semanal" name="frecuencia_semanal" value="1" @checked(old('frecuencia_semanal', $evento->frecuencia_semanal))>
                             <label class="form-check-label" for="frecuencia_semanal">Frecuencia semanal</label>
                         </div>
                         <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="frecuencia_mensual" name="frecuencia_mensual" value="1">
+                            <input type="checkbox" class="form-check-input" id="frecuencia_mensual" name="frecuencia_mensual" value="1" @checked(old('frecuencia_mensual', $evento->frecuencia_mensual))>
                             <label class="form-check-label" for="frecuencia_mensual">Frecuencia mensual</label>
                         </div>
                         <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="frecuencia_anual" name="frecuencia_anual" value="1">
+                            <input type="checkbox" class="form-check-input" id="frecuencia_anual" name="frecuencia_anual" value="1" @checked(old('frecuencia_anual', $evento->frecuencia_anual))>
                             <label class="form-check-label" for="frecuencia_anual">Frecuencia anual</label>
                         </div>
 
@@ -128,13 +128,13 @@
                                 <div class="form-group mb-3">
                                     <label for="dia_de_semana">Dia de la semana</label>
                                     <select class="form-control" id="dia_de_semana" name="dia_de_semana">
-                                        <option value="Lunes">Lunes</option>
-                                        <option value="Martes">Martes</option>
-                                        <option value="Miercoles">Miércoles</option>
-                                        <option value="Jueves">Jueves</option>
-                                        <option value="Viernes">Viernes</option>
-                                        <option value="Sabado">Sábado</option>
-                                        <option value="Domingo">Domingo</option>
+                                        <option value="Lunes" @selected((old('dia_de_semana') == "Lunes") || $evento->dia_de_semana == "Lunes" )>Lunes</option>
+                                        <option value="Martes" @selected((old('dia_de_semana') == "Martes") || $evento->dia_de_semana == "Martes" )>Martes</option>
+                                        <option value="Miércoles" @selected((old('dia_de_semana') == "Miércoles") || $evento->dia_de_semana == "Miércoles" )>Miércoles</option>
+                                        <option value="Jueves" @selected((old('dia_de_semana') == "Jueves") || $evento->dia_de_semana == "Jueves" )>Jueves</option>
+                                        <option value="Viernes" @selected((old('dia_de_semana') == "Viernes") || $evento->dia_de_semana == "Viernes" )>Viernes</option>
+                                        <option value="Sábado" @selected((old('dia_de_semana') == "Sábado") || $evento->dia_de_semana == "Sábado" )>Sábado</option>
+                                        <option value="Domingo" @selected((old('dia_de_semana') == "Domingo") || $evento->dia_de_semana == "Domingo" )>Domingo</option>
                                     </select>
                                 </div>
                             </div>

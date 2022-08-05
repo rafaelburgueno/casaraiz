@@ -6,17 +6,15 @@
 @section('content')
 
 
-@if(Auth::user()->rol == 'administrador')
+@if(Auth::check() && Auth::user()->rol == 'administrador')
     <div class="container">
         <a class="btn" href="{{route('eventos.create')}}">Crear Evento</a>
     </div>
 @endif
 
 
-<div class="container">
-    <h3 style="text-align: center;">este puede ser un titulo</h3>
-    <p style="text-align: center;"><strong>Y ESTE TAMBIEN PUEDE SER UN TITULO</strong></p>
-    <hr class="my-2">
+<div class="text-center"><br>
+    <h1 id="in" class="text-center">TALLERES <img src="/storage/img/casaRaiz.tr.png" style="opacity:80% ;"></h1>
 </div>
 
 

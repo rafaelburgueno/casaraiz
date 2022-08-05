@@ -7,7 +7,7 @@
 @section('content')
 
 {{--@if(Auth::check())--}}
-@if(Auth::user()->rol == 'administrador')
+@if(Auth::check() && Auth::user()->rol == 'administrador')
     <div class="container mb-5">
         <a class="btn" href="{{route('eventos.create')}}">Crear Evento</a>
     </div>

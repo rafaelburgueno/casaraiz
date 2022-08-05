@@ -10,7 +10,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
-            <h1 class="h2">Eventos</h1>
+            <h1 class="h2">Agenda</h1>
         </div>
         @if(Auth::check())
         <div>
@@ -19,39 +19,50 @@
         @endif
     </div>
     
-    <hr class="mt-1">
-
-
-    <div class="row mb-5 mt-5">
+    
+    <hr class="mt-1 mx-3">
+    
+    <div class="row mb-5 mt-3">
 
         <div class="col-md-12 mb-5">
             <div class="accordion" id="accordionEventos">
 
                 @foreach ($eventos as $evento)
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <div class="accordion-buttonn p-4" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$evento->id}}" aria-expanded="true" aria-controls="collapse{{$evento->id}}">
-                            <p>{{$evento->fecha}}</p>
-                            <p>{{$evento->dia_de_semana}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
-                            <p class="my-1 h6"><strong>{{$evento->nombre}}</strong></p>
-                        </div>
-                    </h2>
-                    <div id="collapse{{$evento->id}}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionEventos">
-                        <div class="accordion-body mt-0 pt-0">
+
+                <div class="card m-1">
+                    <div class="accordion-header" id="heading{{$evento->id}}">
+                        <h2 class="p-3">
+                            <div class=" text-left" type="button" data-toggle="collapse" data-target="#collapse{{$evento->id}}" aria-expanded="true" aria-controls="collapse{{$evento->id}}">
+                                <p class="card-text text-light">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
+                                <p class="card-text text-light mt-3 h5"><strong>{{$evento->nombre}}</strong></p>
+                            </div>
+                        </h2>
+                    </div>
+                    
+                    <div id="collapse{{$evento->id}}" class="collapse" aria-labelledby="heading{{$evento->id}}" data-parent="#accordionEventos">
+                        <hr>
+                        <div class="card-body">
                             <p class="">{{$evento->descripcion}}</p>
-                            <p class=""><small>Costo de inscripción</small><strong> ${{$evento->costo_de_inscripcion}}</strong></p>
+                            <p class="card-text"><small>Inscripcion </small>
+                                @if ($evento->costo_de_inscripcion == 0)
+                                    <span class="">Gratuita</span>
+                                @else
+                                    <strong> ${{$evento->costo_de_inscripcion}}</strong>
+                                @endif
+                            </p>
                             <p class=""><small>{{ $evento->tipo }} a cargo de {{$evento->responsable}}</small></p>
                             <p class=""><small>Espacio: {{ $evento->espacio }}</small></p>
                         </div>
                     </div>
                 </div>
+
                 @endforeach
 
             </div>
         </div>
 
 
-        @foreach ($eventos as $evento)
+        {{--@foreach ($eventos as $evento)
         <div class="col-md-6">
             <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                 <div class="col p-4 d-flex flex-column position-static">
@@ -72,7 +83,7 @@
             
             </div>
         </div>
-        @endforeach
+        @endforeach--}}
         
     </div>
 
@@ -84,6 +95,11 @@
     <br>
     <br>
     <br>
+
+
+    
+
+
 </div>
 
 

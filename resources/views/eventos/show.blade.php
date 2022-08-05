@@ -25,7 +25,7 @@
                 <img src="{{$evento->multimedias->last()->url}}" class="card-img-top" alt="...">
                 @endif
                 <div class="card-body">
-                    <p class="card-text">{{$evento->dia_de_semana}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
+                    <p class="card-text text-light">{{$evento->dia_de_semana}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
                     
                     <h5 class="card-title text-light my-1">{{$evento->nombre}}</h5>
 

@@ -23,7 +23,7 @@ class EventoController extends Controller
         // ...test/eventos?page=2
         //$eventos = Evento::orderBy('fecha','desc')->paginate();
         //obtiene los eventos mas recientes
-        $eventos = Evento::where('fecha', '>', now())->where('activo', true)->orderBy('fecha','asc')->paginate();
+        $eventos = Evento::where('fecha', '>', now())->where('activo', true)->where('frecuencia_semanal', false)->orderBy('fecha','asc')->paginate();
         
         return view('eventos.index', compact('eventos'));
 

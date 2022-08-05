@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\TalleresController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,9 +65,10 @@ Route::get('/tienda', function () {
 /*
 blog
 */
-Route::get('/blog', function () {
+Route::resource('blog', PostController::class);
+/*Route::get('/blog', function () {
     return view('blog');
-})->name('blog');
+})->name('blog');*/
 
 
 /*

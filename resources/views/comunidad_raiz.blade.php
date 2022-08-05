@@ -6,12 +6,30 @@
 @section('content')
 
 
+<script>
+    $(document).ready(function () {
+
+        var div = $("h1");
+        div.animate({ left: '150px' }, "slow");
+        div.animate({ fontSize: '3em' }, "slow");
+    });
+
+    $(document).ready(function () {
+
+        var divi = $("#img2");
+        divi.animate({ left: '150px' }, "slow");
+        divi.animate({ fontSize: '3em' }, "slow");
+    });
+
+</script>
+
 
 <div>
     <img id="img2" src="/storage/img/casaRaiz.tr.png" class="rounded mx-auto d-block" width="80%">
     <h1 class="text-center">PRESENTA</h1><br>
 
 </div>
+
 <div class="container">
     <div>
         <h1 id="cr" class="text-center"><strong>COMUNIDAD RAIZ</strong></h1><br>
@@ -42,6 +60,7 @@
             </div>
         </div>
     </div><br>
+    
     <div class="card-group">
         <div class="card text-center">
             <div class="card-body">
@@ -68,18 +87,18 @@
         <h2 id="cb" class="text-center">MEMBRESIAS</h2><br>
 
 
-        <div class="container">
-            <div class="row"><br>
+        <div class="containerr">
+            <div class="row">
                 <div class="col-sm-4 text-center">
                     <button class="btn btn-outline-light  btn-lg" style="background-color:rgb(208, 121, 89)"
                         type="button" data-toggle="collapse" data-target="#funciona" aria-controls="MultiCollapse1"
-                        aria-expanded="false">SEMILLA</button><br><br>
+                        aria-expanded="false">SEMILLA</button>
                 </div>
                 <div class="col-sm-4 text-center">
                     <button class="btn btn-outline-light btn-lg" style="background-color:rgb(208, 121, 89);"
                         type="button" data-toggle="collapse" data-target="#red" aria-controls="MultiCollapse2"
                         aria-expanded="false">RAÍZ</button>
-                    <br><br>
+                    
                 </div>
 
                 <div class="col-sm-4 text-center">
