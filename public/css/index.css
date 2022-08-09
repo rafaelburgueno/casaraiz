@@ -3,7 +3,7 @@
 }
 
 .navbar {
-  background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103),rgb(198, 98, 103));
+  background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 98, 103));
   z-index: 11;
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
@@ -12,7 +12,7 @@
 
 
 }
-.nav-link{ 
+.nav-link {
   margin-left: 20px;
   margin-right: 30px;
   color: black;
@@ -24,7 +24,7 @@
 
 footer {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103),rgb(198, 98, 103));
+  background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 98, 103));
 }
 
 footer p {
@@ -46,13 +46,13 @@ footer a {
   display: block;
   width: 55%;
   height: auto;
-  
+
 }
 
 #cr {
   font-size: 2cm;
-  font-family:sans-serif;
-  
+  font-family: sans-serif;
+
 }
 
 #cb {
@@ -79,35 +79,57 @@ footer a {
 }
 
 
-.card {
-  background-image: linear-gradient(to bottom right, rgb(48, 66, 60),  rgb(198, 98, 103),rgb(198, 98, 103),rgb(198, 98, 103),rgb(198, 98, 103));
+.card-talleres p {
+  color: rgb(100, 42, 0);
+  font-size: 23px;
 
-  opacity: 80%;
+
+}
+
+.card-talleres h4 {
+  color: #a71d1d;
+  font-size: 27px;
+ 
+
+}
+
+.card-talleres strong {
+  color: #630d0d;
+  font-size: 23px;
+}
+
+
+.card {
+
+  /*opacity: 80%;
   flex: 1 200px;
   margin-top: 30px;
   margin-right: 30px;
-  margin-left: 30px;
-  border: 2px solid #070707;
-  border-radius: 10px;
-  box-shadow: 0px 0px 2px #ebf0f5;
-  
+  margin-left: 30px;*/
+  border-radius: 5px;
+  box-shadow: 4px 4px 2px #da3f3f;
+
+
+}
+
+.titulo{
+  color: brown;
 }
 
 #in {
-
   background-image: linear-gradient(to right, rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));
   color: rgb(8, 8, 8);
   text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48), 0 0 5px rgb(90, 89, 89);
-  
+
   font-family: "Helvetica";
   font-size: 35px;
-  
+
 }
 
 body {
 
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 16px;
+  /*font-size: 16px;*/
 }
 
 
@@ -146,3 +168,19 @@ body {
   padding: 0;
 }
 
+
+/* Start: Video Responsive */
+.video-responsive {
+  overflow:hidden;
+  padding-bottom:400px; /* Adecua este valor para controlar la altura del video */
+  position:relative;
+  height:0;
+}
+.video-responsive iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+/* End: Video Responsive */

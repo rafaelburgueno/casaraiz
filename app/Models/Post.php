@@ -28,6 +28,20 @@ class Post extends Model
         //return $this->belongsTo('App\Models\User');
     }
 
+
+    //obtiene el nombre del usuario que creo el post
+    public function autor()
+    {
+        if($this->user_id){
+            return User::find($this->user_id)->name;
+        }else{
+            return 'El Rafa';
+        }
+        //return 'holis';
+        //return $this->user()->name;
+
+    }
+
     //relacion uno a muchos polimorfica con la tabla multimedias
     // no es necesaria el siguiente metodo, poruqe los post guardan las imagenes en el campo html
     /*public function multimedias()

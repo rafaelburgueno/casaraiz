@@ -17,13 +17,18 @@
           <form action="{{route('blog.store')}}" method="POST">
               @csrf
               
-              <div class="form-group mt-3 mb-1 mx-1">
+              <div class="form-group mt-3 mb-2 mx-1">
                   {{--<label for="titulo">Titulo</label>--}}
-                  <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo" value="{{old('titulo')}}">
+                  <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" value="{{old('titulo')}}">
                   @error('titulo')
                       <div class="alert alert-danger mt-1">{{ $message }}</div>
                   @enderror
               </div>
+              <div class="form-check mb-2">
+                <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo'))>
+                <label class="form-check-label" for="activo">Publicar</label>
+            </div>
+
               {{--<div class="form-group mb-3">
                   <label for="categorias">categorias (opcional)</label>
                   <input type="text" class="form-control" id="categorias" name="categorias" placeholder="..." value="{{old('categorias')}}">

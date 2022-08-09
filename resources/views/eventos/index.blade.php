@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Eventos')
+@section('title', 'Agenda de eventos')
 @section('meta-description', 'metadescripción de la pagina de Eventos')
 
 
@@ -12,7 +12,7 @@
         <div class="col-md-12 text-center">
             <h1 class="h2">Agenda</h1>
         </div>
-        @if(Auth::check())
+        @if(Auth::check() && Auth::user()->rol == 'administrador')
         <div>
             <a class="btn" href="{{route('eventos.create')}}">Crear Evento</a>
         </div>
@@ -29,12 +29,12 @@
 
                 @foreach ($eventos as $evento)
 
-                <div class="card m-1">
+                <div class="card m-1 mb-3">
                     <div class="accordion-header" id="heading{{$evento->id}}">
                         <h2 class="p-3">
                             <div class=" text-left" type="button" data-toggle="collapse" data-target="#collapse{{$evento->id}}" aria-expanded="true" aria-controls="collapse{{$evento->id}}">
-                                <p class="card-text text-light">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
-                                <p class="card-text text-light mt-3 h5"><strong>{{$evento->nombre}}</strong></p>
+                                <p class="card-text">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
+                                <p class="card-text mt-3 h5"><strong>{{$evento->nombre}}</strong></p>
                             </div>
                         </h2>
                     </div>

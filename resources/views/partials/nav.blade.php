@@ -78,12 +78,15 @@
 @if (request()->routeIs('home') || request()->routeIs('talleres'))
 {{--<div class="p-5"></div>--}}
 <div>
-    <img src="/storage/img/nav.1.png" class="nav d-block w-100" alt="...">
-</div>
+    <img src="/storage/img/nav.10.png" class="nav d-block w-100" alt="...">
+  </div>
 @endif
 
 
 <div class="p-4"></div>
+
+
+
   
 
 {{--

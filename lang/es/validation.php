@@ -146,6 +146,25 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'titulo'=>'Título',
+        'descripcion'=>'Descripción',
+        'fecha'=>'Fecha',
+        'hora'=>'Hora',
+        'lugar'=>'Lugar',
+        'imagen'=>'Imagen',
+        'imagenes'=>'Imágenes',
+        'categoria'=>'Categoría',
+        'categorias'=>'Categorías',
+        'html' => 'Texto del post',
+        'nombre'=>'Nombre',
+
+        'email'=>'Email',
+        'password'=>'Contraseña',
+        'password_confirmation'=>'Confirmar contraseña',
+
+
+        
+    ],
 
 ];

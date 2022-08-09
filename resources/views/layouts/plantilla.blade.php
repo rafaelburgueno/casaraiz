@@ -12,7 +12,7 @@
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    {{--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">--}}
 
     <!--script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -30,6 +30,22 @@
     <!-- Header -->
     @include('partials.nav')
 
+    <!-- mensajes de alerta -->
+    @include('partials.alertas')
+
+
+    @if(request()->routeIs('home') || request()->routeIs('casa_raiz') || request()->routeIs('eventos.index'))
+        <!-- Carousel -->
+        @include('partials.carousel')
+    @endif
+
+
+    @if(request()->routeIs('home') || request()->routeIs('casa_raiz') )
+        <!-- video -->
+        @include('partials.video')
+    @endif
+
+
 
     <!-- contenido -->
     @yield('content')
@@ -37,7 +53,7 @@
 
 
     <!-- Footer -->
-    {{--@include('layouts.partials.footer')--}}
+    @include('partials.footer')
 
     <!-- Scripts -->
     

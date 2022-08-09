@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
     <!-- Tailwind -->
     {{--<script src="https://cdn.tailwindcss.com"></script>--}}
+    {{--<script src="{{ asset('/js/tailwindcss.js')}}"></script>--}}
     <!-- bootstrap -->
 
 
@@ -38,6 +39,11 @@
     <!-- Header -->
     @include('partials.nav')
 
+
+    <!-- mensajes de alerta -->
+    @include('partials.alertas')
+    
+
     <!-- Estos estilos son necesarios para que el editor funcione correctamente -->
 	<style>
 		.card{
@@ -48,12 +54,21 @@
             margin-right: 0;
             margin-left: 0;
 		}
-		.modal-dialog{
+		/*.modal-dialog{
 			color:rgb(46, 46, 46);
 		}
 		.note-placeholder{
 			color:rgb(46, 46, 46);
-		}
+		}*/
+        /*.card-bodyy>h1{font-size: 2.5em !important;}
+        .card-bodyy>h2{font-size: 2.25em !important;}
+        .card-bodyy>h3{font-size: 2em !important;}
+        .card-bodyy>h4{font-size: 1.75em !important;}
+        .card-bodyy>h5{font-size: 1.5em !important;}
+        .card-bodyy>h6{font-size: 1.25em !important;}
+        /*.card-bodyy > h1,h2,h3,h4,h5,h6 {font-size:initial;font-weight:inherit}*/
+        /*.card-bodyy > ol {list-style:initial;margin:inherit;padding:inherit}
+        .card-bodyy > ul {list-style:initial;margin:inherit;padding:inherit}*/
 	</style>
 
 
@@ -63,7 +78,7 @@
 
 
     <!-- Footer -->
-    {{--@include('layouts.partials.footer')--}}
+    @include('partials.footer')
 
     <!-- Scripts -->
     

@@ -9,7 +9,7 @@
 
 @if(Auth::check() && Auth::user()->rol == 'administrador')
     <div class="container mb-5">
-        <a class="btn" href="{{route('blog.create')}}">Crear Post</a>
+        <a class="btn btn-outline-primary" href="{{route('blog.create')}}">Crear Post</a>
     </div>
 @endif
 
@@ -21,47 +21,43 @@
         </div>
     </div>
     
-
-    
     <hr class="my-5">
 
     <!-- Botones de paginacion -->
-    {{ $posts->links() }}
+    {{--{{ $posts->links() }}--}}
     
-    <div class="mb-5">
+
+    <div class="d-flex flex-wrap flex-row">
+    
         @foreach ($posts as $post)
-        <div class="">
-
-            <div class="card m-3 mb-5">
-
-                <div class="card-header">
-                    <h3 class="h3 my-2 text-light text-center">{{ $post->titulo }}</h3>
-                </div>
-
+        <div class="col-md-6">
+            <div class="card m-3">
+                
                 <div class="card-body">
-                    {!! $post->html !!}
+                    <a href="{{route('blog.show', $post)}}" class="">
+                        <h5 class="card-title titulo">{{$post->titulo}}</h5>
+                    </a>
+                    @if(!$post->activo)
+                        <p class=""><small class="p-1 text-light bg-danger">El post no es publico</small></p>
+                    @endif
+                    <p><small class="">Por {{$post->autor()}}</small></p>
+    
+                    {{--<p class="card-text">{{Str::limit($post->html, 100)}}</p>--}}
+                    
+                    {{--<a href="{{route('blog.show', $post)}}" class=""><small>leer...</small></a>--}}
+                      
                 </div>
-                
-                <div class="card-footer">
-                    <div class="d-flex justify-content-between align-items-center p-1">
-                        <p><span class="badge ">{{ $post->categorias }}</span></p>
-                        <p class="text-light"><small>{{ $post->updated_at }}</small></p>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center p-1">
-                        {{--<a href="{{route('posts.index')}}" class="btn text-light">< Volver</a>
-                        <a href="{{route('posts.edit', $post)}}" class="btn text-light">editar ></a>--}}
-                    </div>
-                </div>
-                
             </div>
-            
         </div>
         @endforeach
+    
+        
+    
     </div>
     
 
     <!-- Botones de paginacion -->
-    {{ $posts->links() }}
+    {{--{{ $posts->links() }}--}}
 
 
 
