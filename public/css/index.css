@@ -1,186 +1,277 @@
 .mi-bg-gradient {
-  background-image: linear-gradient(to bottom right, rgba(48, 66, 60, 0.575), rgb(198, 98, 103),rgb(198, 98, 103));
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(48, 66, 60, 0.575),
+        rgb(198, 98, 103),
+        rgb(198, 98, 103)
+    );
+}
+
+.card-index {
+    color: #07101a;
+    font-size: 26px;
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48),
+        0 0 5px rgb(90, 89, 89);
+    font-family: "Helvetica";
+}
+
+.ind {
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(48, 66, 60, 0.575),
+        rgb(198, 98, 103),
+        rgb(198, 98, 103)
+    );
 }
 
 .navbar {
-  background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 98, 103));
-  z-index: 11;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
-  opacity: 90%;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-
+    background-image: linear-gradient(
+        to bottom right,
+        rgb(48, 66, 60),
+        rgb(198, 98, 103),
+        rgb(198, 98, 103)
+    );
+    z-index: 11;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    opacity: 90%;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
 }
+
 .nav-link {
-  margin-left: 20px;
-  margin-right: 30px;
-  color: black;
+    margin-left: 20px;
+    margin-right: 30px;
+    color: black;
 }
 
 .navbar-brand {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
 footer {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 98, 103));
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
+    background-image: linear-gradient(
+        to bottom right,
+        rgb(48, 66, 60),
+        rgb(198, 98, 103),
+        rgb(198, 98, 103)
+    );
 }
 
 footer p {
-  color: black;
+    color: black;
 }
 
 footer a {
-  text-decoration: none;
-  color: black;
+    text-decoration: none;
+    color: black;
 }
 
 .navbar-logo {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100px;
+    display: inline-block;
+    vertical-align: middle;
+    width: 100px;
 }
 
 .navbar-logo img {
-  display: block;
-  width: 55%;
-  height: auto;
-
+    display: block;
+    width: 55%;
+    height: auto;
 }
 
 #cr {
-  font-size: 2cm;
-  font-family: sans-serif;
-
+    font-size: 2cm;
+    font-family: sans-serif;
 }
 
 #cb {
-  font-size: 1.5cm;
-  border: 2px solid #d5dadf;
-  border-radius: 1px;
-  box-shadow: 4px 4px 2px #07101a;
-  color: aliceblue;
-  text-shadow: 4px 4px 2px #07101a;
+    font-size: 1.5cm;
+    border: 2px solid #d5dadf;
+    border-radius: 1px;
+    box-shadow: 4px 4px 2px #07101a;
+    color: aliceblue;
+    text-shadow: 4px 4px 2px #07101a;
 }
 
 .card-group {
-  color: #d5dadf;
-  font-size: 0.6cm;
+    color: #d5dadf;
+    font-size: 0.6cm;
 }
 
 .card-title {
-  color: #d5dadf;
-  font-size: 0.8cm;
+    color: #d5dadf;
+    font-size: 0.8cm;
 }
 
 #pcr {
-  font-size: 0.6cm;
+    font-size: 0.6cm;
 }
 
-
 .card-talleres p {
-  color: rgb(100, 42, 0);
-  font-size: 23px;
-
-
+    color: rgb(100, 42, 0);
+    font-size: 23px;
 }
 
 .card-talleres h4 {
-  color: #a71d1d;
-  font-size: 27px;
- 
-
+    color: #a71d1d;
+    font-size: 27px;
 }
 
 .card-talleres strong {
-  color: #630d0d;
-  font-size: 23px;
+    color: #630d0d;
+    font-size: 23px;
 }
-
 
 .card {
-
-  /*opacity: 80%;
-  flex: 1 200px;
-  margin-top: 30px;
-  margin-right: 30px;
-  margin-left: 30px;*/
-  border-radius: 5px;
-  box-shadow: 4px 4px 2px #da3f3f;
-
-
+    opacity: 80%;
+    flex: 1 200px;
+    margin-top: 30px;
+    margin-right: 30px;
+    margin-left: 30px;
+    border-radius: 5px;
+    box-shadow: 4px 4px 2px #da3f3f;
 }
 
-.titulo{
-  color: brown;
+#card-index, .card-index {
+    color: #07101a;
+    font-size: 26px;
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48),
+        0 0 5px rgb(90, 89, 89);
+    font-family: "Helvetica";
+}
+
+/*.ind{
+  background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 98, 103));
+}
+*/
+.ind {
+    background-image: linear-gradient(
+        to bottom right,
+        rgba(48, 66, 60, 0.575),
+        rgb(198, 98, 103),
+        rgb(198, 98, 103)
+    );
 }
 
 #in {
-  background-image: linear-gradient(to right, rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));
-  color: rgb(8, 8, 8);
-  text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48), 0 0 5px rgb(90, 89, 89);
+    background-image: linear-gradient(
+        to right,
+        rgb(198, 98, 103),
+        rgb(198, 98, 103),
+        rgb(48, 66, 60)
+    );
+    color: rgb(8, 8, 8);
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48),
+        0 0 5px rgb(90, 89, 89);
 
-  font-family: "Helvetica";
-  font-size: 35px;
+    font-family: "Helvetica";
+    font-size: 35px;
+}
 
+.marg {
+    margin-top: 0.5cm;
+    margin-bottom: 0.5cm;
+    margin-right: 0.5cm;
+    margin-left: 0.5cm;
+}
+
+.button-container {
+    display: inline-block;
+    position: relative;
+}
+
+.button-container a {
+    position: absolute;
+    bottom: 4em;
+    right: 4em;
+    background-color: #d1262c;
+    border-radius: 0.5em;
+    color: white;
+    text-transform: uppercase;
+    padding: 1em 1.5em;
+    width: 220px;
+    font-size: 22px;
+}
+
+.button-redes {
+    display: inline-block;
+    position: relative;
+}
+
+.button-redes a {
+    position: fixed;
+    bottom: 4em;
+    right: 4em;
+    background-color: #d1262c;
+    border-radius: 0.5em;
+    color: white;
+    text-transform: uppercase;
+    padding: 1em 1.5em;
+    width: 220px;
+}
+
+.titulo {
+    color: brown;
 }
 
 body {
-
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /*font-size: 16px;*/
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
+    /*font-size: 16px;*/
 }
 
-
 .tabla2 {
-  margin-top: 2em;
+    margin-top: 2em;
 }
 
 .tabla2 th,
 .tabla2 td {
-  text-align: center;
-  padding: .2em .5em;
-  color: rgb(129, 55, 55);
-  border: 1px solid rgb(201, 52, 52);
+    text-align: center;
+    padding: 0.2em 0.5em;
+    color: rgb(129, 55, 55);
+    border: 1px solid rgb(201, 52, 52);
 }
 
 .tabla2 caption {
-  text-align: left;
-  margin-bottom: 5px;
-  font-variant: small-caps;
-  font-size: 30px;
-  letter-spacing: 5px;
+    text-align: left;
+    margin-bottom: 5px;
+    font-variant: small-caps;
+    font-size: 30px;
+    letter-spacing: 5px;
 }
 
 .tabla2 td {
-  text-align: left;
-  font-size: .8em;
-  padding-bottom: 3em;
-  padding-right: 3em;
+    text-align: left;
+    font-size: 0.8em;
+    padding-bottom: 3em;
+    padding-right: 3em;
 }
 
 .tabla2 td:hover {
-  background-color: rgb(235, 154, 154);
-  cursor: pointer;
-  font-size: 1.6em;
-  text-align: center;
-  padding: 0;
+    background-color: rgb(235, 154, 154);
+    cursor: pointer;
+    font-size: 1.6em;
+    text-align: center;
+    padding: 0;
 }
-
 
 /* Start: Video Responsive */
 .video-responsive {
-  overflow:hidden;
-  padding-bottom:400px; /* Adecua este valor para controlar la altura del video */
-  position:relative;
-  height:0;
+    overflow: hidden;
+    padding-bottom: 400px;
+    /* Adecua este valor para controlar la altura del video */
+    position: relative;
+    height: 0;
 }
-.video-responsive iframe{
-  left:0;
-  top:0;
-  height:100%;
-  width:100%;
-  position:absolute;
+
+.video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
+
 /* End: Video Responsive */

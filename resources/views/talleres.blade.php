@@ -6,6 +6,12 @@
 @section('content')
 
 
+<!-- Imagen apaisada con logo -->
+<div>
+	<img src="{{asset('/storage/img/nav.10.png')}}" class="d-block w-100" alt="...">
+</div>
+
+
 @if(Auth::check() && Auth::user()->rol == 'administrador')
     <div class="container">
         <a class="btn" href="{{route('eventos.create')}}">Crear Evento</a>
@@ -14,7 +20,7 @@
 
 
 <div class="text-center"><br>
-    <h1 id="in" class="text-center">TALLERES <img src="/storage/img/casaRaiz.tr.png" style="opacity:80% ;"></h1>
+    <h1 id="in" class="text-center">TALLERES <img src="{{asset('/storage/img/casaRaiz.tr.png')}}" style="opacity:80% ;"></h1>
 </div>
 
 

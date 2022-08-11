@@ -34,7 +34,7 @@
     
     
 </head>
-<body class="{{request()->routeIs('comunidad_raiz') ? 'mi-bg-gradient' : ''}}">
+<body>
 
     <!-- Header -->
     @include('partials.nav')

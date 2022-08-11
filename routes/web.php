@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\TalleresController;
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +63,7 @@ Route::get('/tienda', function () {
 })->name('tienda');
 
 
-/*
+/*1
 blog
 */
 Route::resource('blog', PostController::class);
@@ -95,6 +96,24 @@ Route::resource('eventos', EventoController::class);
 });*/
 
 
+
+// Ruta para ejecutar comandos artisan desde la web
+// se debe desactivar esta ruta despues del desarrollo
+Route::get('/artisan/{command}', function ($command) {
+    Artisan::call($command);
+    dd(Artisan::output());
+    //return Artisan::output();
+});
+
+// Ruta para ejecutar el comando que resuelve el problema del enjace simbolico
+// php artisan storage:link
+// se debe desactivar esta ruta despues del desarrollo
+Route::get('/storage_link', function () {
+    //Artisan::call('storage:link');
+    //dd(Artisan::output());
+    symlink('/home/u520718481/domains/casaraiz.uy/casaraiz/storage/app/public', '/home/u520718481/domains/casaraiz.uy/public_html/storage');
+    return view('casa_raiz');
+});
 
 
 

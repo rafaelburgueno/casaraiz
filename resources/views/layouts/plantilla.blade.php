@@ -18,7 +18,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!--Bootstrap-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    {{--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">--}}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!--Style-->
     <!--<link href="public/css/index.css" rel="stylesheet">-->
@@ -32,19 +33,6 @@
 
     <!-- mensajes de alerta -->
     @include('partials.alertas')
-
-
-    @if(request()->routeIs('home') || request()->routeIs('casa_raiz') || request()->routeIs('eventos.index'))
-        <!-- Carousel -->
-        @include('partials.carousel')
-    @endif
-
-
-    @if(request()->routeIs('home') || request()->routeIs('casa_raiz') )
-        <!-- video -->
-        @include('partials.video')
-    @endif
-
 
 
     <!-- contenido -->
