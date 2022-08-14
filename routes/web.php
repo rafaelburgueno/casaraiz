@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\TalleresController;
+use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Artisan;
 
@@ -58,12 +59,21 @@ Route::get('/agenda', function () {
 /*
 tienda
 */
-Route::get('/tienda', function () {
+/*Route::get('/tienda', function () {
     return view('tienda');
-})->name('tienda');
+})->name('tienda');*/
 
 
-/*1
+/*
+tienda
+*/
+Route::resource('tienda', ProductoController::class);
+/*Route::get('/blog', function () {
+    return view('blog');
+})->name('blog');*/
+
+
+/*
 blog
 */
 Route::resource('blog', PostController::class);

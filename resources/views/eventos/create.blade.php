@@ -7,15 +7,12 @@
 @section('content')
 
 
-<div class="container">
-        
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1 class="h2">Crear evento</h1>
-        </div>
-    </div>    
+<div class="my-2">
+    <h1 id="in" class="text-center pt-2">CREAR EVENTO</h1>
+</div>
 
-    <hr class="mx-5">
+
+<div class="container">    
 
     <div class="row mb-5 mt-5">
         <div class="col-md-12">
@@ -57,6 +54,11 @@
                         </div>
 
                         <div class="form-group mb-3">
+                            <label for="lugar">Lugar</label>
+                            <input type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar')}}">
+                        </div>
+
+                        <div class="form-group mb-3">
                             <label for="relevancia">Relevancia</label>
                             <input type="number" class="form-control" id="relevancia" name="relevancia" placeholder="..." value="{{old('relevancia')}}" min="1">
                         </div>
@@ -94,11 +96,6 @@
                         <div class="form-check mb-3">
                             <input type="checkbox" class="form-check-input" id="frecuencia_anual" name="frecuencia_anual" value="1" @checked(old('frecuencia_anual'))>
                             <label class="form-check-label" for="frecuencia_anual">Frecuencia anual</label>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="lugar">Lugar</label>
-                            <input type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar')}}">
                         </div>
 
                         <div class="form-group mb-3">
@@ -167,11 +164,15 @@
                             @enderror
                         </div>
 
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo'))>
+                            <label class="form-check-label" for="activo">Publicar</label>
+                        </div>
                             
                     </div>
                 </div>
         
-                <button type="submit" class="btn btn-otline-primary btn-block">Crear evento</button>
+                <button type="submit" class="btn btn-outline-secondary btn-block">Crear evento</button>
             </form>
         </div>
     </div>

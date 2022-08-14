@@ -7,9 +7,12 @@
 @section('content')
 
 
-<div class="container">
+<div class="my-2">
+    <h1 id="in" class="text-center pt-2">CREACIÓN DE POSTS</h1>
+</div>
 
-    <h2 class="text-center">Creación de posts</h2>
+
+<div class="container">
     
     <div class="row mb-5">
   
@@ -47,7 +50,7 @@
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                 @enderror
 
-              <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+              <button type="submit" class="btn btn-secondary btn-block">Guardar</button>
               
           </form>
       </div>

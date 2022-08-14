@@ -25,27 +25,35 @@
 
 
 <div>
-    <img id="img2" src="/storage/img/casaRaiz.tr.png" class="rounded mx-auto d-block" width="80%">
+    <img id="img2" src="{{asset('/storage/img/casaRaiz.tr.png')}}" class="rounded mx-auto d-block" width="80%">
     <h1 class="text-center">PRESENTA</h1><br>
-
 </div>
 
 <div class="container">
     <div>
         <h1 id="cr" class="text-center"><strong>COMUNIDAD RAIZ</strong></h1><br>
-        <h6 id="pcr" class="text-center">La membresia de Casa Raiz es una tarjeta de beneficio que te permite acceder a descuentos en talleres, entradas, tienda y eventos.</h6>
+        <h6 id="pcr" class="text-center">
+            Comunidad Raíz es una red de beneficios, que mediante una tarjeta personal,
+            permite a sus usuarios acceder a descuentos en Casa Raíz, así como también en 
+            los distintos emprendimientos adheridos.
+            Impulsamos la autogestión y la colaboración entre artistas, talleristas, emprendedores y toda la
+            comunidad.
+        </h6>
     </div><br><br>
+
 
     <div>
         <h2 id="cb" class="text-center">CLUB DE BENEFICIOS</h2>
     </div>
+
     <div class="card-group">
-        <div class="card  text-center" width="8rem">
+        <div class="card text-center" width="8rem">
             <div class="card-body">
                 <h5 class="card-title">TALLERES</h5>
                 <p class="card-text">10%<br> en todos los talleres<br> de la grilla semanal.</p>
             </div>
         </div>
+
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">EVENTOS</h5>
@@ -59,6 +67,7 @@
                 <P class="card-text text-center"> 20% EN PRODUCTOS<br>DE LA TIENDA RAIZ</P>
             </div>
         </div>
+
     </div><br>
     
     <div class="card-group">
@@ -68,12 +77,14 @@
                 <P class="card-text text-center"> 15% EN TODOS LOS EVENTOS CON ENTRADAS</P>
             </div>
         </div>
+
         <div class="card  text-center" width="10rem">
             <div class="card-body">
                 <h5 class="card-title">LUDOTECA</h5>
                 <p class="card-text">PUEDES USAR LOS JUEGOS DE NUESTRA LUDOTECA</p>
             </div>
         </div>
+
         <div class="card text-center">
             <div class="card-body">
                 <h5 class="card-title">BIBLIOTECA</h5>
@@ -83,88 +94,210 @@
         
     </div><br><br>
 
+
+
+
     <div>
         <h2 id="cb" class="text-center">MEMBRESIAS</h2><br>
-
-
-        <div class="containerr">
+        <div class="container border border-3-danger">
             <div class="row">
-                <div class="col-sm-4 text-center">
-                    <button class="btn btn-outline-light  btn-lg" style="background-color:rgb(208, 121, 89)"
-                        type="button" data-toggle="collapse" data-target="#funciona" aria-controls="MultiCollapse1"
-                        aria-expanded="false">SEMILLA</button>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <button class="btn btn-outline-light btn-lg" style="background-color:rgb(208, 121, 89);"
-                        type="button" data-toggle="collapse" data-target="#red" aria-controls="MultiCollapse2"
-                        aria-expanded="false">RAÍZ</button>
-                    
+
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center" style=" color: brown;">SEMILLA</h5>
+                            <p class="card-text">
+                                Membresía individual, durante un año, que te permite acceder a todos 
+                                los beneficios de la comunidad.
+                            </p>
+                            <div class="text-center">
+                                <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                                    OBTENER
+                                </button><br><br>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="col-sm-4 text-center">
-                    <button class="btn btn-outline-light btn-lg" style="background-color: rgb(208, 121, 89)"
-                        type="button" data-toggle="collapse" data-target="#tambien" aria-controls="MultiCollapse3"
-                        aria-expanded="false">ÁRBOL</button>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center" style=" color: brown;">RAÍZ</h5>
+                            <p class="card-text">
+                                Membresía para dos personas, 
+                                durante un ño, que te permite acceder a todos los beneficios de la comunidad 
+                                junto a un vinculo.
+                            </p>
+                            <div class="text-center">
+                                <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                                    OBTENER
+                                </button><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center" style=" color: brown;">ÁRBOL</h5>
+                            <p class="card-text">
+                                MEMBRESÍA FAMILIAR POR DOS AÑOS, PARA FAMILIAS DE HASTA 6
+                                INTEGRANTES, CON TODOS LOS
+                                BENEFICIOS PARA CADA UNO.
+                            </p>
+                            <div class="text-center">
+                                <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                                    OBTENER
+                                </button><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <br><br>
+
+
+            <!--  ----------FORMULARIO DATOS MEMBRESIA -------- ------ ----- -->
+            <!--  ----------FORMULARIO DATOS MEMBRESIA -------- ------ ----- -->
+            <!--  ----------FORMULARIO DATOS MEMBRESIA -------- ------ ----- -->
+            <!--  ----------FORMULARIO DATOS MEMBRESIA -------- ------ ----- -->
+            <div class="modal fade" id="contacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Completa tus datos</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="nombre">Nombre: </label>
+                                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="apellido">Apellido: </label>
+                                        <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido">
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="email">Correo: </label>
+                                    <input type="email" class="form-control" id="email" placeholder="Ingrese su Email">
+                                </div>
+                                <div class="form row">
+                                    <div class="form-group col-sm-6">
+                                        <label for="nombre">Documento: </label>
+                                        <input type="text" class="form-control" id="nombre" placeholder="sin puntos ni guión">
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label for="apellido">Celular: </label>
+                                        <input type="text" class="form-control" id="apellido" placeholder="09xxxxxxxx">
+                                    </div>
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="comentario">Tipo de membresia: </label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios" value="option0">
+                                        <label class="form-check-label" for="exampleRadios">Semilla (1 usuario)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                        <label class="form-check-label" for="exampleRadios1">Raiz (2 usuarios)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">Árbol (grupo familiar hasta 6 usuarios)</label>
+                                    </div>
+                                </div><br>
+
+                                <div class="form-group">
+                                    <label for="comentario">Medio de pago: </label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios"id="exampleRadios" value="option0">
+                                        <label class="form-check-label" for="exampleRadios">Efectivo</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                                        <label class="form-check-label" for="exampleRadios1">MiDinero</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                        <label class="form-check-label" for="exampleRadios2">Prex</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                                        <label class="form-check-label" for="exampleRadios3">Canje/Sorteo</label>
+                                    </div>
+                                </div><br>
+
+
+                                <label for="comentario">¿A qué taller(es) te gustaría acceder? </label><br>
+                                <div class="form-check ">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                    <label class="form-check-label" for="inlineCheckbox1">Teatro</label><br>
+                                </div>
+                                <div class="form-check ">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <label class="form-check-label" for="inlineCheckbox2">Yoga</label><br>
+                                </div>
+                                <div class="form-check ">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                                    <label class="form-check-label" for="inlineCheckbox3">Costura</label><br>
+                                </div>
+                                <div class="form-check ">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                                    <label class="form-check-label" for="inlineCheckbox4">Armonización y danza</label><br>
+                                </div>
+                                <div class="form-check ">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+                                    <label class="form-check-label" for="inlineCheckbox5">Murga para niñxs</label><br>
+                                </div>
+                                <div class="form-check ">
+                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6">
+                                    <label class="form-check-label" for="inlineCheckbox6">Costura</label><br>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="comentario">Comentario: </label>
+                                    <textarea class="form-control" id="comentario"
+                                        placeholder="Ingrese su comentario" rows="4"></textarea>
+                                </div>
+                                <div class="form-group pl-3">
+                                    <div class="form check pl-1">
+                                        <input type="checkbox" class="form-check-input" id="check" checked>
+                                        <label class="form-check-label" for="check">
+                                            Quiero recibir las novedades
+                                        </label>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;"
+                                id="enviar">
+                                Enviar
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <!--  ----------FIN DEL FORMULARIO DATOS MEMBRESIA -------- ------ ----- -->
+
 
         </div>
 
-
-        <div class="container ">
-            <div class="row justify-content-center ">
-
-                <div class="col-sm-8 collapse multi-collapse px-1 ml-5 mr-5 mt-5 mb-3" id="funciona"
-                    style="color: #f3f3ff">
-                   <br> <h2 class="text-center">SEMILLA</h2>
-                    <p>MEMBRESÍA INDIVIDUAL, TE PERMITE ACCEDER A TODOS LOS BENEFICIOS DE LA COMUNIDAD DURANTE UN
-                        AÑO.</p>
-                    <div class="text-center">
-                        <button class="btn btn-outline-light  btn-lg text-center"
-                            style="background-color:rgb(208, 121, 89)" type="button" data-toggle="collapse"
-                            data-target="#funciona" aria-controls="MultiCollapse1"
-                            aria-expanded="false">OBTENER</button><br><br>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 collapse multi-collapse  px-1" id="red" style="color: #f3f3ff">
-                   <br> <h3 class="text-center">RAÍZ</h3>
-                    <p>MEMBRESÍA PARA DOS PERSONAS, DURANTE UN AÑO, QUE TE PERMITE ACCEDER A TODOS LOS VENEFICIOS DE
-                        LA COMUNIDAD JUNTO A UN VINCULO.</p>
-                    <div class="text-center">
-                        <button class="btn btn-outline-light  btn-lg" style="background-color:rgb(208, 121, 89)"
-                            type="button" data-toggle="collapse" data-target="#funciona"
-                            aria-controls="MultiCollapse1" aria-expanded="false">OBTENER</button><br><br>
-                    </div>
-
-                </div>
-                <div class="col-sm-4 collapse multi-collapse px-1" id="tambien" style="color: #f3f3ff">
-                   <br> <h3 class="text-center">ÁRBOL</h3>
-                    <p>MEMBRESÍA FAMILIAR POR DOS AÑOS, PARA FAMILIAS DE HASTA 6 INTEGRANTES, CON TODOS LOS
-                        BENEFICIOS PARA CADA UNO.</p><BR>
-                    <div class="text-center">
-                        <button class="btn btn-outline-light btn-lg" style="background-color:rgb(208, 121, 89)"
-                            type="button" data-toggle="collapse" data-target="#funciona"
-                            aria-controls="MultiCollapse1" aria-expanded="false">OBTENER</button><br><br>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-
 </div>
 
 
 
 
-{{--<div>
-    <h1>pagina /comunidad_raiz</h1>
-
-    @if (Auth::check())
-        <div>{{ Auth::user()->name }}</div>
-    @else
-        <p>no estas logueado.</p>
-    @endif
-</div>--}}
 
 @endsection

@@ -7,21 +7,20 @@
 @section('content')
 
 
-@if(Auth::check() && Auth::user()->rol == 'administrador')
-    <div class="container mb-5">
-        <a class="btn btn-outline-primary" href="{{route('blog.create')}}">Crear Post</a>
-    </div>
-@endif
+<div class="my-2">
+    <h1 id="in" class="text-center pt-2">BLOG</h1>
+</div>
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1 class="h2">Últimos post de nuestro blog</h1>
+
+
+    @if(Auth::check() && Auth::user()->rol == 'administrador')
+        <div>
+            <a class="btn btn-outline-secondary my-3" href="{{route('blog.create')}}">Crear Post</a>
         </div>
-    </div>
-    
-    <hr class="my-5">
+    @endif
+
 
     <!-- Botones de paginacion -->
     {{--{{ $posts->links() }}--}}
@@ -38,7 +37,7 @@
                         <h5 class="card-title titulo">{{$post->titulo}}</h5>
                     </a>
                     @if(!$post->activo)
-                        <p class=""><small class="p-1 text-light bg-danger">El post no es publico</small></p>
+                        <p class=""><small class="p-1 text-light bg-danger">Este post no es público</small></p>
                     @endif
                     <p><small class="">Por {{$post->autor()}}</small></p>
     

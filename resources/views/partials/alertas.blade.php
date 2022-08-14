@@ -1,6 +1,6 @@
 
 @if(session('exito'))
-    <div class="container">
+    <div class="container position-fixed mt-2">
         <div class="float-right">
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
                 <strong>Exito!</strong> {{session('exito')}}

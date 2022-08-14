@@ -16,11 +16,11 @@
 
 {{-- Boton de creacion de Eventos 
 Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' --}}
-@if(Auth::check() && Auth::user()->rol == 'administrador')
+{{--@if(Auth::check() && Auth::user()->rol == 'administrador')
     <div class="container mb-5">
-        <a class="btn" href="{{route('eventos.create')}}">Crear Evento</a>
+        <a class="btn btn-outline-secondary" href="{{route('eventos.create')}}">Crear Evento</a>
     </div>
-@endif
+@endif--}}
 
 
 <div class="my-2">
@@ -41,7 +41,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 <!-- PRIMERAS TARJETAS-->
 <!-- PRIMERAS TARJETAS-->
 <!-- PRIMERAS TARJETAS-->
-<div class="container">
+<div class="container my-5">
     <div class="row ">
 
       	<div class="col-sm-4">
@@ -51,8 +51,8 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 					<p class="card-text text-center" style="color: rgb(210, 238, 229); font-size: 22px;">
 						<strong>Obtenés beneficios y colaborás con nuestra casaRAÍZ </strong>
 					</p>
-					<a href="comunidadraiz.html" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
-					<a href="comunidadraiz.html" class="btn btn-lg  btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Quiero formar parte</a>
+					<a href="{{route('comunidad_raiz')}}" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
+					<a href="{{route('comunidad_raiz')}}" class="btn btn-lg  btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Quiero formar parte</a>
 				</div>
 			</div>
     	</div>
@@ -65,20 +65,20 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 						<strong>Conocé nuestro calendario y a quienes dan los talleres. Tenemos diferentes horarios y días.</strong>
 					</p>
             
-            		<a href="talleres.html" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
+            		<a href="{{route('talleres')}}" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
           		</div>
         	</div>
       	</div>
 
       	<div class="col-sm-4">
-        	<div class="card ind mi-bg-gradient">
+        	<div class="card ind">
           		<div class="card-body">
             		<h1 class="card-title text-center" id="card-index">TIENDA</h1>
             		<p class="card-text text-center" style="font-size: 26px;">
 						<strong>Visita nuestro catálogo, y enterate de nuestras ferias.</strong>
 					</p>
             
-            		<a href="tienda.html" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
+            		<a href="{{route('tienda.index')}}" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
           		</div>
         	</div>
       	</div>
@@ -88,7 +88,10 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 
 
 <!-- Mapa -->
-<div class="text-center card-index" id="card-index">
+<!-- Mapa -->
+<!-- Mapa -->
+<!-- Mapa -->
+<div class="text-center card-index my-5" id="card-index">
 	<h3 class="text-center ">VISITÁ casaRAÍZ</h3>
 	<p class="text-center">UBICACIÓN:</p>
 </div>
@@ -109,16 +112,16 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 
 
 
-<div class="container">
 
+<div class="container my-5">
 
     <div class="row">
       	<div class="col-sm-6">
         	<div class="card">
           		<div class="card-body">
             		<h5 class="card-title" style=" color: brown;">Banco de semillas</h5>
-            		<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            		<a href="#" class="btn " style="background-color:rgb(198, 98, 103); color: aquamarine ;">Go somewhere</a>
+            		<p class="card-text">En construcción.</p>
+            		<a href="#" class="btn " style="background-color:rgb(198, 98, 103); color: aquamarine ;">Saber más</a>
           		</div>
         	</div>
       	</div>
@@ -127,18 +130,23 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
         	<div class="card">
           		<div class="card-body">
             		<h5 class="card-title" style=" color: brown;">Biblioteca y Ludoteca</h5>
-            		<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            		<a href="#" class="btn " style="background-color:rgb(198, 98, 103); color: aquamarine ;">Go somewhere</a>
+            		<p class="card-text">En construcción.</p>
+            		<a href="#" class="btn " style="background-color:rgb(198, 98, 103); color: aquamarine ;">Saber más</a>
           		</div>
         	</div>
       	</div>
     </div>
     
-    <div class="row">
+
+	<!-- LA FLORESTA ES CULTURA -->
+	<!-- LA FLORESTA ES CULTURA -->
+	<!-- LA FLORESTA ES CULTURA -->
+	<!-- LA FLORESTA ES CULTURA -->
+    <div class="row my-5">
       	<div class="col-sm">
         	<div class="card">
           		<div class="card-body">
-            		<h4 class="card-text text-center">Conocé nuestra red de cultura local.</h4>
+            		<h4 class="text-center h5">Conocé nuestra red de cultura local.</h4>
 					<button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:rgb(198, 98, 103); color: aquamarine ; color: brown; font-size:33px">
 						LA FLORESTA ES CULTURA
 					</button>
@@ -152,19 +160,23 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 
 
 <!-- Grilla de eventos destacados -->
-<div class="container mt-5">
+<!-- Grilla de eventos destacados -->
+<!-- Grilla de eventos destacados -->
+<!-- Grilla de eventos destacados -->
+<div class="container my-5">
     
     <div class="row">
     	<div class="col-md-6 mb-5">
 			<h3 class="text-center h3">Eventos destacados</h3>
             <hr class="mb-3 mx-5">
 			@foreach ($eventos as $evento)
-        	<div class="card mb-2 shadow-sm">
+        	<div class="card mb-4">
 				<!--las 3 siguientes lineas habilitan o deshabilitan las imagenes-->    {{----}}
 				{{--@if (count($t->multimedias))
 				<img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="...">
 				@endif--}}
 				<div class="card-body">
+					<p>{{$evento->fecha}}</p>
 					<p class="card-text">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}}</p>
 					<a href="{{route('eventos.show', $evento)}}" class="mt-2">
 						<h5 class="card-title text-dark">{{$evento->nombre}}</h5>
@@ -200,7 +212,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
             <hr class="mb-3 mx-5">
 			@foreach ($talleres as $taller)
 			
-        	<div class="card mb-2 shadow-sm">
+        	<div class="card mb-4">
 				<!--las 3 siguientes lineas habilitan o deshabilitan las imagenes-->    {{----}}
 				{{--@if (count($taller->multimedias))
 				<img src="{{$taller->multimedias->last()->url}}" class="card-img-top" alt="...">
@@ -234,32 +246,9 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
     </div>
     
     
-    
-    
-   
-
 </div>
 
 
-
-
-
-
-
-{{--<div>
-    <h1>pagina home</h1>
-
-    @if (Auth::check())
-        <div>{{ Auth::user()->name }}</div>
-
-        <div>
-            @dump(Auth::user()->email)
-        </div>
-
-    @else
-        <p>no estas logueado.</p>
-    @endif
-</div>--}}
 
 
 @endsection

@@ -2,7 +2,7 @@
 <!--  BANNER AGENDA INICIO-->
 <!--  BANNER AGENDA INICIO-->
 <!--  BANNER AGENDA INICIO-->
-<div class="container">
+<div class="containerr">
     <div id="carouselExampleFade" class="carousel slide carousel-fade align-items-center button-container" data-ride="carousel">
         <div class="carousel-inner ">
             <div class="carousel-item active">

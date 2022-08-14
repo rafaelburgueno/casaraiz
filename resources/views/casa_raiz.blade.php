@@ -6,6 +6,40 @@
 @section('content')
 
 
+<!-- Imagen apaisada con logo -->
+<div>
+	<img src="{{asset('/storage/img/nav.10.png')}}" class="d-block w-100" alt="...">
+</div>
+
+
+<img id="img2" src="{{asset('/storage/img/casaRaiz.png')}}" class="rounded mx-auto d-block" width="100%">
+
+<div class="container">
+    <div class="card p-5">
+        <h4 class="h4">Es un espacio cultural ubicado en La Floresta, Uruguay, en el cual se desarrollan diversos talleres y
+            eventos culturales.
+        </h4>
+    
+    </div>
+</div>
+
+<!-- Video -->
+<!-- Video -->
+<!-- Video -->
+<!-- Video -->
+<div class="container video-responsive mt-3">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dKoQzOjflLo" title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+    </iframe>
+</div>
+
+
+
+
+
+
 <div class="container mt-5 opacity-75">
     <div id="myDIV" class="card" width="18rem" style="opacity:95%; background-color:#f3f3ff; color: #293762">
         <img class="card-img-top" src="/storage/img/nieve.jpg" alt="Card image cap">

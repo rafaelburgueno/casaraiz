@@ -7,20 +7,20 @@
 @section('content')
 
 
+<div class="my-2">
+    <h1 id="in" class="text-center pt-2">AGENDA</h1>
+</div>
+
+
 <div class="container">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1 class="h2">Agenda</h1>
-        </div>
-        @if(Auth::check() && Auth::user()->rol == 'administrador')
-        <div>
-            <a class="btn" href="{{route('eventos.create')}}">Crear Evento</a>
-        </div>
-        @endif
+    
+        
+    @if(Auth::check() && Auth::user()->rol == 'administrador')
+    <div>
+        <a class="btn btn-outline-secondary my-3" href="{{route('eventos.create')}}">Crear Evento</a>
     </div>
+    @endif
     
-    
-    <hr class="mt-1 mx-3">
     
     <div class="row mb-5 mt-3">
 
@@ -33,7 +33,10 @@
                     <div class="accordion-header" id="heading{{$evento->id}}">
                         <h2 class="p-3">
                             <div class=" text-left" type="button" data-toggle="collapse" data-target="#collapse{{$evento->id}}" aria-expanded="true" aria-controls="collapse{{$evento->id}}">
-                                <p class="card-text">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
+                                @if(!$evento->activo)
+                                <span class="float-right m-1 badge badge-danger">El evento no es público</span>
+                                @endif
+                                <p class="card-text">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->anio}}, de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
                                 <p class="card-text mt-3 h5"><strong>{{$evento->nombre}}</strong></p>
                             </div>
                         </h2>
@@ -52,6 +55,10 @@
                             </p>
                             <p class=""><small>{{ $evento->tipo }} a cargo de {{$evento->responsable}}</small></p>
                             <p class=""><small>Espacio: {{ $evento->espacio }}</small></p>
+                            
+                            <a href="{{route('eventos.show', $evento)}}" class="mt-2">
+                                <span class="text-dark">ver...</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -61,6 +68,10 @@
             </div>
         </div>
 
+        
+        <!-- Botones de paginacion -->
+    {{--{{ $eventos->links('pagination::bootstrap-4') }}
+    {{ $eventos->links() }}--}}
 
         {{--@foreach ($eventos as $evento)
         <div class="col-md-6">
@@ -87,17 +98,7 @@
         
     </div>
 
-      <!-- Botones de paginacion -->
-    {{ $eventos->links() }}
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-    
+      
 
 
 </div>

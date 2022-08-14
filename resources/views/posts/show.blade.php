@@ -7,18 +7,21 @@
 @section('content')
 
 
-@if(Auth::check() && Auth::user()->rol == 'administrador')
-    <div class="container">
+<div class="my-2">
+    <h1 id="in" class="text-center pt-2">BLOG</h1>
+</div>
+
+
+<div class="container">
+
+    @if(Auth::check() && Auth::user()->rol == 'administrador')
         <div class="d-flex justify-content-between align-items-center p-1">
             {{--<a class="btn btn-outline-secondary" href="{{route('blog.create')}}">Crear Post</a>--}}
             <a class="btn btn-outline-secondary" href="{{route('blog.index')}}">Volver</a>
             <a class="btn btn-outline-secondary" href="{{route('blog.edit', $post)}}">Editar</a>
         </div>
-    </div>
-@endif
+    @endif
 
-
-<div class="container">
     
     <div class="mb-5">
         

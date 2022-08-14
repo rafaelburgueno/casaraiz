@@ -19,6 +19,9 @@
                 <a class="nav-link" style=" {{request()->routeIs('eventos.*') ? 'opacity:60%;' : ''}}" href="{{route('eventos.index')}}"><strong>Agenda</strong></a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" style=" {{request()->routeIs('tienda.*') ? 'opacity:60%;' : ''}}" href="{{route('tienda.index')}}"><strong>Tienda</strong></a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" style=" {{request()->routeIs('blog.*') ? 'opacity:60%;' : ''}}" href="{{route('blog.index')}}"><strong>Blog</strong></a>
             </li>
 

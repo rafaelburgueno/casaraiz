@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Evento;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Multimedia;
@@ -23,7 +24,13 @@ class EventoController extends Controller
         // ...test/eventos?page=2
         //$eventos = Evento::orderBy('fecha','desc')->paginate();
         //obtiene los eventos mas recientes
-        $eventos = Evento::where('fecha', '>', now())->where('activo', true)->where('frecuencia_semanal', false)->orderBy('fecha','asc')->paginate();
+        if(Auth::check() && Auth::user()->rol == 'administrador'){
+            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->orderBy('fecha')->paginate();
+            //$eventos = Evento::orderBy('fecha')->get();
+
+        }else{
+            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('activo', 1)->orderBy('fecha')->paginate();
+        }
         
         return view('eventos.index', compact('eventos'));
 
@@ -55,9 +62,10 @@ class EventoController extends Controller
         //return $request->all();
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
             'nombre' => 'required',
+            'tipo' => 'required',
             //'fecha' => 'required',
             'responsable' => 'required',
-            'descripcion' => 'required',
+            'descripcion' => 'required|max:255',
             //'espacio' => 'required|min:3|max:100',
             'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             //'imagen' => 'image',
@@ -65,12 +73,14 @@ class EventoController extends Controller
         
         $evento = new Evento();
 
-        $evento->slug = strtolower(Str::slug($request->nombre, '-'));
+        $evento->slug = strtolower(Str::slug($request->nombre, '-'));// los eventos se identifican con este campo, por eso sustituimos los espacios y lo pasamos a minusculas
         $evento->nombre = $request->nombre;
-        $evento->tipo = $request->tipo;
+        $evento->tipo = strtolower($request->tipo); // algunas busquedas se hacen usando este campo, por eso lo pasamos a minusculas
         $evento->relevancia = $request->relevancia;
 
-        $evento->user_id = 1; //TODO: cambiar por el usuario logueado
+        // auth()->user()->id
+        // auth()->id();
+        $evento->user_id = auth()->id(); //registra al usuario que crea el evento
         $evento->responsable = $request->responsable;
         $evento->descripcion = $request->descripcion;
         //$evento->categoria = $request->categoria; //TODO: resolver la asignacion de categorias
@@ -96,6 +106,12 @@ class EventoController extends Controller
         $evento->cupos_disponibles = $request->cupos_totales;
 
         $evento->costo_de_inscripcion = $request->costo_de_inscripcion;
+
+        if($request->activo){
+            $evento->activo = true;
+        }else{
+            $evento->activo = false;
+        }
         
 
         $evento -> save();
@@ -127,6 +143,8 @@ class EventoController extends Controller
 
 
         //$evento = Evento::create($request->all());
+
+        session()->flash('exito', 'El evento fue creado.');
 
         return redirect() -> route('eventos.show', $evento);
         //return redirect() -> route('talleres');
@@ -192,12 +210,13 @@ class EventoController extends Controller
         //$evento = Evento::findOrFail($id);
         $evento->slug = strtolower(str_replace(' ', '-', $request->nombre));
         $evento->nombre = $request->nombre;
-        $evento->tipo = $request->tipo;
+        $evento->tipo = strtolower($request->tipo);
         $evento->relevancia = $request->relevancia;
+        $evento->user_id = auth()->id(); //registra al usuario que adita el evento
 
         $evento->responsable = $request->responsable;
         $evento->descripcion = $request->descripcion;
-        //$evento->categoria = $request->categoria; //TODO: resolver la asignacion de categorias        $evento->espacio = $request->espacio;
+        //$evento->categoria = $request->categoria; //TODO: resolver la asignacion de categorias
         $evento->lugar = $request->lugar;
 
         $evento->frecuencia_semanal = $request->frecuencia_semanal;
@@ -220,6 +239,11 @@ class EventoController extends Controller
         
         $evento->costo_de_inscripcion = $request->costo_de_inscripcion;
 
+        if($request->activo){
+            $evento->activo = true;
+        }else{
+            $evento->activo = false;
+        }
         
         $evento -> save();
         
@@ -244,6 +268,8 @@ class EventoController extends Controller
             //return 'se guardo todo';
         }
 
+        session()->flash('exito', 'El evento fue editado.');
+
         return redirect() -> route('eventos.show', $evento);
     }
 
@@ -261,6 +287,8 @@ class EventoController extends Controller
         //TODO: cambiar el campo activo a 0
         $evento->activo = 0;
         $evento -> save();
+
+        session()->flash('exito', 'El evento fue desactivado.');
 
 
         return redirect() -> route('eventos.index');

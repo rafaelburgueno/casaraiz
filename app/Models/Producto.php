@@ -42,7 +42,11 @@ class Producto extends Model
     //obtiene el nombre del usuario que es proveedor del producto
     public function proveedor()
     {
-        return User::find($this->user_id)->name;
+        $proveedor = User::find($this->user_id)->name;
+        if($proveedor == null){
+            $proveedor = 'modelo null';
+        }
+        return $proveedor;
         //return $this->user->name;
 
     }

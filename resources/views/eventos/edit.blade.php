@@ -7,20 +7,17 @@
 @section('content')
 
 
-<div class="container">
-        
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h1 class="h2">Crear evento</h1>
-        </div>
-    </div>    
+<div class="my-2">
+    <h1 id="in" class="text-center pt-2">EDITAR EVENTO</h1>
+</div>
 
-    <hr class="mx-5">
+
+<div class="container">   
 
     <div class="row mb-5 mt-5">
         <div class="col-md-12">
 
-            <form class="p-3" action="{{route('eventos.update', $evento)}}" method="POST" enctype="multipart/form-data">
+            <form class="" action="{{route('eventos.update', $evento)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -54,6 +51,11 @@
                             @error('nombre')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="lugar">Lugar</label>
+                            <input type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar', $evento->lugar)}}">
                         </div>
 
                         <div class="form-group mb-3">
@@ -94,11 +96,6 @@
                         <div class="form-check mb-3">
                             <input type="checkbox" class="form-check-input" id="frecuencia_anual" name="frecuencia_anual" value="1" @checked(old('frecuencia_anual', $evento->frecuencia_anual))>
                             <label class="form-check-label" for="frecuencia_anual">Frecuencia anual</label>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="lugar">Lugar</label>
-                            <input type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar', $evento->lugar)}}">
                         </div>
 
                         <div class="form-group mb-3">
@@ -167,25 +164,27 @@
                             @enderror
                         </div>
 
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo', $evento->activo))>
+                            <label class="form-check-label" for="activo">Publicar</label>
+                        </div>
                             
                     </div>
                 </div>
         
-                <button type="submit" class="btn btn-otline-primary btn-block">Editar evento</button>
+                <button type="submit" class="btn btn-outline-secondary btn-block">Actualizar evento</button>
             </form>
+
+            <form action="{{ route('eventos.destroy', $evento) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-outline-danger my-1">Eliminar Evento</button>
+            </form>
+
         </div>
     </div>
 
-    <div class="row mb-5 mt-5">
-        <form action="{{ route('eventos.destroy', $evento) }}" method="POST">
-            @csrf
-            @method('DELETE')
 
-            <div>
-                <button type="submit" class="btn">Eliminar Evento</button>
-            </div>
-        </form>
-    </div>
 
 </div>
     

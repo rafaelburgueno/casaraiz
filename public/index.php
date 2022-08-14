@@ -31,8 +31,8 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 |
 */
 
-require __DIR__.'/../vendor/autoload.php';
-
+require __DIR__.'/../vendor/autoload.php'; // desarrrollo
+//require __DIR__.'/../casaraiz/vendor/autoload.php'; // producción
 /*
 |--------------------------------------------------------------------------
 | Run The Application
@@ -44,8 +44,8 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$app = require_once __DIR__.'/../bootstrap/app.php';
-
+$app = require_once __DIR__.'/../bootstrap/app.php'; // desarrollo
+//$app = require_once __DIR__.'/../casaraiz/bootstrap/app.php'; // producción
 $kernel = $app->make(Kernel::class);
 
 $response = $kernel->handle(
