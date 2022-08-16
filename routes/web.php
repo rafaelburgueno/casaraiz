@@ -7,6 +7,8 @@ use App\Http\Controllers\TalleresController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Artisan;
+use App\Mail\ContactoMailable;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -125,6 +127,17 @@ Route::get('/storage_link', function () {
     return view('casa_raiz');
 });
 
+
+Route::get('/contacto', function () {
+
+    $correo = new ContactoMailable;
+
+    Mail::to('rafaelburg@gmail.com')->send($correo);
+
+    return 'email enviado';
+
+    //return view('test');
+});
 
 
 

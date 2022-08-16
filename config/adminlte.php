@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -226,21 +226,21 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
+        /*[
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
-        ],
+        ],*/
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
-        [
+        /*[
             'type' => 'sidebar-menu-search',
             'text' => 'search',
-        ],
+        ],*/
         [
             'text' => 'blog',
             'url'  => 'admin/blog',
@@ -250,6 +250,47 @@ return [
             'text' => 'El dashboard',
             'route'  => 'admin.home',
         ],
+        [
+            'text' => 'Usuarios',
+            'route'  => 'admin.usuarios',
+            //'url'  => 'admin/#',
+        ],
+        [
+            'text' => 'Roles',
+            //'route'  => 'admin.roles.index',
+            'url'  => 'admin/#',
+        ],
+        [
+            'text' => 'Eventos',
+            //'route'  => 'admin.permissions.index',
+            'url'  => 'admin/#',
+        ],
+        [
+            'text' => 'Categorias',
+            //'route'  => 'admin.categories.index',
+            'url'  => 'admin/#',
+        ],
+        [
+            'text' => 'Productos',
+            //'route'  => 'admin.articles.index',
+            'url'  => 'admin/#',
+        ],
+        [
+            'text' => 'Blog',
+            //'route'  => 'admin.tags.index',
+            'url'  => 'admin/#',
+        ],
+        [
+            'text' => 'Comentarios',
+            //'route'  => 'admin.comments.index',
+            'url'  => 'admin/#',
+        ],
+        [
+            'text' => 'Configuracion',
+            //'route'  => 'admin.settings.index',
+            'url'  => 'admin/#',
+        ],
+        
         [
             'text'        => 'pages',
             'url'         => 'admin/pages',

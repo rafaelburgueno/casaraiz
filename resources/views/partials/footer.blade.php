@@ -26,12 +26,13 @@
         </div>
 
         <div class="col-sm-4 d-flex flex-column align-items-end">
-            <p><a href="index.html">Inicio</a></p>
-            <p><a href="casaraiz.html">Casa Raiz</a></p>
-            <p><a href="comunidadraiz.html">Comunidad Raiz</a></p>
-            <p><a href="talleres.html">Talleres</a></p>
-            <p><a href="agenda.html">Agenda</a></p>
-            <p><a href="blog.html">Blog</a></p>
+            <p><a href="{{route('home')}}">Inicio</a></p>
+            <p><a href="{{route('casa_raiz')}}">Casa Raiz</a></p>
+            <p><a href="{{route('comunidad_raiz')}}">Comunidad Raiz</a></p>
+            <p><a href="{{route('talleres')}}">Talleres</a></p>
+            <p><a href="{{route('eventos.index')}}">Agenda</a></p>
+            <p><a href="{{route('tienda.index')}}">Tienda</a></p>
+            <p><a href="{{route('blog.index')}}">Blog</a></p>
         </div>
 
     </div>

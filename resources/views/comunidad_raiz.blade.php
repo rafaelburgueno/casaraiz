@@ -42,53 +42,53 @@
     </div><br><br>
 
 
-    <div>
+    <div class="mb-3">
         <h2 id="cb" class="text-center">CLUB DE BENEFICIOS</h2>
     </div>
 
-    <div class="card-group">
-        <div class="card text-center" width="8rem">
+    <div class="card-group my-3">
+        <div class="card text-center mx-2 card-beneficios" width="8rem">
             <div class="card-body">
-                <h5 class="card-title">TALLERES</h5>
-                <p class="card-text">10%<br> en todos los talleres<br> de la grilla semanal.</p>
+                <h5 class="card-title text-dark">TALLERES</h5>
+                <p class="card-text text-dark">10%<br> en todos los talleres<br> de la grilla semanal.</p>
             </div>
         </div>
 
-        <div class="card text-center">
+        <div class="card text-center mx-2 card-beneficios">
             <div class="card-body">
-                <h5 class="card-title">EVENTOS</h5>
-                <p class="card-text">20$ DE DESCUENTO PARA PROGRAMAR TU EVENTO EN EL ESPACIO.</p>
+                <h5 class="card-title  text-dark">EVENTOS</h5>
+                <p class="card-text  text-dark">20$ DE DESCUENTO PARA PROGRAMAR TU EVENTO EN EL ESPACIO.</p>
             </div>
         </div>
 
-        <div class="card text-center">
+        <div class="card text-center mx-2 card-beneficios">
             <div class="card-body">
-                <h5 class="card-title">TIENDA</h5>
-                <P class="card-text text-center"> 20% EN PRODUCTOS<br>DE LA TIENDA RAIZ</P>
+                <h5 class="card-title text-dark">TIENDA</h5>
+                <P class="card-text text-center text-dark"> 20% EN PRODUCTOS<br>DE LA TIENDA RAIZ</P>
             </div>
         </div>
 
-    </div><br>
+    </div>
     
-    <div class="card-group">
-        <div class="card text-center">
+    <div class="card-group my-3">
+        <div class="card text-center mx-2 card-beneficios">
             <div class="card-body">
-                <h5 class="card-title">ENTRADAS</h5>
-                <P class="card-text text-center"> 15% EN TODOS LOS EVENTOS CON ENTRADAS</P>
+                <h5 class="card-title text-dark">ENTRADAS</h5>
+                <P class="card-text text-center text-dark"> 15% EN TODOS LOS EVENTOS CON ENTRADAS</P>
             </div>
         </div>
 
-        <div class="card  text-center" width="10rem">
+        <div class="card text-center mx-2 card-beneficios" width="10rem">
             <div class="card-body">
-                <h5 class="card-title">LUDOTECA</h5>
-                <p class="card-text">PUEDES USAR LOS JUEGOS DE NUESTRA LUDOTECA</p>
+                <h5 class="card-title text-dark">LUDOTECA</h5>
+                <p class="card-text text-dark">PUEDES USAR LOS JUEGOS DE NUESTRA LUDOTECA</p>
             </div>
         </div>
 
-        <div class="card text-center">
+        <div class="card text-center mx-2 card-beneficios">
             <div class="card-body">
-                <h5 class="card-title">BIBLIOTECA</h5>
-                <p class="card-text">ACCESO A NUESTROS LIBROS  Y TEXTOS</p>
+                <h5 class="card-title text-dark">BIBLIOTECA</h5>
+                <p class="card-text text-dark">ACCESO A NUESTROS LIBROS  Y TEXTOS</p>
             </div>
         </div>
         
@@ -99,7 +99,7 @@
 
     <div>
         <h2 id="cb" class="text-center">MEMBRESIAS</h2><br>
-        <div class="container border border-3-danger">
+        <div class="container border border-3-danger pt-3">
             <div class="row">
 
                 <div class="col-sm-4">
@@ -110,10 +110,10 @@
                                 Membresía individual, durante un año, que te permite acceder a todos 
                                 los beneficios de la comunidad.
                             </p>
-                            <div class="text-center">
+                            <div class="text-center mt-3">
                                 <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
-                                </button><br><br>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -125,13 +125,13 @@
                             <h5 class="card-title text-center" style=" color: brown;">RAÍZ</h5>
                             <p class="card-text">
                                 Membresía para dos personas, 
-                                durante un ño, que te permite acceder a todos los beneficios de la comunidad 
+                                durante un año, que te permite acceder a todos los beneficios de la comunidad 
                                 junto a un vinculo.
                             </p>
-                            <div class="text-center">
+                            <div class="text-center mt-3">
                                 <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
-                                </button><br><br>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -146,10 +146,10 @@
                                 INTEGRANTES, CON TODOS LOS
                                 BENEFICIOS PARA CADA UNO.
                             </p>
-                            <div class="text-center">
+                            <div class="text-center mt-3">
                                 <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
-                                </button><br><br>
+                                </button>
                             </div>
                         </div>
                     </div>

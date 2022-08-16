@@ -30,7 +30,9 @@
 		<div class="col-md-4">
 			<div class="card mb-4">
 				@if (count($producto->multimedias))
+				<a href="{{route('tienda.show', $producto)}}" class="">
 					<img src="{{$producto->multimedias->last()->url}}" class="card-img-top" alt="...">
+				</a>
 				@endif
 				
 				<div class="card-body">

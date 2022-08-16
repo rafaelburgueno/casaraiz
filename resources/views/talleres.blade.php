@@ -31,7 +31,9 @@
         <div class="card mb-2">
             {{-- las 3 siguientes lineas habilitan o deshabilitan las imagenes --}}    {{----}}
             @if (count($t->multimedias))
-            <img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="...">
+            <a href="{{route('eventos.show', $t)}}" class="">
+                <img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="...">
+            </a>
             @endif
             <div class="card-body">
                 <p class="card-text">{{$t->dia_de_semana}} de {{$t->hora_de_inicio}} a {{$t->hora_de_fin}}hs.</p>
@@ -57,6 +59,12 @@
                 <div class="d-flex justify-content-between align-items-center mb-2">
                     <a href="{{route('eventos.show', $t)}}" class=""><small>más info...</small></a>
                 </div>
+
+                <div class="">
+                    <button class="btn btn-info align-items-center" style="background-color: rgb(220, 43, 20); color: white;">
+                    Inscribirme
+                    </button>
+                </div>
                     
             </div>
         </div>
@@ -81,7 +89,9 @@
         <div class="card d-flex flex-column justify-content-between p-1">
             <div>
                 @if (count($t->multimedias))
-                <img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="{{$t->descripcion}}">
+                <a href="{{route('eventos.show', $t)}}" class="">
+                    <img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="{{$t->descripcion}}">
+                </a>
                 @endif
                 <h4 class="text-center">{{$t->nombre}}</h4>
                 <p class="">{{$t->dia_de_semana}} de {{$t->hora_de_inicio}} a {{$t->hora_de_fin}}hs.</p>

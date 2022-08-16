@@ -17,8 +17,8 @@
     @if(Auth::check() && Auth::user()->rol == 'administrador')
         <div class="d-flex justify-content-between align-items-center p-1">
             {{--<a class="btn btn-outline-secondary" href="{{route('blog.create')}}">Crear Post</a>--}}
-            <a class="btn btn-outline-secondary" href="{{route('blog.index')}}">Volver</a>
-            <a class="btn btn-outline-secondary" href="{{route('blog.edit', $post)}}">Editar</a>
+            <a class="btn btn-outline-secondary" href="{{route('blog.index')}}">< Volver</a>
+            <a class="btn btn-outline-secondary" href="{{route('blog.edit', $post)}}">Editar ></a>
         </div>
     @endif
 

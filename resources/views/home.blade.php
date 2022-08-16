@@ -28,6 +28,10 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 </div>
 
 
+<!-- social -->
+@include('partials.social')
+
+
 <!-- Carousel -->
 @include('partials.carousel')
 
@@ -37,54 +41,85 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 @include('partials.video')
 
 
-<!-- PRIMERAS TARJETAS-->
-<!-- PRIMERAS TARJETAS-->
-<!-- PRIMERAS TARJETAS-->
-<!-- PRIMERAS TARJETAS-->
-<div class="container my-5">
-    <div class="row ">
+	<!-- PRIMERAS TARJETAS-->
+  	<!-- PRIMERAS TARJETAS-->
+  	<!-- PRIMERAS TARJETAS-->
+  	<!-- PRIMERAS TARJETAS-->
 
-      	<div class="col-sm-4">
-        	<div class="card ind mi-bg-gradient">
-				<div class="card-body">
-					<h1 class="card-title text-center" id="card-index">UNITE A LA COMUNIDAD RAÍZ</h1>
-					<p class="card-text text-center" style="color: rgb(210, 238, 229); font-size: 22px;">
-						<strong>Obtenés beneficios y colaborás con nuestra casaRAÍZ </strong>
-					</p>
-					<a href="{{route('comunidad_raiz')}}" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
-					<a href="{{route('comunidad_raiz')}}" class="btn btn-lg  btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Quiero formar parte</a>
-				</div>
+  	<div class="container">
+    	<div class="row mt-5">
+
+      		<div class="col-sm-4">
+        		<div class="card ind">
+          			<div class="card-body">
+            			<h1 class="card-title text-center" id="card-index">UNITE A LA COMUNIDAD RAÍZ</h1>
+            			<p class="card-text text-center" style="color: rgb(210, 238, 229); font-size: 22px;"><strong>Obtenés beneficios y colaborás con nuestra casaRAIZ </strong></p>
+            			<a href="{{route('comunidad_raiz')}}" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
+              			<a href="{{route('comunidad_raiz')}}" class="btn btn-lg  btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Quiero formar parte</a>
+          			</div>
+        		</div>
+      		</div>
+
+      		<div class="col-sm-4">
+        		<div class="card">
+          			<div class="card-body">
+            			<h1 class="card-title text-center" id="card-index">TALLERES</h1>
+            			<p class="card-text text-center" style="font-size: 22px;"><strong>Conocé nuestro calendario y a quienes dan los talleres. Tenemos diferentes horarios y días.</strong></p>
+						<a href="{{route('talleres')}}" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
+          			</div>
+        		</div>
+      		</div>
+
+      		<div class="col-sm-4">
+        		<div class="card ind">
+          			<div class="card-body">
+            			<h1 class="card-title text-center" id="card-index">TIENDA</h1>
+            			<p class="card-text text-center" style="font-size: 26px;"><strong>Visita nuestro catálogo, y enterate de nuestras ferias.</strong></p>
+            			<a href="{{route('tienda.index')}}" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
+          			</div>
+        		</div>
 			</div>
+
     	</div>
-      
-		<div class="col-sm-4">
-        	<div class="card">
-          		<div class="card-body">
-            		<h1 class="card-title text-center" id="card-index">TALLERES</h1>
-            		<p class="card-text text-center" style="font-size: 22px;">
-						<strong>Conocé nuestro calendario y a quienes dan los talleres. Tenemos diferentes horarios y días.</strong>
-					</p>
-            
-            		<a href="{{route('talleres')}}" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
-          		</div>
-        	</div>
-      	</div>
 
-      	<div class="col-sm-4">
-        	<div class="card ind">
-          		<div class="card-body">
-            		<h1 class="card-title text-center" id="card-index">TIENDA</h1>
-            		<p class="card-text text-center" style="font-size: 26px;">
-						<strong>Visita nuestro catálogo, y enterate de nuestras ferias.</strong>
-					</p>
-            
-            		<a href="{{route('tienda.index')}}" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
-          		</div>
-        	</div>
-      	</div>
 
-    </div>
-</div>
+		<div class="row mt-4">
+
+      		<div class="col-sm-4">
+        		<div class="card">
+          			<div class="card-body">
+           				<h1 class="card-title text-center" id="card-index">BANCO DE SEMILLAS</h1>
+            			<p class="card-text text-center" style="font-size: 22px;"><strong>Conocé nuestro calendario y a quienes dan los talleres. Tenemos diferentes horarios y días.</strong></p>
+            			<a href="#" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
+          			</div>
+        		</div>
+      		</div>
+
+      		<div class="col-sm-4">
+        		<div class="card ind">
+          			<div class="card-body">
+            			<h1 class="card-title text-center" id="card-index">BIBLIOTECA</h1>
+            			<p class="card-text text-center" style="font-size: 26px;"><strong>Podes ver los libros y textos que tenemos disponibles.</strong></p>
+            			<a href="#" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">¡Quiero verlos!</a>
+          			</div>
+        		</div>
+      		</div>
+
+      		<div class="col-sm-4">
+        		<div class="card">
+          			<div class="card-body">
+            			<h1 class="card-title text-center" id="card-index">LUDOTECA</h1>
+            			<p class="card-text text-center" style="font-size: 22px;"><strong>Tenemos de todo para entretenernos.</strong></p>
+            			<a href="#" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Ir</a>
+          			</div>
+        		</div>
+      		</div>
+
+    	</div>
+  	</div>
+
+
+
 
 
 <!-- Mapa -->
@@ -113,35 +148,12 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 
 
 
+{{--
+<!-- LA FLORESTA ES CULTURA -->
+<!-- LA FLORESTA ES CULTURA -->
+<!-- LA FLORESTA ES CULTURA -->
+<!-- LA FLORESTA ES CULTURA -->
 <div class="container my-5">
-
-    <div class="row">
-      	<div class="col-sm-6">
-        	<div class="card">
-          		<div class="card-body">
-            		<h5 class="card-title" style=" color: brown;">Banco de semillas</h5>
-            		<p class="card-text">En construcción.</p>
-            		<a href="#" class="btn " style="background-color:rgb(198, 98, 103); color: aquamarine ;">Saber más</a>
-          		</div>
-        	</div>
-      	</div>
-      
-		<div class="col-sm-6">
-        	<div class="card">
-          		<div class="card-body">
-            		<h5 class="card-title" style=" color: brown;">Biblioteca y Ludoteca</h5>
-            		<p class="card-text">En construcción.</p>
-            		<a href="#" class="btn " style="background-color:rgb(198, 98, 103); color: aquamarine ;">Saber más</a>
-          		</div>
-        	</div>
-      	</div>
-    </div>
-    
-
-	<!-- LA FLORESTA ES CULTURA -->
-	<!-- LA FLORESTA ES CULTURA -->
-	<!-- LA FLORESTA ES CULTURA -->
-	<!-- LA FLORESTA ES CULTURA -->
     <div class="row my-5">
       	<div class="col-sm">
         	<div class="card">
@@ -154,9 +166,8 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
         	</div>
     	</div>
 	</div>
-
 </div>
-
+--}}
 
 
 <!-- Grilla de eventos destacados -->
