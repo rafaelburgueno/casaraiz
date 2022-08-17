@@ -11,16 +11,21 @@ class ContactoMailable extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $subject = 'Informacion de contacto';
+    public $subject = 'título por defecto del correo';
+    public $solicitud;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($solicitud)
     {
-        //
+       
+        $this->subject = $solicitud['nombre'].' '.$solicitud['apellido'].' '.'solicita una membresía.';
+        $this->solicitud = $solicitud;
+
+
     }
 
     /**
@@ -30,6 +35,6 @@ class ContactoMailable extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.contacto');
+        return $this->view('emails.solicitud_membresia');
     }
 }

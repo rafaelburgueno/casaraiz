@@ -6,9 +6,9 @@ use App\Http\Controllers\EventoController;
 use App\Http\Controllers\TalleresController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\MembresiaController;
 use Illuminate\Support\Facades\Artisan;
-use App\Mail\ContactoMailable;
-use Illuminate\Support\Facades\Mail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +42,10 @@ comunidad_raiz
 Route::get('/comunidad_raiz', function () {
     return view('comunidad_raiz');
 })->name('comunidad_raiz');
+
+// ruta post para obtener_membresia
+Route::post('/obtener_membresia', MembresiaController::class)->name('obtener_membresia');
+
 
 
 /*
@@ -127,17 +131,6 @@ Route::get('/storage_link', function () {
     return view('casa_raiz');
 });
 
-
-Route::get('/contacto', function () {
-
-    $correo = new ContactoMailable;
-
-    Mail::to('rafaelburg@gmail.com')->send($correo);
-
-    return 'email enviado';
-
-    //return view('test');
-});
 
 
 

@@ -172,119 +172,122 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <form action="{{route('obtener_membresia')}}" method="POST">
+                            <div class="modal-body">
 
 
-                            <form>
+                                @csrf
+                                @method('POST')
                                 <div class="form-row">
                                     <div class="form-group col-sm-6">
                                         <label for="nombre">Nombre: </label>
-                                        <input type="text" class="form-control" id="nombre" placeholder="Ingrese su nombre">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label for="apellido">Apellido: </label>
-                                        <input type="text" class="form-control" id="apellido" placeholder="Ingrese su Apellido">
+                                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su Apellido">
                                     </div>
                                 </div>
                                 <div class="form-group ">
                                     <label for="email">Correo: </label>
-                                    <input type="email" class="form-control" id="email" placeholder="Ingrese su Email">
+                                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su Email">
                                 </div>
                                 <div class="form row">
                                     <div class="form-group col-sm-6">
                                         <label for="nombre">Documento: </label>
-                                        <input type="text" class="form-control" id="nombre" placeholder="sin puntos ni guión">
+                                        <input type="text" class="form-control" id="documento" name="documento" placeholder="sin puntos ni guión">
                                     </div>
                                     <div class="form-group col-sm-6">
                                         <label for="apellido">Celular: </label>
-                                        <input type="text" class="form-control" id="apellido" placeholder="09xxxxxxxx">
+                                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="09xxxxxxxx">
                                     </div>
                                 </div><br>
                                 <div class="form-group">
                                     <label for="comentario">Tipo de membresia: </label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios" value="option0">
-                                        <label class="form-check-label" for="exampleRadios">Semilla (1 usuario)</label>
+                                        <input class="form-check-input" type="radio" name="tipo_de_membresia" id="tipo_de_membresia" value="semilla">
+                                        <label class="form-check-label" for="tipo_de_membresia">Semilla (1 usuario)</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                        <label class="form-check-label" for="exampleRadios1">Raiz (2 usuarios)</label>
+                                        <input class="form-check-input" type="radio" name="tipo_de_membresia" id="tipo_de_membresia1" value="raiz">
+                                        <label class="form-check-label" for="tipo_de_membresia1">Raiz (2 usuarios)</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                        <label class="form-check-label" for="exampleRadios2">Árbol (grupo familiar hasta 6 usuarios)</label>
+                                        <input class="form-check-input" type="radio" name="tipo_de_membresia" id="tipo_de_membresia2" value="arbol">
+                                        <label class="form-check-label" for="tipo_de_membresia2">Árbol (grupo familiar hasta 6 usuarios)</label>
                                     </div>
                                 </div><br>
 
                                 <div class="form-group">
                                     <label for="comentario">Medio de pago: </label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios"id="exampleRadios" value="option0">
-                                        <label class="form-check-label" for="exampleRadios">Efectivo</label>
+                                        <input class="form-check-input" type="radio" name="medio_de_pago"id="medio_de_pago" value="efectivo">
+                                        <label class="form-check-label" for="medio_de_pago">Efectivo</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                        <label class="form-check-label" for="exampleRadios1">MiDinero</label>
+                                        <input class="form-check-input" type="radio" name="medio_de_pago" id="medio_de_pago1" value="midinero">
+                                        <label class="form-check-label" for="medio_de_pago1">MiDinero</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                                        <label class="form-check-label" for="exampleRadios2">Prex</label>
+                                        <input class="form-check-input" type="radio" name="medio_de_pago" id="medio_de_pago2" value="prex">
+                                        <label class="form-check-label" for="medio_de_pago2">Prex</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                                        <label class="form-check-label" for="exampleRadios3">Canje/Sorteo</label>
+                                        <input class="form-check-input" type="radio" name="medio_de_pago" id="medio_de_pago3" value="canje/sorteo">
+                                        <label class="form-check-label" for="medio_de_pago3">Canje/Sorteo</label>
                                     </div>
                                 </div><br>
 
 
                                 <label for="comentario">¿A qué taller(es) te gustaría acceder? </label><br>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                    <input class="form-check-input" type="checkbox" name="interes1" id="inlineCheckbox1" value="teatro">
                                     <label class="form-check-label" for="inlineCheckbox1">Teatro</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                    <input class="form-check-input" type="checkbox" name="interes2" id="inlineCheckbox2" value="yoga">
                                     <label class="form-check-label" for="inlineCheckbox2">Yoga</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
+                                    <input class="form-check-input" type="checkbox" name="interes3" id="inlineCheckbox3" value="costura">
                                     <label class="form-check-label" for="inlineCheckbox3">Costura</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option4">
+                                    <input class="form-check-input" type="checkbox" name="interes4" id="inlineCheckbox4" value="armonizacion y danza">
                                     <label class="form-check-label" for="inlineCheckbox4">Armonización y danza</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option5">
+                                    <input class="form-check-input" type="checkbox" name="interes5" id="inlineCheckbox5" value="murga para niños">
                                     <label class="form-check-label" for="inlineCheckbox5">Murga para niñxs</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option6">
-                                    <label class="form-check-label" for="inlineCheckbox6">Costura</label><br>
+                                    <input class="form-check-input" type="checkbox" name="interes6" id="inlineCheckbox6" value="canto">
+                                    <label class="form-check-label" for="inlineCheckbox6">Canto</label><br>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="comentario">Comentario: </label>
-                                    <textarea class="form-control" id="comentario"
+                                    <textarea class="form-control" id="comentario" name="comentario"
                                         placeholder="Ingrese su comentario" rows="4"></textarea>
                                 </div>
                                 <div class="form-group pl-3">
                                     <div class="form check pl-1">
-                                        <input type="checkbox" class="form-check-input" id="check" checked>
+                                        <input type="checkbox" class="form-check-input" name="recibir_novedades" id="check" checked>
                                         <label class="form-check-label" for="check">
                                             Quiero recibir las novedades
                                         </label>
                                     </div>
                                 </div>
-                            </form>
+                            
 
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;"
-                                id="enviar">
-                                Enviar
-                            </button>
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn " style="background-color: coral; color: #e9e2e2;"
+                                    id="enviar">
+                                    Enviar
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
