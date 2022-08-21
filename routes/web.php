@@ -7,6 +7,8 @@ use App\Http\Controllers\TalleresController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MembresiaController;
+use App\Http\Controllers\InscripcionController;
+use App\Http\Controllers\LoQuieroController;
 use Illuminate\Support\Facades\Artisan;
 
 
@@ -54,6 +56,14 @@ talleres
 Route::get('/talleres', TalleresController::class)->name('talleres');
 
 
+
+/* 
+ruta post para inscripcion a un evento o taller
+*/
+Route::post('/inscripcion', InscripcionController::class)->name('inscripcion');
+
+
+
 /*
 agenda
 */
@@ -77,6 +87,12 @@ Route::resource('tienda', ProductoController::class);
 /*Route::get('/blog', function () {
     return view('blog');
 })->name('blog');*/
+
+
+/* 
+ruta post para obtener un producto
+*/
+Route::post('/lo_quiero', LoQuieroController::class)->name('lo_quiero');
 
 
 /*

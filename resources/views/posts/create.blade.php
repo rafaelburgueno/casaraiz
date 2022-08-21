@@ -22,7 +22,7 @@
               
               <div class="form-group mt-3 mb-2 mx-1">
                   {{--<label for="titulo">Titulo</label>--}}
-                  <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" value="{{old('titulo')}}">
+                  <input required type="text" class="form-control" id="titulo" name="titulo" placeholder="Título" value="{{old('titulo')}}">
                   @error('titulo')
                       <div class="alert alert-danger mt-1">{{ $message }}</div>
                   @enderror
@@ -43,7 +43,7 @@
 
 
               <div class="mb-2 ">
-                  <textarea class="" name="html" id="summernote">{{old('html')}}</textarea>
+                  <textarea required class="" name="html" id="summernote">{{old('html')}}</textarea>
               </div>
 
               @error('html')

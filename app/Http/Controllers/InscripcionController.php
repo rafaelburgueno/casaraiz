@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Mail\ContactoMailable;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\InscripcionMailable;
 use App\Models\Comentario;
+use App\Models\Evento;
 
-class MembresiaController extends Controller
+class InscripcionController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -17,38 +18,36 @@ class MembresiaController extends Controller
      */
     public function __invoke(Request $request)
     {
-
+        //return request()->all();
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
+            'id_evento' => 'required',
             'nombre' => 'required',
             'apellido' => 'required',
             'correo' => 'required|email',
             'documento' => 'required|numeric',
             'telefono' => 'required|numeric',
-            'tipo_de_membresia' => 'required',
-            //'fecha' => 'required',
-            //'comentario' => 'required',
+            'medio_de_pago' => 'required',
         ]);
 
-        $solicitud = $request->nombre.' '.$request->apellido.' solicita una membresía de tipo '.$request->tipo_de_membresia;
-        //$solicitud += ''.$request->nombre.' ';
+        $evento = Evento::find($request->id_evento);
+
+        $solicitud = $request->nombre.' '.$request->apellido.' solicita inscribirse al ' . $evento->tipo . ': ' . $evento->nombre;
 
         Comentario::create([
             'texto' => $solicitud,
-            'comentarioable_type' => 'petición de membresía',
+            'comentarioable_type' => 'Inscripción',
         ]);
-
-
-        //return 'hola membresia';
-
-        $correo = new ContactoMailable($request->all());
-
+        
+        $correo = new InscripcionMailable($request->all(), $evento);
+        
         // la direccion de email hay que cambiarla por casaraizuy@gmail.com al momento definalizar el proyecto
         //Mail::to('casaraizuy@gmail.com')->send($correo);
         Mail::to(env('MAIL_RECEPTOR_DE_NOTIFICACIONES', 'rafaelburg@gmail.com'))->send($correo);
-
+        
         //return $request->all();
-        session()->flash('exito', 'La solicitud de membresia fue enviada correctamente, en breve nos pondremos en contacto ;D');
+        session()->flash('exito', 'La solicitud de inscripcion fue enviada correctamente, en breve nos pondremos en contacto ;D');
 
-        return redirect() -> route('comunidad_raiz');
+        //return redirect() -> route('talleres');
+        return back();
     }
 }

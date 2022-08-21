@@ -179,113 +179,126 @@
                                 @csrf
                                 @method('POST')
                                 <div class="form-row">
+
                                     <div class="form-group col-sm-6">
                                         <label for="nombre">Nombre: </label>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+                                        <input required type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="Ingrese su nombre">
+                                        @error('nombre')
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div>
+
                                     <div class="form-group col-sm-6">
                                         <label for="apellido">Apellido: </label>
-                                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su Apellido">
+                                        <input required type="text" class="form-control" id="apellido" name="apellido" value="{{old('apellido')}}" placeholder="Ingrese su Apellido">
+                                        @error('apellido')
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group ">
-                                    <label for="email">Correo: </label>
-                                    <input type="email" class="form-control" id="correo" name="correo" placeholder="Ingrese su Email">
+                                    <label for="correo">Correo: </label>
+                                    <input required type="email" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="Ingrese su correo">
+                                    @error('correo')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="form row">
                                     <div class="form-group col-sm-6">
                                         <label for="nombre">Documento: </label>
-                                        <input type="text" class="form-control" id="documento" name="documento" placeholder="sin puntos ni guión">
+                                        <input required type="number" class="form-control" id="documento" name="documento" value="{{old('documento')}}" placeholder="sin puntos ni guión">
+                                    
                                     </div>
                                     <div class="form-group col-sm-6">
-                                        <label for="apellido">Celular: </label>
-                                        <input type="text" class="form-control" id="telefono" name="telefono" placeholder="09xxxxxxxx">
+                                        <label for="telefono">Celular: </label>
+                                        <input required type="tel" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="09xxxxxxxx">
+                                        @error('telefono')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div><br>
                                 <div class="form-group">
-                                    <label for="comentario">Tipo de membresia: </label>
+                                    <label for="">Tipo de membresia: </label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="tipo_de_membresia" id="tipo_de_membresia" value="semilla">
-                                        <label class="form-check-label" for="tipo_de_membresia">Semilla (1 usuario)</label>
+                                        <input class="form-check-input" type="radio" name="tipo_de_membresia" @checked(old('tipo_de_membresia')) id="semilla" value="semilla">
+                                        <label class="form-check-label" for="semilla">Semilla (1 usuario)</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="tipo_de_membresia" id="tipo_de_membresia1" value="raiz">
-                                        <label class="form-check-label" for="tipo_de_membresia1">Raiz (2 usuarios)</label>
+                                        <input class="form-check-input" type="radio" name="tipo_de_membresia" @checked(old('tipo_de_membresia')) id="raiz" value="raiz">
+                                        <label class="form-check-label" for="raiz">Raiz (2 usuarios)</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="tipo_de_membresia" id="tipo_de_membresia2" value="arbol">
-                                        <label class="form-check-label" for="tipo_de_membresia2">Árbol (grupo familiar hasta 6 usuarios)</label>
+                                        <input class="form-check-input" type="radio" name="tipo_de_membresia" @checked(old('tipo_de_membresia')) id="arbol" value="arbol">
+                                        <label class="form-check-label" for="arbol">Árbol (grupo familiar hasta 6 usuarios)</label>
                                     </div>
+                                    @error('tipo_de_membresia')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                    @enderror
                                 </div><br>
 
                                 <div class="form-group">
                                     <label for="comentario">Medio de pago: </label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="medio_de_pago"id="medio_de_pago" value="efectivo">
-                                        <label class="form-check-label" for="medio_de_pago">Efectivo</label>
+                                        <input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="efectivo" value="efectivo">
+                                        <label class="form-check-label" for="efectivo">Efectivo</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="medio_de_pago" id="medio_de_pago1" value="midinero">
-                                        <label class="form-check-label" for="medio_de_pago1">MiDinero</label>
+                                        <input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="midinero" value="midinero">
+                                        <label class="form-check-label" for="midinero">MiDinero</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="medio_de_pago" id="medio_de_pago2" value="prex">
-                                        <label class="form-check-label" for="medio_de_pago2">Prex</label>
+                                        <input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="prex" value="prex">
+                                        <label class="form-check-label" for="prex">Prex</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="medio_de_pago" id="medio_de_pago3" value="canje/sorteo">
-                                        <label class="form-check-label" for="medio_de_pago3">Canje/Sorteo</label>
+                                        <input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="canje/sorteo" value="canje/sorteo">
+                                        <label class="form-check-label" for="canje/sorteo">Canje/Sorteo</label>
                                     </div>
                                 </div><br>
 
 
                                 <label for="comentario">¿A qué taller(es) te gustaría acceder? </label><br>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" name="interes1" id="inlineCheckbox1" value="teatro">
-                                    <label class="form-check-label" for="inlineCheckbox1">Teatro</label><br>
+                                    <input class="form-check-input" type="checkbox" name="interes1" @checked(old('interes1')) id="teatro" value="teatro">
+                                    <label class="form-check-label" for="teatro">Teatro</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" name="interes2" id="inlineCheckbox2" value="yoga">
-                                    <label class="form-check-label" for="inlineCheckbox2">Yoga</label><br>
+                                    <input class="form-check-input" type="checkbox" name="interes2" @checked(old('interes2')) id="yoga" value="yoga">
+                                    <label class="form-check-label" for="yoga">Yoga</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" name="interes3" id="inlineCheckbox3" value="costura">
-                                    <label class="form-check-label" for="inlineCheckbox3">Costura</label><br>
+                                    <input class="form-check-input" type="checkbox" name="interes3" @checked(old('interes3')) id="costura" value="costura">
+                                    <label class="form-check-label" for="costura">Costura</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" name="interes4" id="inlineCheckbox4" value="armonizacion y danza">
-                                    <label class="form-check-label" for="inlineCheckbox4">Armonización y danza</label><br>
+                                    <input class="form-check-input" type="checkbox" name="interes4" @checked(old('interes4')) id="armonizacion_y_danza" value="armonizacion y danza">
+                                    <label class="form-check-label" for="armonizacion_y_danza">Armonización y danza</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" name="interes5" id="inlineCheckbox5" value="murga para niños">
-                                    <label class="form-check-label" for="inlineCheckbox5">Murga para niñxs</label><br>
+                                    <input class="form-check-input" type="checkbox" name="interes5" @checked(old('interes5')) id="murga_para_niños" value="murga para niños">
+                                    <label class="form-check-label" for="murga_para_niños">Murga para niñxs</label><br>
                                 </div>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" name="interes6" id="inlineCheckbox6" value="canto">
-                                    <label class="form-check-label" for="inlineCheckbox6">Canto</label><br>
+                                    <input class="form-check-input" type="checkbox" name="interes6" @checked(old('interes6')) id="canto" value="canto">
+                                    <label class="form-check-label" for="canto">Canto</label><br>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="comentario">Comentario: </label>
-                                    <textarea class="form-control" id="comentario" name="comentario"
+                                    <textarea class="form-control" id="comentario" name="comentario" value="{{old('comendatio')}}"
                                         placeholder="Ingrese su comentario" rows="4"></textarea>
                                 </div>
                                 <div class="form-group pl-3">
                                     <div class="form check pl-1">
-                                        <input type="checkbox" class="form-check-input" name="recibir_novedades" id="check" checked>
-                                        <label class="form-check-label" for="check">
-                                            Quiero recibir las novedades
-                                        </label>
+                                        <input type="checkbox" class="form-check-input" name="recibir_novedades" @checked(old('recibir_novedades')) id="check" checked>
+                                        <label class="form-check-label" for="check">Quiero recibir las novedades</label>
                                     </div>
                                 </div>
                             
 
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn " style="background-color: coral; color: #e9e2e2;"
-                                    id="enviar">
-                                    Enviar
-                                </button>
+                                <button type="submit" class="btn " style="background-color: coral; color: #e9e2e2;" id="enviar">Enviar</button>
                             </div>
                         </form>
                     </div>

@@ -187,23 +187,28 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 				<img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="...">
 				@endif--}}
 				<div class="card-body">
-					<p>{{$evento->fecha}}</p>
-					<p class="card-text">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}}</p>
+					<p class="card-text mb-0">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{ $evento->anio}}</p>
+					{{--<p>{{$evento->fecha}}</p>--}}
+					<small class="card-text mt-0">De {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</small>
 					<a href="{{route('eventos.show', $evento)}}" class="mt-2">
 						<h5 class="card-title text-dark">{{$evento->nombre}}</h5>
 					</a>
 					{{--<small class="card-text">A cargo de {{$evento->responsable}}</small>--}}
-                    <p class="card-text">De {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
 	
 					<div class="d-flex justify-content-between align-items-center mb-2">
-						<div class="card-text">
+						@if($evento->costo_de_inscripcion == 0)
+						    <div class="card-text"><small>Entrada </small> <span class="h5">GRATIS</span></div>
+						@else
+                            <div class="card-text"><small>Entrada </small> <span class="h5">${{$evento->costo_de_inscripcion}}</span></div>
+                        @endif
+						{{--<div class="card-text">
                             <small>Entrada </small>
                             @if ($evento->costo_de_inscripcion == 0)
-                                <span class="h4">Gratis</span>
+                                <span class="h5">Gratis</span>
                             @else
-                                <span class="h4">${{$evento->costo_de_inscripcion}}</span>
+                                <span class="h5">${{$evento->costo_de_inscripcion}}</span>
                             @endif
-                        </div>
+                        </div>--}}
                             
 						<small class="text-dark">{{$evento->cupos_totales}} cupos</small>
 					</div>
@@ -237,9 +242,9 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 	
 					<div class="d-flex justify-content-between align-items-center mb-2">
                         @if($taller->costo_de_inscripcion == 0)
-						    <div class="card-text"><small>Inscripcion</small> <span class="h5">sin costo</span></div>
+						    <div class="card-text"><small>Inscripción</small> <span class="h5">sin costo</span></div>
 						@else
-                            <div class="card-text"><small>Inscripcion</small> <span class="h4">${{$taller->costo_de_inscripcion}}</span></div>
+                            <div class="card-text"><small>Inscripción</small> <span class="h5">${{$taller->costo_de_inscripcion}}</span></div>
                         @endif
                         <small class="text-dark">{{$taller->cupos_totales}} cupos</small>
 					</div>

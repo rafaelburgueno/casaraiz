@@ -39,7 +39,7 @@
 
                         <div class="form-group mb-3">
                             <label for="tipo">Tipo de evento</label>
-                            <input type="text" class="form-control" id="tipo" name="tipo" placeholder="..." value="{{old('tipo', $evento->tipo)}}">
+                            <input required type="text" class="form-control" id="tipo" name="tipo" placeholder="..." value="{{old('tipo', $evento->tipo)}}">
                             @error('tipo')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -47,7 +47,7 @@
                         
                         <div class="form-group mb-3">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="..." value="{{old('nombre', $evento->nombre)}}">
+                            <input required type="text" class="form-control" id="nombre" name="nombre" placeholder="..." value="{{old('nombre', $evento->nombre)}}">
                             @error('nombre')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -65,7 +65,7 @@
 
                         <div class="form-group mb-3">
                             <label for="responsable">Responsable</label>
-                            <input type="text" class="form-control" id="responsable" name="responsable" placeholder="..." value="{{old('responsable', $evento->responsable)}}">
+                            <input required type="text" class="form-control" id="responsable" name="responsable" placeholder="..." value="{{old('responsable', $evento->responsable)}}">
                             @error('responsable')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -73,7 +73,7 @@
 
                         <div class="form-group mb-3">
                             <label for="descripcion">Descripcion</label>
-                            <textarea class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion', $evento->descripcion)}}</textarea>
+                            <textarea required class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion', $evento->descripcion)}}</textarea>
                             @error('descripcion')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -162,6 +162,10 @@
                             @error('imagen')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
+                            <div class="form-check mb-2">
+                                <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info'))>
+                                <label class="form-check-label" for="imagen_con_info">¿La imagen contiene información del evento?</label>
+                            </div>
                         </div>
 
                         <div class="form-check mb-2">

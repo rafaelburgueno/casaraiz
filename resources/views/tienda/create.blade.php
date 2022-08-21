@@ -26,7 +26,7 @@
                         
                         <div class="form-group mb-3">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="..." value="{{old('nombre')}}">
+                            <input required type="text" class="form-control" id="nombre" name="nombre" placeholder="..." value="{{old('nombre')}}">
                             @error('nombre')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -42,7 +42,7 @@
 
                         <div class="form-group mb-3">
                             <label for="descripcion">Descripción</label>
-                            <textarea class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion')}}</textarea>
+                            <textarea required class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion')}}</textarea>
                             @error('descripcion')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -59,10 +59,10 @@
 
                         <div class="form-group mb-3">
                             <label for="precio">Precio</label>
-                            <input type="number" class="form-control" id="precio" name="precio" placeholder="..." value="{{old('precio')}}" min="0">
+                            <input required type="number" class="form-control" id="precio" name="precio" placeholder="..." value="{{old('precio')}}" min="0">
                         </div>
 
-                        <!--input para el costo de inscripcion-->
+                        <!--input para el stock-->
                         <div class="form-group mb-3">
                             <label for="stock">Stock</label>
                             <input type="number" class="form-control" id="stock" name="stock" placeholder="..." value="{{old('stock')}}" min="0">

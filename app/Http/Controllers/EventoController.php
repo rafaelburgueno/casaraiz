@@ -128,10 +128,16 @@ class EventoController extends Controller
             //cambia el nombre de la ruta , para que sea accesible desde la carpeta public
             $url = Storage::url($imagen);
 
+            $imagen_con_info = false;
+            if($request->imagen_con_info){
+                $imagen_con_info = true;
+            }
+
             Multimedia::create([
                 'url' => $url,
                 'descripcion' => $request->nombre,
                 'relevancia' => 1,
+                'imagen_con_info' => $imagen_con_info,
                 'resolucion' => 'TODO',
                 'tamaño' => 'TODO',
                 'multimediaable_id' => $evento->id,
@@ -255,10 +261,16 @@ class EventoController extends Controller
             //cambia el nombre de la ruta , para que sea accesible desde la carpeta public
             $url = Storage::url($imagen);
 
+            $imagen_con_info = false;
+            if($request->imagen_con_info){
+                $imagen_con_info = true;
+            }
+
             Multimedia::create([
                 'url' => $url,
                 'descripcion' => $request->nombre,
                 'relevancia' => 1,
+                'imagen_con_info' => $imagen_con_info,
                 'resolucion' => 'TODO',
                 'tamaño' => 'TODO',
                 'multimediaable_id' => $evento->id,

@@ -51,7 +51,7 @@ class PostController extends Controller
         
         $post->titulo = $request->titulo;
         $post->slug = strtolower(Str::slug($request->titulo, '-'));
-        $post->user_id = 1;
+        $post->user_id = auth()->id(); //registra al usuario que crea el post
         //$post->categorias = $request->categorias;
         //$post->descripcion = $request->titulo;
         //$post->texto = $request->titulo;
@@ -112,7 +112,7 @@ class PostController extends Controller
 
         $blog->titulo = $request->titulo;
         $blog->slug = strtolower(Str::slug($request->titulo, '-'));
-        $blog->user_id = 1;
+        $blog->user_id = auth()->id(); //registra al usuario que crea el post
         $blog->html = $request->html;
         
         if($request->activo){

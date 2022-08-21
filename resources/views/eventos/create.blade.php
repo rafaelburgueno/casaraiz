@@ -39,7 +39,7 @@
 
                         <div class="form-group mb-3">
                             <label for="tipo">Tipo de evento</label>
-                            <input type="text" class="form-control" id="tipo" name="tipo" placeholder="..." value="{{old('tipo')}}">
+                            <input required type="text" class="form-control" id="tipo" name="tipo" placeholder="..." value="{{old('tipo')}}">
                             @error('tipo')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -47,7 +47,7 @@
                         
                         <div class="form-group mb-3">
                             <label for="nombre">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="..." value="{{old('nombre')}}">
+                            <input required type="text" class="form-control" id="nombre" name="nombre" placeholder="..." value="{{old('nombre')}}">
                             @error('nombre')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -55,17 +55,23 @@
 
                         <div class="form-group mb-3">
                             <label for="lugar">Lugar</label>
-                            <input type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar')}}">
+                            <input required type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar')}}">
+                            @error('lugar')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="relevancia">Relevancia</label>
                             <input type="number" class="form-control" id="relevancia" name="relevancia" placeholder="..." value="{{old('relevancia')}}" min="1">
+                            @error('relevancia')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label for="responsable">Responsable</label>
-                            <input type="text" class="form-control" id="responsable" name="responsable" placeholder="..." value="{{old('responsable')}}">
+                            <input required type="text" class="form-control" id="responsable" name="responsable" placeholder="..." value="{{old('responsable')}}">
                             @error('responsable')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -73,7 +79,7 @@
 
                         <div class="form-group mb-3">
                             <label for="descripcion">Descripcion</label>
-                            <textarea class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion')}}</textarea>
+                            <textarea required class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion')}}</textarea>
                             @error('descripcion')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -101,12 +107,18 @@
                         <div class="form-group mb-3">
                             <label for="cupos_totales">Cupos</label>
                             <input type="number" class="form-control" id="cupos_totales" name="cupos_totales" placeholder="..." value="{{old('cupos_totales')}}" min="1">
+                            @error('cupos_totales')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <!--input para el costo de inscripcion-->
                         <div class="form-group mb-3">
                             <label for="costo_de_inscripcion">Costo de inscripcion</label>
                             <input type="number" class="form-control" id="costo_de_inscripcion" name="costo_de_inscripcion" placeholder="..." value="{{old('costo_de_inscripcion')}}" min="0">
+                            @error('costo_de_inscripcion')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="row">
@@ -115,6 +127,9 @@
                                 <div class="form-group mb-3">
                                     <label for="fecha">Fecha</label>
                                     <input type="date" class="form-control" id="fecha" name="fecha" value="{{old('fecha')}}">
+                                    @error('fecha')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -133,6 +148,9 @@
                                         <option value="Sabado" @selected(old('dia_de_semana') == "Sábado")>Sábado</option>
                                         <option value="Domingo" @selected(old('dia_de_semana') == "Domingo")>Domingo</option>
                                     </select>
+                                    @error('dia_de_semana')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -143,6 +161,9 @@
                                 <div class="form-group mb-3">
                                     <label for="hora_de_inicio">Hora de inicio</label>
                                     <input type="time" class="form-control" id="hora_de_inicio" name="hora_de_inicio" value="{{old('hora_de_inicio')}}">
+                                    @error('hora_de_inicio')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -151,6 +172,9 @@
                                 <div class="form-group mb-3">
                                     <label for="hora_de_fin">Hora de fin</label>
                                     <input type="time" class="form-control" id="hora_de_fin" name="hora_de_fin" value="{{old('hora_de_fin')}}">
+                                    @error('hora_de_fin')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -162,6 +186,11 @@
                             @error('imagen')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
+                            
+                            <div class="form-check mb-2">
+                                <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info'))>
+                                <label class="form-check-label" for="imagen_con_info">¿La imagen contiene información del evento?</label>
+                            </div>
                         </div>
 
                         <div class="form-check mb-2">
