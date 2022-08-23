@@ -288,9 +288,9 @@ body {
     padding:0px;
     margin:0px;
     position:fixed;
-    right:-105px;
+    right:0px;
     top:230px;
-    width:210px;
+    /*width:210px;*/
     z-index: 1100;
     opacity: 80%;
 }

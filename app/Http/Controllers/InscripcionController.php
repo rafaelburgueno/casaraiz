@@ -21,8 +21,8 @@ class InscripcionController extends Controller
         //return request()->all();
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
             'id_evento' => 'required',
-            'nombre' => 'required',
-            'apellido' => 'required',
+            'nombre' => 'required|max:100',
+            'apellido' => 'required|max:100',
             'correo' => 'required|email',
             'documento' => 'required|numeric',
             'telefono' => 'required|numeric',

@@ -19,14 +19,14 @@ class MembresiaController extends Controller
     {
 
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
-            'nombre' => 'required',
-            'apellido' => 'required',
+            'nombre' => 'required|max:100',
+            'apellido' => 'required|max:100',
             'correo' => 'required|email',
             'documento' => 'required|numeric',
             'telefono' => 'required|numeric',
             'tipo_de_membresia' => 'required',
             //'fecha' => 'required',
-            //'comentario' => 'required',
+            'comentario' => 'max:255',
         ]);
 
         $solicitud = $request->nombre.' '.$request->apellido.' solicita una membresía de tipo '.$request->tipo_de_membresia;

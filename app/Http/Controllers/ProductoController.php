@@ -65,7 +65,8 @@ class ProductoController extends Controller
         //return $request->all();
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
             'nombre' => 'required|max:255',
-            'precio' => 'numeric|min:0',
+            'proveedor' => 'max:100',
+            'precio' => 'numeric',
             'descripcion' => 'max:255',
             'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             //'imagen' => 'image',
@@ -88,9 +89,9 @@ class ProductoController extends Controller
         $tienda->user_id = auth()->id(); //usuario logueado que registra el producto
         if($request->proveedor){
             $tienda->proveedor = $request->proveedor;
-        }else{
-            $tienda->proveedor = 'controlador null';
-        }
+        }/*else{
+            $tienda->proveedor = '';
+        }*/
 
         //$tienda->categorias = $request->categorias;
 
@@ -185,8 +186,9 @@ class ProductoController extends Controller
         //debe llamarse tienda porque es el nombre especificado en la ruta (php artisan route:list)
         //return $request->all();
         $request->validate([
-            'nombre' => 'required',
-            'precio' => 'required',
+            'nombre' => 'required|max:255',
+            'proveedor' => 'max:100',
+            'precio' => 'numeric',
             'descripcion' => 'required|max:255', //TODO: revisar el almacemaniento maximo para el campo descripcion
             'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);

@@ -15,7 +15,7 @@
 <div class="container">
 
 
-    @if(Auth::check() && Auth::user()->rol == 'administrador')
+    @if(Auth::check() && ( Auth::user()->rol == 'administrador' || Auth::user()->rol == 'colaborador' ))
         <div>
             <a class="btn btn-outline-secondary my-3" href="{{route('blog.create')}}">Crear Post</a>
         </div>
@@ -32,14 +32,14 @@
         <div class="col-md-6">
             <div class="card m-3">
                 
-                <div class="card-body">
+                <div class="card-body pb-2">
                     <a href="{{route('blog.show', $post)}}" class="">
                         <h5 class="card-title titulo">{{$post->titulo}}</h5>
                     </a>
                     @if(!$post->activo)
                         <p class=""><small class="p-1 text-light bg-danger">Este post no es público</small></p>
                     @endif
-                    <p><small class="">Por {{$post->autor()}}</small></p>
+                    <p class="mb-0"><small class="">Por {{$post->autor()}}</small></p>
     
                     {{--<p class="card-text">{{Str::limit($post->html, 100)}}</p>--}}
                     

@@ -61,14 +61,12 @@ class EventoController extends Controller
     {
         //return $request->all();
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
-            'nombre' => 'required',
-            'tipo' => 'required',
-            //'fecha' => 'required',
-            'responsable' => 'required',
+            'nombre' => 'required|max:255',
+            'tipo' => 'required|max:25',
+            'responsable' => 'required|max:100',
             'descripcion' => 'required|max:255',
-            //'espacio' => 'required|min:3|max:100',
+            'lugar' => 'max:100',
             'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
-            //'imagen' => 'image',
         ]);
         
         $evento = new Evento();
@@ -200,9 +198,11 @@ class EventoController extends Controller
     {
         //return $request->all();
         $request->validate([
-            'nombre' => 'required',
-            'responsable' => 'required',
-            'descripcion' => 'required',
+            'nombre' => 'required|max:255',
+            'tipo' => 'required|max:25',
+            'responsable' => 'required|max:100',
+            'descripcion' => 'required|max:255',
+            'lugar' => 'max:100',
             'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);
 

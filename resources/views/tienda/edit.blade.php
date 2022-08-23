@@ -32,13 +32,13 @@
                             @enderror
                         </div>
 
-                        {{--<div class="form-group mb-3">
+                        <div class="form-group mb-3">
                             <label for="proveedor">Proveedor (opcional)</label>
                             <input type="text" class="form-control" id="proveedor" name="proveedor" placeholder="..." value="{{old('proveedor', $tienda->proveedor)}}">
                             @error('proveedor')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
-                        </div>--}}
+                        </div>
 
                         <div class="form-group mb-3">
                             <label for="descripcion">Descripción</label>

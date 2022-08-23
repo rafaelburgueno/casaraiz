@@ -10,6 +10,8 @@ use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\LoQuieroController;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -67,9 +69,9 @@ Route::post('/inscripcion', InscripcionController::class)->name('inscripcion');
 /*
 agenda
 */
-Route::get('/agenda', function () {
+/*Route::get('/agenda', function () {
     return view('agenda');
-})->name('agenda');
+})->name('agenda');*/
 
 
 /*
@@ -78,15 +80,16 @@ tienda
 /*Route::get('/tienda', function () {
     return view('tienda');
 })->name('tienda');*/
-
-
-/*
-tienda
-*/
-Route::resource('tienda', ProductoController::class);
-/*Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');*/
+//Route::resource('tienda', ProductoController::class);
+Route::controller(ProductoController::class)->group(function () {
+    Route::get('tienda', 'index')->name('tienda.index');
+    Route::get('tienda/create', 'create')->name('tienda.create')->middleware('administrador');
+    Route::post('tienda', 'store')->name('tienda.store')->middleware('administrador');
+    Route::get('tienda/{tienda}', 'show')->name('tienda.show');
+    Route::get('tienda/{tienda}/edit', 'edit')->name('tienda.edit')->middleware('administrador');
+    Route::put('tienda/{tienda}', 'update')->name('tienda.update')->middleware('administrador');
+    Route::delete('tienda/{tienda}', 'destroy')->name('tienda.destroy')->middleware('administrador');
+});
 
 
 /* 
@@ -98,10 +101,16 @@ Route::post('/lo_quiero', LoQuieroController::class)->name('lo_quiero');
 /*
 blog
 */
-Route::resource('blog', PostController::class);
-/*Route::get('/blog', function () {
-    return view('blog');
-})->name('blog');*/
+//Route::resource('blog', PostController::class);
+Route::controller(PostController::class)->group(function () {
+    Route::get('blog', 'index')->name('blog.index');
+    Route::get('blog/create', 'create')->name('blog.create')->middleware('colaborador');
+    Route::post('blog', 'store')->name('blog.store')->middleware('colaborador');
+    Route::get('blog/{blog}', 'show')->name('blog.show');
+    Route::get('blog/{blog}/edit', 'edit')->name('blog.edit')->middleware('colaborador');
+    Route::put('blog/{blog}', 'update')->name('blog.update')->middleware('colaborador');
+    Route::delete('blog/{blog}', 'destroy')->name('blog.destroy')->middleware('colaborador');
+});
 
 
 /*
@@ -115,40 +124,49 @@ Route::get('/perfil', function () {
 /*
 eventos
 */
-Route::resource('eventos', EventoController::class);
+//Route::resource('eventos', EventoController::class);
 //
-/*Route::controller(EventoController::class)->group(function () {
+Route::controller(EventoController::class)->group(function () {
     Route::get('eventos', 'index')->name('eventos.index');
-    //Route::get('eventos/create', 'create')->name('eventos.create');
-    //Route::post('eventos', 'store')->name('eventos.store');
+    Route::get('eventos/create', 'create')->name('eventos.create')->middleware('administrador');
+    Route::post('eventos', 'store')->name('eventos.store')->middleware('administrador');
     Route::get('eventos/{evento}', 'show')->name('eventos.show');
-    //Route::get('eventos/{evento}/edit', 'edit')->name('eventos.edit');
-    //Route::put('eventos/{evento}', 'update')->name('eventos.update');
-    //Route::delete('eventos/{evento}', 'destroy')->name('eventos.destroy');
-});*/
+    Route::get('eventos/{evento}/edit', 'edit')->name('eventos.edit')->middleware('administrador');
+    Route::put('eventos/{evento}', 'update')->name('eventos.update')->middleware('administrador');
+    Route::delete('eventos/{evento}', 'destroy')->name('eventos.destroy')->middleware('administrador');
+});
 
 
 
 // Ruta para ejecutar comandos artisan desde la web
 // se debe desactivar esta ruta despues del desarrollo
-Route::get('/artisan/{command}', function ($command) {
+/*Route::get('/artisan/{command}', function ($command) {
     Artisan::call($command);
     dd(Artisan::output());
     //return Artisan::output();
-});
+});*/
 
 // Ruta para ejecutar el comando que resuelve el problema del enjace simbolico
 // php artisan storage:link
 // se debe desactivar esta ruta despues del desarrollo
-Route::get('/storage_link', function () {
+/*Route::get('/storage_link', function () {
     //Artisan::call('storage:link');
     //dd(Artisan::output());
     symlink('/home/u520718481/domains/casaraiz.uy/casaraiz/storage/app/public', '/home/u520718481/domains/casaraiz.uy/public_html/storage');
     return view('casa_raiz');
-});
+});*/
 
 
 
+/*
+CERRAR SESIÓN
+*/
+Route::get('/carrar_sesion', function (Request $request) {
+    Auth::guard('web')->logout();
+    $request->session()->invalidate();
+    $request->session()->regenerateToken();
+    return redirect('/');
+})->middleware('auth')->name('carrar_sesion');
 
 
 Route::get('/dashboard', function () {

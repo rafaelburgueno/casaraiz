@@ -24,6 +24,11 @@
             <li class="nav-item">
                 <a class="nav-link" style=" {{request()->routeIs('blog.*') ? 'opacity:60%;' : ''}}" href="{{route('blog.index')}}"><strong>Blog</strong></a>
             </li>
+            @if( Auth::check() )
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('carrar_sesion')}}"><strong>Cerrar sesión</strong></a>
+            </li>
+            @endif
 
         </ul>
     </div>

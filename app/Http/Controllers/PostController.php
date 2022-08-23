@@ -43,8 +43,8 @@ class PostController extends Controller
         //Post::create($post);
 
         $request->validate([
-            'titulo' => ['required'],
-            'html' => ['required', 'min:100'],
+            'titulo' => ['required', 'max:255'],
+            'html' => ['required', 'max:4294967290'], // el tipo de dato longtext admite un máximo de 4294967295 caracteres'],
         ]);
 
         $post = new Post;
@@ -106,8 +106,8 @@ class PostController extends Controller
     {
         
         $request->validate([
-            'titulo' => 'required',
-            'html' => 'required',
+            'titulo' => 'required|max:255',
+            'html' => 'required|max:4294967290', // el tipo de dato longtext admite un máximo de 4294967295 caracteres
         ]);
 
         $blog->titulo = $request->titulo;

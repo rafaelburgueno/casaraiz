@@ -14,7 +14,7 @@
 
 <div class="container">
 
-    @if(Auth::check() && Auth::user()->rol == 'administrador')
+    @if(Auth::check() && ( Auth::user()->rol == 'administrador' || Auth::user()->rol == 'colaborador' ) )
         <div class="d-flex justify-content-between align-items-center p-1">
             {{--<a class="btn btn-outline-secondary" href="{{route('blog.create')}}">Crear Post</a>--}}
             <a class="btn btn-outline-secondary" href="{{route('blog.index')}}">< Volver</a>
