@@ -252,7 +252,7 @@ return [
         ],
         [
             'text' => 'Usuarios',
-            'route'  => 'admin.usuarios',
+            'route'  => 'usuarios.index',
             //'url'  => 'admin/#',
         ],
         [

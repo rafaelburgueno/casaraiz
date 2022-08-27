@@ -16,7 +16,7 @@
                 <a class="nav-link" style=" {{request()->routeIs('talleres') ? 'opacity:60%;' : ''}}" href="{{route('talleres')}}"><strong>Talleres</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style=" {{request()->routeIs('eventos.*') ? 'opacity:60%;' : ''}}" href="{{route('eventos.index')}}"><strong>Agenda</strong></a>
+                <a class="nav-link" style=" {{request()->routeIs('agenda') ? 'opacity:60%;' : ''}} {{request()->routeIs('eventos.*') ? 'opacity:60%;' : ''}} " href="{{route('agenda')}}"><strong>Agenda</strong></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style=" {{request()->routeIs('tienda.*') ? 'opacity:60%;' : ''}}" href="{{route('tienda.index')}}"><strong>Tienda</strong></a>
@@ -24,6 +24,22 @@
             <li class="nav-item">
                 <a class="nav-link" style=" {{request()->routeIs('blog.*') ? 'opacity:60%;' : ''}}" href="{{route('blog.index')}}"><strong>Blog</strong></a>
             </li>
+
+
+            @if( Auth::check() && Auth::user()->rol == 'administrador' )
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Administrador
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
+                        <a class="dropdown-item" href="{{route('eventos.index')}}">Eventos</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Alguna funcionalidad más...</a>
+                    </div>
+                </li>
+            @endif
+
             @if( Auth::check() )
             <li class="nav-item">
                 <a class="nav-link" href="{{route('carrar_sesion')}}"><strong>Cerrar sesión</strong></a>

@@ -19,18 +19,19 @@ class EventoController extends Controller
      */
     public function index()
     {
+        $eventos = Evento::orderBy('fecha')->paginate();
         //$eventos = Evento::all();
         //devuelve los eventos paginados
         // ...test/eventos?page=2
         //$eventos = Evento::orderBy('fecha','desc')->paginate();
         //obtiene los eventos mas recientes
-        if(Auth::check() && Auth::user()->rol == 'administrador'){
+        /*if(Auth::check() && Auth::user()->rol == 'administrador'){
             $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->orderBy('fecha')->paginate();
             //$eventos = Evento::orderBy('fecha')->get();
 
         }else{
             $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('activo', 1)->orderBy('fecha')->paginate();
-        }
+        }*/
         
         return view('eventos.index', compact('eventos'));
 

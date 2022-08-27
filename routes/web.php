@@ -3,12 +3,15 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\TalleresController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\LoQuieroController;
+use App\Http\Controllers\Admin\UsuariosController;
+
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -69,9 +72,7 @@ Route::post('/inscripcion', InscripcionController::class)->name('inscripcion');
 /*
 agenda
 */
-/*Route::get('/agenda', function () {
-    return view('agenda');
-})->name('agenda');*/
+Route::get('/agenda', AgendaController::class)->name('agenda');
 
 
 /*
@@ -127,7 +128,7 @@ eventos
 //Route::resource('eventos', EventoController::class);
 //
 Route::controller(EventoController::class)->group(function () {
-    Route::get('eventos', 'index')->name('eventos.index');
+    Route::get('eventos', 'index')->name('eventos.index')->middleware('administrador');
     Route::get('eventos/create', 'create')->name('eventos.create')->middleware('administrador');
     Route::post('eventos', 'store')->name('eventos.store')->middleware('administrador');
     Route::get('eventos/{evento}', 'show')->name('eventos.show');
@@ -135,6 +136,25 @@ Route::controller(EventoController::class)->group(function () {
     Route::put('eventos/{evento}', 'update')->name('eventos.update')->middleware('administrador');
     Route::delete('eventos/{evento}', 'destroy')->name('eventos.destroy')->middleware('administrador');
 });
+
+
+
+
+/*
+usuarios
+*/
+//Route::resource('usuarios', UsuariosController::class);
+//
+Route::controller(UsuariosController::class)->group(function () {
+    Route::get('usuarios', 'index')->name('usuarios.index')->middleware('administrador');
+    //Route::get('usuarios/create', 'create')->name('usuarios.create')->middleware('administrador');
+    //Route::post('usuarios', 'store')->name('usuarios.store')->middleware('administrador');
+    //Route::get('usuarios/{usuario}', 'show')->name('usuarios.show');
+    Route::get('usuarios/{usuario}/edit', 'edit')->name('usuarios.edit')->middleware('administrador');
+    Route::put('usuarios/{usuario}', 'update')->name('usuarios.update')->middleware('administrador');
+    //Route::delete('usuarios/{usuario}', 'destroy')->name('usuarios.destroy')->middleware('administrador');
+});
+
 
 
 

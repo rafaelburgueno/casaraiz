@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class HomeController extends Controller
+class UsuariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +15,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function usuarios()
-    {
+        $usuarios = User::all();
         
-        return view('admin.usuarios');
+        
+        return view('admin.usuarios.index', compact('usuarios'));
     }
 
     /**
@@ -66,9 +59,10 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $usuario)
     {
-        //
+        //$evento = Evento::findOrFail($id);
+        return view('admin.usuarios.edit', compact('usuario'));
     }
 
     /**
@@ -78,9 +72,21 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $usuario)
     {
-        //
+        //return $request->all();
+        $request->validate([
+            'rol' => 'required',
+        ]);
+        
+        //$usuario->rol = $request->rol;
+        //$usuario -> save();
+        $usuario->update(['rol' => $request->rol]);
+
+        session()->flash('exito', 'El rol fue editado.');
+
+        //return redirect() -> route('usuarios.show', $usuario);
+        return redirect() -> route('usuarios.index');
     }
 
     /**
