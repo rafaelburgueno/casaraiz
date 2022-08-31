@@ -23,8 +23,8 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 @endif--}}
 
 
-<div class="my-2">
-    <h1 id="in" class="text-center pt-2">PROXIMAMENTE</h1>
+<div class="text-center py-4 my-0">
+    <h1 id="in" class="text-center">PROXIMAMENTE</h1>
 </div>
 
 

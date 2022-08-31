@@ -41,15 +41,17 @@
                 </div>
                 
                 <div class="card-footer">
+
                     <div class="d-flex justify-content-between align-items-center p-1">
-                        <p>
-                            @if(count($post->categorias))
-                                <span class="badge">{{ $post->categorias }}</span>
-                            @endif
-                        </p>
-                        
-                        <p class="">Creado el {{ $post->created_at->format('d/m/Y') }}</p>
+                        <small class="">Por {{$post->autor()}}</small>
+                        <small class="">Creado el {{ $post->created_at->format('d/m/Y') }}</small>
                     </div>
+
+                    @if(count($post->categorias))
+                        <p>
+                            <span class="badge">{{ $post->categorias }}</span>
+                        </p>
+                    @endif
                     
                 </div>
                 

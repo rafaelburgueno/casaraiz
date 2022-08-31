@@ -189,8 +189,8 @@ Route::get('/carrar_sesion', function (Request $request) {
 })->middleware('auth')->name('carrar_sesion');
 
 
-Route::get('/dashboard', function () {
+/*Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth','verified'])->name('dashboard');
+})->middleware(['auth','verified'])->name('dashboard');*/
 
 require __DIR__.'/auth.php';

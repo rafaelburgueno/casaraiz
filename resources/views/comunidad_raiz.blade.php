@@ -42,53 +42,59 @@
     </div><br><br>
 
 
-    <div class="mb-3">
+    <div class="">
         <h2 id="cb" class="text-center">CLUB DE BENEFICIOS</h2>
     </div>
 
-    <div class="card-group my-3">
-        <div class="card text-center mx-2 card-beneficios" width="8rem">
+    <div class="card-group">
+        <div class="card text-center card-beneficioss" width="8rem" 
+        style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to bottom left, rgb(198, 98, 103),rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
-                <h5 class="card-title text-dark">TALLERES</h5>
-                <p class="card-text text-dark">10%<br> en todos los talleres<br> de la grilla semanal.</p>
+                <h5 class="card-title">TALLERES</h5>
+                <p class="card-text">10%<br> en todos los talleres<br> de la grilla semanal.</p>
             </div>
         </div>
 
-        <div class="card text-center mx-2 card-beneficios">
+        <div class="card text-center card-beneficioss" 
+        style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to bottom right,rgb(198, 98, 103),rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
-                <h5 class="card-title  text-dark">EVENTOS</h5>
-                <p class="card-text  text-dark">20$ DE DESCUENTO PARA PROGRAMAR TU EVENTO EN EL ESPACIO.</p>
+                <h5 class="card-title">EVENTOS</h5>
+                <p class="card-text">20$ DE DESCUENTO PARA PROGRAMAR TU EVENTO EN EL ESPACIO.</p>
             </div>
         </div>
 
-        <div class="card text-center mx-2 card-beneficios">
+        <div class="card text-center card-beneficioss" 
+        style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to bottom left, rgb(198, 98, 103),rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
-                <h5 class="card-title text-dark">TIENDA</h5>
-                <P class="card-text text-center text-dark"> 20% EN PRODUCTOS<br>DE LA TIENDA RAIZ</P>
+                <h5 class="card-title">TIENDA</h5>
+                <P class="card-text text-center"> 20% EN PRODUCTOS<br>DE LA TIENDA RAIZ</P>
             </div>
         </div>
 
     </div>
     
-    <div class="card-group my-3">
-        <div class="card text-center mx-2 card-beneficios">
+    <div class="card-group">
+        <div class="card text-center card-beneficioss" 
+        style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to top left,rgb(198, 98, 103), rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
-                <h5 class="card-title text-dark">ENTRADAS</h5>
-                <P class="card-text text-center text-dark"> 15% EN TODOS LOS EVENTOS CON ENTRADAS</P>
+                <h5 class="card-title">ENTRADAS</h5>
+                <P class="card-text text-center"> 15% EN TODOS LOS EVENTOS CON ENTRADAS</P>
             </div>
         </div>
 
-        <div class="card text-center mx-2 card-beneficios" width="10rem">
+        <div class="card text-center card-beneficioss" width="10rem" 
+        style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to top right,rgb(198, 98, 103), rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
-                <h5 class="card-title text-dark">LUDOTECA</h5>
-                <p class="card-text text-dark">PUEDES USAR LOS JUEGOS DE NUESTRA LUDOTECA</p>
+                <h5 class="card-title">LUDOTECA</h5>
+                <p class="card-text">PUEDES USAR LOS JUEGOS DE NUESTRA LUDOTECA</p>
             </div>
         </div>
 
-        <div class="card text-center mx-2 card-beneficios">
+        <div class="card text-center card-beneficioss" 
+        style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to top left, rgb(198, 98, 103),rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
-                <h5 class="card-title text-dark">BIBLIOTECA</h5>
-                <p class="card-text text-dark">ACCESO A NUESTROS LIBROS  Y TEXTOS</p>
+                <h5 class="card-title">BIBLIOTECA</h5>
+                <p class="card-text">ACCESO A NUESTROS LIBROS  Y TEXTOS</p>
             </div>
         </div>
         
@@ -102,7 +108,7 @@
         <div class="container border border-3-danger pt-3">
             <div class="row">
 
-                <div class="col-sm-4">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center" style=" color: brown;">SEMILLA</h5>
@@ -119,7 +125,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center" style=" color: brown;">RAÍZ</h5>
@@ -137,7 +143,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title text-center" style=" color: brown;">ÁRBOL</h5>

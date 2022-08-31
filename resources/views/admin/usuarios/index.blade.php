@@ -55,7 +55,7 @@
         </table>
 
         <!-- Botones de paginacion -->
-        {{--{{ $eventos->links('pagination::bootstrap-4') }}
+        {{--{{ $eventos->links('pagination::bootstrap-4') }} --}}
    
     </div>
 

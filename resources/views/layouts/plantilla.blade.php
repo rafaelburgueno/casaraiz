@@ -26,7 +26,7 @@
     <link href="{{ asset('/css/index.css')}}" rel="stylesheet">
     
 </head>
-<body class="{{request()->routeIs('comunidad_raiz') ? 'mi-bg-gradient' : ''}}">
+<body style="{{request()->routeIs('comunidad_raiz') ? 'background-image: linear-gradient(to bottom right, rgb(198, 98, 103), rgb(198,98,103), rgb(48, 66, 60));' : ''}}">
 
     <!-- Header -->
     @include('partials.nav')

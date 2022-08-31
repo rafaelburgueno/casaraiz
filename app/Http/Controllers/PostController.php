@@ -15,10 +15,10 @@ class PostController extends Controller
     {
         if(Auth::check() && Auth::user()->rol == 'administrador'){
             //al administrador se le mostraran todos los posts
-            $posts = Post::orderBy('created_at','desc')->get();
+            $posts = Post::orderBy('created_at','desc')->paginate(8);
         }else{
             //a los usuarios normales se le mostraran solo los posts publicados
-            $posts = Post::where('activo', true)->orderBy('created_at','desc')->get();
+            $posts = Post::where('activo', true)->orderBy('created_at','desc')->paginate(8);
         }
         
         return view('posts.index', compact('posts'));

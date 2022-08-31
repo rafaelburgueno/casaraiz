@@ -7,33 +7,34 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" style=" {{request()->routeIs('casa_raiz') ? 'opacity:60%;' : ''}}" href="{{route('casa_raiz')}}"><strong>CasaRaíz</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('casa_raiz') ? 'opacity:60%;' : ''}}" href="{{route('casa_raiz')}}"><strong>Casa Raíz</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style=" {{request()->routeIs('comunidad_raiz') ? 'opacity:60%;' : ''}}" href="{{route('comunidad_raiz')}}"><strong>Comunidad raíz</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('comunidad_raiz') ? 'opacity:60%;' : ''}}" href="{{route('comunidad_raiz')}}"><strong>Comunidad Raíz</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style=" {{request()->routeIs('talleres') ? 'opacity:60%;' : ''}}" href="{{route('talleres')}}"><strong>Talleres</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('talleres') ? 'opacity:60%;' : ''}}" href="{{route('talleres')}}"><strong>Talleres</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style=" {{request()->routeIs('agenda') ? 'opacity:60%;' : ''}} {{request()->routeIs('eventos.*') ? 'opacity:60%;' : ''}} " href="{{route('agenda')}}"><strong>Agenda</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('agenda') ? 'opacity:60%;' : ''}} {{request()->routeIs('eventos.*') ? 'opacity:60%;' : ''}} " href="{{route('agenda')}}"><strong>Agenda</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style=" {{request()->routeIs('tienda.*') ? 'opacity:60%;' : ''}}" href="{{route('tienda.index')}}"><strong>Tienda</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('tienda.*') ? 'opacity:60%;' : ''}}" href="{{route('tienda.index')}}"><strong>Tienda</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style=" {{request()->routeIs('blog.*') ? 'opacity:60%;' : ''}}" href="{{route('blog.index')}}"><strong>Blog</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('blog.*') ? 'opacity:60%;' : ''}}" href="{{route('blog.index')}}"><strong>Blog</strong></a>
             </li>
 
 
             @if( Auth::check() && Auth::user()->rol == 'administrador' )
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Administrador
+                    <a style="color: black;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <strong>Administrador</strong>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
                         <a class="dropdown-item" href="{{route('eventos.index')}}">Eventos</a>
+                        <a class="dropdown-item" href="{{route('eventos.index')}}">Banner de inicio</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Alguna funcionalidad más...</a>
                     </div>
@@ -42,7 +43,7 @@
 
             @if( Auth::check() )
             <li class="nav-item">
-                <a class="nav-link" href="{{route('carrar_sesion')}}"><strong>Cerrar sesión</strong></a>
+                <a style="color: black;" class="nav-link" href="{{route('carrar_sesion')}}"><strong>Cerrar sesión</strong></a>
             </li>
             @endif
 

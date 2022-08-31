@@ -22,11 +22,11 @@ class AgendaController extends Controller
         //$eventos = Evento::orderBy('fecha','desc')->paginate();
         //obtiene los eventos mas recientes
         if(Auth::check() && Auth::user()->rol == 'administrador'){
-            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->orderBy('fecha')->paginate();
+            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->orderBy('fecha')->paginate(10);
             //$eventos = Evento::orderBy('fecha')->get();
 
         }else{
-            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('activo', 1)->orderBy('fecha')->paginate();
+            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('activo', 1)->orderBy('fecha')->paginate(10);
         }
         
         //session()->flash('exito', 'El AgendaController si funciona.');

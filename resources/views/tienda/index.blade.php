@@ -175,7 +175,10 @@
 
 	<!-- Botones de paginacion -->
 	{{--{{ $productos->links() }}--}}
-    {{ $productos->links('pagination::bootstrap-4') }}
+	<div class="d-flex justify-content-center">
+		{{ $productos->links('pagination::bootstrap-4') }}
+	</div>
+
 
 </div>
 

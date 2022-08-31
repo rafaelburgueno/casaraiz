@@ -171,9 +171,8 @@
         </div>
 
         
-        <!-- Botones de paginacion -->
-    {{--{{ $eventos->links('pagination::bootstrap-4') }}
-    {{ $eventos->links() }}--}}
+        
+    {{--{{ $eventos->links() }}--}}
 
         {{--@foreach ($eventos as $evento)
         <div class="col-md-6">
@@ -200,7 +199,10 @@
         
     </div>
 
-      
+    <!-- Botones de paginacion -->
+    <div class="d-flex justify-content-center">
+        {{ $eventos->links('pagination::bootstrap-4') }}
+    </div>
 
 
 </div>

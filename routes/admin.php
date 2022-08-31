@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\UsuariosController;
 
 
-Route::get('', [HomeController::class, 'index'])->name('admin.home')->middleware('administrador');
+//Route::get('', [HomeController::class, 'index'])->name('admin.home')->middleware('administrador');
 
 //Route::get('usuarios', [UsuariosController::class, 'index'])->name('admin.usuarios')->middleware('administrador');
 /*Route::controller(UsuariosController::class)->group(function () {

@@ -8,7 +8,13 @@
 }
 
 .card-beneficios {
-    background-image: linear-gradient(to right, rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60)) !important;
+    background-image: linear-gradient(
+        to bottom left,
+        rgb(198, 98, 103),
+        rgb(198, 98, 103),
+        rgb(198, 98, 103),
+        rgb(48, 66, 60)
+    ) !important;
     box-shadow: 4px 4px 2px #e9e2e2 !important;
 }
 
@@ -41,7 +47,7 @@
     backdrop-filter: blur(4px);
     opacity: 90%;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .nav-link {
@@ -56,7 +62,7 @@
 
 footer {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     background-image: linear-gradient(
         to bottom right,
         rgb(48, 66, 60),
@@ -132,14 +138,15 @@ footer a {
 .card {
     opacity: 80%;
     flex: 1 200px;
-    /*margin-top: 30px;
+    margin-top: 30px;
     margin-right: 30px;
-    margin-left: 30px;*/
-    border-radius: 5px;
+    margin-left: 30px;
+    border-radius: 1px;
     box-shadow: 4px 4px 2px #da3f3f;
 }
 
-#card-index, .card-index {
+#card-index,
+.card-index {
     color: #07101a;
     font-size: 26px;
     text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48),
@@ -147,18 +154,23 @@ footer a {
     font-family: "Helvetica";
 }
 
-/*.ind{
-  background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 98, 103));
-}
-*/
 .ind {
+    background-image: linear-gradient(
+        to bottom right,
+        rgb(48, 66, 60),
+        rgb(198, 98, 103),
+        rgb(198, 98, 103)
+    );
+}
+
+/*.ind {
     background-image: linear-gradient(
         to bottom right,
         rgba(48, 66, 60, 0.575),
         rgb(198, 98, 103),
         rgb(198, 98, 103)
     );
-}
+}*/
 
 #in {
     background-image: linear-gradient(
@@ -172,7 +184,7 @@ footer a {
         0 0 5px rgb(90, 89, 89);
 
     font-family: "Helvetica";
-    font-size: 35px;
+    font-size: 50px;
 }
 
 .marg {
@@ -223,8 +235,8 @@ footer a {
 
 body {
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
-    /*font-size: 16px;*/
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-size: 16px;
 }
 
 .tabla2 {
@@ -281,42 +293,71 @@ body {
 
 /* End: Video Responsive */
 
-
-
-
 .social {
-    padding:0px;
-    margin:0px;
-    position:fixed;
-    right:0px;
-    top:230px;
-    /*width:210px;*/
+    padding: 0px;
+    margin: 0px;
+    position: fixed;
+    right: -130px;
+    top: 230px;
+    width: 210px;
     z-index: 1100;
     opacity: 80%;
 }
-  
+
 .social ul {
     list-style: none;
 }
-  
+
 .social ul li a {
     display: inline-block;
-    color:#fff;
+    color: #fff;
     background: #000;
     padding: 10px 15px;
     text-decoration: none;
-    -webkit-transition:all 500ms ease;
-    -o-transition:all 500ms ease;
-    transition:all 500ms ease; /* Establecemos una transición a todas las propiedades */
+    -webkit-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease; /* Establecemos una transición a todas las propiedades */
 }
-  
-.social ul li .icon-facebook {background:#3b5998;} /* Establecemos los colores de cada red social, aprovechando su class */
-.social ul li .icon-twitter {background-image: linear-gradient(to bottom right, rgb(187, 20, 145), rgb(230, 84, 91), rgb(247, 146, 30))}
-.social ul li .icon-googleplus { background: red ;}
-.social ul li .icon-pinterest {background: #1dae18;}
-.social ul li .icon-mail {background: #30b990;}
-  
+
+.social ul li .icon-facebook {
+    background: #3b5998;
+} /* Establecemos los colores de cada red social, aprovechando su class */
+.social ul li .icon-twitter {
+    background-image: linear-gradient(
+        to bottom right,
+        rgb(187, 20, 145),
+        rgb(230, 84, 91),
+        rgb(247, 146, 30)
+    );
+}
+.social ul li .icon-googleplus {
+    background: red;
+}
+.social ul li .icon-pinterest {
+    background: #1dae18;
+}
+.social ul li .icon-mail {
+    background: #30b990;
+}
+
 .social ul li a:hover {
     background: #000; /* Cambiamos el fondo cuando el usuario pase el mouse */
     padding: 10px 30px; /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
 }
+
+/*.pagination{
+    margin: auto;
+}*/
+.active{
+    color:red !important;
+    background-image: linear-gradient(
+        to right,
+        rgb(198, 98, 103),
+        rgb(198, 98, 103),
+        rgb(48, 66, 60)
+    ) !important;
+
+}
+.active .page-link {
+    background-color:rgb(198, 98, 103) !important;
+  }

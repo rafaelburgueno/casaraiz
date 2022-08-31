@@ -39,7 +39,11 @@
                     @if(!$post->activo)
                         <p class=""><small class="p-1 text-light bg-danger">Este post no es público</small></p>
                     @endif
-                    <p class="mb-0"><small class="">Por {{$post->autor()}}</small></p>
+
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="mb-0"><small class="">Por {{$post->autor()}}</small></p>
+                        <small class="mb-0">Creado el {{ $post->updated_at->format('d/m/Y') }}</small>
+                    </div>
     
                     {{--<p class="card-text">{{Str::limit($post->html, 100)}}</p>--}}
                     
@@ -56,7 +60,9 @@
     
 
     <!-- Botones de paginacion -->
-    {{--{{ $posts->links() }}--}}
+    <div class="mt-3 d-flex justify-content-center">
+        {{ $posts->links('pagination::bootstrap-4') }}
+	</div>
 
 
 

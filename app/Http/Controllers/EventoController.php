@@ -252,7 +252,7 @@ class EventoController extends Controller
             $evento->activo = false;
         }
         
-        $evento -> save();
+        
         
         if($request->file('imagen')){
             
@@ -279,7 +279,16 @@ class EventoController extends Controller
             ]);
 
             //return 'se guardo todo';
+        }else{
+            $imagen_con_info = false;
+            if($request->imagen_con_info){
+                $imagen_con_info = true;
+            }
+            $evento->multimedias->last()->imagen_con_info = $imagen_con_info;
+            $evento->multimedias->last()->save();
         }
+
+        $evento -> save();
 
         session()->flash('exito', 'El evento fue editado.');
 

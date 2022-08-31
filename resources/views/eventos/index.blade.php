@@ -36,6 +36,7 @@
                                 @if(!$evento->activo)
                                 <span class="float-right m-1 badge badge-danger">El evento no es público</span>
                                 @endif
+                                <small class="h6">Id: {{$evento->id}}</small>
                                 <p class="card-text h6">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->anio}}, de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
                                 <p class="card-text mt-2 mb-0 h5"><strong>{{$evento->nombre}}</strong></p>
                             </div>
@@ -87,7 +88,12 @@
 
         
         <!-- Botones de paginacion -->
-    {{ $eventos->links('pagination::bootstrap-4') }}
+        <div class="d-flex justify-content-center">
+            {{ $eventos->links('pagination::bootstrap-4') }}
+        </div>
+
+
+        
     {{--{{ $eventos->links() }}--}}
 
         {{--@foreach ($eventos as $evento)

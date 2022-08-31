@@ -14,8 +14,8 @@
 
 
 <div class="container mt-5">
-    <div id="myDIV" class="card" width="18rem" style="opacity:95%;   background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 98, 103));">
-        <img class="card-img-top" src="{{asset('/storage/img/nieve.jpg')}}" alt="Card image cap">
+    <div id="myDIV" class="card" width="18rem" style="opacity:95%;   background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 158, 98));">
+        <img class="card-img-top" src="{{asset('/storage/img/casa.png')}}" alt="Card image cap">
 
         <h1 class="card-header text-center" style="color: #eaf0e4;">
             Casa Raíz es un espacio cultural ,
@@ -29,13 +29,13 @@
         </div>
     </div><br>
 
+</div>
     <div class="container video-responsive mt-3">
         <iframe width="560" height="315" src="https://www.youtube.com/embed/dKoQzOjflLo"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
     </div>
-</div>
 
 
 
