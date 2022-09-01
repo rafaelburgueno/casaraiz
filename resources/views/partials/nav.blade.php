@@ -34,7 +34,8 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
                         <a class="dropdown-item" href="{{route('eventos.index')}}">Eventos</a>
-                        <a class="dropdown-item" href="{{route('eventos.index')}}">Banner de inicio</a>
+                        <a class="dropdown-item" href="{{route('banner.index')}}">Banner de inicio</a>
+                        <a class="dropdown-item" href="{{route('eventos.index')}}">Notificaciones y registros</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Alguna funcionalidad más...</a>
                     </div>

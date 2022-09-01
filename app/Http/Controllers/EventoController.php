@@ -305,12 +305,12 @@ class EventoController extends Controller
      */
     public function destroy(Evento $evento)
     {
-        //$evento->delete();
-        //TODO: cambiar el campo activo a 0
-        $evento->activo = 0;
+        $evento->delete();
+        session()->flash('exito', 'El evento fue eliminado.');
+        
+        /*$evento->activo = 0;
         $evento -> save();
-
-        session()->flash('exito', 'El evento fue desactivado.');
+        session()->flash('exito', 'El evento fue desactivado.');*/
 
 
         return redirect() -> route('eventos.index');

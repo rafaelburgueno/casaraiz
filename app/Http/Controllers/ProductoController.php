@@ -262,11 +262,12 @@ class ProductoController extends Controller
     public function destroy(Producto $tienda)
     {
         $tienda->delete();
-        //cambia el campo activo a 0
+        session()->flash('exito', 'El producto fue eliminado.');
+        
         //$tienda->activo = 0;
         //$tienda -> save();
+        //session()->flash('exito', 'El producto fue desactivado.');
 
-        session()->flash('exito', 'El producto fue eliminado.');
         return redirect() -> route('tienda.index');
     }
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\MembresiaController;
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\LoQuieroController;
 use App\Http\Controllers\Admin\UsuariosController;
+use App\Http\Controllers\Admin\BannerController;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
@@ -153,6 +154,23 @@ Route::controller(UsuariosController::class)->group(function () {
     Route::get('usuarios/{usuario}/edit', 'edit')->name('usuarios.edit')->middleware('administrador');
     Route::put('usuarios/{usuario}', 'update')->name('usuarios.update')->middleware('administrador');
     //Route::delete('usuarios/{usuario}', 'destroy')->name('usuarios.destroy')->middleware('administrador');
+});
+
+
+
+
+/*
+Banner de inicio
+*/
+//Route::get('/', BannerController::class)->name('banner');
+Route::controller(BannerController::class)->group(function () {
+    Route::get('banner', 'index')->name('banner.index')->middleware('administrador');
+    //Route::get('banner/create', 'create')->name('banner.create')->middleware('administrador');
+    Route::post('banner', 'store')->name('banner.store')->middleware('administrador');
+    //Route::get('banner/{imagen}', 'show')->name('banner.show');
+    //Route::get('banner/{imagen}/edit', 'edit')->name('banner.edit')->middleware('administrador');
+    Route::put('banner/{imagen}', 'update')->name('banner.update')->middleware('administrador');
+    Route::delete('banner/{imagen}', 'destroy')->name('banner.destroy')->middleware('administrador');
 });
 
 

@@ -142,11 +142,12 @@ class PostController extends Controller
      */
     public function destroy(Post $blog)
     {
-        //$blog->delete();
-        //cambiar el campo activo a 0
-        $blog->activo = 0;
+        $blog->delete();
+        session()->flash('exito', 'El post fue eliminado.');
+        
+        /*$blog->activo = 0;
         $blog -> save();
-
+        session()->flash('exito', 'El post fue desactivado.');*/
 
         return redirect() -> route('blog.index');
     }
