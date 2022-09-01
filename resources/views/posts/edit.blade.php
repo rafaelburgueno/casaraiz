@@ -14,7 +14,7 @@
     <div class="row mb-5">
   
         <div class="col-md-12">
-            <form action="{{route('blog.update', $post)}}" method="POST">
+            <form action="{{route('blog.update', $post)}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
               
@@ -25,9 +25,17 @@
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="form-check mb-2">
-                    <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo', $post->activo))>
-                    <label class="form-check-label" for="activo">Publicar</label>
+
+                <div class="form-group mb-3">
+                    <label for="imagen">Imagen</label>
+                    <input type="file" class="form-control" id="imagen" name="imagen" value="{{old('imagen')}}" accept="image/*">
+                    @error('imagen')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                    @enderror
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info', $post->multimedias->last()->imagen_con_info))>
+                        <label class="form-check-label" for="imagen_con_info">¿La imagen contiene información del post?</label>
+                    </div>
                 </div>
 
                 {{--<div class="form-group mb-3">
@@ -47,6 +55,11 @@
                 @error('html')
                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                 @enderror
+
+                <div class="form-check my-3">
+                    <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo', $post->activo))>
+                    <label class="form-check-label" for="activo">Publicar</label>
+                </div>
 
                 <button type="submit" class="btn btn-outline-secondary btn-block">Actualizar</button>
               

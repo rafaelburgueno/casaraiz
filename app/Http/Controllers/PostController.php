@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Models\Multimedia;
 
 class PostController extends Controller
 {
@@ -45,6 +47,7 @@ class PostController extends Controller
         $request->validate([
             'titulo' => ['required', 'max:255'],
             'html' => ['required', 'max:4294967290'], // el tipo de dato longtext admite un máximo de 4294967295 caracteres'],
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);
 
         $post = new Post;
@@ -58,6 +61,36 @@ class PostController extends Controller
         $post->html = $request->html;
 
         $post->save();
+
+
+        //IMAGEN
+        //se guarda en la carpeta storage/app/public/eventos/
+        if($request->file('imagen')){
+            
+            //el metodo store() debe ejecutarse en la misma linea en la que se asigna a la variable(sino no funca)
+            $imagen = $request->file('imagen')-> store('public/posts');
+            
+            //cambia el nombre de la ruta , para que sea accesible desde la carpeta public
+            $url = Storage::url($imagen);
+
+            $imagen_con_info = false;
+            if($request->imagen_con_info){
+                $imagen_con_info = true;
+            }
+
+            Multimedia::create([
+                'url' => $url,
+                'descripcion' => $request->titulo,
+                'relevancia' => 1,
+                'imagen_con_info' => $imagen_con_info,
+                'resolucion' => 'TODO',
+                'tamaño' => 'TODO',
+                'multimediaable_id' => $post->id,
+                'multimediaable_type' => 'App\Models\Post',
+            ]);
+
+            //return 'se guardo todo';
+        }
 
 
         //$file = var_dump($request->files);
@@ -108,6 +141,7 @@ class PostController extends Controller
         $request->validate([
             'titulo' => 'required|max:255',
             'html' => 'required|max:4294967290', // el tipo de dato longtext admite un máximo de 4294967295 caracteres
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);
 
         $blog->titulo = $request->titulo;
@@ -125,8 +159,40 @@ class PostController extends Controller
         //$blog->descripcion = $request->titulo;
         //$blog->texto = $request->titulo;
 
+        $imagen_con_info = false;
+            if($request->imagen_con_info){
+                $imagen_con_info = true;
+            }
+
+        if($request->file('imagen')){
+            
+            //el metodo store() debe ejecutarse en la misma linea en la que se asigna a la variable(sino no funca)
+            $imagen = $request->file('imagen')-> store('public/posts');
+            
+            //cambia el nombre de la ruta , para que sea accesible desde la carpeta public
+            $url = Storage::url($imagen);
+
+            Multimedia::create([
+                'url' => $url,
+                'descripcion' => $request->titulo,
+                'relevancia' => 1,
+                'imagen_con_info' => $imagen_con_info,
+                'resolucion' => 'TODO',
+                'tamaño' => 'TODO',
+                'multimediaable_id' => $blog->id,
+                'multimediaable_type' => 'App\Models\Post',
+            ]);
+
+            //return 'se guardo todo';
+        }else{
+            $blog->multimedias->last()->imagen_con_info = $imagen_con_info;
+            $blog->multimedias->last()->save();
+        }
+
+
         $blog->save();
 
+        session()->flash('exito', 'El post fue editado.');
         return redirect() -> route('blog.show', $blog);
         //return redirect()->route('blog.index');
     }

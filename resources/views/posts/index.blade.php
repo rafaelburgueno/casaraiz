@@ -31,25 +31,36 @@
         @foreach ($posts as $post)
         <div class="col-md-6">
             <div class="card m-3">
-                
-                <div class="card-body pb-2">
+                @if (count($post->multimedias) && $post->multimedias->last()->imagen_con_info)
                     <a href="{{route('blog.show', $post)}}" class="">
-                        <h5 class="card-title titulo">{{$post->titulo}}</h5>
+                        <img src="{{$post->multimedias->last()->url}}" class="card-img-top" alt="{{ $post->multimedias->last()->descripcion }}">
                     </a>
-                    @if(!$post->activo)
-                        <p class=""><small class="p-1 text-light bg-danger">Este post no es público</small></p>
+                @else
+                    @if (count($post->multimedias))
+                        <a href="{{route('blog.show', $post)}}" class="">
+                            <img src="{{$post->multimedias->last()->url}}" class="card-img-top" alt="{{ $post->multimedias->last()->descripcion }}">
+                        </a>
                     @endif
 
-                    <div class="d-flex justify-content-between align-items-center">
-                        <p class="mb-0"><small class="">Por {{$post->autor()}}</small></p>
-                        <small class="mb-0">Creado el {{ $post->updated_at->format('d/m/Y') }}</small>
+                    <div class="card-body pb-2">
+                        <a href="{{route('blog.show', $post)}}" class="">
+                            <h5 class="card-title titulo">{{$post->titulo}}</h5>
+                        </a>
+                        @if(!$post->activo)
+                            <p class=""><small class="m-1 p-1 text-light bg-danger">Este post no es público</small></p>
+                        @endif
+
+                        <div class="d-flex justify-content-between align-items-center">
+                            <p class="mb-0"><small class="">Por {{$post->autor()}}</small></p>
+                            <small class="mb-0">Creado el {{ $post->updated_at->format('d/m/Y') }}</small>
+                        </div>
+        
+                        {{--<p class="card-text">{{Str::limit($post->html, 100)}}</p>--}}
+                        
+                        {{--<a href="{{route('blog.show', $post)}}" class=""><small>leer...</small></a>--}}
+                        
                     </div>
-    
-                    {{--<p class="card-text">{{Str::limit($post->html, 100)}}</p>--}}
-                    
-                    {{--<a href="{{route('blog.show', $post)}}" class=""><small>leer...</small></a>--}}
-                      
-                </div>
+                @endif
             </div>
         </div>
         @endforeach

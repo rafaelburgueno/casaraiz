@@ -117,7 +117,6 @@ class EventoController extends Controller
 
         //return $request->all();
         //IMAGEN
-        //php artisan storage:link
         //se guarda en la carpeta storage/app/public/eventos/
         if($request->file('imagen')){
             

@@ -26,18 +26,18 @@
 
 <div class="d-flex flex-wrap flex-row">
     
-    @foreach ($talleres as $t)
+    @foreach ($talleres as $t) 
     <div class="col-md-4">
         <div class="card mb-4">
             {{-- las 3 siguientes lineas habilitan o deshabilitan las imagenes --}}    {{----}}
             @if (count($t->multimedias) && $t->multimedias->last()->imagen_con_info)
                 <a href="{{route('eventos.show', $t)}}" class="">
-                    <img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="...">
+                    <img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="{{$t->nombre}}. {{$t->dia_de_semana}} de {{$t->hora_de_inicio}} a {{$t->hora_de_fin}}hs.">
                 </a>
             @else
                 @if (count($t->multimedias))
                     <a href="{{route('eventos.show', $t)}}" class="">
-                        <img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="...">
+                        <img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="{{$t->nombre}}. {{$t->dia_de_semana}} de {{$t->hora_de_inicio}} a {{$t->hora_de_fin}}hs.">
                     </a>
                 @endif
             

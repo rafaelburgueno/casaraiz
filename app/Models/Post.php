@@ -43,12 +43,11 @@ class Post extends Model
     }
 
     //relacion uno a muchos polimorfica con la tabla multimedias
-    // no es necesaria el siguiente metodo, poruqe los post guardan las imagenes en el campo html
-    /*public function multimedias()
+    public function multimedias()
     {
         //return $this->hasMany(Multimedia::class);
         return $this->morphMany(Multimedia::class, 'multimediaable');
-    }*/
+    }
 
 
     // relacion muchos a muchos con la tabla categorias
