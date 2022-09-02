@@ -19,7 +19,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $eventos = Evento::orderBy('fecha')->paginate();
+        $eventos = Evento::orderBy('activo','desc')->orderBy('fecha')->paginate();
         //$eventos = Evento::all();
         //devuelve los eventos paginados
         // ...test/eventos?page=2
