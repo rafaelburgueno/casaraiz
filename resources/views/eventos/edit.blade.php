@@ -7,7 +7,7 @@
 @section('content')
 
 
-<div class="my-2">
+<div class="text-center my-4">
     <h1 id="in" class="text-center pt-2">EDITAR EVENTO</h1>
 </div>
 
@@ -163,7 +163,11 @@
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                             <div class="form-check mb-2">
-                                <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info', $evento->multimedias->last()->imagen_con_info))>
+                                @if (count($evento->multimedias))
+                                    <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info', $evento->multimedias->last()->imagen_con_info))>
+                                @else
+                                <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info'))>
+                                @endif
                                 <label class="form-check-label" for="imagen_con_info">¿La imagen contiene información del evento?</label>
                             </div>
                         </div>

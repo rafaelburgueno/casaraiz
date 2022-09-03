@@ -54,5 +54,12 @@ class Evento extends Model
         return $this->morphMany(Multimedia::class, 'multimediaable');
     }
 
+    //relacion uno a muchos polimorfica con la tabla multimedias
+    public function inscripciones()
+    {
+        //return $this->hasMany(Multimedia::class);
+        return $this->morphMany(Inscripcion::class, 'inscripcionable');
+    }
+
 
 }

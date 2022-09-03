@@ -12,6 +12,7 @@ use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\LoQuieroController;
 use App\Http\Controllers\Admin\UsuariosController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\InscripcionesController;
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
@@ -171,6 +172,23 @@ Route::controller(BannerController::class)->group(function () {
     //Route::get('banner/{imagen}/edit', 'edit')->name('banner.edit')->middleware('administrador');
     Route::put('banner/{imagen}', 'update')->name('banner.update')->middleware('administrador');
     Route::delete('banner/{imagen}', 'destroy')->name('banner.destroy')->middleware('administrador');
+});
+
+
+
+
+/* 
+ruta para las Inscripciones y solicitudes
+*/
+//Route::get('/inscripciones', InscripcionesController::class)->name('inscripciones')->middleware('administrador');
+Route::controller(InscripcionesController::class)->group(function () {
+    Route::get('inscripciones', 'index')->name('inscripciones.index')->middleware('administrador');
+    //Route::get('inscripciones/create', 'create')->name('inscripciones.create')->middleware('administrador');
+    Route::post('inscripciones', 'store')->name('inscripciones.store');
+    //Route::get('inscripciones/{imagen}', 'show')->name('inscripciones.show');
+    //Route::get('inscripciones/{imagen}/edit', 'edit')->name('inscripciones.edit')->middleware('administrador');
+    //Route::put('inscripciones/{imagen}', 'update')->name('inscripciones.update')->middleware('administrador');
+    //Route::delete('inscripciones/{imagen}', 'destroy')->name('inscripciones.destroy')->middleware('administrador');
 });
 
 

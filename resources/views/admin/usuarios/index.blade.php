@@ -7,8 +7,8 @@
 @section('content')
     
 
-    <div class="my-2">
-        <h1 id="in" class="text-center pt-2">Usuarios</h1>
+    <div class="text-center my-4">
+        <h1 id="in" class="text-center pt-2">USUARIOS</h1>
     </div>
 
 

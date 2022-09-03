@@ -11,8 +11,8 @@
 	<img src="{{asset('/storage/img/nav.10.png')}}" class="d-block w-100" alt="...">
 </div>
 
-<div class="text-center py-4 my-0">
-    <h1 id="in" class="text-center">TALLERES</h1>
+<div class="text-center my-4 ">
+    <h1 id="in" class="text-center pt-2">TALLERES</h1>
 </div>
 
 
@@ -94,7 +94,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{route('inscripcion')}}" method="POST">
+                <form action="{{route('inscripciones.store')}}" method="POST">
                     <div class="modal-body">
 
 

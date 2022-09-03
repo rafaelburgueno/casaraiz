@@ -36,18 +36,14 @@
 }
 
 .navbar {
-    background-image: linear-gradient(
-        to bottom right,
-        rgb(48, 66, 60),
-        rgb(198, 98, 103),
-        rgb(198, 98, 103)
-    );
+    background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 98, 103));
+
     z-index: 11;
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     opacity: 90%;
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 
 .nav-link {
@@ -61,23 +57,17 @@
 }
 
 footer {
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    background-image: linear-gradient(
-        to bottom right,
-        rgb(48, 66, 60),
-        rgb(198, 98, 103),
-        rgb(198, 98, 103)
-    );
-}
-
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 98, 103));
+  }
+  
 footer p {
-    color: black;
+color: black;
 }
 
 footer a {
-    text-decoration: none;
-    color: black;
+text-decoration: none;
+color: black;
 }
 
 .navbar-logo {
@@ -97,13 +87,47 @@ footer a {
     font-family: sans-serif;
 }
 
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo-2 {
+      animation: App-logo infinite 10s linear;
+    }
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotateX(0deg);
+    }
+  
+    to {
+      transform: rotateX(360deg);
+    }
+  }
+  
+  @keyframes App-logo {
+    from {
+      transform: rotate(0deg);
+    }
+  
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
 #cb {
     font-size: 1.5cm;
-    border: 2px solid #d5dadf;
-    border-radius: 1px;
-    box-shadow: 4px 4px 2px #07101a;
-    color: aliceblue;
-    text-shadow: 4px 4px 2px #07101a;
+  border: 2px solid #d5dadf;
+  border-radius: 1px;
+  box-shadow: 4px 4px 2px #07101a;
+  color: aliceblue;
+  text-shadow: 4px 4px 2px #07101a;
 }
 
 .card-group {
@@ -149,42 +173,23 @@ footer a {
 .card-index {
     color: #07101a;
     font-size: 26px;
-    text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48),
-        0 0 5px rgb(90, 89, 89);
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48), 0 0 5px rgb(90, 89, 89);
     font-family: "Helvetica";
 }
 
 .ind {
-    background-image: linear-gradient(
-        to bottom right,
-        rgb(48, 66, 60),
-        rgb(198, 98, 103),
-        rgb(198, 98, 103)
-    );
+    background-image: linear-gradient(to bottom right, rgb(241, 245, 244), rgb(198, 98, 103), rgb(198, 98, 103));
+
 }
 
-/*.ind {
-    background-image: linear-gradient(
-        to bottom right,
-        rgba(48, 66, 60, 0.575),
-        rgb(198, 98, 103),
-        rgb(198, 98, 103)
-    );
-}*/
 
 #in {
-    background-image: linear-gradient(
-        to right,
-        rgb(198, 98, 103),
-        rgb(198, 98, 103),
-        rgb(48, 66, 60)
-    );
-    color: rgb(8, 8, 8);
-    text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48),
-        0 0 5px rgb(90, 89, 89);
+    background-image: linear-gradient(to right, rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));
+    color: rgb(243, 234, 234);
+    text-shadow: 1px 1px 2px black, 0 0 25px rgb(56, 48, 48), 0 0 5px rgb(90, 89, 89);
 
     font-family: "Helvetica";
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .marg {
@@ -234,46 +239,47 @@ footer a {
 }
 
 body {
-    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 16px;
 }
 
 .tabla2 {
     margin-top: 2em;
-}
-
-.tabla2 th,
-.tabla2 td {
+  }
+  
+  .tabla2 th,
+  .tabla2 td {
     text-align: center;
-    padding: 0.2em 0.5em;
-    color: rgb(129, 55, 55);
-    border: 1px solid rgb(201, 52, 52);
-}
-
-.tabla2 caption {
+    padding: .2em .5em;
+    color: rgb(12, 0, 0);
+    border: 1px solid rgb(7, 7, 7);
+  }
+  
+  .tabla2 caption {
     text-align: left;
     margin-bottom: 5px;
     font-variant: small-caps;
     font-size: 30px;
     letter-spacing: 5px;
-}
-
-.tabla2 td {
+  }
+  
+  .tabla2 td {
     text-align: left;
-    font-size: 0.8em;
+    font-size: .8em;
     padding-bottom: 3em;
     padding-right: 3em;
-}
-
-.tabla2 td:hover {
+  }
+  
+  .tabla2 td:hover {
     background-color: rgb(235, 154, 154);
     cursor: pointer;
     font-size: 1.6em;
     text-align: center;
     padding: 0;
-}
+  }
 
+/* Start: Video Responsive */
+/* Start: Video Responsive */
 /* Start: Video Responsive */
 .video-responsive {
     overflow: hidden;
@@ -281,34 +287,37 @@ body {
     /* Adecua este valor para controlar la altura del video */
     position: relative;
     height: 0;
-}
-
-.video-responsive iframe {
+  }
+  
+  .video-responsive iframe {
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
     position: absolute;
-}
+  }
 
 /* End: Video Responsive */
 
+/* REDES SOCIALES MENU LATERAL DERECHO*/
+/* REDES SOCIALES MENU LATERAL DERECHO*/
+/* REDES SOCIALES MENU LATERAL DERECHO*/
 .social {
     padding: 0px;
     margin: 0px;
     position: fixed;
-    right: -130px;
+    right: -125px;
     top: 230px;
     width: 210px;
     z-index: 1100;
     opacity: 80%;
-}
-
-.social ul {
+  }
+  
+  .social ul {
     list-style: none;
-}
-
-.social ul li a {
+  }
+  
+  .social ul li a {
     display: inline-block;
     color: #fff;
     background: #000;
@@ -316,35 +325,37 @@ body {
     text-decoration: none;
     -webkit-transition: all 500ms ease;
     -o-transition: all 500ms ease;
-    transition: all 500ms ease; /* Establecemos una transición a todas las propiedades */
-}
-
-.social ul li .icon-facebook {
+    transition: all 500ms ease;
+    /* Establecemos una transición a todas las propiedades */
+  }
+  
+  .social ul li .icon-facebook {
     background: #3b5998;
-} /* Establecemos los colores de cada red social, aprovechando su class */
-.social ul li .icon-twitter {
-    background-image: linear-gradient(
-        to bottom right,
-        rgb(187, 20, 145),
-        rgb(230, 84, 91),
-        rgb(247, 146, 30)
-    );
-}
-.social ul li .icon-googleplus {
+  }
+  
+  /* Establecemos los colores de cada red social, aprovechando su class */
+  .social ul li .icon-twitter {
+    background-image: linear-gradient(to bottom right, rgb(187, 20, 145), rgb(220, 43, 20), rgb(247, 146, 30))
+  }
+  
+  .social ul li .icon-googleplus {
     background: red;
-}
-.social ul li .icon-pinterest {
+  }
+  
+  .social ul li .icon-pinterest {
     background: #1dae18;
-}
-.social ul li .icon-mail {
+  }
+  
+  .social ul li .icon-mail {
     background: #30b990;
-}
-
-.social ul li a:hover {
-    background: #000; /* Cambiamos el fondo cuando el usuario pase el mouse */
-    padding: 10px 30px; /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
-}
-
+  }
+  
+  .social ul li a:hover {
+    background: rgb(230, 84, 91);
+    /* Cambiamos el fondo cuando el usuario pase el mouse */
+    padding: 10px 24px;
+    /* Hacemos mas grande el espacio cuando el usuario pase el mouse */
+  }
 /*.pagination{
     margin: auto;
 }*/
@@ -360,4 +371,67 @@ body {
 }
 .active .page-link {
     background-color:rgb(198, 98, 103) !important;
+  }
+
+
+
+
+
+/*MEMBRESIAS MEMBRESIAS CARD DIV! DIV" DIV#*/
+/*MEMBRESIAS MEMBRESIAS CARD DIV! DIV" DIV#*/
+/*MEMBRESIAS MEMBRESIAS CARD DIV! DIV" DIV#*/
+
+.div1 h5, .div2 h5, .div3 h5 {
+    color:rgb(220, 43, 20)
+  }
+  .div1 button, .div2 button, .div3 button {
+    background-color:rgb(220, 43, 20);
+  }
+  
+  
+  .div1 h4, .div2 h4, .div3 h4 {
+    
+    border-bottom: 0.8px solid rgb(220, 43, 20);
+    
+  
+  }
+  .div1 {
+    background: url(/storage/img/semilla.png);
+    background-position: right bottom, left top;
+    background-size: 100px 80px;
+    background-repeat: no-repeat;
+    opacity: 70%;
+    background-color:white;
+  }
+  .div2{
+    background: url(/storage/img/raiz.png);
+    background-position: right bottom, left top;
+    background-size: 100px 80px;
+    background-repeat: no-repeat;
+    opacity: 70%;
+    background-color:white;
+  }
+  .div3{
+    background: url(/storage/img/arbol.png);
+    background-position: right bottom, left top;
+    background-size: 100px 80px;
+    background-repeat: no-repeat;
+    opacity: 70%;
+    background-color:white;
+  }
+  .talleres img {
+    max-width: 600px;
+     max-height: 400px;
+  }
+  .talleres p, span {
+    color:#4b0505;
+    font-size: 0.7cm;
+  }
+  
+  .talleres h5 {
+    color:#630d0d;
+  }
+  .talleres small {
+    color:#833232;
+    font-size: 0.5cm;
   }

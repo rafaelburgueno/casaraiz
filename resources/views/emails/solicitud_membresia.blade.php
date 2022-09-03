@@ -28,7 +28,9 @@
             <li>Comentario: {{ $solicitud['comentario'] }}</li>
         @endif
 
+        @if( isset($solicitud['recibir_novedades']) )
         <li>Deseo recibir novedades: {{ $solicitud['recibir_novedades'] }}</li>
+        @endif
         
         <li>Intereses:</li>
         <ul>

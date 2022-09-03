@@ -7,9 +7,12 @@
 @section('content')
 
 
-<div class="container">
+<div class="text-center my-4">
+    <h1 id="in" class="text-center pt-2">EDICIÓN DE POSTS</h1>
+</div>
 
-    <h2 class="text-center">Edición de posts</h2>
+
+<div class="container">
     
     <div class="row mb-5">
   
@@ -33,7 +36,11 @@
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                     @enderror
                     <div class="form-check mb-2">
-                        <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info', $post->multimedias->last()->imagen_con_info))>
+                        @if (count($post->multimedias))
+                            <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info', $post->multimedias->last()->imagen_con_info))>
+                        @else
+                            <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info'))>
+                        @endif
                         <label class="form-check-label" for="imagen_con_info">¿La imagen contiene información del post?</label>
                     </div>
                 </div>

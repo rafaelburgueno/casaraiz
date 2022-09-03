@@ -7,8 +7,8 @@
 @section('content')
 
 
-<div class="my-2">
-    <h1 id="in" class="text-center pt-2">FICHA DEL EVENTO</h1>
+<div class="text-center my-4">
+    <h1 id="in" class="text-center pt-2">{{ Str::ucfirst($evento->nombre) }}</h1>
 </div>
 
 
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <p class="card-text ">{{$evento->dia_de_semana}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
                     
-                    <h5 class="card-title my-1 text-dark"><strong>{{$evento->nombre}}</strong></h5>
+                    {{-- <h5 class="card-title my-1 text-dark"><strong>{{$evento->nombre}}</strong></h5>--}}
 
                     <div class="d-flex justify-content-between align-items-center">
                         <p class="card-text"><small>Inscripcion </small>
@@ -88,12 +88,11 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{route('inscripcion')}}" method="POST">
+                        <form action="{{route('inscripciones.store')}}" method="POST">
                             <div class="modal-body">
-
-
                                 @csrf
                                 @method('POST')
+
                                 <div class="form-row">
                                     <!-- input oculto con la informacion $evento->id -->
                                     <input type="hidden" name="id_evento" value="{{$evento->id}}">

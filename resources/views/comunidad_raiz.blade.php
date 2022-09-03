@@ -105,19 +105,36 @@
 
     <div>
         <h2 id="cb" class="text-center">MEMBRESIAS</h2><br>
-        <div class="container border border-3-danger pt-3">
+        <div class="container border border-3">
             <div class="row">
 
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="card div1">
                         <div class="card-body">
-                            <h5 class="card-title text-center" style=" color: brown;">SEMILLA</h5>
-                            <p class="card-text">
-                                Membresía individual, durante un año, que te permite acceder a todos 
-                                los beneficios de la comunidad.
+                            <h5 class="card-title text-center">SEMILLA</h5>
+                            <p class="card-text">Membresía individual,<br> durante un año, que te permite acceder a
+                                todos los beneficios de la comunidad.</p>
+                            <h4 class="text-center">$400</h4><br>
+                            <div class="text-center">
+                                <button type="button" class="btn " style="background-color: rgb(220, 43, 20); color: #e9e2e2;"
+                                    data-toggle="modal" data-target="#contacto"
+                                    id="contactobtn">OBTENER</button><br><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card div2">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">RAÍZ</h5>
+                            <p class="card-text">Membresía para dos personas,
+                                durante un año, que te permite acceder a todos los beneficios de la comunidad junto a
+                                un vinculo.
                             </p>
-                            <div class="text-center mt-3">
-                                <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                            <h4 class="text-center">$600</h4><br>
+                            <div class="text-center">
+                                <button type="button" class="btn " style="background-color: rgb(220, 43, 20); color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
                                 </button>
                             </div>
@@ -126,34 +143,14 @@
                 </div>
 
                 <div class="col-md-4">
-                    <div class="card">
+                    <div class="card div3">
                         <div class="card-body">
-                            <h5 class="card-title text-center" style=" color: brown;">RAÍZ</h5>
-                            <p class="card-text">
-                                Membresía para dos personas, 
-                                durante un año, que te permite acceder a todos los beneficios de la comunidad 
-                                junto a un vinculo.
-                            </p>
-                            <div class="text-center mt-3">
-                                <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
-                                    OBTENER
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title text-center" style=" color: brown;">ÁRBOL</h5>
-                            <p class="card-text">
-                                MEMBRESÍA FAMILIAR POR DOS AÑOS, PARA FAMILIAS DE HASTA 6
-                                INTEGRANTES, CON TODOS LOS
-                                BENEFICIOS PARA CADA UNO.
-                            </p>
-                            <div class="text-center mt-3">
-                                <button type="button" class="btn " style="background-color: coral; color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                            <h5 class="card-title text-center">ÁRBOL</h5>
+                            <p class="card-text">Membresía familiar por dos años, para familias de hasta 6 integrantes,
+                                con todos los beneficios para cada uno.</p>
+                                <h4 class="text-center">$1200</h4><br>
+                            <div class="text-center">
+                                <button type="button" class="btn " style="background-color: rgb(220, 43, 20); color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
                                 </button>
                             </div>
@@ -296,7 +293,7 @@
                                 </div>
                                 <div class="form-group pl-3">
                                     <div class="form check pl-1">
-                                        <input type="checkbox" class="form-check-input" name="recibir_novedades" @checked(old('recibir_novedades')) id="check" checked>
+                                        <input type="checkbox" class="form-check-input" name="recibir_novedades" @checked(old('recibir_novedades')) value="1" id="check" checked>
                                         <label class="form-check-label" for="check">Quiero recibir las novedades</label>
                                     </div>
                                 </div>

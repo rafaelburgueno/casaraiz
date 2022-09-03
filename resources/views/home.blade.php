@@ -23,8 +23,8 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 @endif--}}
 
 
-<div class="text-center py-4 my-0">
-    <h1 id="in" class="text-center">PROXIMAMENTE</h1>
+<div class="text-center my-4">
+    <h1 id="in" class="text-center pt-2">PROXIMAMENTE</h1>
 </div>
 
 
@@ -170,99 +170,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 --}}
 
 
-<!-- Grilla de eventos destacados -->
-<!-- Grilla de eventos destacados -->
-<!-- Grilla de eventos destacados -->
-<!-- Grilla de eventos destacados -->
-<div class="container my-5">
-    
-    <div class="row">
-    	<div class="col-md-6 mb-5">
-			<h3 class="text-center h3">Eventos destacados</h3>
-            <hr class="mb-3 mx-5">
-			@foreach ($eventos as $evento)
-        	<div class="card mb-4">
-				<!--las 3 siguientes lineas habilitan o deshabilitan las imagenes-->    {{----}}
-				{{--@if (count($t->multimedias))
-				<img src="{{$t->multimedias->last()->url}}" class="card-img-top" alt="...">
-				@endif--}}
-				<div class="card-body">
-					<p class="card-text mb-0">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{ $evento->anio}}</p>
-					{{--<p>{{$evento->fecha}}</p>--}}
-					<small class="card-text mt-0">De {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</small>
-					<a href="{{route('eventos.show', $evento)}}" class="mt-2">
-						<h5 class="card-title text-dark">{{$evento->nombre}}</h5>
-					</a>
-					{{--<small class="card-text">A cargo de {{$evento->responsable}}</small>--}}
-	
-					<div class="d-flex justify-content-between align-items-center mb-2">
-						@if($evento->costo_de_inscripcion == 0)
-						    <div class="card-text"><small>Entrada </small> <span class="h5">GRATIS</span></div>
-						@else
-                            <div class="card-text"><small>Entrada </small> <span class="h5">${{$evento->costo_de_inscripcion}}</span></div>
-                        @endif
-						{{--<div class="card-text">
-                            <small>Entrada </small>
-                            @if ($evento->costo_de_inscripcion == 0)
-                                <span class="h5">Gratis</span>
-                            @else
-                                <span class="h5">${{$evento->costo_de_inscripcion}}</span>
-                            @endif
-                        </div>--}}
-                            
-						<small class="text-dark">{{$evento->cupos_totales}} cupos</small>
-					</div>
-	
-					<p class="card-text">{{Str::limit($evento->descripcion, 100)}}</p>
-					<div class="d-flex justify-content-between align-items-center mb-2">
-						<a href="{{route('eventos.show', $evento)}}" class=""><small>más info...</small></a>
-					</div>
-						
-				</div>
-			</div>
-			@endforeach
-      	</div>
-      	
-		<div class="col-md-6 mb-5">
-			<h3 class="text-center h3">Talleres</h3>
-            <hr class="mb-3 mx-5">
-			@foreach ($talleres as $taller)
-			
-        	<div class="card mb-4">
-				<!--las 3 siguientes lineas habilitan o deshabilitan las imagenes-->    {{----}}
-				{{--@if (count($taller->multimedias))
-				<img src="{{$taller->multimedias->last()->url}}" class="card-img-top" alt="...">
-				@endif--}}
-				<div class="card-body">
-					<p class="card-text">{{$taller->dia_de_semana}} de {{$taller->hora_de_inicio}} a {{$taller->hora_de_fin}}hs.</p>
-					<a href="{{route('eventos.show', $taller)}}" class="mt-2">
-						<h5 class="card-title text-dark">{{$taller->nombre}}</h5>
-					</a>
-					<small class="card-text">A cargo de {{$taller->responsable}}</small>
-	
-					<div class="d-flex justify-content-between align-items-center mb-2">
-                        @if($taller->costo_de_inscripcion == 0)
-						    <div class="card-text"><small>Inscripción</small> <span class="h5">sin costo</span></div>
-						@else
-                            <div class="card-text"><small>Inscripción</small> <span class="h5">${{$taller->costo_de_inscripcion}}</span></div>
-                        @endif
-                        <small class="text-dark">{{$taller->cupos_totales}} cupos</small>
-					</div>
-	
-					<p class="card-text">{{Str::limit($taller->descripcion, 100)}}</p>
-					<div class="d-flex justify-content-between align-items-center mb-2">
-						<a href="{{route('eventos.show', $taller)}}" class=""><small>más info...</small></a>
-					</div>
-						
-				</div>
-			</div>
-			@endforeach
-      	</div>
 
-    </div>
-    
-    
-</div>
 
 
 

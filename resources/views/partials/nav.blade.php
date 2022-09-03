@@ -1,5 +1,5 @@
 <nav class="navbar navbar-light  navbar-expand-md site-header sticky-top fixed-top" id="nav">
-    <a class="navbar-brand navbar-logo" href="{{route('home')}}"><img src="{{asset('/storage/img/logo.png')}}"></a>
+    <a class="navbar-brand navbar-logo" href="{{route('home')}}"><img src="{{asset('/storage/img/logo_ultimo.png')}}"></a>
     <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" style="color: black; {{request()->routeIs('casa_raiz') ? 'opacity:60%;' : ''}}" href="{{route('casa_raiz')}}"><strong>Casa Raíz</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('casa_raiz') ? 'opacity:60%;' : ''}}" href="{{route('casa_raiz')}}"><strong>casaRAÍZ</strong></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: black; {{request()->routeIs('comunidad_raiz') ? 'opacity:60%;' : ''}}" href="{{route('comunidad_raiz')}}"><strong>Comunidad Raíz</strong></a>
@@ -29,13 +29,13 @@
             @if( Auth::check() && Auth::user()->rol == 'administrador' )
                 <li class="nav-item dropdown">
                     <a style="color: black;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <strong>Administrador</strong>
+                        <strong>Admin</strong>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
                         <a class="dropdown-item" href="{{route('eventos.index')}}">Eventos</a>
                         <a class="dropdown-item" href="{{route('banner.index')}}">Banner de inicio</a>
-                        <a class="dropdown-item" href="{{route('eventos.index')}}">Notificaciones y registros</a>
+                        <a class="dropdown-item" href="{{route('inscripciones.index')}}">Inscripciones y solicitudes</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Alguna funcionalidad más...</a>
                     </div>
@@ -44,7 +44,7 @@
 
             @if( Auth::check() )
             <li class="nav-item">
-                <a style="color: black;" class="nav-link" href="{{route('carrar_sesion')}}"><strong>Cerrar sesión</strong></a>
+                <a style="color: black;" class="nav-link" href="{{route('carrar_sesion')}}"><strong>Salir</strong></a>
             </li>
             @endif
 

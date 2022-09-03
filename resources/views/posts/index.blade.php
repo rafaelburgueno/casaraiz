@@ -7,7 +7,7 @@
 @section('content')
 
 
-<div class="my-2">
+<div class="text-center my-4">
     <h1 id="in" class="text-center pt-2">BLOG</h1>
 </div>
 

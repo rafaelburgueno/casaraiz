@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Evento;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Multimedia;
 
 class AgendaController extends Controller
 {
@@ -28,8 +29,11 @@ class AgendaController extends Controller
         }else{
             $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('activo', 1)->orderBy('fecha')->paginate(10);
         }
+
+        $banner = Multimedia::where('multimediaable_type', 'banner')->orderBy('relevancia','asc')->get();
         
         //session()->flash('exito', 'El AgendaController si funciona.');
-        return view('agenda', compact('eventos'));
+        return view('agenda')->with('eventos', $eventos)->with('banner', $banner);
+        //return view('agenda', compact('eventos'));
     }
 }

@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Producto;
-use App\Models\Comentario;
+use App\Models\Inscripcion;
 use App\Mail\LoQuieroMailable;
 use Illuminate\Support\Facades\Mail;
+
 
 class LoQuieroController extends Controller
 {
@@ -33,9 +34,23 @@ class LoQuieroController extends Controller
 
         $solicitud = $request->nombre.' '.$request->apellido.' quiere el producto: ' . $producto->nombre . ' (id: ' . $producto->id . ')';
 
-        Comentario::create([
-            'texto' => $solicitud,
-            'comentarioable_type' => 'Solicitud de producto',
+        $user = NULL;
+        if(auth()){
+            $user = auth()->id();
+        }
+
+        Inscripcion::create([
+            'user_id' => $user,
+            'nombre' => $request->nombre.' '.$request->apellido,
+            'correo' => $request->correo,
+            'documento_de_identidad' => $request->documento,
+            'telefono' => $request->telefono,
+            'inscripcionable_id' => $producto->id,
+            'inscripcionable_type' => 'App\Models\Producto',
+            'medio_de_pago' => $request->medio_de_pago,
+            'intereses' => NULL,
+            'comentario' => 'Quiere adquirir el producto ' . $producto->nombre . ' (id: ' . $producto->id . ').',
+            //'recibir_novedades' => NULL,
         ]);
         
         $correo = new LoQuieroMailable($request->all(), $producto);

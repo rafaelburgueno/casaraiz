@@ -11,6 +11,10 @@ class Comentario extends Model
 
     protected $fillable = [
         'texto',
+        'user_id',
+        'comentarioable_id',
         'comentarioable_type',
+        'nombre',
+        'correo',
     ];
 }
