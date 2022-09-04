@@ -71,6 +71,13 @@
                 <button type="submit" class="btn btn-outline-secondary btn-block">Actualizar</button>
               
             </form>
+
+            <form action="{{ route('blog.destroy', $post) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-outline-danger my-1">Eliminar Post</button>
+            </form>
+
         </div>
     </div>
 

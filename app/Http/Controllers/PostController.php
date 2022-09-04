@@ -185,8 +185,12 @@ class PostController extends Controller
 
             //return 'se guardo todo';
         }else{
-            $blog->multimedias->last()->imagen_con_info = $imagen_con_info;
-            $blog->multimedias->last()->save();
+            
+            if(count( $blog->multimedias )){
+                $blog->multimedias->last()->imagen_con_info = $imagen_con_info;
+                $blog->multimedias->last()->save();
+            }
+
         }
 
 
