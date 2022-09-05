@@ -23,11 +23,11 @@ class AgendaController extends Controller
         //$eventos = Evento::orderBy('fecha','desc')->paginate();
         //obtiene los eventos mas recientes
         if(Auth::check() && Auth::user()->rol == 'administrador'){
-            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->orderBy('fecha')->paginate(10);
+            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('es_extencion_del_evento_id', NULL)->orderBy('fecha')->paginate(10);
             //$eventos = Evento::orderBy('fecha')->get();
 
         }else{
-            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('activo', 1)->orderBy('fecha')->paginate(10);
+            $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('es_extencion_del_evento_id', NULL)->where('activo', 1)->orderBy('fecha')->paginate(10);
         }
 
         $banner = Multimedia::where('multimediaable_type', 'banner')->orderBy('relevancia','asc')->get();

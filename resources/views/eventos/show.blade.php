@@ -22,8 +22,14 @@
                 <img src="{{$evento->multimedias->last()->url}}" class="card-img-top" alt="...">
                 @endif
                 <div class="card-body">
-                    <p class="card-text ">{{$evento->dia_de_semana}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
-                    
+                    <p class="card-text mb-0">{{$evento->dia_de_semana}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
+                    @if ($evento->tiene_extenciones)
+                        @foreach ($evento->horarios_adicionales() as $adicional)
+                            @if($adicional->activo)
+                                <p class="card-text pt-0 my-0">{{$adicional->dia_de_semana}} de {{$adicional->hora_de_inicio}} a {{$adicional->hora_de_fin}}hs.</p>
+                            @endif
+                        @endforeach
+                    @endif
                     {{-- <h5 class="card-title my-1 text-dark"><strong>{{$evento->nombre}}</strong></h5>--}}
 
                     <div class="d-flex justify-content-between align-items-center">

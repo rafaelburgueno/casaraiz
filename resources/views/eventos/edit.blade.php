@@ -24,140 +24,109 @@
                 <div class="row">
                     <div class="col col-md-6">
    
-                        {{--<div class="form-group mb-3">
-                            <label for="tipo">Tipo de evento</label>
-                            <select class="form-control" id="tipo" name="tipo">
-                                <option value="evento">evento</option>
-                                <option value="taller">taller</option>
-                                <option value="curso">curso</option>
-                                <option value="Jueves">Jueves</option>
-                                <option value="Viernes">Viernes</option>
-                                <option value="Sabado">Sábado</option>
-                                <option value="Domingo">Domingo</option>
-                            </select>
-                        </div>--}}
-
                         <div class="form-group mb-3">
-                            <label for="tipo">Tipo de evento</label>
-                            <input required type="text" class="form-control" id="tipo" name="tipo" placeholder="..." value="{{old('tipo', $evento->tipo)}}">
-                            @error('tipo')
-                                <div class="alert alert-danger mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        
-                        <div class="form-group mb-3">
-                            <label for="nombre">Nombre</label>
+                            <label for="nombre">
+                                <h4 class="mb-0 mt-3">Nombre</h4>
+                                <hr  class="my-1">
+                            </label>
                             <input required type="text" class="form-control" id="nombre" name="nombre" placeholder="..." value="{{old('nombre', $evento->nombre)}}">
                             @error('nombre')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label for="lugar">Lugar</label>
-                            <input type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar', $evento->lugar)}}">
+                        <div class="row">
+
+                            <div class="col col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="tipo">
+                                        <h4 class="mb-0 mt-3">Tipo de evento</h4>
+                                        <hr  class="my-1">
+                                    </label>
+                                    <input required type="text" class="form-control" id="tipo" name="tipo" placeholder="..." value="{{old('tipo', $evento->tipo)}}">
+                                    @error('tipo')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                                {{--<div class="form-group mb-3">
+                                    <label for="tipo">Tipo de evento</label>
+                                    <select class="form-control" id="tipo" name="tipo">
+                                        <option value="evento">evento</option>
+                                        <option value="taller">taller</option>
+                                        <option value="curso">curso</option>
+                                        <option value="Jueves">Jueves</option>
+                                        <option value="Viernes">Viernes</option>
+                                        <option value="Sabado">Sábado</option>
+                                        <option value="Domingo">Domingo</option>
+                                    </select>
+                                </div>--}}
+                            </div>
+                        
+                        
+                            <div class="col col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="lugar">
+                                        <h4 class="mb-0 mt-3">Lugar</h4>
+                                        <hr  class="my-1">
+                                    </label>
+                                    <input type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar', $evento->lugar)}}">
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label for="relevancia">Relevancia</label>
-                            <input type="number" class="form-control" id="relevancia" name="relevancia" placeholder="..." value="{{old('relevancia', $evento->relevancia)}}" min="1">
-                        </div>
 
                         <div class="form-group mb-3">
-                            <label for="responsable">Responsable</label>
+                            <label for="responsable">
+                                <h4 class="mb-0 mt-3">Responsable</h4>
+                                <hr  class="my-1">
+                            </label>
                             <input required type="text" class="form-control" id="responsable" name="responsable" placeholder="..." value="{{old('responsable', $evento->responsable)}}">
                             @error('responsable')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
                         </div>
 
-                        <div class="form-group mb-3">
-                            <label for="descripcion">Descripcion</label>
-                            <textarea required class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion', $evento->descripcion)}}</textarea>
-                            @error('descripcion')
-                                <div class="alert alert-danger mt-1">{{ $message }}</div>
-                            @enderror
-                        </div>
-
-
-                    </div>
-                
-                    <div class="col-md-6">
-
-                        <!--checkbox para indicar la frecuencia del evento o taller-->
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="frecuencia_semanal" name="frecuencia_semanal" value="1" @checked(old('frecuencia_semanal', $evento->frecuencia_semanal))>
-                            <label class="form-check-label" for="frecuencia_semanal">Frecuencia semanal</label>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="frecuencia_mensual" name="frecuencia_mensual" value="1" @checked(old('frecuencia_mensual', $evento->frecuencia_mensual))>
-                            <label class="form-check-label" for="frecuencia_mensual">Frecuencia mensual</label>
-                        </div>
-                        <div class="form-check mb-3">
-                            <input type="checkbox" class="form-check-input" id="frecuencia_anual" name="frecuencia_anual" value="1" @checked(old('frecuencia_anual', $evento->frecuencia_anual))>
-                            <label class="form-check-label" for="frecuencia_anual">Frecuencia anual</label>
-                        </div>
-
-                        <div class="form-group mb-3">
-                            <label for="cupos_totales">Cupos</label>
-                            <input type="number" class="form-control" id="cupos_totales" name="cupos_totales" placeholder="..." value="{{old('cupos_totales', $evento->cupos_totales)}}" min="1">
-                        </div>
-
-                        <!--input para el costo de inscripcion-->
-                        <div class="form-group mb-3">
-                            <label for="costo_de_inscripcion">Costo de inscripcion</label>
-                            <input type="number" class="form-control" id="costo_de_inscripcion" name="costo_de_inscripcion" placeholder="..." value="{{old('costo_de_inscripcion', $evento->costo_de_inscripcion)}}" min="0">
-                        </div>
 
                         <div class="row">
+
                             <div class="col col-md-6">
-
+                                <!--input para el costo de inscripcion-->
                                 <div class="form-group mb-3">
-                                    <label for="fecha">Fecha</label>
-                                    <input type="date" class="form-control" id="fecha" name="fecha" value="{{old('fecha', $evento->fecha)}}">
+                                    <label for="costo_de_inscripcion">
+                                        <h4 class="mb-0 mt-3">Costo de inscripción</h4>
+                                        <hr  class="my-1">
+                                    </label>
+                                    <input type="number" class="form-control" id="costo_de_inscripcion" name="costo_de_inscripcion" placeholder="..." value="{{old('costo_de_inscripcion', $evento->costo_de_inscripcion)}}" min="0">
                                 </div>
-
                             </div>
 
                             <div class="col col-md-6">
-
-                                <!--selecciona el dia de la semana-->
                                 <div class="form-group mb-3">
-                                    <label for="dia_de_semana">Dia de la semana</label>
-                                    <select class="form-control" id="dia_de_semana" name="dia_de_semana">
-                                        <option value="Lunes" @selected((old('dia_de_semana') == "Lunes") || $evento->dia_de_semana == "Lunes" )>Lunes</option>
-                                        <option value="Martes" @selected((old('dia_de_semana') == "Martes") || $evento->dia_de_semana == "Martes" )>Martes</option>
-                                        <option value="Miércoles" @selected((old('dia_de_semana') == "Miércoles") || $evento->dia_de_semana == "Miércoles" )>Miércoles</option>
-                                        <option value="Jueves" @selected((old('dia_de_semana') == "Jueves") || $evento->dia_de_semana == "Jueves" )>Jueves</option>
-                                        <option value="Viernes" @selected((old('dia_de_semana') == "Viernes") || $evento->dia_de_semana == "Viernes" )>Viernes</option>
-                                        <option value="Sábado" @selected((old('dia_de_semana') == "Sábado") || $evento->dia_de_semana == "Sábado" )>Sábado</option>
-                                        <option value="Domingo" @selected((old('dia_de_semana') == "Domingo") || $evento->dia_de_semana == "Domingo" )>Domingo</option>
-                                    </select>
+                                    <label for="cupos_totales">
+                                        <h4 class="mb-0 mt-3">Cupos</h4>
+                                        <hr  class="my-1">
+                                    </label>
+                                    <input type="number" class="form-control" id="cupos_totales" name="cupos_totales" placeholder="..." value="{{old('cupos_totales', $evento->cupos_totales)}}" min="1">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col col-md-6">
-
-                                <div class="form-group mb-3">
-                                    <label for="hora_de_inicio">Hora de inicio</label>
-                                    <input type="time" class="form-control" id="hora_de_inicio" name="hora_de_inicio" value="{{old('hora_de_inicio', $evento->hora_de_inicio)}}">
-                                </div>
-
-                            </div>
-                            <div class="col col-md-6">
-
-                                <div class="form-group mb-3">
-                                    <label for="hora_de_fin">Hora de fin</label>
-                                    <input type="time" class="form-control" id="hora_de_fin" name="hora_de_fin" value="{{old('hora_de_fin', $evento->hora_de_fin)}}">
-                                </div>
-
-                            </div>
-                        </div>
 
                         <div class="form-group mb-3">
-                            <label for="imagen">Imagen</label>
+                            <label for="relevancia">
+                                <h4 class="mb-0 mt-3">Relevancia</h4>
+                                <hr  class="my-1">
+                            </label>
+                            <input type="number" class="form-control" id="relevancia" name="relevancia" placeholder="..." value="{{old('relevancia', $evento->relevancia)}}" min="1">
+                        </div>
+
+                        
+                        <div class="form-group mb-3">
+                            <label for="imagen">
+                                <h4 class="mb-0 mt-3">Imagen</h4>
+                                <hr  class="my-1">
+                            </label>
                             <input type="file" class="form-control" id="imagen" name="imagen" value="{{old('imagen')}}" accept="image/*">
                             @error('imagen')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -172,12 +141,326 @@
                             </div>
                         </div>
 
-                        <div class="form-check mb-2">
-                            <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo', $evento->activo))>
-                            <label class="form-check-label" for="activo">Publicar</label>
+
+                        <div class="form-group mb-3">
+                            <label for="descripcion">
+                                <h4 class="mb-0 mt-3">Descripción</h4>
+                                <hr  class="my-1">
+                            </label>
+                            <textarea required class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion', $evento->descripcion)}}</textarea>
+                            @error('descripcion')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
-                            
+
+
+                        <div class="row">
+                            <div class="col col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="fecha">
+                                        <h5 class="mb-0 mt-3">Fecha</h5>
+                                        <hr  class="my-1">
+                                    </label>
+                                    <input type="date" class="form-control" id="fecha" name="fecha" value="{{old('fecha', $evento->fecha)}}">
+                                </div>
+                            </div>
+
+                            <div class="col col-md-6">
+                                <!--checkbox para indicar la frecuencia del evento o taller-->
+                                <h5 class="mb-0 mt-3">Frecuencia</h5>
+                                <hr  class="my-1">
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" class="form-check-input" id="frecuencia_semanal" name="frecuencia_semanal" value="1" @checked(old('frecuencia_semanal', $evento->frecuencia_semanal))>
+                                    <label class="form-check-label" for="frecuencia_semanal">semanal</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" class="form-check-input" id="frecuencia_mensual" name="frecuencia_mensual" value="1" @checked(old('frecuencia_mensual', $evento->frecuencia_mensual))>
+                                    <label class="form-check-label" for="frecuencia_mensual">mensual</label>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input type="checkbox" class="form-check-input" id="frecuencia_anual" name="frecuencia_anual" value="1" @checked(old('frecuencia_anual', $evento->frecuencia_anual))>
+                                    <label class="form-check-label" for="frecuencia_anual">anual</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
                     </div>
+                
+                    <div class="col-md-6">
+
+                        <h4 class="mb-0 mt-3">Día 1</h4>
+                        <hr  class="my-1">
+                        <div class="row">
+                            <div class="col col-md-6">
+
+                                <!--selecciona el dia de la semana-->
+                                <div class="form-group mb-3">
+                                    <label for="dia_de_semana">Día de la semana</label>
+                                    <select class="form-control" id="dia_de_semana" name="dia_de_semana">
+                                        <option value="Lunes" @selected((old('dia_de_semana') == "Lunes") || $evento->dia_de_semana == "Lunes" )>Lunes</option>
+                                        <option value="Martes" @selected((old('dia_de_semana') == "Martes") || $evento->dia_de_semana == "Martes" )>Martes</option>
+                                        <option value="Miércoles" @selected((old('dia_de_semana') == "Miércoles") || $evento->dia_de_semana == "Miércoles" )>Miércoles</option>
+                                        <option value="Jueves" @selected((old('dia_de_semana') == "Jueves") || $evento->dia_de_semana == "Jueves" )>Jueves</option>
+                                        <option value="Viernes" @selected((old('dia_de_semana') == "Viernes") || $evento->dia_de_semana == "Viernes" )>Viernes</option>
+                                        <option value="Sábado" @selected((old('dia_de_semana') == "Sábado") || $evento->dia_de_semana == "Sábado" )>Sábado</option>
+                                        <option value="Domingo" @selected((old('dia_de_semana') == "Domingo") || $evento->dia_de_semana == "Domingo" )>Domingo</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col col-md-6">
+                                <div class="form-group mb-3">
+                                    <label for="hora_de_inicio">Hora de inicio</label>
+                                    <input type="time" class="form-control" id="hora_de_inicio" name="hora_de_inicio" value="{{old('hora_de_inicio', $evento->hora_de_inicio)}}">
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="hora_de_fin">Hora de fin</label>
+                                    <input type="time" class="form-control" id="hora_de_fin" name="hora_de_fin" value="{{old('hora_de_fin', $evento->hora_de_fin)}}">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        @if ($evento->tiene_extenciones && isset($evento->horarios_adicionales()[0])) 
+                            <h4>Día 2</h4>
+                            <hr>
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <!--selecciona el dia de la semana-->
+                                    <div class="form-group mb-3">
+                                        <label for="dia_de_semana_2">Dia de la semana</label>
+                                        <input type="hidden" name="id_extension_2" value="{{$evento->horarios_adicionales()[0]->id}}">
+                                        <select class="form-control" id="dia_de_semana_2" name="dia_de_semana_2">
+                                            <option value="Lunes" @selected((old('dia_de_semana_2') == "Lunes") || $evento->horarios_adicionales()[0]->dia_de_semana == "Lunes" )>Lunes</option>
+                                            <option value="Martes" @selected((old('dia_de_semana_2') == "Martes") || $evento->horarios_adicionales()[0]->dia_de_semana == "Martes" )>Martes</option>
+                                            <option value="Miércoles" @selected((old('dia_de_semana_2') == "Miércoles") || $evento->horarios_adicionales()[0]->dia_de_semana == "Miércoles" )>Miércoles</option>
+                                            <option value="Jueves" @selected((old('dia_de_semana_2') == "Jueves") || $evento->horarios_adicionales()[0]->dia_de_semana == "Jueves" )>Jueves</option>
+                                            <option value="Viernes" @selected((old('dia_de_semana_2') == "Viernes") || $evento->horarios_adicionales()[0]->dia_de_semana == "Viernes" )>Viernes</option>
+                                            <option value="Sábado" @selected((old('dia_de_semana_2') == "Sábado") || $evento->horarios_adicionales()[0]->dia_de_semana == "Sábado" )>Sábado</option>
+                                            <option value="Domingo" @selected((old('dia_de_semana_2') == "Domingo") || $evento->horarios_adicionales()[0]->dia_de_semana == "Domingo" )>Domingo</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" id="activar_dia_2" name="activar_dia_2" value="1" @checked(old('activar_dia_2', $evento->horarios_adicionales()[0]->activo))>
+                                        <label class="form-check-label" for="activar_dia_2">Publicar horario?</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="col col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_inicio_2">Hora de inicio</label>
+                                        <input type="time" class="form-control" id="hora_de_inicio_2" name="hora_de_inicio_2" value="{{old('hora_de_inicio_2', $evento->horarios_adicionales()[0]->hora_de_inicio)}}">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_fin_2">Hora de fin</label>
+                                        <input type="time" class="form-control" id="hora_de_fin_2" name="hora_de_fin_2" value="{{old('hora_de_fin_2', $evento->horarios_adicionales()[0]->hora_de_fin)}}">
+                                    </div>
+                                </div>
+
+                            </div>
+                        @else
+                            <h4>Día 2</h4>
+                            <hr>
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <!--selecciona el dia de la semana-->
+                                    <div class="form-group mb-3">
+                                        <label for="dia_de_semana_2">Dia de la semana</label>
+                                        <select class="form-control" id="dia_de_semana_2" name="dia_de_semana_2">
+                                            <option value="Lunes" @selected((old('dia_de_semana_2') == "Lunes") )>Lunes</option>
+                                            <option value="Martes" @selected((old('dia_de_semana_2') == "Martes") )>Martes</option>
+                                            <option value="Miércoles" @selected((old('dia_de_semana_2') == "Miércoles") )>Miércoles</option>
+                                            <option value="Jueves" @selected((old('dia_de_semana_2') == "Jueves") )>Jueves</option>
+                                            <option value="Viernes" @selected((old('dia_de_semana_2') == "Viernes") )>Viernes</option>
+                                            <option value="Sábado" @selected((old('dia_de_semana_2') == "Sábado") )>Sábado</option>
+                                            <option value="Domingo" @selected((old('dia_de_semana_2') == "Domingo") )>Domingo</option>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_inicio_2">Hora de inicio</label>
+                                        <input type="time" class="form-control" id="hora_de_inicio_2" name="hora_de_inicio_2" value="{{old('hora_de_inicio_2')}}">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_fin_2">Hora de fin</label>
+                                        <input type="time" class="form-control" id="hora_de_fin_2" name="hora_de_fin_2" value="{{old('hora_de_fin_2')}}">
+                                    </div>
+                                </div>
+
+                            </div>
+                        @endif
+
+
+                        @if ($evento->tiene_extenciones && isset($evento->horarios_adicionales()[1])) 
+                            <h4>Día 3</h4>
+                            <hr>
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <!--selecciona el dia de la semana-->
+                                    <div class="form-group mb-3">
+                                        <label for="dia_de_semana_3">Dia de la semana</label>
+                                        <input type="hidden" name="id_extension_3" value="{{$evento->horarios_adicionales()[1]->id}}">
+                                        <select class="form-control" id="dia_de_semana_3" name="dia_de_semana_3">
+                                            <option value="Lunes" @selected((old('dia_de_semana_3') == "Lunes") || $evento->horarios_adicionales()[1]->dia_de_semana == "Lunes" )>Lunes</option>
+                                            <option value="Martes" @selected((old('dia_de_semana_3') == "Martes") || $evento->horarios_adicionales()[1]->dia_de_semana == "Martes" )>Martes</option>
+                                            <option value="Miércoles" @selected((old('dia_de_semana_3') == "Miércoles") || $evento->horarios_adicionales()[1]->dia_de_semana == "Miércoles" )>Miércoles</option>
+                                            <option value="Jueves" @selected((old('dia_de_semana_3') == "Jueves") || $evento->horarios_adicionales()[1]->dia_de_semana == "Jueves" )>Jueves</option>
+                                            <option value="Viernes" @selected((old('dia_de_semana_3') == "Viernes") || $evento->horarios_adicionales()[1]->dia_de_semana == "Viernes" )>Viernes</option>
+                                            <option value="Sábado" @selected((old('dia_de_semana_3') == "Sábado") || $evento->horarios_adicionales()[1]->dia_de_semana == "Sábado" )>Sábado</option>
+                                            <option value="Domingo" @selected((old('dia_de_semana_3') == "Domingo") || $evento->horarios_adicionales()[1]->dia_de_semana == "Domingo" )>Domingo</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" id="activar_dia_3" name="activar_dia_3" value="1" @checked(old('activar_dia_3', $evento->horarios_adicionales()[1]->activo))>
+                                        <label class="form-check-label" for="activar_dia_3">Publicar horario?</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="col col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_inicio_3">Hora de inicio</label>
+                                        <input type="time" class="form-control" id="hora_de_inicio_3" name="hora_de_inicio_3" value="{{old('hora_de_inicio_3', $evento->horarios_adicionales()[1]->hora_de_inicio)}}">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_fin_3">Hora de fin</label>
+                                        <input type="time" class="form-control" id="hora_de_fin_3" name="hora_de_fin_3" value="{{old('hora_de_fin_3', $evento->horarios_adicionales()[1]->hora_de_fin)}}">
+                                    </div>
+                                </div>
+
+                            </div>
+                        @else
+                            <h4>Día 3</h4>
+                            <hr>
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <!--selecciona el dia de la semana-->
+                                    <div class="form-group mb-3">
+                                        <label for="dia_de_semana_3">Dia de la semana</label>
+                                        <select class="form-control" id="dia_de_semana_3" name="dia_de_semana_3">
+                                            <option value="Lunes" @selected((old('dia_de_semana_3') == "Lunes") )>Lunes</option>
+                                            <option value="Martes" @selected((old('dia_de_semana_3') == "Martes") )>Martes</option>
+                                            <option value="Miércoles" @selected((old('dia_de_semana_3') == "Miércoles") )>Miércoles</option>
+                                            <option value="Jueves" @selected((old('dia_de_semana_3') == "Jueves") )>Jueves</option>
+                                            <option value="Viernes" @selected((old('dia_de_semana_3') == "Viernes") )>Viernes</option>
+                                            <option value="Sábado" @selected((old('dia_de_semana_3') == "Sábado") )>Sábado</option>
+                                            <option value="Domingo" @selected((old('dia_de_semana_3') == "Domingo") )>Domingo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_inicio_3">Hora de inicio</label>
+                                        <input type="time" class="form-control" id="hora_de_inicio_3" name="hora_de_inicio_3" value="{{old('hora_de_inicio_3')}}">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_fin_3">Hora de fin</label>
+                                        <input type="time" class="form-control" id="hora_de_fin_3" name="hora_de_fin_3" value="{{old('hora_de_fin_3')}}">
+                                    </div>
+                                </div>
+
+                            </div>
+                        @endif
+                                
+                            
+                        @if ($evento->tiene_extenciones && isset($evento->horarios_adicionales()[2]))     
+                            <h4>Día 4</h4>
+                            <hr>
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <!--selecciona el dia de la semana-->
+                                    <div class="form-group mb-3">
+                                        <label for="dia_de_semana_4">Dia de la semana</label>
+                                        <input type="hidden" name="id_extension_4" value="{{$evento->horarios_adicionales()[2]->id}}">
+                                        <select class="form-control" id="dia_de_semana_4" name="dia_de_semana_4">
+                                            <option value="Lunes" @selected((old('dia_de_semana_4') == "Lunes") || $evento->horarios_adicionales()[2]->dia_de_semana == "Lunes" )>Lunes</option>
+                                            <option value="Martes" @selected((old('dia_de_semana_4') == "Martes") || $evento->horarios_adicionales()[2]->dia_de_semana == "Martes" )>Martes</option>
+                                            <option value="Miércoles" @selected((old('dia_de_semana_4') == "Miércoles") || $evento->horarios_adicionales()[2]->dia_de_semana == "Miércoles" )>Miércoles</option>
+                                            <option value="Jueves" @selected((old('dia_de_semana_4') == "Jueves") || $evento->horarios_adicionales()[2]->dia_de_semana == "Jueves" )>Jueves</option>
+                                            <option value="Viernes" @selected((old('dia_de_semana_4') == "Viernes") || $evento->horarios_adicionales()[2]->dia_de_semana == "Viernes" )>Viernes</option>
+                                            <option value="Sábado" @selected((old('dia_de_semana_4') == "Sábado") || $evento->horarios_adicionales()[2]->dia_de_semana == "Sábado" )>Sábado</option>
+                                            <option value="Domingo" @selected((old('dia_de_semana_4') == "Domingo") || $evento->horarios_adicionales()[2]->dia_de_semana == "Domingo" )>Domingo</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" id="activar_dia_4" name="activar_dia_4" value="1" @checked(old('activar_dia_4', $evento->horarios_adicionales()[2]->activo))>
+                                        <label class="form-check-label" for="activar_dia_4">Publicar horario?</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="col col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_inicio_4">Hora de inicio</label>
+                                        <input type="time" class="form-control" id="hora_de_inicio_4" name="hora_de_inicio_4" value="{{old('hora_de_inicio_4', $evento->horarios_adicionales()[2]->hora_de_inicio)}}">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_fin_4">Hora de fin</label>
+                                        <input type="time" class="form-control" id="hora_de_fin_4" name="hora_de_fin_4" value="{{old('hora_de_fin_4', $evento->horarios_adicionales()[2]->hora_de_fin)}}">
+                                    </div>
+                                </div>
+
+                            </div>
+                        @else
+                            <h4>Día 4</h4>
+                            <hr>
+                            <div class="row">
+                                <div class="col col-md-6">
+
+                                    <!--selecciona el dia de la semana-->
+                                    <div class="form-group mb-3">
+                                        <label for="dia_de_semana_4">Dia de la semana</label>
+                                        <select class="form-control" id="dia_de_semana_4" name="dia_de_semana_4">
+                                            <option value="Lunes" @selected((old('dia_de_semana_4') == "Lunes") )>Lunes</option>
+                                            <option value="Martes" @selected((old('dia_de_semana_4') == "Martes") )>Martes</option>
+                                            <option value="Miércoles" @selected((old('dia_de_semana_4') == "Miércoles") )>Miércoles</option>
+                                            <option value="Jueves" @selected((old('dia_de_semana_4') == "Jueves") )>Jueves</option>
+                                            <option value="Viernes" @selected((old('dia_de_semana_4') == "Viernes") )>Viernes</option>
+                                            <option value="Sábado" @selected((old('dia_de_semana_4') == "Sábado") )>Sábado</option>
+                                            <option value="Domingo" @selected((old('dia_de_semana_4') == "Domingo") )>Domingo</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_inicio_4">Hora de inicio</label>
+                                        <input type="time" class="form-control" id="hora_de_inicio_4" name="hora_de_inicio_4" value="{{old('hora_de_inicio_4')}}">
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="hora_de_fin_4">Hora de fin</label>
+                                        <input type="time" class="form-control" id="hora_de_fin_4" name="hora_de_fin_4" value="{{old('hora_de_fin_4')}}">
+                                    </div>
+                                </div>
+
+                            </div>
+                        @endif                        
+                        
+                    </div>
+
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo', $evento->activo))>
+                        <label class="form-check-label" for="activo">Publicar?</label>
+                    </div>
+                            
                 </div>
         
                 <button type="submit" class="btn btn-outline-secondary btn-block">Actualizar evento</button>

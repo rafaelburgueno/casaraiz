@@ -19,7 +19,7 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $eventos = Evento::orderBy('activo','desc')->orderBy('fecha')->paginate();
+        $eventos = Evento::where('es_extencion_del_evento_id', NULL)->orderBy('activo','desc')->orderBy('fecha')->paginate();
         //$eventos = Evento::all();
         //devuelve los eventos paginados
         // ...test/eventos?page=2
@@ -62,7 +62,7 @@ class EventoController extends Controller
     {
         //return $request->all();
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
-            'nombre' => 'required|max:255',
+            'nombre' => 'required|unique:eventos|max:255',
             'tipo' => 'required|max:25',
             'responsable' => 'required|max:100',
             'descripcion' => 'required|max:255',
@@ -111,9 +111,24 @@ class EventoController extends Controller
         }else{
             $evento->activo = false;
         }
-        
 
         $evento -> save();
+
+
+        if($request->hora_de_inicio_2 && $request->hora_de_fin_2){
+            EventoController::extender_evento($request->nombre, $request->dia_de_semana_2, $request->hora_de_inicio_2, $request->hora_de_fin_2, $evento->id);
+
+            if($request->hora_de_inicio_3 && $request->hora_de_fin_3){
+                EventoController::extender_evento($request->nombre, $request->dia_de_semana_3, $request->hora_de_inicio_3, $request->hora_de_fin_3, $evento->id);
+
+                if($request->hora_de_inicio_4 && $request->hora_de_fin_4){
+                    EventoController::extender_evento($request->nombre, $request->dia_de_semana_4, $request->hora_de_inicio_4, $request->hora_de_fin_4, $evento->id);
+                }
+            }
+
+            $evento->update(['tiene_extenciones' => 1]);
+
+        }
 
         //return $request->all();
         //IMAGEN
@@ -251,7 +266,10 @@ class EventoController extends Controller
             $evento->activo = false;
         }
         
-        
+        $imagen_con_info = false;
+        if($request->imagen_con_info){
+            $imagen_con_info = true;
+        }
         
         if($request->file('imagen')){
             
@@ -260,11 +278,6 @@ class EventoController extends Controller
             
             //cambia el nombre de la ruta , para que sea accesible desde la carpeta public
             $url = Storage::url($imagen);
-
-            $imagen_con_info = false;
-            if($request->imagen_con_info){
-                $imagen_con_info = true;
-            }
 
             Multimedia::create([
                 'url' => $url,
@@ -279,15 +292,52 @@ class EventoController extends Controller
 
             //return 'se guardo todo';
         }else{
-            $imagen_con_info = false;
-            if($request->imagen_con_info){
-                $imagen_con_info = true;
+            
+            if(count( $evento->multimedias )){
+                $evento->multimedias->last()->imagen_con_info = $imagen_con_info;
+                $evento->multimedias->last()->save();
             }
-            $evento->multimedias->last()->imagen_con_info = $imagen_con_info;
-            $evento->multimedias->last()->save();
         }
 
         $evento -> save();
+
+
+        // horarios adicionales
+        if($request->hora_de_inicio_2 && $request->hora_de_fin_2){
+            if($request->id_extension_2){
+                $activar_dia = false;
+                if($request->activar_dia_2){ $activar_dia = true;}
+                EventoController::extender_evento_update($request->nombre, $request->dia_de_semana_2, $request->hora_de_inicio_2, $request->hora_de_fin_2, $request->id_extension_2, $activar_dia);
+            }else{
+                EventoController::extender_evento($request->nombre, $request->dia_de_semana_2, $request->hora_de_inicio_2, $request->hora_de_fin_2, $evento->id);
+            }
+
+            if($request->hora_de_inicio_3 && $request->hora_de_fin_3){
+                if($request->id_extension_3){
+                    $activar_dia = false;
+                    if($request->activar_dia_3){ $activar_dia = true;}
+                    EventoController::extender_evento_update($request->nombre, $request->dia_de_semana_3, $request->hora_de_inicio_3, $request->hora_de_fin_3, $request->id_extension_3, $activar_dia);
+                }else{
+                    EventoController::extender_evento($request->nombre, $request->dia_de_semana_3, $request->hora_de_inicio_3, $request->hora_de_fin_3, $evento->id);
+                }
+
+                
+                if($request->hora_de_inicio_4 && $request->hora_de_fin_4){
+                    if($request->id_extension_4){
+                        $activar_dia = false;
+                        if($request->activar_dia_4){ $activar_dia = true;}
+                        EventoController::extender_evento_update($request->nombre, $request->dia_de_semana_4, $request->hora_de_inicio_4, $request->hora_de_fin_4, $request->id_extension_4, $activar_dia);
+                    }else{
+                        EventoController::extender_evento($request->nombre, $request->dia_de_semana_4, $request->hora_de_inicio_4, $request->hora_de_fin_4, $evento->id);
+                    }
+                }
+                
+            }
+
+            $evento->update(['tiene_extenciones' => 1]);
+
+        }
+
 
         session()->flash('exito', 'El evento fue editado.');
 
@@ -304,6 +354,12 @@ class EventoController extends Controller
      */
     public function destroy(Evento $evento)
     {
+        if($evento->tiene_extenciones){
+            $horarios_adicionales = $evento->horarios_adicionales();
+            foreach ($horarios_adicionales as $horario){ 
+                $horario->delete();
+                }
+        }
         $evento->delete();
         session()->flash('exito', 'El evento fue eliminado.');
         
@@ -315,6 +371,43 @@ class EventoController extends Controller
         return redirect() -> route('eventos.index');
     }
 
+
+
+    //funcion para agregar dia y hora adicionales a un evento
+    public function extender_evento($nombre, $dia_de_semana, $hora_de_inicio, $hora_de_fin, $evento_id){
+        
+        $extension_de_evento = new Evento();
+
+        $extension_de_evento->slug = 'Extensión|' . strtolower(Str::slug($nombre, '-'));// los eventos se identifican con este campo, por eso sustituimos los espacios y lo pasamos a minusculas
+        $extension_de_evento->nombre = 'Extensión | ' .$nombre;
+        $extension_de_evento->tipo = 'Extensión de horario';
+
+        $extension_de_evento->user_id = auth()->id(); //registra al usuario que crea el evento
+        //$extension_de_evento->descripcion = $request->descripcion;
+
+        $extension_de_evento->dia_de_semana = $dia_de_semana;
+        $extension_de_evento->hora_de_inicio = $hora_de_inicio;
+        $extension_de_evento->hora_de_fin = $hora_de_fin;
+        $extension_de_evento->es_extencion_del_evento_id = $evento_id;
+
+        $extension_de_evento -> save();
+
+    }
+
+    //funcion para agregar dia y hora adicionales a un evento
+    public function extender_evento_update($nombre, $dia_de_semana, $hora_de_inicio, $hora_de_fin, $id_extension, $activar_dia){
+        
+        $extension_de_evento = Evento::findOrFail($id_extension);
+
+        $extension_de_evento->update([
+            'user_id' => auth()->id(),
+            'dia_de_semana' => $dia_de_semana,
+            'hora_de_inicio' => $hora_de_inicio,
+            'hora_de_fin' => $hora_de_fin,
+            'activo' => $activar_dia,
+        ]);
+
+    }
 
 
     //funcion que recibe el numero del mes y devuelve un string con el nombre del mes

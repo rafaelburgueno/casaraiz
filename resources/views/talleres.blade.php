@@ -43,7 +43,15 @@
             
                 <div class="card-body">
                 
-                    <p class="card-text">{{$t->dia_de_semana}} de {{$t->hora_de_inicio}} a {{$t->hora_de_fin}}hs.</p>
+                    <p class="card-text mb-0">{{$t->dia_de_semana}} de {{$t->hora_de_inicio}} a {{$t->hora_de_fin}}hs.</p>
+                    @if ($t->tiene_extenciones)
+                        @foreach ($t->horarios_adicionales() as $adicional) 
+                            @if($adicional->activo)
+                                <p class="card-text pt-0 my-0">{{$adicional->dia_de_semana}} de {{$adicional->hora_de_inicio}} a {{$adicional->hora_de_fin}}hs.</p>
+                            @endif
+                        @endforeach
+                    @endif
+
                     <a href="{{route('eventos.show', $t)}}" class="mt-2">
                         <h5 class="card-title text-dark">{{$t->nombre}}</h5>
                     </a>

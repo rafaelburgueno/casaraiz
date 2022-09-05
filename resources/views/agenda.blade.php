@@ -43,9 +43,12 @@
                 
                     <div class="card-body">
                     
-                        <p class="card-text">{{$evento->dia_de_semana}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
+                        {{--<p class="card-text">{{$evento->dia_de_semana}} de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>--}}
+                        <div class="text-muted fw-light">
+                            <small>{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->anio}}, {{ $evento->hora_de_inicio }}hs a {{ $evento->hora_de_fin }}hs</small>
+                          </div>
                         <a href="{{route('eventos.show', $evento)}}" class="mt-2">
-                            <h5 class="card-title text-dark">{{$evento->nombre}}</h5>
+                            <h5 class="card-title text-dark">{{Str::ucfirst($evento->nombre)}}</h5>
                         </a>
                         <small>{{ Str::ucfirst($evento->tipo) }} a cargo de {{$evento->responsable}}</small><br>
                         @if($evento->lugar)
