@@ -196,11 +196,12 @@ Route::controller(InscripcionesController::class)->group(function () {
 
 // Ruta para ejecutar comandos artisan desde la web
 // se debe desactivar esta ruta despues del desarrollo
-/*Route::get('/artisan/{command}', function ($command) {
+// https://www.casaraiz.uy/artisan/migrate
+Route::get('/artisan/{command}', function ($command) {
     Artisan::call($command);
     dd(Artisan::output());
     //return Artisan::output();
-});*/
+})->middleware('administrador');
 
 // Ruta para ejecutar el comando que resuelve el problema del enjace simbolico
 // php artisan storage:link
