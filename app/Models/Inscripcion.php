@@ -42,8 +42,14 @@ class Inscripcion extends Model
         }
         if($this->inscripcionable_type == 'App\Models\Evento' && isset($this->inscripcionable_id)){
             $evento = Evento::find($this->inscripcionable_id);
-            
-            return Str::ucfirst($evento->tipo) . ' | ' . $evento->nombre;
+            if(isset($evento->tipo)){
+                return Str::ucfirst($evento->tipo) . ' | ' . $evento->nombre;
+            }if(isset($evento->nombre)){
+                return 'no hay tipo | ' . $evento->nombre;
+            }else{
+                return 'ops! el evento fue eliminado';
+            }
+
         }
         if($this->inscripcionable_type == 'App\Models\Producto' && isset($this->inscripcionable_id)){
             $producto = Producto::find($this->inscripcionable_id);
