@@ -12,9 +12,24 @@
     </div>
 
 
+<!-- Tabla de Usuarios -->
+<link rel="stylesheet" type="text/css" href="{{ asset('/css/dataTables.css')}}">
+{{--<link rel="stylesheet" type="text/css" href="{{ asset('/css/calendar.css')}}" />--}}
+<script type="text/javascript" src="{{ asset('/js/dataTables.js')}}" charset="utf8"></script>
+{{--<script type="text/javascript" src="{{ asset('/js/calendar.js') }}"></script>--}}
+
+<script>
+    $(document).ready( function () {
+        $('#table_id').DataTable();
+    } );
+</script>
+
+<!-- Tabla de Usuarios -->
+
+
     <div class="container">
 
-        <table class="table table-striped table-hover">
+        <table id="table_id" class="display {{--table table-striped table-hover--}}">
             <thead>
                 <tr>
                     <th>id</th>

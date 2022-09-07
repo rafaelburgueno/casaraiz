@@ -76,7 +76,7 @@
         color: #CBD1D2; }
       .calendar .day.wrong-month:hover {
         border: 2px solid transparent; }
-      .calendar .day.has-event:after {
+      .calendar .day.has-event:after {  /* (circulo que se agranda)*/
         content: '';
         position: absolute;
         top: calc(50% + .6em);
@@ -84,7 +84,7 @@
         width: 4px;
         height: 4px;
         border-radius: 50%;
-        background-color: #505050;}  /* MODIFIQUE ESTA LINEA: color original : #6691CC */
+        background-color: rgba(198, 98,103,0.5);}  /* (circulo que se agranda) punto que esta abajo del dia que tiene eventos. color original : #6691CC */
       .calendar .day.disabled {
         cursor: default; }
         .calendar .day.disabled:hover {
@@ -98,7 +98,7 @@
       height: 100%;
       padding: 70px 20px 20px 20px; /* MODIFIQUE ESTA LINEA: */
       
-      background: #545A5C;
+      background-color: rgba(198, 98,103,0.5); /* panel desplegable */
       box-sizing: border-box; }
       .calendar .event-container .event-wrapper {
         overflow-y: auto;
@@ -127,7 +127,7 @@
         width: 100%;
         padding: 1em;
         margin-bottom: 1em;
-        background: #6691CC;
+        background: rgb(198, 98,103); /* */
         border-radius: 4px;
         box-sizing: border-box;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12);
@@ -148,5 +148,5 @@
       transform: translate(-50%, -50%); }
 
       .has-event{
-        background-color: rgba(255, 141, 141, 0.5) !important;
+        background-color: rgba(255, 141, 141, 0.5) !important; /* circulo que marca un evento en el calendario*/
       }

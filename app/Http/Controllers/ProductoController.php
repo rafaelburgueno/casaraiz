@@ -212,6 +212,8 @@ class ProductoController extends Controller
         $tienda->user_id = auth()->id(); //usuario logueado que registra el producto
         if($request->proveedor){
             $tienda->proveedor = $request->proveedor;
+        }else{
+            $tienda->proveedor = '';
         }
 
         //$tienda->proveedor = $request->proveedor;

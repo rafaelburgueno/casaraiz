@@ -34,7 +34,7 @@
                         <h2 class="p-3">
                             <div class=" text-left" type="button" data-toggle="collapse" data-target="#collapse{{$evento->id}}" aria-expanded="true" aria-controls="collapse{{$evento->id}}">
                                 @if(!$evento->activo)
-                                <span class="float-right m-1 badge badge-danger">El evento no es público</span>
+                                <span class="float-right m-1 badge badge-danger" style="font-size:10px;">El evento no es público</span>
                                 @endif
                                 <small class="h6">Id: {{$evento->id}}</small>
                                 <p class="card-text h6">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->anio}}, de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>

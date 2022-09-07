@@ -223,6 +223,15 @@ class PostController extends Controller
     }
 
 
+    public function video_responsive($data){
+
+        str_replace('<iframe ', '<div class="col-sm video-responsive"><iframe ',$data);
+        str_replace('</iframe>', '</iframe></div> ',$data);
+
+        return $data;
+
+    }
+
 
 
 }
