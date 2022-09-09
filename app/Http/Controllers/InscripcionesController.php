@@ -62,6 +62,9 @@ class InscripcionesController extends Controller
             $user = auth()->id();
         }
 
+        $recibir_novedades = false;
+        if($request->recibir_novedades == '1'){$recibir_novedades = true;}
+
         Inscripcion::create([
             'user_id' => $user,
             'nombre' => $request->nombre.' '.$request->apellido,
@@ -73,7 +76,7 @@ class InscripcionesController extends Controller
             'medio_de_pago' => $request->medio_de_pago,
             'intereses' => NULL,
             'comentario' => 'Solicita inscribirse al ' . $evento->tipo . ': ' . $evento->nombre . '.',
-            //'recibir_novedades' => NULL,
+            'recibir_novedades' => $recibir_novedades,
             
         ]);
         

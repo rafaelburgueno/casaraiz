@@ -37,6 +37,9 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 
 
 
+
+
+
 <!-- video -->
 @include('partials.video')
 
@@ -88,7 +91,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
       		<div class="col-sm-4">
         		<div class="card">
           			<div class="card-body">
-           				<h1 class="card-title text-center" id="card-index">BANCO DE SEMILLAS</h1>
+           				<h1 class="card-title text-center" id="card-index">ALMACEN DE SEMILLAS</h1>
             			<p class="card-text text-center" style="font-size: 22px;"><strong>Conocé nuestro calendario y a quienes dan los talleres. Tenemos diferentes horarios y días.</strong></p>
             			<a href="#" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
           			</div>

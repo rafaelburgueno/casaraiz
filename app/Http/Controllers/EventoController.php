@@ -68,6 +68,7 @@ class EventoController extends Controller
             'descripcion' => 'required|max:255',
             'lugar' => 'max:100',
             'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            'descripcion_img' => 'max:255',
         ]);
         
         $evento = new Evento();
@@ -146,9 +147,14 @@ class EventoController extends Controller
                 $imagen_con_info = true;
             }
 
+            $descripcion_img = $request->descripcion;
+            if($request->descripcion_img){
+                $descripcion_img = $request->descripcion_img;
+            }
+
             Multimedia::create([
                 'url' => $url,
-                'descripcion' => $request->nombre,
+                'descripcion' => $descripcion_img,
                 'relevancia' => 1,
                 'imagen_con_info' => $imagen_con_info,
                 'resolucion' => 'TODO',

@@ -21,9 +21,85 @@
     </div>
     @endif
     
-    
-    <div class="row mb-5 mt-3">
 
+    <!-- Tabla de Eventos -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/dataTables.css')}}">
+    {{--<link rel="stylesheet" type="text/css" href="{{ asset('/css/calendar.css')}}" />--}}
+    <script type="text/javascript" src="{{ asset('/js/dataTables.js')}}" charset="utf8"></script>
+    {{--<script type="text/javascript" src="{{ asset('/js/calendar.js') }}"></script>--}}
+
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable({
+                order: [
+                    [0, 'desc']
+                ]
+            });
+        } );
+    </script>
+
+<div class="pb-3" style="overflow-x: scroll;">
+    <table id="table_id" class="display {{--table table-striped table-hover table-sm--}}">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Tipo</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th>Nombre</th>
+                <th>Activo?</th>
+                {{--<th>Extenciones?</th>--}}
+                <th>Cupos</th>
+                <th>Administrar</th>
+
+                {{--<th>Responsable</th>
+                <th>activo</th>
+                <th>Teléfono</th>--}}
+                
+            </tr>
+        </thead>
+        <tbody>
+        
+            @foreach ($eventos as $evento)
+                <tr>
+                    <td>{{ $evento->id }}</td>
+                    <td>{{ $evento->tipo }}</td>
+                    <td>{{ $evento->created_at->format('d/m/Y') }}</td>
+                    <td>
+                        {{ substr($evento->dia_de_semana, 0, 10) }} de {{ $evento->hora_de_inicio }} a {{ $evento->hora_de_fin }}hs.
+                        @if($evento->tiene_extenciones)
+                            @foreach ($evento->horarios_adicionales() as $adicional) 
+                                @if($adicional->activo)
+                                     <br>{{ substr($adicional->dia_de_semana, 0, 10) }} de {{$adicional->hora_de_inicio}} a {{$adicional->hora_de_fin}}hs.
+                                @endif
+                            @endforeach
+                        @endif
+                    </td>
+                    <td>{{ $evento->nombre }}</td>
+
+                    <td>
+                        @if($evento->activo)
+                            SI
+                        @else
+                            NO
+                        @endif
+                    </td>
+                    {{--<td>{{ $evento->tiene_extenciones }}</td>--}}
+                    <td>{{ $evento->cupos_disponibles }}</td>
+                    <td>
+                        <a href="{{route('eventos.show', $evento)}}" class="btn btn-sm btn-outline-secondary ">Ver</a>
+                        <a href="{{route('eventos.edit', $evento)}}" class="btn btn-sm btn-outline-secondary ">Editar</a>
+                    </td>
+                    
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+    
+    {{--<div class="row mb-5 mt-3">--}}
+        {{--
         <div class="col-md-12 mb-5">
             <div class="accordion" id="accordionEventos">
 
@@ -44,7 +120,7 @@
                     </div>
                     
                     <div id="collapse{{$evento->id}}" class="collapse" aria-labelledby="heading{{$evento->id}}" data-parent="#accordionEventos">
-                        {{--<hr>--}}
+                        
                         <div class="card-body py-0">
                             <p class="">{{$evento->descripcion}}</p>
                             <p class="card-text"><small>Inscripcion </small>
@@ -59,14 +135,9 @@
                             
                             <div class="d-flex justify-content-between align-items-center mb-2">
                                 <a href="{{route('eventos.show', $evento)}}" class="">
-                                    <button class="btn btn-outline-secondary btn-sm mb-3">Ver...</button>
-                                    {{--<span class="text-dark">ver...</span>--}}
+                                    <button class="btn btn-outline-secondary btn-sm mb-3">Ver...</button>        
                                 </a>
                             
-                                {{--<button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
-                                    data-toggle="modal" data-target="#inscribirme-{{$evento->id}}" id="contactobtn-{{$evento->id}}">
-                                    Inscribirme
-                                </button>--}}
                             </div>
 
                         </div>
@@ -85,16 +156,16 @@
 
             </div>
         </div>
-
+        --}}
         
         <!-- Botones de paginacion -->
-        <div class="d-flex justify-content-center">
+        {{--<div class="d-flex justify-content-center">
             {{ $eventos->links('pagination::bootstrap-4') }}
-        </div>
+        </div>--}}
 
 
         
-    {{--{{ $eventos->links() }}--}}
+        {{--{{ $eventos->links() }}--}}
 
         {{--@foreach ($eventos as $evento)
         <div class="col-md-6">
@@ -119,7 +190,7 @@
         </div>
         @endforeach--}}
         
-    </div>
+    {{--</div>--}}
 
       
 

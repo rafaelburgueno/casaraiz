@@ -87,7 +87,7 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<form action="{{route('lo_quiero')}}" method="POST">
+						<form action="{{route('lo_quiero')}}" method="POST" onsubmit="return validateForm({{$producto->id}})" class="was-validated">
 							<div class="modal-body">
 								@csrf
 								@method('POST')
@@ -96,62 +96,76 @@
 									<!-- input oculto con la informacion $producto->id -->
 									<input type="hidden" name="id_producto" value="{{$producto->id}}">
 
+									<!-- Input nombre{{$producto->id}} -->
 									<div class="form-group col-sm-6">
-										<label for="nombre">Nombre: </label>
-										<input required type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="Ingrese su nombre">
+										<label for="nombre{{$producto->id}}">Nombre: </label>
+										<input required type="text" class="form-control" id="nombre{{$producto->id}}" name="nombre" value="{{old('nombre')}}" placeholder="Ingrese su nombre">
 										@error('nombre')
 											<div class="alert alert-danger mt-1">{{ $message }}</div>
 										@enderror
 									</div>
 
+									<!-- Input apellido{{$producto->id}} -->
 									<div class="form-group col-sm-6">
-										<label for="apellido">Apellido: </label>
-										<input required type="text" class="form-control" id="apellido" name="apellido" value="{{old('apellido')}}" placeholder="Ingrese su Apellido">
+										<label for="apellido{{$producto->id}}">Apellido: </label>
+										<input required type="text" class="form-control" id="apellido{{$producto->id}}" name="apellido" value="{{old('apellido')}}" placeholder="Ingrese su Apellido">
 										@error('apellido')
 											<div class="alert alert-danger mt-1">{{ $message }}</div>
 										@enderror
 									</div>
 								</div>
+
+								<!-- Input correo{{$producto->id}} -->
 								<div class="form-group ">
-									<label for="correo">Correo: </label>
-									<input required type="email" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="Ingrese su correo">
+									<label for="correo{{$producto->id}}">Correo: </label>
+									<input required type="email" class="form-control" id="correo{{$producto->id}}" name="correo" value="{{old('correo')}}" placeholder="Ingrese su correo">
 									@error('correo')
 										<div class="alert alert-danger mt-1">{{ $message }}</div>
 									@enderror
 								</div>
 								<div class="form row">
+									<!-- Input documento{{$producto->id}} -->
 									<div class="form-group col-sm-6">
-										<label for="documento">Documento: </label>
-										<input required type="text" class="form-control" id="documento" name="documento" value="{{old('documento')}}" placeholder="sin puntos ni guión">
-									
+										<label for="documento{{$producto->id}}">Documento: </label>
+										<input required type="number" min="1111111" max="999999999" class="form-control" id="documento{{$producto->id}}" name="documento" value="{{old('documento')}}" placeholder="sin puntos ni guión">
 									</div>
+
+									<!-- Input telefono{{$producto->id}} -->
 									<div class="form-group col-sm-6">
-										<label for="telefono">Celular: </label>
-										<input required type="tel" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="09xxxxxxxx">
+										<label for="telefono{{$producto->id}}">Celular: </label>
+										<input required type="number" min="1111111" class="form-control" id="telefono{{$producto->id}}" name="telefono" value="{{old('telefono')}}" placeholder="09xxxxxxxx">
 										@error('telefono')
 										<div class="alert alert-danger mt-1">{{ $message }}</div>
 										@enderror
 									</div>
 								</div>
 								
-
+								<!-- Input medio_de_pago{{$producto->id}} -->
 								<div class="form-group">
 									<label for="comentario">Medio de pago: </label>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="efectivo-{{$producto->id}}" value="efectivo">
+										<input required class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="efectivo-{{$producto->id}}" value="efectivo">
 										<label class="form-check-label" for="efectivo-{{$producto->id}}">Efectivo</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="midinero-{{$producto->id}}" value="midinero">
+										<input required class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="midinero-{{$producto->id}}" value="midinero">
 										<label class="form-check-label" for="midinero-{{$producto->id}}">MiDinero</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="prex-{{$producto->id}}" value="prex">
+										<input required class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="prex-{{$producto->id}}" value="prex">
 										<label class="form-check-label" for="prex-{{$producto->id}}">Prex</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="canje/sorteo-{{$producto->id}}" value="canje/sorteo">
+										<input required class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="canje/sorteo-{{$producto->id}}" value="canje/sorteo">
 										<label class="form-check-label" for="canje/sorteo-{{$producto->id}}">Canje/Sorteo</label>
+									</div>
+								</div>
+
+								<!--Input recibir_novedades -->
+								<div class="form-group pl-3">
+									<div class="form check pl-1">
+										<input type="checkbox" class="form-check-input" name="recibir_novedades" @checked(old('recibir_novedades')) value="1" id="check" checked>
+										<label class="form-check-label" for="check">Quiero recibir las novedades</label>
 									</div>
 								</div>
 

@@ -144,6 +144,14 @@
                             @error('imagen')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
+
+                            <div class="form-group mb-3">
+                                <label for="descripcion_img">Descripción de la imagen (campo 'alt')</label>
+                                <textarea required class="form-control" id="descripcion_img" name="descripcion_img" rows="2">{{old('descripcion_img')}}</textarea>
+                                @error('descripcion_img')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
                             
                             <div class="form-check mb-2">
                                 <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked(old('imagen_con_info'))>

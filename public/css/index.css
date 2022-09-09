@@ -435,3 +435,21 @@ body {
     color:#833232;
     font-size: 0.5cm;
   }
+
+
+
+/*Estas dos reglas ocultan las flechitas de los input type="number" que el documento de identidad y el telefono*/
+  /* Chrome, Safari, Edge, Opera */
+input[name="documento"]::-webkit-outer-spin-button,
+input[name="telefono"]::-webkit-outer-spin-button,
+input[name="documento"]::-webkit-inner-spin-button,
+input[name="telefono"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */ /* esta directiva parece que no funciona*/
+input[name="documento"],
+input[name="telefono"] {
+  -moz-appearance: textfield;
+}

@@ -24,19 +24,16 @@
     @endif
     
 
-<!-- CALENDAR -->
-{{--@include('partials.calendar')--}}
-<!-- CALENDAR -->
 
 
     <div class="row mb-5 mt-3">
         
         {{-- CALENDAR --}}
+        <!-- CALENDAR -->
         <div class="col-md-6 mb-3">
-            <!-- CALENDAR -->
-@include('partials.calendar')
-<!-- CALENDAR -->
+            @include('partials.calendar')
         </div>
+        <!-- CALENDAR -->
 
 
         
@@ -105,7 +102,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{route('inscripciones.store')}}" method="POST">
+                            <form action="{{route('inscripciones.store')}}" method="POST" onsubmit="return validateForm({{$evento->id}})" class="was-validated">
                                 <div class="modal-body">
                                     @csrf
                                     @method('POST')
@@ -114,62 +111,78 @@
                                         <!-- input oculto con la informacion $evento->id -->
                                         <input type="hidden" name="id_evento" value="{{$evento->id}}">
 
+                                        <!-- Input nombre{{$evento->id}} -->
                                         <div class="form-group col-sm-6">
                                             <label for="nombre">Nombre: </label>
-                                            <input required type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="Ingrese su nombre">
+                                            <input required type="text" class="form-control" id="nombre{{$evento->id}}" name="nombre" value="{{old('nombre')}}" placeholder="Ingrese su nombre">
                                             @error('nombre')
                                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
 
+                                        <!-- Input apellido{{$evento->id}} -->
                                         <div class="form-group col-sm-6">
-                                            <label for="apellido">Apellido: </label>
-                                            <input required type="text" class="form-control" id="apellido" name="apellido" value="{{old('apellido')}}" placeholder="Ingrese su Apellido">
+                                            <label for="apellido{{$evento->id}}">Apellido: </label>
+                                            <input required type="text" class="form-control" id="apellido{{$evento->id}}" name="apellido" value="{{old('apellido')}}" placeholder="Ingrese su Apellido">
                                             @error('apellido')
                                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
+
+                                    <!--Input correo{{$evento->id}} -->
                                     <div class="form-group ">
-                                        <label for="correo">Correo: </label>
-                                        <input required type="email" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="Ingrese su correo">
+                                        <label for="correo{{$evento->id}}">Correo: </label>
+                                        <input required type="email" class="form-control" id="correo{{$evento->id}}" name="correo" value="{{old('correo')}}" placeholder="Ingrese su correo">
                                         @error('correo')
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                         @enderror
                                     </div>
+
                                     <div class="form row">
+                                        <!--Input documento{{$evento->id}} -->
                                         <div class="form-group col-sm-6">
-                                            <label for="documento">Documento: </label>
-                                            <input required type="text" class="form-control" id="documento" name="documento" value="{{old('documento')}}" placeholder="sin puntos ni guión">
+                                            <label for="documento{{$evento->id}}">Documento: </label>
+                                            <input required type="text" min="1111111" max="999999999" class="form-control" id="documento{{$evento->id}}" name="documento" value="{{old('documento')}}" placeholder="sin puntos ni guión">
                                         
                                         </div>
+
+                                        <!--Input telefono{{$evento->id}} -->
                                         <div class="form-group col-sm-6">
-                                            <label for="telefono">Celular: </label>
-                                            <input required type="tel" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="09xxxxxxxx">
+                                            <label for="telefono{{$evento->id}}">Celular: </label>
+                                            <input required type="number" min="1111111" class="form-control" id="telefono{{$evento->id}}" name="telefono" value="{{old('telefono')}}" placeholder="09xxxxxxxx">
                                             @error('telefono')
                                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
                                     
-
+                                    <!--Input medio_De_pago{{$evento->id}} -->
                                     <div class="form-group">
                                         <label for="comentario">Medio de pago: </label>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="efectivo-{{$evento->id}}" value="efectivo">
+                                            <input required class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="efectivo-{{$evento->id}}" value="efectivo">
                                             <label class="form-check-label" for="efectivo-{{$evento->id}}">Efectivo</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="midinero-{{$evento->id}}" value="midinero">
+                                            <input required class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="midinero-{{$evento->id}}" value="midinero">
                                             <label class="form-check-label" for="midinero-{{$evento->id}}">MiDinero</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="prex-{{$evento->id}}" value="prex">
+                                            <input required class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="prex-{{$evento->id}}" value="prex">
                                             <label class="form-check-label" for="prex-{{$evento->id}}">Prex</label>
                                         </div>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="canje/sorteo-{{$evento->id}}" value="canje/sorteo">
+                                            <input required class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="canje/sorteo-{{$evento->id}}" value="canje/sorteo">
                                             <label class="form-check-label" for="canje/sorteo-{{$evento->id}}">Canje/Sorteo</label>
+                                        </div>
+                                    </div>
+
+                                    <!--Input recibir_novedades -->
+                                    <div class="form-group pl-3">
+                                        <div class="form check pl-1">
+                                            <input type="checkbox" class="form-check-input" name="recibir_novedades" @checked(old('recibir_novedades')) value="1" id="check" checked>
+                                            <label class="form-check-label" for="check">Quiero recibir las novedades</label>
                                         </div>
                                     </div>
 

@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" style="color: black; {{request()->routeIs('casa_raiz') ? 'opacity:60%;' : ''}}" href="{{route('casa_raiz')}}"><strong>casaRAÍZ</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('casa_raiz') ? 'opacity:60%;' : ''}}" href="{{route('casa_raiz')}}"><strong>casa RAÍZ</strong></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: black; {{request()->routeIs('comunidad_raiz') ? 'opacity:60%;' : ''}}" href="{{route('comunidad_raiz')}}"><strong>Comunidad Raíz</strong></a>
