@@ -35,16 +35,18 @@
     })
     </script>
 
-
-    <div class="row">
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-4">
-            <a href="{{route('agenda')}}" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgba(198, 98, 103, 0.950); color: rgb(210, 238, 229) ;">
-                Ver actividades
-            </a>
+    {{--request()->routeIs('comunidad_raiz')--}}
+    @if( request()->routeIs('home') )
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <a href="{{route('agenda')}}" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgba(198, 98, 103, 0.950); color: rgb(210, 238, 229) ;">
+                    Ver actividades
+                </a>
+            </div>
         </div>
-    </div>
+    @endif
 
 
 </div><br>

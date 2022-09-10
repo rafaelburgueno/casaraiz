@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light  navbar-expand-md site-header sticky-top fixed-top" id="nav">
+<nav class="navbar navbar-light  navbar-expand-xl site-header sticky-top fixed-top" id="nav" style="{{request()->routeIs('talleres') || request()->routeIs('agenda') ? 'background-image: linear-gradient(to right,  rgb(174, 94, 101), rgb(246, 142, 99), rgb(174, 94, 101));' : ''}}"> 
     <a class="navbar-brand navbar-logo" href="{{route('home')}}"><img src="{{asset('/storage/img/logo_ultimo.png')}}"></a>
     <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" style="color: black; {{request()->routeIs('casa_raiz') ? 'opacity:60%;' : ''}}" href="{{route('casa_raiz')}}"><strong>casa RAÍZ</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('casa_raiz') ? 'opacity:60%;' : ''}}" href="{{route('casa_raiz')}}"><strong>casaRAÍZ</strong></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" style="color: black; {{request()->routeIs('comunidad_raiz') ? 'opacity:60%;' : ''}}" href="{{route('comunidad_raiz')}}"><strong>Comunidad Raíz</strong></a>
@@ -21,10 +21,12 @@
             <li class="nav-item">
                 <a class="nav-link" style="color: black; {{request()->routeIs('tienda.*') ? 'opacity:60%;' : ''}}" href="{{route('tienda.index')}}"><strong>Tienda</strong></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" style="color: black; {{request()->routeIs('blog.*') ? 'opacity:60%;' : ''}}" href="{{route('blog.index')}}"><strong>Blog</strong></a>
-            </li>
 
+            @if(Auth::check() && ( Auth::user()->rol == 'administrador' || Auth::user()->rol == 'colaborador' ))
+                <li class="nav-item">
+                    <a class="nav-link" style="color: black; {{request()->routeIs('blog.*') ? 'opacity:60%;' : ''}}" href="{{route('blog.index')}}"><strong>Blog</strong></a>
+                </li>
+            @endif
 
             @if( Auth::check() && Auth::user()->rol == 'administrador' )
                 <li class="nav-item dropdown">

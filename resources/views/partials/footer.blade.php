@@ -2,7 +2,7 @@
 <!-- ---- ---- --- FOOTER  ---- FOOTER----- FOOTER---- FOOTER-->
 <!-- ---- ---- --- FOOTER  ---- FOOTER----- FOOTER---- FOOTER-->
 <!-- ---- ---- --- FOOTER  ---- FOOTER----- FOOTER---- FOOTER-->
-<footer class="p-3 mt-5" style="  background-image: linear-gradient(to bottom right, rgb(198, 98, 103), rgb(198,98,103), rgb(48, 66, 60));">
+<footer class="p-3 mt-5" style="{{request()->routeIs('talleres') || request()->routeIs('agenda') ? 'background-image: linear-gradient(to right,  rgb(174, 94, 101), rgb(246, 142, 99), rgb(174, 94, 101));' : 'background-image: linear-gradient(to bottom right, rgb(198, 98, 103), rgb(198,98,103), rgb(48, 66, 60));'}}">
     
     <div class="row d-flex">
 

@@ -1,4 +1,4 @@
-<div class="container px-5 my-2">
+<div class="container px-4 my-2">
     <div class="row">
       	<div class="col-sm video-responsive">
 			<iframe width="560" height="315"

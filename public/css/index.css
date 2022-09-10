@@ -161,10 +161,10 @@ color: black;
 
 .card {
     opacity: 80%;
-    flex: 1 200px;
-    margin-top: 30px;
-    margin-right: 30px;
-    margin-left: 30px;
+    /*flex: 1 200px;*/
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
     border-radius: 1px;
     box-shadow: 4px 4px 2px #da3f3f;
 }
@@ -400,24 +400,24 @@ body {
     background-position: right bottom, left top;
     background-size: 100px 80px;
     background-repeat: no-repeat;
+    background-color: white;
     opacity: 70%;
-    background-color:white;
   }
   .div2{
     background: url(/storage/img/raiz.png);
     background-position: right bottom, left top;
     background-size: 100px 80px;
     background-repeat: no-repeat;
+    background-color: white;
     opacity: 70%;
-    background-color:white;
   }
   .div3{
     background: url(/storage/img/arbol.png);
     background-position: right bottom, left top;
     background-size: 100px 80px;
     background-repeat: no-repeat;
+    background-color: white;
     opacity: 70%;
-    background-color:white;
   }
   .talleres img {
     max-width: 600px;
@@ -425,7 +425,7 @@ body {
   }
   .talleres p, span {
     color:#4b0505;
-    font-size: 0.7cm;
+    /*font-size: 0.7cm*/;
   }
   
   .talleres h5 {
@@ -433,7 +433,7 @@ body {
   }
   .talleres small {
     color:#833232;
-    font-size: 0.5cm;
+    /*font-size: 0.5cm*/;
   }
 
 
@@ -453,3 +453,42 @@ input[name="documento"],
 input[name="telefono"] {
   -moz-appearance: textfield;
 }
+
+
+
+
+
+
+@media (min-width: 576px) { 
+    .card-columns{
+        column-count: 1;
+    }
+ }
+
+ @media (min-width: 768px) { 
+    .card-columns{
+        column-count: 2;
+    }
+ }
+
+ @media (min-width: 992px) { 
+    .card-columns{
+        column-count: 3;
+    }
+ }
+
+
+
+/*
+.card-columns {
+  
+  @include media-breakpoint-only(md) {
+    column-count: 1;
+  }
+  @include media-breakpoint-only(lg) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 3;
+  }
+}*/

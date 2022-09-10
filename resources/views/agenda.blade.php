@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="text-center my-4">
-    <h1 id="in" class="text-center pt-2">AGENDA</h1>
+    <h1 id="in" style="background-image: linear-gradient(to right,  rgb(174, 94, 101), rgb(246, 142, 99), rgb(174, 94, 101));" class="text-center pt-2">AGENDA</h1>
 </div>
 
 
@@ -15,16 +15,6 @@
 
 
 <div class="container">
-    
-        
-    @if(Auth::check() && Auth::user()->rol == 'administrador')
-    <div>
-        <a class="btn btn-outline-secondary my-3" href="{{route('eventos.create')}}">Crear Evento</a>
-    </div>
-    @endif
-    
-
-
 
     <div class="row mb-5 mt-3">
         
@@ -52,6 +42,7 @@
                                 <span class="float-right m-1 badge badge-danger" style="font-size: 10px">El evento no es público</span>
                                 @endif
                                 <p class="card-text h6">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->anio}}, de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
+                                
                                 <p class="card-text mt-2 mb-0 h5"><strong>{{$evento->nombre}}</strong></p>
                             </div>
                         </h2>
@@ -69,13 +60,13 @@
                                 @endif
                             </p>
                             <p class=""><small>{{ Str::ucfirst($evento->tipo) }} a cargo de {{$evento->responsable}}</small></p>
-                            <p class=""><small>Espacio: {{ Str::ucfirst($evento->lugar) }}</small></p>
                             
                             <div class="d-flex justify-content-between align-items-center mb-2">
-                                <a href="{{route('eventos.show', $evento)}}" class="">
+                                {{--<a href="{{route('eventos.show', $evento)}}" class="">
                                     <button class="btn btn-outline-secondary btn-sm mb-3">Ver...</button>
                                     
-                                </a>
+                                </a>--}}
+                                <p class=""><small>Espacio: {{ Str::ucfirst($evento->lugar) }}</small></p>
                             
                                 <button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
                                     data-toggle="modal" data-target="#inscribirme-{{$evento->id}}" id="contactobtn-{{$evento->id}}">
@@ -102,7 +93,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="{{route('inscripciones.store')}}" method="POST" onsubmit="return validateForm({{$evento->id}})" class="was-validated">
+                            <form action="{{route('inscripciones.store')}}" method="POST" onsubmit="return validateForm({{$evento->id}})" class="was-validatedd">
                                 <div class="modal-body">
                                     @csrf
                                     @method('POST')

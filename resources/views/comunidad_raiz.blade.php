@@ -23,6 +23,8 @@
 
 </script>
 
+<!-- social -->
+@include('partials.social')
 
 <div>
     <img id="img2" src="{{asset('/storage/img/casaRaiz.tr.png')}}" class="rounded mx-auto d-block" width="80%">
@@ -51,7 +53,7 @@
         style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to bottom left, rgb(198, 98, 103),rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
                 <h5 class="card-title">TALLERES</h5>
-                <p class="card-text">10%<br> en todos los talleres<br> de la grilla semanal.</p>
+                <p class="card-text">-10%<br> en todos los talleres<br> de la grilla semanal.</p>
             </div>
         </div>
 
@@ -98,13 +100,15 @@
             </div>
         </div>
         
-    </div><br><br>
+    </div>
+    <br id="membresias-ruta">
+    <br>
 
 
 
 
     <div>
-        <h2 id="cb" class="text-center">MEMBRESIAS</h2><br>
+        <h2 id="cb" class="text-center">MEMBRESÍAS</h2><br>
         <div class="container border border-3">
             <div class="row">
 
@@ -136,7 +140,7 @@
                             <div class="text-center">
                                 <button type="button" class="btn " style="background-color: rgb(220, 43, 20); color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
-                                </button>
+                                </button><br><br>
                             </div>
                         </div>
                     </div>
@@ -152,7 +156,7 @@
                             <div class="text-center">
                                 <button type="button" class="btn " style="background-color: rgb(220, 43, 20); color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
-                                </button>
+                                </button><br><br>
                             </div>
                         </div>
                     </div>
@@ -175,7 +179,7 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <form action="{{route('obtener_membresia')}}" method="POST" onsubmit="return validateForm(1)" class="was-validated">
+                        <form action="{{route('obtener_membresia')}}" method="POST" onsubmit="return validateForm(1)" class="was-validatedd">
                             <div class="modal-body">
 
 

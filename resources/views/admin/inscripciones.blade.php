@@ -40,6 +40,7 @@
                         <th>Inscripción</th>
                         <th>Email</th>
                         <th>Teléfono</th>
+                        <th>Recibir novedades</th>
                         
                     </tr>
                 </thead>
@@ -53,6 +54,13 @@
                             <td>{{ $inscripcion->inscripto_a() }}</td>
                             <td>{{ $inscripcion->correo }}</td>
                             <td>{{ $inscripcion->telefono }}</td>
+                            <td>
+                                @if($inscripcion->recibir_novedades)
+                                    SI
+                                @else
+                                    NO
+                                @endif
+                            </td>
 
 
 

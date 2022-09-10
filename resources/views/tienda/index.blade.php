@@ -7,13 +7,16 @@
 @section('content')
 
 
+<!-- social -->
+@include('partials.social')
+
+
 <div class="text-center my-4">
     <h1 id="in" class="text-center pt-2">TIENDA</h1>
 </div>
 
 
 <div class="container">
-
 		
         @if(Auth::check() && Auth::user()->rol == 'administrador')
         <div>
@@ -21,25 +24,26 @@
         </div>
         @endif
     
-    
+
+
     {{--<hr class="mt-1 mx-3">--}}
     
-    <div class="d-flex flex-wrap flex-row mb-3">
+    <div class="card-columns talleres">
 		
 		@foreach ($productos as $producto)
-		<div class="col-md-4">
-			<div class="card mb-4">
+		<div class="px-3 pb-5">
+			<div class="card m-0">
 				@if (count($producto->multimedias))
-				<a href="{{route('tienda.show', $producto)}}" class="">
+				{{--<a href="{{route('tienda.show', $producto)}}" class="">--}}
 					<img src="{{$producto->multimedias->last()->url}}" class="card-img-top" alt="...">
-				</a>
+				{{--</a>--}}
 				@endif
 				
 				<div class="card-body">
 				
-					<a href="{{route('tienda.show', $producto)}}" class="mt-2">
+					{{--<a href="{{route('tienda.show', $producto)}}" class="mt-2">--}}
 						<h5 class="card-title text-dark">{{$producto->nombre}}</h5>
-					</a>
+					{{--</a>--}}
 
                     @if(!$producto->activo)
                         <p class="mb-2"><small class="p-1 text-light bg-danger">El producto no es publico</small></p>
@@ -61,8 +65,8 @@
 					@endif
 
 					<div class="d-flex justify-content-between align-items-center">
-						<a href="{{route('tienda.show', $producto)}}" class=""><small>más info...</small></a>
-                        
+						{{--<a href="{{route('tienda.show', $producto)}}" class=""><small>más info...</small></a>--}}
+                        <div></div>
 						<button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
 							data-toggle="modal" data-target="#lo-quiero-{{$producto->id}}" id="lo-quiero-btn-{{$producto->id}}">
 							Lo quiero
@@ -87,7 +91,7 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<form action="{{route('lo_quiero')}}" method="POST" onsubmit="return validateForm({{$producto->id}})" class="was-validated">
+						<form action="{{route('lo_quiero')}}" method="POST" onsubmit="return validateForm({{$producto->id}})" class="was-validatedd">
 							<div class="modal-body">
 								@csrf
 								@method('POST')
@@ -128,6 +132,9 @@
 									<div class="form-group col-sm-6">
 										<label for="documento{{$producto->id}}">Documento: </label>
 										<input required type="number" min="1111111" max="999999999" class="form-control" id="documento{{$producto->id}}" name="documento" value="{{old('documento')}}" placeholder="sin puntos ni guión">
+										@error('documento')
+										<div class="alert alert-danger mt-1">{{ $message }}</div>
+										@enderror
 									</div>
 
 									<!-- Input telefono{{$producto->id}} -->
@@ -185,6 +192,8 @@
 		@endforeach
 
 	</div>
+
+
 
 
 	<!-- Botones de paginacion -->

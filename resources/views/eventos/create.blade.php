@@ -145,7 +145,7 @@
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
 
-                            <div class="form-group mb-3">
+                            <div class="form-group mb-3 mt-2">
                                 <label for="descripcion_img">Descripción de la imagen (campo 'alt')</label>
                                 <textarea required class="form-control" id="descripcion_img" name="descripcion_img" rows="2">{{old('descripcion_img')}}</textarea>
                                 @error('descripcion_img')

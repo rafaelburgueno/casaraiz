@@ -39,6 +39,9 @@ class LoQuieroController extends Controller
             $user = auth()->id();
         }
 
+        $recibir_novedades = false;
+        if($request->recibir_novedades == '1'){$recibir_novedades = true;}
+
         Inscripcion::create([
             'user_id' => $user,
             'nombre' => $request->nombre.' '.$request->apellido,
@@ -50,7 +53,7 @@ class LoQuieroController extends Controller
             'medio_de_pago' => $request->medio_de_pago,
             'intereses' => NULL,
             'comentario' => 'Quiere adquirir el producto ' . $producto->nombre . ' (id: ' . $producto->id . ').',
-            //'recibir_novedades' => NULL,
+            'recibir_novedades' => $recibir_novedades,
         ]);
         
         $correo = new LoQuieroMailable($request->all(), $producto);

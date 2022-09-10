@@ -48,7 +48,7 @@ Route::get('/casa_raiz', function () {
 /*
 comunidad_raiz
 */
-Route::get('/comunidad_raiz', function () {
+Route::get('/comunidad', function () {
     return view('comunidad_raiz');
 })->name('comunidad_raiz');
 
@@ -88,7 +88,7 @@ Route::controller(ProductoController::class)->group(function () {
     Route::get('tienda', 'index')->name('tienda.index');
     Route::get('tienda/create', 'create')->name('tienda.create')->middleware('administrador');
     Route::post('tienda', 'store')->name('tienda.store')->middleware('administrador');
-    Route::get('tienda/{tienda}', 'show')->name('tienda.show');
+    Route::get('tienda/{tienda}', 'show')->name('tienda.show')->middleware('administrador');
     Route::get('tienda/{tienda}/edit', 'edit')->name('tienda.edit')->middleware('administrador');
     Route::put('tienda/{tienda}', 'update')->name('tienda.update')->middleware('administrador');
     Route::delete('tienda/{tienda}', 'destroy')->name('tienda.destroy')->middleware('administrador');
@@ -133,7 +133,7 @@ Route::controller(EventoController::class)->group(function () {
     Route::get('eventos', 'index')->name('eventos.index')->middleware('administrador');
     Route::get('eventos/create', 'create')->name('eventos.create')->middleware('administrador');
     Route::post('eventos', 'store')->name('eventos.store')->middleware('administrador');
-    Route::get('eventos/{evento}', 'show')->name('eventos.show');
+    Route::get('eventos/{evento}', 'show')->name('eventos.show')->middleware('administrador');
     Route::get('eventos/{evento}/edit', 'edit')->name('eventos.edit')->middleware('administrador');
     Route::put('eventos/{evento}', 'update')->name('eventos.update')->middleware('administrador');
     Route::delete('eventos/{evento}', 'destroy')->name('eventos.destroy')->middleware('administrador');

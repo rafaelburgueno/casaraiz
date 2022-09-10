@@ -24,7 +24,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 
 
 <div class="text-center my-4">
-    <h1 id="in" class="text-center pt-2">PROXIMAMENTE</h1>
+    {{--<h1 id="in" class="text-center pt-2">PROXIMAMENTE</h1>--}}
 </div>
 
 
@@ -58,7 +58,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
             			<h1 class="card-title text-center" id="card-index">UNITE A LA COMUNIDAD RAÍZ</h1>
             			<p class="card-text text-center" style="color: rgb(210, 238, 229); font-size: 22px;"><strong>Obtenés beneficios y colaborás con nuestra casaRAIZ </strong></p>
             			<a href="{{route('comunidad_raiz')}}" class="btn btn-lg btn-outline-light mb-2" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
-              			<a href="{{route('comunidad_raiz')}}" class="btn btn-lg  btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Quiero formar parte</a>
+              			<a href="{{route('comunidad_raiz')}}/#membresias-ruta" class="btn btn-lg  btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Quiero formar parte</a>
           			</div>
         		</div>
       		</div>
