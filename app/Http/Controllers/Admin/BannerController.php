@@ -61,6 +61,11 @@ class BannerController extends Controller
             $imagen_con_info = true;
         }
 
+        $activo = false;
+        if($request->activo){
+            $activo = true;
+        }
+
         Multimedia::create([
             'url' => $url,
             'descripcion' => $request->descripcion,
@@ -70,6 +75,7 @@ class BannerController extends Controller
             'tamaño' => 'TODO',
             //'multimediaable_id' => $evento->id,
             'multimediaable_type' => 'banner',
+            'activo' => $activo,
         ]);
 
         //return 'se guardo todo';
@@ -132,6 +138,11 @@ class BannerController extends Controller
             $imagen_con_info = true;
         }
 
+        $activo = false;
+        if($request->activo){
+            $activo = true;
+        }
+
         $imagen->update([
             //'url' => $url,
             'descripcion' => $request->descripcion,
@@ -139,6 +150,7 @@ class BannerController extends Controller
             'imagen_con_info' => $imagen_con_info,
             'resolucion' => 'TODO',
             'tamaño' => 'TODO',
+            'activo' => $activo,
             //'multimediaable_id' => $evento->id,
             //'multimediaable_type' => 'banner',
         ]);

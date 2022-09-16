@@ -469,12 +469,14 @@ input[name="telefono"] {
     .card-columns{
         column-count: 2;
     }
+    
  }
 
  @media (min-width: 992px) { 
     .card-columns{
         column-count: 3;
     }
+
  }
 
 
@@ -492,3 +494,25 @@ input[name="telefono"] {
     column-count: 3;
   }
 }*/
+
+
+/* las tres clases son para colocar el nombre de la persona que hizo las fotos */
+.contenedor_de_la_imagen_de_cabecera_del_home {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+/*.abajo-izquierda {
+  position: absolute;
+  font-size: 0.4em;
+  opacity: 60%;
+  bottom: 5px;
+  left: 10px;
+}*/
+.abajo-derecha {
+  position: absolute;
+  font-size: 0.45em;
+  opacity: 48%;
+  bottom: 5px;
+  right: 15px;
+}

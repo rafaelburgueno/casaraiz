@@ -13,6 +13,8 @@ use App\Http\Controllers\LoQuieroController;
 use App\Http\Controllers\Admin\UsuariosController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\InscripcionesController;
+use App\Http\Controllers\MiPerfilController;
+
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Http\Request;
@@ -155,6 +157,24 @@ Route::controller(UsuariosController::class)->group(function () {
     Route::get('usuarios/{usuario}/edit', 'edit')->name('usuarios.edit')->middleware('administrador');
     Route::put('usuarios/{usuario}', 'update')->name('usuarios.update')->middleware('administrador');
     //Route::delete('usuarios/{usuario}', 'destroy')->name('usuarios.destroy')->middleware('administrador');
+});
+
+
+
+
+/*
+mi_perfil
+*/
+//Route::resource('usuarios', UsuariosController::class);
+//
+Route::controller(MiPerfilController::class)->group(function () {
+    Route::get('mi_perfil', 'index')->name('mi_perfil')->middleware('auth');
+    //Route::get('mi_perfil/create', 'create')->name('mi_perfil.create')->middleware('administrador');
+    //Route::post('mi_perfil', 'store')->name('mi_perfil.store')->middleware('administrador');
+    //Route::get('mi_perfil/{usuario}', 'show')->name('mi_perfil.show');
+    //Route::get('mi_perfil/{usuario}/edit', 'edit')->name('mi_perfil.edit')->middleware('administrador');
+    Route::put('mi_perfil/{usuario}', 'update')->name('mi_perfil.update')->middleware('auth');
+    //Route::delete('mi_perfil/{usuario}', 'destroy')->name('mi_perfil.destroy')->middleware('administrador');
 });
 
 

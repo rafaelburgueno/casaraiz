@@ -6,6 +6,14 @@
 
 @section('content')
 
+<script>
+    $(document).ready(function(){
+      
+        //esto agrega un div con la clase que corrije el problema de responsividad de los video
+        $( "iframe" ).wrap( "<div class='col-sm video-responsive'></div>" );
+
+    });
+</script>
 
 <div class="text-center my-4">
     <h1 id="in" class="text-center pt-2">BLOG</h1>

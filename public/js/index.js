@@ -1,4 +1,5 @@
-$(function () {
+//$(function () {
+$(document).ready(function(){
     //console.log("el modal se esta mostrando");
     $("[data-toggle='tooltip']").tooltip();
     $("[data-toggle='popover']").popover();
@@ -19,7 +20,9 @@ $(function () {
     });
     $('#contacto').on('hide.bs.modal', function () {
         console.log("el modal se oclta");
-    }); $('#contacto').on('hidden.bs.modal', function () {
+    }); 
+    
+    $('#contacto').on('hidden.bs.modal', function () {
         console.log("el modal se oculto");
         $('#contactobtn').prop('disabled', true);
         $('#contactobtn').removeClass('btn btn-danger');

@@ -28,27 +28,46 @@
                 </li>
             @endif
 
-            @if( Auth::check() && Auth::user()->rol == 'administrador' )
-                <li class="nav-item dropdown">
-                    <a style="color: black;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <strong>Admin</strong>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
-                        <a class="dropdown-item" href="{{route('eventos.index')}}">Eventos</a>
-                        <a class="dropdown-item" href="{{route('banner.index')}}">Banner de inicio</a>
-                        <a class="dropdown-item" href="{{route('inscripciones.index')}}">Inscripciones y solicitudes</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Alguna funcionalidad más...</a>
-                    </div>
+            @if( Auth::check() )
+                @if( Auth::user()->rol == 'administrador' )
+                    <li class="nav-item dropdown">
+                        <a style="color: black;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <strong>Admin</strong>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{route('mi_perfil')}}">Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
+                            <a class="dropdown-item" href="{{route('eventos.index')}}">Eventos</a>
+                            <a class="dropdown-item" href="{{route('banner.index')}}">Banner de inicio</a>
+                            <a class="dropdown-item" href="{{route('inscripciones.index')}}">Inscripciones y solicitudes</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{route('carrar_sesion')}}">Salir</a>
+                        </div>
+                    </li>
+                @else
+                    <li class="nav-item dropdown">
+                        <a style="color: black;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <strong>Perfil</strong>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{route('mi_perfil')}}">Mi perfil</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{route('carrar_sesion')}}">Salir</a>
+                        </div>
+                    </li>
+                @endif
+            @else
+                <li class="nav-item">
+                    <a class="nav-link" style="color: black;" href="{{route('login')}}"><strong>Iniciar sesión</strong></a>
                 </li>
             @endif
 
-            @if( Auth::check() )
+            {{--@if( Auth::check() )
             <li class="nav-item">
                 <a style="color: black;" class="nav-link" href="{{route('carrar_sesion')}}"><strong>Salir</strong></a>
             </li>
-            @endif
+            @endif--}}
 
         </ul>
     </div>

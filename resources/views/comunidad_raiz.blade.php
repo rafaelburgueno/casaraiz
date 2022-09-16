@@ -10,15 +10,16 @@
     $(document).ready(function () {
 
         var div = $("h1");
-        div.animate({ left: '150px' }, "slow");
-        div.animate({ fontSize: '3em' }, "slow");
-    });
-
-    $(document).ready(function () {
+        div.animate({ left: '150px', fontSize: '3em' }, "slow");
 
         var divi = $("#img2");
-        divi.animate({ left: '150px' }, "slow");
-        divi.animate({ fontSize: '3em' }, "slow");
+        divi.animate({ left: '150px', fontSize: '3em' }, "slow", social());
+
+        function social(){
+            //console.log("si ajecuta la funcion social()");
+            $(".social").animate({right: "-120px"}, "fast");
+        }
+    
     });
 
 </script>
@@ -26,13 +27,13 @@
 <!-- social -->
 @include('partials.social')
 
-<div>
+<div style="overflow-x: scroll;">
     <img id="img2" src="{{asset('/storage/img/casaRaiz.tr.png')}}" class="rounded mx-auto d-block" width="80%">
     <h1 class="text-center">PRESENTA</h1><br>
 </div>
 
 <div class="container">
-    <div>
+    <div style="overflow-x: scroll;">
         <h1 id="cr" class="text-center"><strong>COMUNIDAD RAIZ</strong></h1><br>
         <h6 id="pcr" class="text-center">
             Comunidad Raíz es una red de beneficios, que mediante una tarjeta personal,

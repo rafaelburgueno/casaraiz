@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         //return view('home');
 
-        $banner = Multimedia::where('multimediaable_type', 'banner')->orderBy('relevancia','asc')->get();
+        $banner = Multimedia::where('multimediaable_type', 'banner')->where('activo', true)->orderBy('relevancia','asc')->get();
         //$eventos = Evento::where('fecha', '>', now())->where('activo', true)->where('tipo', '!=', 'taller')->orderBy('relevancia')->take(6)->get();
         //$talleres = Evento::where('fecha', '>', now())->where('activo', true)->where('tipo', 'taller')->orderBy('relevancia')->take(6)->get();
         

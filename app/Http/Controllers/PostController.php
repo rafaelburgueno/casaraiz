@@ -58,12 +58,12 @@ class PostController extends Controller
         //$post->categorias = $request->categorias;
         //$post->descripcion = $request->titulo;
         //$post->texto = $request->titulo;
+        $post->html = $request->html;  
         /*if (str_contains($request->html, 'iframe')) {
             $post->html = PostController::video_responsive($request->html);
         }else{
             $post->html = $request->html;    
         }*/
-        $post->html = $request->html;  
         $post->save();
 
 
@@ -152,11 +152,11 @@ class PostController extends Controller
         $blog->slug = strtolower(Str::slug($request->titulo, '-'));
         $blog->user_id = auth()->id(); //registra al usuario que crea el post
 
-        if (str_contains($request->html, 'iframe') && !str_contains($request->html, '<div class="col-sm video-responsive"><iframe')) {
+        $blog->html = $request->html;
+        /*if (str_contains($request->html, 'iframe') && !str_contains($request->html, '<div class="col-sm video-responsive"><iframe')) {
             $blog->html = PostController::video_responsive($request->html);
         }else{
-            $blog->html = $request->html;
-        }
+        }*/
         
         if($request->activo){
             $blog->activo = true;
@@ -232,14 +232,14 @@ class PostController extends Controller
     }
 
 
-    public function video_responsive($data){
+    /*public function video_responsive($data){
 
         $data = str_replace('<iframe ', '<div class="col-sm video-responsive"><iframe ',$data);
         $data = str_replace('</iframe>', '</iframe></div> ',$data);
 
         return $data;
 
-    }
+    }*/
 
 
 

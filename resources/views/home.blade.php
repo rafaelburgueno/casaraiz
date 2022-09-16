@@ -9,8 +9,11 @@
 
 
 <!-- Imagen apaisada con logo -->
-<div>
+<div class="contenedor_de_la_imagen_de_cabecera_del_home">
 	<img src="{{asset('/storage/img/nav.10.png')}}" class="d-block w-100" alt="...">
+	<!-- Autor de la foto -->
+	<!--<div class="abajo-izquierda">@fleaurencia</div>-->
+	<div class="abajo-derecha">foto: @fleaurencia</div>
 </div>
 
 
