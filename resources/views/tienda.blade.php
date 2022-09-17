@@ -12,21 +12,11 @@
 
 
 <div class="text-center my-4">
-    <h1 id="in" class="text-center pt-2">TIENDA</h1>
+    <h1 id="in" class="text-center pt-2">nueva pagina de TIENDA</h1>
 </div>
 
 
 <div class="container">
-		
-        @if(Auth::check() && Auth::user()->rol == 'administrador')
-        <div>
-            <a class="btn btn-outline-secondary my-3" href="{{route('tienda.create')}}">Crear Producto</a>
-        </div>
-        @endif
-    
-
-
-    {{--<hr class="mt-1 mx-3">--}}
     
     <div class="card-columns talleres">
 		

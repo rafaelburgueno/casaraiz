@@ -81,7 +81,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
           			<div class="card-body">
             			<h1 class="card-title text-center" id="card-index">TIENDA</h1>
             			<p class="card-text text-center" style="font-size: 26px;"><strong>Visita nuestro catálogo, y enterate de nuestras ferias.</strong></p>
-            			<a href="{{route('tienda.index')}}" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
+            			<a href="{{route('tienda')}}" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
           			</div>
         		</div>
 			</div>

@@ -30,8 +30,8 @@
             <p><a href="{{route('casa_raiz')}}">Casa Raiz</a></p>
             <p><a href="{{route('comunidad_raiz')}}">Comunidad Raiz</a></p>
             <p><a href="{{route('talleres')}}">Talleres</a></p>
-            <p><a href="{{route('eventos.index')}}">Agenda</a></p>
-            <p><a href="{{route('tienda.index')}}">Tienda</a></p>
+            <p><a href="{{route('agenda')}}">Agenda</a></p>
+            <p><a href="{{route('tienda')}}">Tienda</a></p>
             <p><a href="{{route('blog.index')}}">Blog</a></p>
         </div>
 

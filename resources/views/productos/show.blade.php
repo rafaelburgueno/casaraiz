@@ -1,8 +1,8 @@
 @extends('layouts.plantilla')
-{{-- la variable que contiene la instancia de producto, se llama $tienda 
+{{-- la variable que contiene la instancia de producto, se llama $producto 
     porque sino se generan problemasen el controlador --}}
-@section('title', $tienda->nombre)
-@section('meta-description', $tienda->descripcion)
+@section('title', $producto->nombre)
+@section('meta-description', $producto->descripcion)
 
 
 @section('content')
@@ -19,47 +19,47 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="card">
-                @if (count($tienda->multimedias))
-                <img src="{{$tienda->multimedias->last()->url}}" class="card-img-top" alt="...">
+                @if (count($producto->multimedias))
+                <img src="{{$producto->multimedias->last()->url}}" class="card-img-top" alt="...">
                 @endif
 
                 <div class="card-body">
                     
-                    <p class="h3"><strong> ${{$tienda->precio}}</strong></p>
+                    <p class="h3"><strong> ${{$producto->precio}}</strong></p>
                     
                     
-                    <h5 class="card-title text-dark my-1">{{$tienda->nombre}}</h5>
+                    <h5 class="card-title text-dark my-1">{{$producto->nombre}}</h5>
                     
-                    @if($tienda->proveedor)
-                    <p class="">De la mano de {{$tienda->proveedor}}</p>
+                    @if($producto->proveedor)
+                    <p class="">De la mano de {{$producto->proveedor}}</p>
                     @endif
                     
-                    <p class="h5 my-3">{{$tienda->descripcion}}</p>
+                    <p class="h5 my-3">{{$producto->descripcion}}</p>
                     
-                    @if (count($tienda->categorias))
-                    <p>Categorias: {{ $tienda->categorias }}</p>
+                    @if (count($producto->categorias))
+                    <p>Categorias: {{ $producto->categorias }}</p>
                     @endif
 
                     <div class="p-0 d-flex justify-content-end">
                         <button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
-							data-toggle="modal" data-target="#lo-quiero-{{$tienda->id}}" id="lo-quiero-btn-{{$tienda->id}}">
+							data-toggle="modal" data-target="#lo-quiero-{{$producto->id}}" id="lo-quiero-btn-{{$producto->id}}">
 							Lo quiero
 						</button>
                     </div>
                     
                     {{-- Esta se mostrara solamente al administrador --}}
                     @if(Auth::check() && Auth::user()->rol == 'administrador')
-                        @if(!$tienda->activo)
+                        @if(!$producto->activo)
                             <p class="mb-2"><small class="p-1 text-light bg-danger">El producto no es publico</small></p>
                         @endif
                         <div class="d-flex justify-content-between align-items-center mb-3">
-                            <small class="text-dark">Tenemos {{ $tienda->stock }} unidades.</small>
-                            <small class="text-dark">Creado el {{$tienda->created_at}}</small>
+                            <small class="text-dark">Tenemos {{ $producto->stock }} unidades.</small>
+                            <small class="text-dark">Creado el {{$producto->created_at}}</small>
                         </div>
                         
                         <div class="d-flex justify-content-between align-items-center">
-                            <a href="{{route('tienda.index')}}" class="btn btn-outline-secondary text-dark">< Volver</a>
-                            <a href="{{route('tienda.edit', $tienda)}}" class="btn btn-outline-secondary text-dark">Editar ></a>
+                            <a href="{{route('productos.index')}}" class="btn btn-outline-secondary text-dark">< Volver</a>
+                            <a href="{{route('productos.edit', $producto)}}" class="btn btn-outline-secondary text-dark">Editar ></a>
                         </div>
                     @endif
                 
@@ -72,12 +72,12 @@
 			<!--  ----------FORMULARIO DE LO QUIERO -------- ------ ----- -->
 			<!--  ----------FORMULARIO DE LO QUIERO -------- ------ ----- -->
 			<!--  ----------FORMULARIO DE LO QUIERO -------- ------ ----- -->
-			<div class="modal fade" id="lo-quiero-{{$tienda->id}}" tabindex="-1" role="dialog" aria-labelledby="formulario_de_lo_quiero" aria-hidden="true">
+			<div class="modal fade" id="lo-quiero-{{$producto->id}}" tabindex="-1" role="dialog" aria-labelledby="formulario_de_lo_quiero" aria-hidden="true">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h5 class="modal-title" id="formulario_de_lo_quiero">Completa tus datos</h5>
-							{{--<br><small>Lo quiero {{$tienda->nombre}}</small>--}}
+							{{--<br><small>Lo quiero {{$producto->nombre}}</small>--}}
 							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 							</button>
@@ -88,8 +88,8 @@
 								@method('POST')
 
 								<div class="form-row">
-									<!-- input oculto con la informacion $tienda->id -->
-									<input type="hidden" name="id_producto" value="{{$tienda->id}}">
+									<!-- input oculto con la informacion $producto->id -->
+									<input type="hidden" name="id_producto" value="{{$producto->id}}">
 
 									<div class="form-group col-sm-6">
 										<label for="nombre">Nombre: </label>
@@ -133,20 +133,20 @@
 								<div class="form-group">
 									<label for="comentario">Medio de pago: </label>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="efectivo-{{$tienda->id}}" value="efectivo">
-										<label class="form-check-label" for="efectivo-{{$tienda->id}}">Efectivo</label>
+										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="efectivo-{{$producto->id}}" value="efectivo">
+										<label class="form-check-label" for="efectivo-{{$producto->id}}">Efectivo</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="midinero-{{$tienda->id}}" value="midinero">
-										<label class="form-check-label" for="midinero-{{$tienda->id}}">MiDinero</label>
+										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="midinero-{{$producto->id}}" value="midinero">
+										<label class="form-check-label" for="midinero-{{$producto->id}}">MiDinero</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="prex-{{$tienda->id}}" value="prex">
-										<label class="form-check-label" for="prex-{{$tienda->id}}">Prex</label>
+										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="prex-{{$producto->id}}" value="prex">
+										<label class="form-check-label" for="prex-{{$producto->id}}">Prex</label>
 									</div>
 									<div class="form-check">
-										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="canje/sorteo-{{$tienda->id}}" value="canje/sorteo">
-										<label class="form-check-label" for="canje/sorteo-{{$tienda->id}}">Canje/Sorteo</label>
+										<input class="form-check-input" type="radio" name="medio_de_pago" @checked(old('medio_de_pago')) id="canje/sorteo-{{$producto->id}}" value="canje/sorteo">
+										<label class="form-check-label" for="canje/sorteo-{{$producto->id}}">Canje/Sorteo</label>
 									</div>
 								</div>
 

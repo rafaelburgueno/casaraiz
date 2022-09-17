@@ -1,32 +1,32 @@
 @extends('layouts.plantilla')
 
-@section('title', 'Crear producto')
-@section('meta-description', 'metadescripcion para la pagina de creación de producto')
+@section('title', 'Editar ' . $producto->nombre)
+@section('meta-description', 'metadescripcion para la pagina de edición de producto')
 
 
 @section('content')
 
 
 <div class="text-center my-4">
-    <h1 id="in" class="text-center pt-2">CREAR PRODUCTO</h1>
+    <h1 id="in" class="text-center pt-2">EDITAR PRODUCTO</h1>
 </div>
 
 
 <div class="container">
 
     <div class="row mb-5 mt-5">
-        <div class="col-md-12">
+        <div class="col-md-12 p-3">
 
-            <form class="p-3" action="{{route('tienda.store')}}" method="POST" enctype="multipart/form-data">
+            <form class="" action="{{route('productos.update', $producto)}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('POST')
+                @method('PUT')
 
                 <div class="row">
                     <div class="col col-md-6">
                         
                         <div class="form-group mb-3">
                             <label for="nombre">Nombre</label>
-                            <input required type="text" class="form-control" id="nombre" name="nombre" placeholder="..." value="{{old('nombre')}}">
+                            <input required type="text" class="form-control" id="nombre" name="nombre" placeholder="..." value="{{old('nombre', $producto->nombre)}}">
                             @error('nombre')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -34,7 +34,7 @@
 
                         <div class="form-group mb-3">
                             <label for="proveedor">Proveedor (opcional)</label>
-                            <input type="text" class="form-control" id="proveedor" name="proveedor" placeholder="..." value="{{old('proveedor')}}">
+                            <input type="text" class="form-control" id="proveedor" name="proveedor" placeholder="..." value="{{old('proveedor', $producto->proveedor)}}">
                             @error('proveedor')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -42,7 +42,7 @@
 
                         <div class="form-group mb-3">
                             <label for="descripcion">Descripción</label>
-                            <textarea required class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion')}}</textarea>
+                            <textarea required class="form-control" id="descripcion" name="descripcion" rows="4">{{old('descripcion', $producto->descripcion)}}</textarea>
                             @error('descripcion')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -59,17 +59,17 @@
 
                         <div class="form-group mb-3">
                             <label for="precio">Precio</label>
-                            <input required type="number" class="form-control" id="precio" name="precio" placeholder="..." value="{{old('precio')}}" min="0">
+                            <input required type="number" class="form-control" id="precio" name="precio" placeholder="..." value="{{old('precio', $producto->precio)}}" min="0">
                         </div>
 
                         <!--input para el stock-->
                         <div class="form-group mb-3">
                             <label for="stock">Stock</label>
-                            <input type="number" class="form-control" id="stock" name="stock" placeholder="..." value="{{old('stock')}}" min="0">
+                            <input type="number" class="form-control" id="stock" name="stock" placeholder="..." value="{{old('stock', $producto->stock)}}" min="0">
                         </div>
 
                         <div class="form-check mb-2">
-                            <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo'))>
+                            <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo', $producto->activo))>
                             <label class="form-check-label" for="activo">Publicar</label>
                         </div>
                         
@@ -84,8 +84,18 @@
                     </div>
                 </div>
         
-                <button type="submit" class="btn btn-outline-secondary btn-block">Confirmar</button>
+                <button type="submit" class="btn btn-outline-secondary btn-block">Actualizar</button>
             </form>
+
+
+            
+            <form action="{{ route('productos.destroy', $producto) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-outline-danger mt-2">Eliminar</button>
+            </form>
+            
+
         </div>
     </div>
 

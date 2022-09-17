@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\TiendaController;
 use App\Http\Controllers\TalleresController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\PostController;
@@ -79,14 +80,16 @@ agenda
 Route::get('/agenda', AgendaController::class)->name('agenda');
 
 
+
 /*
 tienda
 */
+Route::get('/tienda', TiendaController::class)->name('tienda');
 /*Route::get('/tienda', function () {
     return view('tienda');
 })->name('tienda');*/
 //Route::resource('tienda', ProductoController::class);
-Route::controller(ProductoController::class)->group(function () {
+/*Route::controller(ProductoController::class)->group(function () {
     Route::get('tienda', 'index')->name('tienda.index');
     Route::get('tienda/create', 'create')->name('tienda.create')->middleware('administrador');
     Route::post('tienda', 'store')->name('tienda.store')->middleware('administrador');
@@ -94,7 +97,28 @@ Route::controller(ProductoController::class)->group(function () {
     Route::get('tienda/{tienda}/edit', 'edit')->name('tienda.edit')->middleware('administrador');
     Route::put('tienda/{tienda}', 'update')->name('tienda.update')->middleware('administrador');
     Route::delete('tienda/{tienda}', 'destroy')->name('tienda.destroy')->middleware('administrador');
+});*/
+
+
+/*
+Productos
+*/
+Route::controller(ProductoController::class)->group(function () {
+    Route::get('productos', 'index')->name('productos.index')->middleware('administrador');
+    Route::get('productos/create', 'create')->name('productos.create')->middleware('administrador');
+    Route::post('productos', 'store')->name('productos.store')->middleware('administrador');
+    Route::get('productos/{producto}', 'show')->name('productos.show')->middleware('administrador');
+    Route::get('productos/{producto}/edit', 'edit')->name('productos.edit')->middleware('administrador');
+    Route::put('productos/{producto}', 'update')->name('productos.update')->middleware('administrador');
+    Route::delete('productos/{producto}', 'destroy')->name('productos.destroy')->middleware('administrador');
 });
+
+
+
+
+
+
+
 
 
 /* 

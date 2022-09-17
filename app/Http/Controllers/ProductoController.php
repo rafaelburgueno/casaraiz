@@ -21,23 +21,21 @@ class ProductoController extends Controller
     public function index()
     {
         
-        if(Auth::check() && Auth::user()->rol == 'administrador'){
+        /*if(Auth::check() && Auth::user()->rol == 'administrador'){*/
             //al administrador se le mostraran todos los posts
             //$productos = Producto::orderBy('nombre','desc')->get();
-            $productos = Producto::orderBy('nombre','desc')->paginate(9);
-        }else{
+            $productos = Producto::orderBy('nombre','desc')->get();
+        /*}else{
             //a los usuarios normales se le mostraran solo los posts publicados
             $productos = Producto::where('activo', true)->orderBy('nombre','desc')->paginate(12);
             //$productos = Producto::where('activo', true)->orderBy('created_at','desc')->get();
-        }
+        }*/
         
-        return view('tienda.index', compact('productos'));
+        return view('productos.index', compact('productos'));
     }
 
 
-
-
-
+    
     
     /**
      * Show the form for creating a new resource.
@@ -46,7 +44,7 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        return view('tienda.create');
+        return view('productos.create');
     }
 
 
@@ -72,30 +70,30 @@ class ProductoController extends Controller
             //'imagen' => 'image',
         ]);
         
-        $tienda = new Producto();
+        $producto = new Producto();
 
-        $tienda->slug = Str::slug($request->nombre, '-');
-        $tienda->nombre = $request->nombre;
-        $tienda->descripcion = $request->descripcion;
-        $tienda->precio = $request->precio;
-        $tienda->stock = $request->stock;
+        $producto->slug = Str::slug($request->nombre, '-');
+        $producto->nombre = $request->nombre;
+        $producto->descripcion = $request->descripcion;
+        $producto->precio = $request->precio;
+        $producto->stock = $request->stock;
         
         if($request->activo){
-            $tienda->activo = true;
+            $producto->activo = true;
         }else{
-            $tienda->activo = false;
+            $producto->activo = false;
         }
 
-        $tienda->user_id = auth()->id(); //usuario logueado que registra el producto
+        $producto->user_id = auth()->id(); //usuario logueado que registra el producto
         if($request->proveedor){
-            $tienda->proveedor = $request->proveedor;
+            $producto->proveedor = $request->proveedor;
         }/*else{
-            $tienda->proveedor = '';
+            $producto->proveedor = '';
         }*/
 
-        //$tienda->categorias = $request->categorias;
+        //$producto->categorias = $request->categorias;
 
-        $tienda -> save();
+        $producto -> save();
 
         //return $request->all();
         //IMAGEN
@@ -115,7 +113,7 @@ class ProductoController extends Controller
                 'relevancia' => 1,
                 'resolucion' => 'no se',
                 'tamaño' => 'no se',
-                'multimediaable_id' => $tienda->id,
+                'multimediaable_id' => $producto->id,
                 'multimediaable_type' => 'App\Models\Producto',
             ]);
 
@@ -126,8 +124,8 @@ class ProductoController extends Controller
         //$producto = Evento::create($request->all());
 
         session()->flash('exito', 'El producto fue creado.');
-        return redirect() -> route('tienda.show', $tienda);
-        //return view('tienda.show')->with('tienda', $tienda);
+        return redirect() -> route('productos.show', $producto);
+        //return view('tienda.show')->with('tienda', $producto);
         //return redirect() -> route('tienda.index');
     }
 
@@ -142,13 +140,13 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function show(Producto $tienda)
+    public function show(Producto $producto)
     {
-        //return $tienda;
+        //return $producto;
         //return 'Hola producto '.dd($producto->nombre);
-        // hay que reenviarlo a la vista show con el nombre $tienda
-        return view('tienda.show', compact('tienda'));
-        //return view('tienda.show')->with('producto', $tienda);
+        // hay que reenviarlo a la vista show con el nombre $producto
+        return view('productos.show', compact('producto'));
+        //return view('producto.show')->with('producto', $producto);
     }
 
 
@@ -162,11 +160,11 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Producto $tienda)
+    public function edit(Producto $producto)
     {
         //return 'el producto a editar es '.$producto->nombre;
-        return view('tienda.edit', compact('tienda'));
-        //return view('tienda.edit')->with('producto', $tienda);
+        return view('productos.edit', compact('producto'));
+        //return view('productos.edit')->with('producto', $producto);
     }
 
 
@@ -181,7 +179,7 @@ class ProductoController extends Controller
      * @param  \App\Models\Producto  $tienda
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $tienda)
+    public function update(Request $request, Producto $producto)
     {
         //debe llamarse tienda porque es el nombre especificado en la ruta (php artisan route:list)
         //return $request->all();
@@ -194,36 +192,36 @@ class ProductoController extends Controller
         ]);
 
         //TODO actualizar el campo slug
-        //$tienda = Producto::findOrFail($id);
-        $tienda->slug = strtolower(str_replace(' ', '-', $request->nombre));
-        $tienda->nombre = $request->nombre;
-        $tienda->descripcion = $request->descripcion;
-        //$tienda->user_id = $request->user_id;
+        //$producto = Producto::findOrFail($id);
+        $producto->slug = strtolower(str_replace(' ', '-', $request->nombre));
+        $producto->nombre = $request->nombre;
+        $producto->descripcion = $request->descripcion;
+        //$producto->user_id = $request->user_id;
 
-        $tienda->precio = $request->precio;
-        $tienda->stock = $request->stock;
+        $producto->precio = $request->precio;
+        $producto->stock = $request->stock;
 
         if($request->activo){
-            $tienda->activo = true;
+            $producto->activo = true;
         }else{
-            $tienda->activo = false;
+            $producto->activo = false;
         }
 
-        $tienda->user_id = auth()->id(); //usuario logueado que registra el producto
+        $producto->user_id = auth()->id(); //usuario logueado que registra el producto
         if($request->proveedor){
-            $tienda->proveedor = $request->proveedor;
+            $producto->proveedor = $request->proveedor;
         }else{
-            $tienda->proveedor = '';
+            $producto->proveedor = '';
         }
 
-        //$tienda->proveedor = $request->proveedor;
-        //$tienda->categorias = $request->categorias;
+        //$producto->proveedor = $request->proveedor;
+        //$producto->categorias = $request->categorias;
 
-        //$tienda -> cupos_disponibles = $request -> cupos_disponibles;
-        //$tienda->relevancia = $request->relevancia;
+        //$producto -> cupos_disponibles = $request -> cupos_disponibles;
+        //$producto->relevancia = $request->relevancia;
 
-        //return $tienda;
-        $tienda -> save();
+        //return $producto;
+        $producto -> save();
         
         if($request->file('imagen')){
             
@@ -239,7 +237,7 @@ class ProductoController extends Controller
                 'relevancia' => 1,
                 'resolucion' => 'no se',
                 'tamaño' => 'no se',
-                'multimediaable_id' => $tienda->id,
+                'multimediaable_id' => $producto->id,
                 'multimediaable_type' => 'App\Models\Producto',
             ]);
 
@@ -247,7 +245,7 @@ class ProductoController extends Controller
         }
 
         session()->flash('exito', 'El producto fue editado.');
-        return redirect() -> route('tienda.show', $tienda);
+        return redirect() -> route('productos.show', $producto);
     }
 
 
@@ -258,19 +256,19 @@ class ProductoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Producto  $tienda
+     * @param  \App\Models\Producto  $producto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Producto $tienda)
+    public function destroy(Producto $producto)
     {
-        $tienda->delete();
+        $producto->delete();
         session()->flash('exito', 'El producto fue eliminado.');
         
         //$tienda->activo = 0;
         //$tienda -> save();
         //session()->flash('exito', 'El producto fue desactivado.');
 
-        return redirect() -> route('tienda.index');
+        return redirect() -> route('productos.index');
     }
 
 

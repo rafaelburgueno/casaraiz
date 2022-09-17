@@ -19,7 +19,7 @@
                 <a class="nav-link" style="color: black; {{request()->routeIs('agenda') ? 'opacity:60%;' : ''}} {{request()->routeIs('eventos.*') ? 'opacity:60%;' : ''}} " href="{{route('agenda')}}"><strong>Agenda</strong></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" style="color: black; {{request()->routeIs('tienda.*') ? 'opacity:60%;' : ''}}" href="{{route('tienda.index')}}"><strong>Tienda</strong></a>
+                <a class="nav-link" style="color: black; {{request()->routeIs('tienda') ? 'opacity:60%;' : ''}}" href="{{route('tienda')}}"><strong>Tienda</strong></a>
             </li>
 
             @if(Auth::check() && ( Auth::user()->rol == 'administrador' || Auth::user()->rol == 'colaborador' ))
@@ -41,6 +41,7 @@
                             <a class="dropdown-item" href="{{route('eventos.index')}}">Eventos</a>
                             <a class="dropdown-item" href="{{route('banner.index')}}">Banner de inicio</a>
                             <a class="dropdown-item" href="{{route('inscripciones.index')}}">Inscripciones y solicitudes</a>
+                            <a class="dropdown-item" href="{{route('productos.index')}}">Productos</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('carrar_sesion')}}">Salir</a>
                         </div>
