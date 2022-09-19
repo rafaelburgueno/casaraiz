@@ -24,9 +24,9 @@
                 @endif
 
                 <div class="card-body">
-                    
-                    <p class="h3"><strong> ${{$producto->precio}}</strong></p>
-                    
+                    @if($producto->precio)
+                    	<p class="h3"><strong> ${{$producto->precio}}</strong></p>
+                    @endif
                     
                     <h5 class="card-title text-dark my-1">{{$producto->nombre}}</h5>
                     

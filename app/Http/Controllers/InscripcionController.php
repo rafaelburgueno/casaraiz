@@ -19,6 +19,7 @@ class InscripcionController extends Controller
     public function __invoke(Request $request)
     {
         //return request()->all();
+        /*
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
             'id_evento' => 'required',
             'nombre' => 'required|max:100',
@@ -49,5 +50,6 @@ class InscripcionController extends Controller
 
         //return redirect() -> route('talleres');
         return back();
+        */
     }
 }

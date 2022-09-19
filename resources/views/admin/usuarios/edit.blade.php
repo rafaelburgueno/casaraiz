@@ -40,6 +40,71 @@
         </form>
 
     </div>
+
+
+    
+    <!-- Historial -->
+    <!-- Historial -->
+    <!-- Historial -->
+    <div class="my-5"></div>
+    <div class="text-center my-4">
+        <h3 id="in" class="text-center pt-2">historial de inscripciones</h3>
+    </div>
+    
+    <!-- Tabla de Usuarios -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/dataTables.css')}}">
+    {{--<link rel="stylesheet" type="text/css" href="{{ asset('/css/calendar.css')}}" />--}}
+    <script type="text/javascript" src="{{ asset('/js/dataTables.js')}}" charset="utf8"></script>
+    {{--<script type="text/javascript" src="{{ asset('/js/calendar.js') }}"></script>--}}
+
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable();
+        } );
+    </script>
+
+
+    <!-- Inscripciones -->
+    <div class="pb-3" style="overflow-x: scroll;">
+        <table id="table_id" class="display {{--table table-striped table-hover table-sm--}}">
+            <thead>
+                <tr>
+                    {{--<th>id</th>--}}
+                    <th>Fecha</th>
+                    <th>Nombre</th>
+                    <th>Inscripción</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Recibir novedades</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+            
+                @foreach ($usuario->historial_de_inscripciones() as $inscripcion)
+                    <tr>
+                        <td>{{ $inscripcion->created_at->format('d/m/Y') }}</td>
+                        {{--<td>{{ $inscripcion->id }}</td>--}}
+                        <td>{{ $inscripcion->nombre }}</td>
+                        <td>{{ $inscripcion->inscripto_a() }}</td>
+                        <td>{{ $inscripcion->correo }}</td>
+                        <td>{{ $inscripcion->telefono }}</td>
+                        <td>
+                            @if($inscripcion->recibir_novedades)
+                                SI
+                            @else
+                                NO
+                            @endif
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+
+
+
     
 </div>
 

@@ -27,7 +27,7 @@ class LoQuieroController extends Controller
             'correo' => 'required|email',
             'documento' => 'required|numeric',
             'telefono' => 'required|numeric',
-            'medio_de_pago' => 'required',
+            'medio_de_pago' => 'nullable',
         ]);
 
         $producto = Producto::find($request->id_producto);

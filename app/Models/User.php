@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Inscripcion;
+
 
 // al implementar MustVerifyEmail, el usuario debe verificar su cuenta antes de poder iniciar sesión
 // para iniciar sesion sin verificar el email, se le quita el implements MustVerifyEmail
@@ -90,6 +92,15 @@ class User extends Authenticatable implements MustVerifyEmail
         //return $this->hasMany(Multimedia::class);
         return $this->morphMany(Multimedia::class, 'multimediaable');
     }
+
+    //relacion uno a muchos polimorfica con la tabla multimedias
+    public function historial_de_inscripciones()
+    {
+        //$eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('es_extencion_del_evento_id', NULL)->orderBy('fecha')->paginate(10);
+        $inscripciones = Inscripcion::where('user_id', $this->id)->get();
+        return $inscripciones;
+    }
+
 
 
 }

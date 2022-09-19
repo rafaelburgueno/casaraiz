@@ -23,6 +23,19 @@
 
                 <div class="row">
                     <div class="col col-md-6">
+
+                        <div class="form-group mb-3">
+                            <label for="tipo">Tipo de producto</label>
+                            <select class="form-control" id="tipo" name="tipo">
+                                <option value="tienda">Tienda</option>
+                                <option value="almacen de semillas">Almacen de semillas</option>
+                                <option value="biblioteca">Biblioteca</option>
+                                <option value="ludoteca">Ludoteca</option>
+                            </select>
+                            @error('tipo')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
                         
                         <div class="form-group mb-3">
                             <label for="nombre">Nombre</label>
@@ -59,18 +72,27 @@
 
                         <div class="form-group mb-3">
                             <label for="precio">Precio</label>
-                            <input required type="number" class="form-control" id="precio" name="precio" placeholder="..." value="{{old('precio')}}" min="0">
+                            <input type="number" class="form-control" id="precio" name="precio" placeholder="..." value="{{old('precio')}}" min="0">
+                            @error('precio')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <!--input para el stock-->
                         <div class="form-group mb-3">
                             <label for="stock">Stock</label>
                             <input type="number" class="form-control" id="stock" name="stock" placeholder="..." value="{{old('stock')}}" min="0">
+                            @error('stock')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="form-check mb-2">
                             <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo'))>
                             <label class="form-check-label" for="activo">Publicar</label>
+                            @error('activo')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
                         </div>
                         
                         <div class="form-group mb-3">

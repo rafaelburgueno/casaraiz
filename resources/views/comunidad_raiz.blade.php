@@ -102,7 +102,7 @@
         </div>
         
     </div>
-    <br id="membresias-ruta">
+    <br id="membresias_ruta">
     <br>
 
 

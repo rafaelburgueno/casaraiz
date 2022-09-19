@@ -23,6 +23,17 @@
 
                 <div class="row">
                     <div class="col col-md-6">
+
+                        <!-- tipo de producto -->
+                        <div class="form-group mb-3">
+                            <label for="tipo">Tipo de producto</label>
+                            <select class="form-control" id="tipo" name="tipo">
+                                <option value="tienda" @selected((old('tipo') == "tienda") || $producto->tipo == "tienda" )>Tienda</option>
+                                <option value="almacen de semillas" @selected((old('tipo') == "almacen de semillas") || $producto->tipo == "almacen de semillas" )>Almacen de semillas</option>
+                                <option value="biblioteca" @selected((old('tipo') == "biblioteca") || $producto->tipo == "biblioteca" )>Biblioteca</option>
+                                <option value="ludoteca" @selected((old('tipo') == "ludoteca") || $producto->tipo == "ludoteca" )>Ludoteca</option>
+                            </select>
+                        </div>
                         
                         <div class="form-group mb-3">
                             <label for="nombre">Nombre</label>
@@ -59,7 +70,7 @@
 
                         <div class="form-group mb-3">
                             <label for="precio">Precio</label>
-                            <input required type="number" class="form-control" id="precio" name="precio" placeholder="..." value="{{old('precio', $producto->precio)}}" min="0">
+                            <input type="number" class="form-control" id="precio" name="precio" placeholder="..." value="{{old('precio', $producto->precio)}}" min="0">
                         </div>
 
                         <!--input para el stock-->

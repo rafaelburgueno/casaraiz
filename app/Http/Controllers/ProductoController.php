@@ -25,13 +25,16 @@ class ProductoController extends Controller
             //al administrador se le mostraran todos los posts
             //$productos = Producto::orderBy('nombre','desc')->get();
             $productos = Producto::orderBy('nombre','desc')->get();
+            //$almacen_de_semillas = Producto::where('tipo', 'almacen de semillas')->orderBy('nombre','desc')->get();
+            //$biblioteca = Producto::where('tipo', 'biblioteca')->orderBy('nombre','desc')->get();
+            //$ludoteca = Producto::where('tipo', 'ludoteca')->orderBy('nombre','desc')->get();
         /*}else{
             //a los usuarios normales se le mostraran solo los posts publicados
             $productos = Producto::where('activo', true)->orderBy('nombre','desc')->paginate(12);
             //$productos = Producto::where('activo', true)->orderBy('created_at','desc')->get();
         }*/
         
-        return view('productos.index', compact('productos'));
+        return view('productos.index')->with('productos', $productos);
     }
 
 
@@ -62,9 +65,10 @@ class ProductoController extends Controller
     {
         //return $request->all();
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
+            'tipo' => 'required|max:25',
             'nombre' => 'required|max:255',
-            'proveedor' => 'max:100',
-            'precio' => 'numeric',
+            'proveedor' => 'max:100|nullable',
+            'precio' => 'numeric|nullable',
             'descripcion' => 'max:255',
             'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             //'imagen' => 'image',
@@ -72,6 +76,7 @@ class ProductoController extends Controller
         
         $producto = new Producto();
 
+        $producto->tipo = $request->tipo;
         $producto->slug = Str::slug($request->nombre, '-');
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
@@ -184,15 +189,17 @@ class ProductoController extends Controller
         //debe llamarse tienda porque es el nombre especificado en la ruta (php artisan route:list)
         //return $request->all();
         $request->validate([
+            'tipo' => 'required|max:25',
             'nombre' => 'required|max:255',
-            'proveedor' => 'max:100',
-            'precio' => 'numeric',
+            'proveedor' => 'max:100|nullable',
+            'precio' => 'numeric|nullable',
             'descripcion' => 'required|max:255', //TODO: revisar el almacemaniento maximo para el campo descripcion
             'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);
 
         //TODO actualizar el campo slug
         //$producto = Producto::findOrFail($id);
+        $producto->tipo = $request->tipo;
         $producto->slug = strtolower(str_replace(' ', '-', $request->nombre));
         $producto->nombre = $request->nombre;
         $producto->descripcion = $request->descripcion;
