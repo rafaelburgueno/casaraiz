@@ -37,11 +37,12 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('mi_perfil')}}">Mi perfil</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
                             <a class="dropdown-item" href="{{route('eventos.index')}}">Eventos</a>
-                            <a class="dropdown-item" href="{{route('banner.index')}}">Banner de inicio</a>
-                            <a class="dropdown-item" href="{{route('inscripciones.index')}}">Inscripciones y solicitudes</a>
                             <a class="dropdown-item" href="{{route('productos.index')}}">Productos</a>
+                            <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{route('inscripciones.index')}}">Inscripciones y solicitudes</a>
+                            <a class="dropdown-item" href="{{route('banner.index')}}">Banner de inicio</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('carrar_sesion')}}">Salir</a>
                         </div>

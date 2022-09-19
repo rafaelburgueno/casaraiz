@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Inscripcion;
 
 class Producto extends Model
 {
@@ -66,5 +67,20 @@ class Producto extends Model
         return $this->belongsToMany(Categoria::class);
     }
 
+
+    // muestra las inscripciones que se relacionancon el producto
+    // este metodo esta comentado porque hace exactamente lo mismo que el metodo inscripciones()
+    /*public function historial()
+    {
+        return Inscripcion::where('inscripcionable_type', 'App\Models\Producto')->where('inscripcionable_id', $this->id)->orderBy('created_at','desc')->get();
+    }*/
+
+    
+    //relacion uno a muchos polimorfica con la tabla multimedias
+    public function inscripciones()
+    {
+        //return $this->hasMany(Multimedia::class);
+        return $this->morphMany(Inscripcion::class, 'inscripcionable');
+    }
 
 }

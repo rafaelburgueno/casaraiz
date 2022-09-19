@@ -2062,7 +2062,8 @@
             if (
                 !lang.sEmptyTable &&
                 zeroRecords &&
-                defaults.sEmptyTable === "No data available in table"
+                //defaults.sEmptyTable === "No data available in table"
+                defaults.sEmptyTable === "No hay datos para mostrar"
             ) {
                 _fnMap(lang, lang, "sZeroRecords", "sEmptyTable");
             }
@@ -11606,7 +11607,8 @@
              *      } );
              *    } );
              */
-            sEmptyTable: "No data available in table",
+            //sEmptyTable: "No data available in table",
+            sEmptyTable: "No hay datos para mostrar",
 
             /**
              * This string gives information to the end user about the information

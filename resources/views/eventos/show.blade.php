@@ -72,7 +72,7 @@
                 @if(Auth::check() && Auth::user()->rol == 'administrador')
                 <p class="mx-1">Creado: <small>{{$evento->created_at}}</small></p>
                 <div class="d-flex justify-content-between align-items-center p-1">
-                    <a href="{{route('talleres')}}" class="btn btn-outline-secondary ">< Volver</a>
+                    <a href="{{route('eventos.index')}}" class="btn btn-outline-secondary ">< Volver</a>
                     <a href="{{route('eventos.edit', $evento)}}" class="btn btn-outline-secondary ">Editar ></a>
                 </div>
                 @endif

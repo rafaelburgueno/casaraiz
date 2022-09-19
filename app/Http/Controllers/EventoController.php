@@ -347,7 +347,7 @@ class EventoController extends Controller
 
         session()->flash('exito', 'El evento fue editado.');
 
-        return redirect() -> route('eventos.show', $evento);
+        return redirect() -> route('eventos.index');
     }
 
 

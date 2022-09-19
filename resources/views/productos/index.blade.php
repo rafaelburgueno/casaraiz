@@ -50,8 +50,8 @@
 					<th>Stock</th>
 					<th>Activo?</th>
 					<th>Creado</th>
-					<th>editar</th>
 					<th>Descripción</th>
+					<th>Administrar</th>
 					
 				</tr>
 			</thead>
@@ -72,8 +72,8 @@
 							@endif
 						</td>
 						<td>{{ $producto->created_at->format('d/m/Y') }}</td>
-						<td><a href="{{route('productos.edit', $producto)}}" class="btn btn-sm btn-outline-secondary ">Editar ></a></td>
 						<td>{{ $producto->descripcion }}</td>
+						<td><a href="{{route('productos.edit', $producto)}}" class="btn btn-sm btn-outline-secondary ">Ver ></a></td>
 
 						
 					</tr>

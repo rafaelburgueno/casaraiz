@@ -87,8 +87,8 @@
                     {{--<td>{{ $evento->tiene_extenciones }}</td>--}}
                     <td>{{ $evento->cupos_disponibles }}</td>
                     <td>
-                        <a href="{{route('eventos.show', $evento)}}" class="btn btn-sm btn-outline-secondary ">Ver</a>
-                        <a href="{{route('eventos.edit', $evento)}}" class="btn btn-sm btn-outline-secondary ">Editar</a>
+                        {{--<a href="{{route('eventos.show', $evento)}}" class="btn btn-sm btn-outline-secondary ">Ver</a>--}}
+                        <a href="{{route('eventos.edit', $evento)}}" class="btn btn-sm btn-outline-secondary ">Ver ></a>
                     </td>
                     
                 </tr>

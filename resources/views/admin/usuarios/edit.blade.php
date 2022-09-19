@@ -48,7 +48,7 @@
     <!-- Historial -->
     <div class="my-5"></div>
     <div class="text-center my-4">
-        <h3 id="in" class="text-center pt-2">historial de inscripciones</h3>
+        <h3 id="in" class="text-center pt-2">Historial de inscripciones</h3>
     </div>
     
     <!-- Tabla de Usuarios -->
