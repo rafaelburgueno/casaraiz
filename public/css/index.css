@@ -516,3 +516,49 @@ input[name="telefono"] {
   bottom: 5px;
   right: 15px;
 }
+
+
+
+
+
+
+
+
+.btn-tarjetas {
+  color: rgb(210, 238, 229);
+  background-color: rgb(218, 108, 113); /*claro*/
+  /*background-color:rgb(198, 98, 103); */ /*original*/
+  /*background-color:rgb(178, 88, 93); */ /*obscuro*/
+  border-color: rgb(210, 238, 229);
+}
+
+.btn-tarjetas:hover {
+  color: rgb(210, 238, 229);
+  /*background-color: rgb(218, 108, 113);*/ /*claro*/
+  background-color:rgb(198, 98, 103); /*original*/
+  /*background-color:rgb(178, 88, 93); */ /*obscuro*/
+  border-color: rgb(210, 238, 229);
+}
+
+.btn-tarjetas:focus, .btn-tarjetas.focus {
+  /*box-shadow: 0 0 0 0.2rem rgb(218, 108, 113);*/
+  box-shadow: 0 0 0 0.2rem rgb(238, 118, 124);
+}
+
+.btn-tarjetas.disabled, .btn-tarjetas:disabled {
+  color: rgb(210, 238, 229);
+  background-color: rgb(198, 98, 103);
+  border-color: rgb(198, 98, 103);
+}
+
+.btn-tarjetas:not(:disabled):not(.disabled):active, .btn-tarjetas:not(:disabled):not(.disabled).active,
+.show > .btn-tarjetas.dropdown-toggle {
+  color: rgb(210, 238, 229);
+  background-color: rgb(178, 88, 93);
+  border-color: rgb(178, 88, 93);
+}
+
+.btn-tarjetas:not(:disabled):not(.disabled):active:focus, .btn-tarjetas:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(198, 98, 103, 1);
+}

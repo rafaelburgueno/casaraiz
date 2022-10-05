@@ -6,6 +6,11 @@
 @section('content')
 
 
+
+
+<!-- Imagen apaisada con logo -->
+<!-- Imagen apaisada con logo -->
+<!-- Imagen apaisada con logo -->
 <!-- Imagen apaisada con logo -->
 <div>
 	<img src="{{asset('/storage/img/nav.10.png')}}" class="d-block w-100" alt="...">
@@ -13,12 +18,17 @@
 
 
 
+
+<!-- Card principal con foto -->
+<!-- Card principal con foto -->
+<!-- Card principal con foto -->
+<!-- Card principal con foto -->
 <div class="container mt-5">
     <div id="myDIV" class="card" width="18rem" style="opacity:95%;   background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 158, 98));">
         <img class="card-img-top" src="{{asset('/storage/img/casa.png')}}" alt="Card image cap">
 
         <h1 class="card-header text-center" style="color: #eaf0e4;">
-            Casa Raíz es un espacio cultural ,
+            Casa Raíz es un espacio cultural,
         </h1>
         <div class="card-body text-center">
             <h3 class="card-title " style="color: #f0b6be">ubicado en La Floresta, Uruguay</h3><br>
@@ -32,6 +42,12 @@
 </div>
 
 
+
+
+<!-- Video -->
+<!-- Video -->
+<!-- Video -->
+<!-- Video -->
 <div class="container px-4 my-2">
     <div class="row">
         <div class="col-sm video-responsive mt-3">

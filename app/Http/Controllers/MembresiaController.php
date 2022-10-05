@@ -18,6 +18,7 @@ class MembresiaController extends Controller
     public function __invoke(Request $request)
     {
         //return request()->all();
+        // Validaciones
         $request->validate([ //TODO: revisar las validaciones porque no funcionan
             'nombre' => 'required|max:100',
             'apellido' => 'required|max:100',
@@ -42,6 +43,7 @@ class MembresiaController extends Controller
         if($request->tipo_de_membresia == 'raiz'){$membresia = 2;}
         if($request->tipo_de_membresia == 'arbol'){$membresia = 3;}
 
+        // TODO: los intereses podrian recibirse en un array, para evitar manejar tantas variables
         $intereses = '';
         if($request->interes1){ $intereses .= $request->interes1 . ', ';}
         if($request->interes2){ $intereses .= $request->interes2 . ', ';}
@@ -53,6 +55,7 @@ class MembresiaController extends Controller
         $recibir_novedades = false;
         if($request->recibir_novedades == '1'){$recibir_novedades = true;}
 
+        // se crea el objeto Inscripcion y se almacena en la BD
         Inscripcion::create([
             'user_id' => $user,
             'nombre' => $request->nombre.' '.$request->apellido,

@@ -21,15 +21,18 @@ class TalleresController extends Controller
         //$talleres = Evento::where('tipo', 'taller')->where('recurrente', true)->where('activo', true)->orderBy('relevancia','asc')->paginate();
         //$talleres = Evento::where('tipo', 'taller')->where('activo', true)->orderBy('relevancia','asc')->paginate();
 
-        if(Auth::check() && Auth::user()->rol == 'administrador'){
-            //al administrador se le mostraran todos los posts
+        // anteriormente se mostraban al administrador los talleres que no son publicos
+        /*if(Auth::check() && Auth::user()->rol == 'administrador'){
+            //al administrador se le mostraran todos los talleres
             $talleres = Evento::where('tipo', 'taller')->where('es_extencion_del_evento_id', NULL)->orderBy('relevancia','asc')->paginate();
 
         }else{
-            //a los usuarios normales se le mostraran solo los posts publicados
+            //a los usuarios normales se le mostraran solo los talleres publicados
             $talleres = Evento::where('tipo', 'taller')->where('es_extencion_del_evento_id', NULL)->where('activo', true)->orderBy('relevancia','asc')->paginate();
 
-        }
+        }*/
+
+        $talleres = Evento::where('tipo', 'taller')->where('es_extencion_del_evento_id', NULL)->where('activo', true)->orderBy('relevancia','asc')->paginate();
 
         //return $talleres;
         return view('talleres', compact('talleres'));

@@ -68,7 +68,7 @@
                                 </a>--}}
                                 <p class=""><small>Espacio: {{ Str::ucfirst($evento->lugar) }}</small></p>
                             
-                                <button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
+                                <button class="btn btn-tarjetas" {{--style="background-color: rgb(220, 43, 20); color: white;"--}}
                                     data-toggle="modal" data-target="#inscribirme-{{$evento->id}}" id="contactobtn-{{$evento->id}}">
                                     Inscribirme
                                 </button>
@@ -180,7 +180,7 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="submit" class="btn btn-block" style="background-color: coral; color: #e9e2e2;" id="enviar">Enviar</button>
+                                    <button type="submit" class="btn btn-block btn-tarjetas" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
                                 </div>
                             </form>
                         </div>
@@ -361,10 +361,10 @@
     </div>--}}
 
 
-    <!-- Botones de paginacion -->
+    {{--<!-- Botones de paginacion -->
     <div class="d-flex justify-content-center">
         {{ $eventos->links('pagination::bootstrap-4') }}
-    </div>
+    </div>--}}
 
 
 </div>

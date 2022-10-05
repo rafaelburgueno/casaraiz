@@ -205,7 +205,7 @@
             ' <div class="event-hour">De ' + event.hora_de_inicio + ' a ' + event.hora_de_fin + '</div>' +
             ' <div class="event-date">' + plugin.formatDateEvent(startDate, endDate) + '</div>' +
             ' <div class="event-summary"><p>' + event.nombre + '</p><p><small>' + event.descripcion + '</small></p></div>' +
-            '<button class="btn btn-info btn-sm" style="background-color: rgb(255, 86, 40); color: white;"data-toggle="modal" data-target="#inscribirme-'+event.id+'" id="contactobtn-'+event.id+'">Inscribirme</button></div>');
+            '<button class="btn btn-tarjetas btn-sm" data-toggle="modal" data-target="#inscribirme-'+event.id+'" id="contactobtn-'+event.id+'">Inscribirme</button></div>');
         /*var $event = $('' +
             '<div class="event">' +
             ' <div class="event-hour">' + startDate.getHours() + ':' + (startDate.getMinutes() < 10 ? '0' : '') + startDate.getMinutes() + '</div>' +

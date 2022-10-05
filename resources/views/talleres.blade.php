@@ -75,7 +75,7 @@
                     </div>
                 @endif
                 <div class="p-2 d-flex justify-content-end">
-                    <button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
+                    <button class="btn btn-tarjetas" {{--style="background-color: rgb(220, 43, 20); color: white;"--}}
                         data-toggle="modal" data-target="#inscribirme-{{$t->id}}" id="contactobtn-{{$t->id}}">
                         Inscribirme
                     </button>
@@ -185,7 +185,7 @@
                             </div>
 
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-block" style="background-color: coral; color: #e9e2e2;" id="enviar">Enviar</button>
+                                <button type="submit" class="btn btn-block btn-tarjetas" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
                             </div>
                         </form>
                     </div>

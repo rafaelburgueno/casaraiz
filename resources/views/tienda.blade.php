@@ -57,7 +57,7 @@
 					<div class="d-flex justify-content-between align-items-center">
 						{{--<a href="{{route('tienda.show', $producto)}}" class=""><small>más info...</small></a>--}}
                         <div></div>
-						<button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
+						<button class="btn btn-tarjetas" {{--style="background-color: rgb(220, 43, 20); color: white;"--}}
 							data-toggle="modal" data-target="#lo-quiero-{{$producto->id}}" id="lo-quiero-btn-{{$producto->id}}">
 							Lo quiero
 						</button>
@@ -169,7 +169,7 @@
 							</div>
 
 							<div class="modal-footer">
-								<button type="submit" class="btn btn-block" style="background-color: coral; color: #e9e2e2;" id="enviar">Enviar</button>
+								<button type="submit" class="btn btn-block btn-tarjetas" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
 							</div>
 						</form>
 					</div>
@@ -243,7 +243,7 @@
 						<div class="d-flex justify-content-between align-items-center">
 							{{--<a href="{{route('tienda.show', $semilla)}}" class=""><small>más info...</small></a>--}}
 							<div></div>
-							<button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
+							<button class="btn btn-tarjetas" {{--style="background-color: rgb(220, 43, 20); color: white;"--}}
 								data-toggle="modal" data-target="#lo-quiero-{{$semilla->id}}" id="lo-quiero-btn-{{$semilla->id}}">
 								Lo quiero
 							</button>
@@ -355,7 +355,7 @@
 								</div>
 
 								<div class="modal-footer">
-									<button type="submit" class="btn btn-block" style="background-color: coral; color: #e9e2e2;" id="enviar">Enviar</button>
+									<button type="submit" class="btn btn-block btn-tarjetas" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
 								</div>
 							</form>
 						</div>
@@ -431,7 +431,7 @@
 						<div class="d-flex justify-content-between align-items-center">
 							{{--<a href="{{route('tienda.show', $libro)}}" class=""><small>más info...</small></a>--}}
 							<div></div>
-							<button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
+							<button class="btn btn-tarjetas" {{--style="background-color: rgb(220, 43, 20); color: white;"--}}
 								data-toggle="modal" data-target="#lo-quiero-{{$libro->id}}" id="lo-quiero-btn-{{$libro->id}}">
 								Lo quiero
 							</button>
@@ -543,7 +543,7 @@
 								</div>
 
 								<div class="modal-footer">
-									<button type="submit" class="btn btn-block" style="background-color: coral; color: #e9e2e2;" id="enviar">Enviar</button>
+									<button type="submit" class="btn btn-block btn-tarjetas" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
 								</div>
 							</form>
 						</div>
@@ -619,7 +619,7 @@
 						<div class="d-flex justify-content-between align-items-center">
 							{{--<a href="{{route('tienda.show', $juego)}}" class=""><small>más info...</small></a>--}}
 							<div></div>
-							<button class="btn btn-info" style="background-color: rgb(220, 43, 20); color: white;"
+							<button class="btn btn-tarjetas" {{--style="background-color: rgb(220, 43, 20); color: white;"--}}
 								data-toggle="modal" data-target="#lo-quiero-{{$juego->id}}" id="lo-quiero-btn-{{$juego->id}}">
 								Lo quiero
 							</button>
@@ -731,7 +731,7 @@
 								</div>
 
 								<div class="modal-footer">
-									<button type="submit" class="btn btn-block" style="background-color: coral; color: #e9e2e2;" id="enviar">Enviar</button>
+									<button type="submit" class="btn btn-block btn-tarjetas" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
 								</div>
 							</form>
 						</div>

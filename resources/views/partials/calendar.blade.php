@@ -11,10 +11,16 @@
     let $calendar = container.data('plugin_simpleCalendar');
 
     let eventos = {!! json_encode($eventos->toArray()) !!};
+    console.log(eventos);
     
     let data_del_calendario = [];
 
-    eventos.data.forEach(function (evento, index, arr) {
+    /* 
+    Por alguna razon desconocida la siguiente linea dejo de funcionar. 
+    posiblemente fue despues que desactive la paginacion desde el backend.
+    */
+    // eventos.data.forEach(function (evento, index, arr) {
+    eventos.forEach(function (evento, index, arr) {
         let anio = String(evento.anio);
         let mes = parseInt( String(evento.fecha).substring(5, 7) ) - 1; //el string se ve asi -> "2022-09-21"
         let dia = String(evento.dia);

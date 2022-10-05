@@ -12,7 +12,10 @@
 </div>
 
 
-<!-- Tabla de Usuarios -->
+<!-- -------------------------------------------------------------------------------- -->
+<!-- Script necesarios para escribir la tabla de historial de inscripciones al evento -->
+<!-- Script necesarios para escribir la tabla de historial de inscripciones al evento -->
+<!-- -------------------------------------------------------------------------------- -->
 <link rel="stylesheet" type="text/css" href="{{ asset('/css/dataTables.css')}}">
 {{--<link rel="stylesheet" type="text/css" href="{{ asset('/css/calendar.css')}}" />--}}
 <script type="text/javascript" src="{{ asset('/js/dataTables.js')}}" charset="utf8"></script>
@@ -29,9 +32,15 @@
 </script>
 
 
+
+
+<!-- ---------------------------------------------------- -->
+<!-- Tabla de historial de inscripciones al evento -->
+<!-- Tabla de historial de inscripciones al evento -->
+<!-- ---------------------------------------------------- -->
 <div class="container">
     <div class="text-center my-4">
-        <h2 id="in" class="text-center pt-2">Historial</h2>
+        <h2 id="in" class="text-center pt-2">Lista de inscripciones</h2>
     </div>
     <div class="pb-3" style="overflow-x: scroll;">
         <table id="table_id" class="display {{--table table-striped table-hover table-sm--}}">
@@ -103,12 +112,15 @@
 
 
 
+<!-- --------------------------- -->
+<!-- Panel de edicion del evento -->
+<!-- Panel de edicion del evento -->
+<!-- --------------------------- -->
+<div class="container my-5">   
 
-<div class="container">   
-
-<div class="text-center my-4">
-    <h2 id="in" class="text-center pt-2">Editar Evento</h2>
-</div>
+    <div class="text-center my-4">
+        <h2 id="in" class="text-center pt-2">Panel de edición del evento</h2>
+    </div>
 
 
     <div class="row mb-5 mt-5">

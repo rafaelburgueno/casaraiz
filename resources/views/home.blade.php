@@ -8,6 +8,7 @@
 
 
 
+
 <!-- Imagen apaisada con logo -->
 <div class="contenedor_de_la_imagen_de_cabecera_del_home">
 	<img src="{{asset('/storage/img/nav.10.png')}}" class="d-block w-100" alt="...">
@@ -15,6 +16,8 @@
 	<!--<div class="abajo-izquierda">@fleaurencia</div>-->
 	<div class="abajo-derecha">foto: @fleaurencia</div>
 </div>
+
+
 
 
 {{-- Boton de creacion de Eventos 
@@ -26,13 +29,19 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 @endif--}}
 
 
+
+
 <div class="text-center my-4">
     {{--<h1 id="in" class="text-center pt-2">PROXIMAMENTE</h1>--}}
 </div>
 
 
+
+
 <!-- social -->
 @include('partials.social')
+
+
 
 
 <!-- Carousel -->
@@ -41,89 +50,87 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 
 
 
-
-
 <!-- video -->
 @include('partials.video')
 
 
-	<!-- PRIMERAS TARJETAS-->
-  	<!-- PRIMERAS TARJETAS-->
-  	<!-- PRIMERAS TARJETAS-->
-  	<!-- PRIMERAS TARJETAS-->
 
-  	<div class="container">
-    	<div class="row mt-5">
 
-      		<div class="col-sm-4">
-        		<div class="card ind">
-          			<div class="card-body">
-            			<h1 class="card-title text-center" id="card-index">UNITE A LA COMUNIDAD RAÍZ</h1>
-            			<p class="card-text text-center" style="color: rgb(210, 238, 229); font-size: 22px;"><strong>Obtenés beneficios y colaborás con nuestra casaRAIZ </strong></p>
-            			<a href="{{route('comunidad_raiz')}}" class="btn btn-lg btn-outline-light mb-2" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
-              			<a href="{{route('comunidad_raiz')}}/#membresias_ruta" class="btn btn-lg  btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Quiero formar parte</a>
-          			</div>
-        		</div>
-      		</div>
+<!-- PRIMERAS TARJETAS-->
+<!-- PRIMERAS TARJETAS-->
+<!-- PRIMERAS TARJETAS-->
+<!-- PRIMERAS TARJETAS-->
+<div class="container">
+	<div class="row mt-5">
 
-      		<div class="col-sm-4">
-        		<div class="card">
-          			<div class="card-body">
-            			<h1 class="card-title text-center" id="card-index">TALLERES</h1>
-            			<p class="card-text text-center" style="font-size: 22px;"><strong>Conocé nuestro calendario y a quienes dan los talleres. Tenemos diferentes horarios y días.</strong></p>
-						<a href="{{route('talleres')}}" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
-          			</div>
-        		</div>
-      		</div>
-
-      		<div class="col-sm-4">
-        		<div class="card ind">
-          			<div class="card-body">
-            			<h1 class="card-title text-center" id="card-index">TIENDA</h1>
-            			<p class="card-text text-center" style="font-size: 26px;"><strong>Visita nuestro catálogo, y enterate de nuestras ferias.</strong></p>
-            			<a href="{{route('tienda')}}" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
-          			</div>
-        		</div>
+		<div class="col-sm-4">
+			<div class="card ind">
+				<div class="card-body">
+					<h1 class="card-title text-center" id="card-index">UNITE A LA COMUNIDAD RAÍZ</h1>
+					<p class="card-text text-center" style="color: rgb(210, 238, 229); font-size: 22px;"><strong>Obtenés beneficios y colaborás con nuestra casaRAIZ </strong></p>
+					<a href="{{route('comunidad_raiz')}}" class="btn btn-lg btn-tarjetas mb-2" style="width: 100%;">Más info</a>
+					<a href="{{route('comunidad_raiz')}}/#membresias_ruta" class="btn btn-lg  btn-tarjetas" style="width: 100%;">Quiero formar parte</a>
+				</div>
 			</div>
+		</div>
 
-    	</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<div class="card-body">
+					<h1 class="card-title text-center" id="card-index">TALLERES</h1>
+					<p class="card-text text-center" style="font-size: 22px;"><strong>Conocé nuestro calendario y a quienes dan los talleres. Tenemos diferentes horarios y días.</strong></p>
+					<a href="{{route('talleres')}}" class="btn btn-lg btn-tarjetas" style="width: 100%;">Más info</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="card ind">
+				<div class="card-body">
+					<h1 class="card-title text-center" id="card-index">TIENDA</h1>
+					<p class="card-text text-center" style="font-size: 22px;"><strong>Visita nuestro catálogo, y enterate de nuestras ferias.</strong></p>
+					<a href="{{route('tienda')}}" class="btn btn-lg btn-tarjetas" style="width: 100%;">Más info</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
 
 
-		<div class="row mt-4">
+	<div class="row mt-4">
 
-      		<div class="col-sm-4">
-        		<div class="card">
-          			<div class="card-body">
-           				<h1 class="card-title text-center" id="card-index">ALMACEN DE SEMILLAS</h1>
-            			<p class="card-text text-center" style="font-size: 22px;"><strong>Conocé nuestro calendario y a quienes dan los talleres. Tenemos diferentes horarios y días.</strong></p>
-            			<a href="{{route('tienda')}}/#almacen_de_semillas_ruta" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Más info</a>
-          			</div>
-        		</div>
-      		</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<div class="card-body">
+					<h1 class="card-title text-center" id="card-index">ALMACEN DE SEMILLAS</h1>
+					<p class="card-text text-center" style="font-size: 22px;"><strong>Tenemos variedad de semillas disponibles para el intercambio.</strong></p>
+					<a href="{{route('tienda')}}/#almacen_de_semillas_ruta" class="btn btn-lg btn-tarjetas" style="width: 100%;">Más info</a>
+				</div>
+			</div>
+		</div>
 
-      		<div class="col-sm-4">
-        		<div class="card ind">
-          			<div class="card-body">
-            			<h1 class="card-title text-center" id="card-index">BIBLIOTECA</h1>
-            			<p class="card-text text-center" style="font-size: 26px;"><strong>Podes ver los libros y textos que tenemos disponibles.</strong></p>
-            			<a href="{{route('tienda')}}/#biblioteca_ruta" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">¡Quiero verlos!</a>
-          			</div>
-        		</div>
-      		</div>
+		<div class="col-sm-4">
+			<div class="card ind">
+				<div class="card-body">
+					<h1 class="card-title text-center" id="card-index">BIBLIOTECA</h1>
+					<p class="card-text text-center" style="font-size: 22px;"><strong>Podes ver los libros y textos que tenemos disponibles.</strong></p>
+					<a href="{{route('tienda')}}/#biblioteca_ruta" class="btn btn-lg btn-tarjetas" style="width: 100%;">¡Quiero verlos!</a>
+				</div>
+			</div>
+		</div>
 
-      		<div class="col-sm-4">
-        		<div class="card">
-          			<div class="card-body">
-            			<h1 class="card-title text-center" id="card-index">LUDOTECA</h1>
-            			<p class="card-text text-center" style="font-size: 22px;"><strong>Tenemos de todo para entretenernos.</strong></p>
-            			<a href="{{route('tienda')}}/#ludoteca_ruta" class="btn btn-lg" style="width: 100%;background-color:rgb(198, 98, 103); color: rgb(210, 238, 229) ;">Ir</a>
-          			</div>
-        		</div>
-      		</div>
+		<div class="col-sm-4">
+			<div class="card">
+				<div class="card-body">
+					<h1 class="card-title text-center" id="card-index">LUDOTECA</h1>
+					<p class="card-text text-center" style="font-size: 22px;"><strong>Tenemos de todo para entretenernos.</strong></p>
+					<a href="{{route('tienda')}}/#ludoteca_ruta" class="btn btn-lg btn-tarjetas" style="width: 100%;">Ir</a>
+				</div>
+			</div>
+		</div>
 
-    	</div>
-  	</div>
-
+	</div>
+</div>
 
 
 

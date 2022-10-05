@@ -121,9 +121,8 @@
                                 todos los beneficios de la comunidad.</p>
                             <h4 class="text-center">$400</h4><br>
                             <div class="text-center">
-                                <button type="button" class="btn " style="background-color: rgb(220, 43, 20); color: #e9e2e2;"
-                                    data-toggle="modal" data-target="#contacto"
-                                    id="contactobtn">OBTENER</button><br><br>
+                                <button type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                                    OBTENER</button><br><br>
                             </div>
                         </div>
                     </div>
@@ -139,7 +138,7 @@
                             </p>
                             <h4 class="text-center">$600</h4><br>
                             <div class="text-center">
-                                <button type="button" class="btn " style="background-color: rgb(220, 43, 20); color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                                <button type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
                                 </button><br><br>
                             </div>
@@ -155,7 +154,7 @@
                                 con todos los beneficios para cada uno.</p>
                                 <h4 class="text-center">$1200</h4><br>
                             <div class="text-center">
-                                <button type="button" class="btn " style="background-color: rgb(220, 43, 20); color: #e9e2e2;" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                                <button type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
                                 </button><br><br>
                             </div>
@@ -321,7 +320,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn " style="background-color: coral; color: #e9e2e2;" id="enviar">Enviar</button>
+                                <button type="submit" class="btn btn-tarjetas" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
                             </div>
                         </form>
                     </div>

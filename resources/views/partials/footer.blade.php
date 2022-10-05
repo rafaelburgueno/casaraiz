@@ -32,7 +32,7 @@
             <p><a href="{{route('talleres')}}">Talleres</a></p>
             <p><a href="{{route('agenda')}}">Agenda</a></p>
             <p><a href="{{route('tienda')}}">Tienda</a></p>
-            <p><a href="{{route('blog.index')}}">Blog</a></p>
+            {{--<p><a href="{{route('blog.index')}}">Blog</a></p>--}}
         </div>
 
     </div>

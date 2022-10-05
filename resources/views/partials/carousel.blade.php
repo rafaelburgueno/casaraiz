@@ -1,7 +1,4 @@
 <!--  BANNER AGENDA INICIO-->
-<!--  BANNER AGENDA INICIO-->
-<!--  BANNER AGENDA INICIO-->
-<!--  BANNER AGENDA INICIO-->
 @isset($banner)
 <div class="container">
     <div id="carouselExampleFade" class="carousel slide carousel-fade align-items-center" data-ride="carousel">
@@ -30,9 +27,12 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <script> $('.carousel').carousel({
-        interval: 10,
-    })
+    <script> 
+    $(document).ready(function(){
+        $('.carousel').carousel({
+            interval: 10,
+        });
+    });
     </script>
 
     {{--request()->routeIs('comunidad_raiz')--}}
@@ -41,7 +41,7 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <a href="{{route('agenda')}}" class="btn btn-lg btn-outline-light" style="width: 100%;background-color:rgba(198, 98, 103, 0.950); color: rgb(210, 238, 229) ;">
+                <a href="{{route('agenda')}}" class="btn btn-lg btn-tarjetas mt-1" style="width: 100%;">
                     Ver actividades
                 </a>
             </div>
@@ -53,9 +53,7 @@
 @endisset
 
 {{--
-<!--  BANNER AGENDA INICIO-->
-<!--  BANNER AGENDA INICIO-->
-<!--  BANNER AGENDA INICIO-->
+
 <!--  BANNER AGENDA INICIO-->
 <div class="containerr">
     <div id="carouselExampleFade" class="carousel slide carousel-fade align-items-center button-container" data-ride="carousel">

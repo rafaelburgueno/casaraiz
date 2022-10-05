@@ -44,7 +44,7 @@
                             <a class="dropdown-item" href="{{route('inscripciones.index')}}">Inscripciones y solicitudes</a>
                             <a class="dropdown-item" href="{{route('banner.index')}}">Banner de inicio</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('carrar_sesion')}}">Salir</a>
+                            <a class="dropdown-item" href="{{route('cerrar_sesion')}}">Salir</a>
                         </div>
                     </li>
                 @else

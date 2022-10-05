@@ -18,13 +18,16 @@ class HomeController extends Controller
     {
         //return view('home');
 
+        // Consulta a la base de datos para traer los elementos (imágenes) que se muestran en el banner.
         $banner = Multimedia::where('multimediaable_type', 'banner')->where('activo', true)->orderBy('relevancia','asc')->get();
+        
         //$eventos = Evento::where('fecha', '>', now())->where('activo', true)->where('tipo', '!=', 'taller')->orderBy('relevancia')->take(6)->get();
         //$talleres = Evento::where('fecha', '>', now())->where('activo', true)->where('tipo', 'taller')->orderBy('relevancia')->take(6)->get();
         
-        //return view('home')->with('eventos', $eventos)->with('talleres', $talleres)->with('banner', $banner);
+        // Retorna la vista y los datos del banner dentro del array $banner.
         return view('home')->with('banner', $banner);
         
+        //return view('home')->with('eventos', $eventos)->with('talleres', $talleres)->with('banner', $banner);
 
     }
 }
