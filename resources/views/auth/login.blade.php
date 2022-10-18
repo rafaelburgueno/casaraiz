@@ -50,7 +50,7 @@
                     </a>
                 @endif
 
-                <x-button class="ml-3">
+                <x-button class="ml-3 ">
                     Entrar
                     {{--{{ __('Log in') }}--}}
                 </x-button>

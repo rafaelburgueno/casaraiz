@@ -104,7 +104,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 				<div class="card-body">
 					<h1 class="card-title text-center" id="card-index">ALMACEN DE SEMILLAS</h1>
 					<p class="card-text text-center" style="font-size: 22px;"><strong>Tenemos variedad de semillas disponibles para el intercambio.</strong></p>
-					<a href="{{route('tienda')}}/#almacen_de_semillas_ruta" class="btn btn-lg btn-tarjetas" style="width: 100%;">Más info</a>
+					<a href="{{route('casa_raiz')}}/#almacen_de_semillas_ruta" class="btn btn-lg btn-tarjetas" style="width: 100%;">Más info</a>
 				</div>
 			</div>
 		</div>
@@ -114,7 +114,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 				<div class="card-body">
 					<h1 class="card-title text-center" id="card-index">BIBLIOTECA</h1>
 					<p class="card-text text-center" style="font-size: 22px;"><strong>Podes ver los libros y textos que tenemos disponibles.</strong></p>
-					<a href="{{route('tienda')}}/#biblioteca_ruta" class="btn btn-lg btn-tarjetas" style="width: 100%;">¡Quiero verlos!</a>
+					<a href="{{route('casa_raiz')}}/#biblioteca_ruta" class="btn btn-lg btn-tarjetas" style="width: 100%;">¡Quiero verlos!</a>
 				</div>
 			</div>
 		</div>
@@ -124,7 +124,7 @@ Solo se muestra si el usuario esta autentificado y si tiene rol 'administrador' 
 				<div class="card-body">
 					<h1 class="card-title text-center" id="card-index">LUDOTECA</h1>
 					<p class="card-text text-center" style="font-size: 22px;"><strong>Tenemos de todo para entretenernos.</strong></p>
-					<a href="{{route('tienda')}}/#ludoteca_ruta" class="btn btn-lg btn-tarjetas" style="width: 100%;">Ir</a>
+					<a href="{{route('casa_raiz')}}/#ludoteca_ruta" class="btn btn-lg btn-tarjetas" style="width: 100%;">Ir</a>
 				</div>
 			</div>
 		</div>

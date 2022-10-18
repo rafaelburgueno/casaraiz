@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\UsuariosController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\InscripcionesController;
 use App\Http\Controllers\MiPerfilController;
+use App\Http\Controllers\CasaRaizController;
 
 
 use Illuminate\Support\Facades\Artisan;
@@ -57,9 +58,10 @@ Route::get('/', HomeController::class)->name('home');
 | Esta ruta solo devuelve una vista, por lo tanto no es 
 | necesario utilizar un controlador.
 */
-Route::get('/casa_raiz', function () {
+Route::get('/casa_raiz', CasaRaizController::class)->name('casa_raiz');
+/*Route::get('/casa_raiz', function () {
     return view('casa_raiz');
-})->name('casa_raiz');
+})->name('casa_raiz');*/
 
 
 
