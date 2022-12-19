@@ -27,13 +27,13 @@
 <!-- social -->
 @include('partials.social')
 
-<div style="overflow-x: scroll;">
-    <img id="img2" src="{{asset('/storage/img/casaRaiz.tr.png')}}" class="rounded mx-auto d-block" width="80%">
+<div style="">
+    <img id="img2" src="{{asset('/storage/img/logo.comunidad (1).png')}}" class="rounded mx-auto d-block" width="80%">
     <h1 class="text-center">PRESENTA</h1><br>
 </div>
 
 <div class="container">
-    <div style="overflow-x: scroll;">
+    <div style="">
         <h1 id="cr" class="text-center"><strong>COMUNIDAD RAIZ</strong></h1><br>
         <h6 id="pcr" class="text-center">
             Comunidad Raíz es una red de beneficios, que mediante una tarjeta personal,

@@ -171,7 +171,7 @@ class EventoController extends Controller
 
         session()->flash('exito', 'El evento fue creado.');
 
-        return redirect() -> route('eventos.show', $evento);
+        return redirect() -> route('eventos.index');
         //return redirect() -> route('talleres');
     }
 
@@ -360,6 +360,23 @@ class EventoController extends Controller
      */
     public function destroy(Evento $evento)
     {
+
+        // buscamos todos los registros multimedia asociados al evento
+        // Multimedia::where('multimediaable_type', 'App\Models\Evento')->where('multimediaable_id', $producto->id)->delete();
+        $multimedias = Multimedia::where('multimediaable_type', 'App\Models\Evento')->where('multimediaable_id', $evento->id)->get();
+        
+        foreach($multimedias as $multimedia ) {
+            //se cambia la url relativa por la url del directorio
+            $url = str_replace('storage', 'public', $multimedia->url);
+            
+            // elimina de la carpeta
+            Storage::delete($url);
+
+            // Se eliminan de la base de datos las imagenes relacionadas al producto
+            $multimedia->delete();
+        }
+
+        // si tiene horarios adicionales nos elimina
         if($evento->tiene_extenciones){
             $horarios_adicionales = $evento->horarios_adicionales();
             foreach ($horarios_adicionales as $horario){ 

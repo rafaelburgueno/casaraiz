@@ -14,7 +14,7 @@
             <address>
             <p>Maciel y Av. Treinta y Tres</p>
             <p> (+598) 99 303 966</p>
-            <p>casaraizuy@gmail.com</p>
+            <p><a href="mailto:casaraizuy@gmail.com">casaraizuy@gmail.com</a></p>
             </address>
         </div>
 
@@ -38,7 +38,7 @@
     </div>
 
     <div class="text-center">
-      <p class="small">© 2022 Casa Raiz</p>
+      <p class="small">© 2022 {{env('APP_NAME')}}</p>
     </div>
   
 </footer>

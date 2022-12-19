@@ -174,13 +174,20 @@ class BannerController extends Controller
      */
     public function destroy(Multimedia $imagen)
     {
+
+        //se cambia la url relativa por la url del directorio
+        $url = str_replace('storage', 'public', $imagen->url);
+        
+        // elimina de la carpeta
+        Storage::delete($url);
+
+        // Se eliminan de la base de datos las imagenes relacionadas al producto
         $imagen->delete();
         session()->flash('exito', 'La imagen fue eliminada.');
         
         /*$evento->activo = 0;
         $evento -> save();
         session()->flash('exito', 'El evento fue desactivado.');*/
-
 
         return redirect() -> route('banner.index');
     }

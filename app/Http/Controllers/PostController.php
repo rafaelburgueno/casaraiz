@@ -221,6 +221,22 @@ class PostController extends Controller
      */
     public function destroy(Post $blog)
     {
+
+        // buscamos todos los registros multimedia asociados a ese post
+        // Multimedia::where('multimediaable_type', 'App\Models\Post')->where('multimediaable_id', $post->id)->delete();
+        $multimedias = Multimedia::where('multimediaable_type', 'App\Models\Post')->where('multimediaable_id', $blog->id)->get();
+        
+        foreach($multimedias as $multimedia ) {
+            //se cambia la url relativa por la url del directorio
+            $url = str_replace('storage', 'public', $multimedia->url);
+            
+            // elimina de la carpeta
+            Storage::delete($url);
+
+            // Se eliminan de la base de datos las imagenes relacionadas al producto
+            $multimedia->delete();
+        }
+
         $blog->delete();
         session()->flash('exito', 'El post fue eliminado.');
         
