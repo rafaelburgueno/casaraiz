@@ -178,7 +178,7 @@
                                         <h4 class="mb-0 mt-3">Lugar</h4>
                                         <hr  class="my-1">
                                     </label>
-                                    <input type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar', $evento->lugar)}}">
+                                    <input required type="text" class="form-control" id="lugar" name="lugar" placeholder="..." value="{{old('lugar', $evento->lugar)}}">
                                 </div>
                             </div>
 
@@ -572,10 +572,10 @@
                             
                 </div>
         
-                <button type="submit" class="btn btn-outline-secondary btn-block">Actualizar evento</button>
+                <button type="submit" class="btn btn-outline-secondary btn-block spin-procesando">Actualizar evento</button>
             </form>
 
-            <form action="{{ route('eventos.destroy', $evento) }}" method="POST">
+            <form action="{{ route('eventos.destroy', $evento) }}" method="POST" class="alerta_antes_de_eliminar">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-outline-danger my-1">Eliminar Evento</button>
@@ -585,9 +585,76 @@
     </div>
 
 
-
 </div>
-    
+
+
+<script>
+    $(document).ready(function(){
+
+        function spin(){
+            let timerInterval
+                Swal.fire({
+                title: 'Procesando',
+                html: 'Por favor espere.',
+                //timer: 10000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+                }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
+        }
+
+        $('.spin-procesando').click(function(){
+            if(
+                document.getElementById("nombre").value != '' &&
+                document.getElementById("tipo").value != '' &&
+                document.getElementById("lugar").value != '' &&  
+                document.getElementById("responsable").value != '' &&  
+                document.getElementById("descripcion").value != '' 
+            ){
+                spin();
+            }
+
+        });
+
+
+        /* MENSAJE PARA CONFIRMAR LA ELIMINACION DE UN ELEMENTO */
+        $('.alerta_antes_de_eliminar').submit(function(e){
+            e.preventDefault();
+
+            Swal.fire({
+                title: '¿Realmente quiere eliminar el elemento?',
+                text: "Esta acción será irreversible.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar.',
+                cancelButtonText: 'Cancelar.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    spin();
+                    this.submit();
+                }
+            })
+
+        });
+
+
+    });
+
+</script>
 
 
 @endsection

@@ -70,12 +70,12 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-outline-secondary btn-block btn-sm">Actualizar imagen</button>
+                        <button type="submit" class="btn btn-outline-secondary btn-block btn-sm spin-procesando-imagen-individual">Actualizar imagen</button>
 
                     </form>
 
 
-                    <form action="{{ route('banner.destroy', $imagen) }}" method="POST">
+                    <form action="{{ route('banner.destroy', $imagen) }}" method="POST" class="alerta_antes_de_eliminar">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-outline-danger mt-3 float-right btn-sm">Eliminar imagen</button>
@@ -151,13 +151,91 @@
                                 
                     </div>
             
-                    <button type="submit" class="btn btn-outline-secondary btn-block">Subir imagen</button>
+                    <button type="submit" class="btn btn-outline-secondary btn-block spin-procesando">Subir imagen</button>
                 </form>
             </div>
         </div>
 
    
     </div>
+
+
+    <script>
+        $(document).ready(function(){
+
+            function spin(){
+                let timerInterval
+                    Swal.fire({
+                    title: 'Procesando',
+                    html: 'Por favor espere.',
+                    //timer: 10000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading()
+                        const b = Swal.getHtmlContainer().querySelector('b')
+                        timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                        }, 100)
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                    }).then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        console.log('I was closed by the timer')
+                    }
+                })
+            }
+
+
+
+            $('.spin-procesando').click(function(){
+                if(
+                    document.getElementById("descripcion").value != '' &&  
+                    document.getElementById("imagen").value != '' 
+                ){
+                    spin();
+                }
+            });
+
+
+            $('.spin-procesando-imagen-individual').click(function(){
+                if(document.getElementById("descripcion").value != ''){
+                    spin();
+                }
+            });
+
+            
+            
+            /* MENSAJE PARA CONFIRMAR LA ELIMINACION DE UN ELEMENTO */
+            $('.alerta_antes_de_eliminar').submit(function(e){
+                e.preventDefault();
+
+                Swal.fire({
+                    title: '¿Realmente quiere eliminar el elemento?',
+                    text: "Esta acción será irreversible.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminar.',
+                    cancelButtonText: 'Cancelar.'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        spin();
+                        this.submit();
+                    }
+                })
+
+            });
+
+
+
+        });
+    
+    </script>
+
 
 @endsection
 

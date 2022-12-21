@@ -48,7 +48,7 @@
                 
                     @foreach ($inscripciones as $inscripcion)
                         <tr>
-                            <td>{{ $inscripcion->created_at->format('d/m/Y') }}</td>
+                            <td>{{ $inscripcion->created_at->format('Y/m/d') }}</td>
                             {{--<td>{{ $inscripcion->id }}</td>--}}
                             <td>{{ $inscripcion->nombre }}</td>
                             <td>{{ $inscripcion->inscripto_a() }}</td>

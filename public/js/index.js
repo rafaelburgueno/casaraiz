@@ -28,6 +28,12 @@ $(document).ready(function(){
         $('#contactobtn').removeClass('btn btn-danger');
         $('#contactobtn').addClass('btn btn-success');
     });
+
+
+
+    
+
+
 });
 
 
@@ -55,4 +61,4 @@ function validateForm(id) {
         return true;
     }
     
-  }
+}

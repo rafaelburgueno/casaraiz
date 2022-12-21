@@ -35,7 +35,7 @@
                     <option value="administrador" @selected((old('rol') == "administrador") || $usuario->rol == "administrador" )>administrador</option>
                 </select>
                 
-                <button type="submit" class="m-0 btn btn-sm btn-outline-secondary">Actualizar Rol</button>
+                <button type="submit" class="m-0 btn btn-sm btn-outline-secondary spin-procesando">Actualizar Rol</button>
             </p>
         </form>
 
@@ -107,5 +107,37 @@
 
     
 </div>
+
+<script>
+$(document).ready(function(){
+
+
+    $('.spin-procesando').click(function(){
+        let timerInterval
+            Swal.fire({
+            title: 'Procesando',
+            html: 'Por favor espere.',
+            //timer: 10000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+            }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+            }
+        })
+    });
+});
+
+</script>
+
 
 @endsection

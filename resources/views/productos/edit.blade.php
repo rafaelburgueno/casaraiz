@@ -194,12 +194,12 @@
                     </div>
                 </div>
         
-                <button type="submit" class="btn btn-outline-secondary btn-block">Actualizar</button>
+                <button type="submit" class="btn btn-outline-secondary btn-block spin-procesando">Actualizar</button>
             </form>
 
 
             
-            <form action="{{ route('productos.destroy', $producto) }}" method="POST">
+            <form action="{{ route('productos.destroy', $producto) }}" method="POST" class="alerta_antes_de_eliminar">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-outline-danger mt-2">Eliminar</button>
@@ -211,6 +211,72 @@
 
 
 </div>
+
+
+<script>
+    $(document).ready(function(){
+
+        function spin(){
+            let timerInterval
+                Swal.fire({
+                title: 'Procesando',
+                html: 'Por favor espere.',
+                //timer: 10000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+                }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+            })
+        }
+
+        $('.spin-procesando').click(function(){
+            if(
+                document.getElementById("tipo").value != '' &&
+                document.getElementById("nombre").value != '' &&
+                document.getElementById("descripcion").value != ''  
+            ){
+                spin();
+            }
+
+        });
+
+
+        /* MENSAJE PARA CONFIRMAR LA ELIMINACION DE UN ELEMENTO */
+        $('.alerta_antes_de_eliminar').submit(function(e){
+            e.preventDefault();
+
+            Swal.fire({
+                title: '¿Realmente quiere eliminar el elemento?',
+                text: "Esta acción será irreversible.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar.',
+                cancelButtonText: 'Cancelar.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    spin();
+                    this.submit();
+                }
+            })
+
+        });
+
+    });
+
+</script>
 
 
 @endsection
