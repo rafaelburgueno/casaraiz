@@ -117,9 +117,9 @@
                     <div class="card div1">
                         <div class="card-body">
                             <h5 class="card-title text-center">SEMILLA</h5>
-                            <p class="card-text">Membresía individual,<br> durante un año, que te permite acceder a
+                            <p class="card-text text-center">Membresía individual,<br> durante un año, que te permite acceder a
                                 todos los beneficios de la comunidad.</p>
-                            <h4 class="text-center">$400</h4><br>
+                            <h4 class="text-center"><strong>$700 </strong><span style="font-size: 50%;">( anual )</span></h4><br>
                             <div class="text-center">
                                 <button type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER</button><br><br>
@@ -132,11 +132,11 @@
                     <div class="card div2">
                         <div class="card-body">
                             <h5 class="card-title text-center">RAÍZ</h5>
-                            <p class="card-text">Membresía para dos personas,
+                            <p class="card-text text-center">Membresía para dos personas,
                                 durante un año, que te permite acceder a todos los beneficios de la comunidad junto a
                                 un vinculo.
                             </p>
-                            <h4 class="text-center">$600</h4><br>
+                            <h4 class="text-center"><strong>$1100 </strong><span style="font-size: 50%;">( anual )</span></h4><br>
                             <div class="text-center">
                                 <button type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
@@ -150,9 +150,9 @@
                     <div class="card div3">
                         <div class="card-body">
                             <h5 class="card-title text-center">ÁRBOL</h5>
-                            <p class="card-text">Membresía familiar por dos años, para familias de hasta 6 integrantes,
+                            <p class="card-text text-center">Membresía familiar por un año, para familias de hasta 4 integrantes,
                                 con todos los beneficios para cada uno.</p>
-                                <h4 class="text-center">$1200</h4><br>
+                            <h4 class="text-center"><strong>$2000 </strong><span style="font-size: 50%;">( anual )</span></h4><br>
                             <div class="text-center">
                                 <button type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="contactobtn">
                                     OBTENER
