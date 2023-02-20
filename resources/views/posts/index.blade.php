@@ -33,7 +33,7 @@
             <div class="card m-3">
                 @if (count($post->multimedias) && $post->multimedias->last()->imagen_con_info)
                     <a href="{{route('blog.show', $post)}}" class="">
-                        <img src="{{$post->multimedias->last()->url}}" class="card-img-top" alt="{{ $post->multimedias->last()->descripcion }}">
+                        <img  src="{{$post->multimedias->last()->url}}" class="card-img-top" alt="{{ $post->multimedias->last()->descripcion }}">
                     </a>
                 @else
                     @if (count($post->multimedias))

@@ -10,6 +10,8 @@
             <p><a href="https://www.facebook.com/casaraizuy" target="_blank">Facebook</a></p>
             <p><a href="https://www.instagram.com/casaraizuy" target="_blank">Instagram</a></p>
             <p><a href="https://wa.me/59899303966" target="_blank">WhatsApp</a></p>
+            <p><a href="#" class="" data-toggle="modal" data-target="#cooperacion" id="contactobtn">¿Te interesa participar como emprendimiento colaborador?</a></p>
+
 
             <address>
             <p>Maciel y Av. Treinta y Tres</p>
@@ -38,7 +40,105 @@
     </div>
 
     <div class="text-center">
-      <p class="small">© 2022 {{env('APP_NAME')}}</p>
+      <p class="small">© 2023 {{env('APP_NAME')}}</p>
     </div>
   
 </footer>
+
+
+
+
+<!-- MODAL FORMULARIO DE COLABORACION -->
+<!-- MODAL FORMULARIO DE COLABORACION -->
+<!-- MODAL FORMULARIO DE COLABORACION -->
+<div class="modal fade" id="cooperacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Emprendimiento Colaborador</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+
+                <form action="{{route('propuesta')}}" method="POST" {{--onsubmit="return validarPropuesta()"--}} class="was-validatedd">
+                    @csrf
+                    @method('POST')
+
+                    <!-- Input nombre -->
+                    <div class="form-group">
+                        {{--<label for="nombre">Nombre: </label>--}}
+                        <input required type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
+                        @error('nombre')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    {{--<!--Input apellido -->
+                    <div class="form-group">
+                        <label for="apellido">Apellido: </label>
+                        <input required type="text" class="form-control" id="apellido" name="apellido" value="{{old('apellido')}}" placeholder="Apellido">
+                        @error('apellido')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>--}}
+                    
+
+                    <!--Input correo -->
+                    <div class="form-group ">
+                        {{--<label for="correo">Correo: </label>--}}
+                        <input required type="email" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="Correo">
+                        @error('correo')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    
+
+                    {{--<!--Input documento -->
+                    <div class="form-group">
+                        <label for="documento1">Documento: </label>
+                        <input required type="number" min="1111111" max="999999999" class="form-control" id="documento1" name="documento" value="{{old('documento')}}" placeholder="sin puntos ni guión">
+                    </div>--}}
+                        
+                    <!--Input telefono -->
+                    <div class="form-group">
+                        {{--<label for="telefono">Teléfono: </label>--}}
+                        <input required type="number" class="form-control" min="1111111" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="Teléfono">
+                        @error('telefono')
+                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <!--Input descripción de la propuesta -->
+                    <div class="form-group">
+                        {{--<label for="comentario">Descripcion de la propuesta: </label>--}}
+                        <textarea class="form-control" id="descripcion" name="descripcion" value="{{old('descripcion')}}"
+                            placeholder="Contanos sobre tu emprendimiento y/o propuesta." rows="4"></textarea>
+                    </div>
+
+                    {{--<!--Input recibir_novedades -->
+                    <div class="form-group pl-3">
+                        <div class="form check pl-1">
+                            <input type="checkbox" class="form-check-input" name="recibir_novedades" @checked(old('recibir_novedades')) value="1" id="recibir_novedades" checked>
+                            <label class="form-check-label" for="recibir_novedades">Quiero recibir las novedades</label>
+                        </div>
+                    </div>--}}
+                
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-tarjetas btn-block" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FIN DEL FORMULARIO DE COLABORACION -->
+

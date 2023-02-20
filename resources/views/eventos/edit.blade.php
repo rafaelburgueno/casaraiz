@@ -569,6 +569,7 @@
                         <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked(old('activo', $evento->activo))>
                         <label class="form-check-label" for="activo">Publicar?</label>
                     </div>
+                    
                             
                 </div>
         

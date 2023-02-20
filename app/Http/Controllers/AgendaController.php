@@ -31,6 +31,8 @@ class AgendaController extends Controller
         }*/
 
         $eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('fecha', '>', now())->where('es_extencion_del_evento_id', NULL)->where('activo', 1)->orderBy('fecha')->get();
+        //$eventos = Evento::where('frecuencia_semanal', '!=', 1)->orWhereNull('frecuencia_semanal')->where('es_extencion_del_evento_id', NULL)->where('activo', 1)->orderBy('fecha')->get();
+
         $banner = Multimedia::where('multimediaable_type', 'banner')->orderBy('relevancia','asc')->get();
         
         //session()->flash('exito', 'El AgendaController si funciona.');

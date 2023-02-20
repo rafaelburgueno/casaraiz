@@ -27,8 +27,9 @@
 
 
         
-
-
+        <!-- LISTA DESPLEGABLE DE EVENTOS -->
+        <!-- LISTA DESPLEGABLE DE EVENTOS -->
+        <!-- LISTA DESPLEGABLE DE EVENTOS -->
         <div class="col-md-6 mb-5">
             <div class="accordion" id="accordionEventos">
 

@@ -67,7 +67,8 @@ class EventoController extends Controller
             'responsable' => 'required|max:100',
             'descripcion' => 'required|max:255',
             'lugar' => 'max:100',
-            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            //'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
             'descripcion_img' => 'max:255',
         ]);
         

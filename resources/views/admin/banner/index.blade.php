@@ -129,7 +129,7 @@
 
                         <div class="col-md-4">
                             <div class="form-group mb-3">
-                                <label for="imagen">Imagen</label>
+                                <label for="imagen">Imagen <small>(1400 x 570)</small></label>
                                 <input required type="file" class="form-control" id="imagen" name="imagen" value="{{old('imagen')}}" accept="image/*">
                                 @error('imagen')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>

@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\InscripcionesController;
 use App\Http\Controllers\MiPerfilController;
 use App\Http\Controllers\CasaRaizController;
+use App\Http\Controllers\PropuestaController;
 
 
 use Illuminate\Support\Facades\Artisan;
@@ -88,6 +89,18 @@ Route::get('/comunidad', function () {
 | gestionar los formularios para solicitar membresías.
 */
 Route::post('/obtener_membresia', MembresiaController::class)->name('obtener_membresia');
+
+
+
+
+/* 
+|--------------------------------------------------------------------------
+| propuesta 
+|--------------------------------------------------------------------------
+| Esta ruta no devuelve una vista. Utiliza un controlador para recibir y 
+| gestionar los formularios de propuestas.
+*/
+Route::post('/propuesta', PropuestaController::class)->name('propuesta');
 
 
 

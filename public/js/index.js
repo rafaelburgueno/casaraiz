@@ -62,3 +62,28 @@ function validateForm(id) {
     }
     
 }
+
+
+
+/* VELIDACION PARA LOS FORMULARIOS DE INSCRIPCION 'comunidad_raiz', 'talleres', 'agenda' y 'productos' */
+function validarPropuesta() {
+            
+    var nombre = document.getElementById("nombre"+id).value;
+    var correo = document.getElementById("correo"+id).value;
+    var telefono = document.getElementById("telefono"+id).value;
+    var descripcion = document.getElementById("documento"+id).value;
+    //var medio_de_pago = document.getElementById("medio_de_pago"+id).value; //TODO: validar el medio de pago
+    
+    if (nombre == "" || correo == "" || telefono == "" || descripcion == "" ) 
+    {
+        alert("Debe rellenar todos los campos.");
+        event.preventDefault();
+      return false;
+    } 
+    else
+    {
+        console.log('validación exitosa!');
+        return true;
+    }
+    
+}
