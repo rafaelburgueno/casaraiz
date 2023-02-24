@@ -116,7 +116,7 @@
 <!-- Panel de edicion del evento -->
 <!-- Panel de edicion del evento -->
 <!-- --------------------------- -->
-<div class="container my-5">   
+<div class="container mt-5">   
 
     <div class="text-center my-4">
         <h2 id="in" class="text-center pt-2">Panel de edición del evento</h2>
@@ -233,10 +233,10 @@
                         
                         <div class="form-group mb-3">
                             <label for="imagen">
-                                <h4 class="mb-0 mt-3">Imagen</h4>
+                                <h4 class="mb-0 mt-3">Imagenes</h4>
                                 <hr  class="my-1">
                             </label>
-                            <input type="file" class="form-control" id="imagen" name="imagen" value="{{old('imagen')}}" accept="image/*">
+                            <input type="file" class="form-control" id="imagen" name="imagen[]" value="{{old('imagen')}}" accept="image/*" multiple>
                             @error('imagen')
                                 <div class="alert alert-danger mt-1">{{ $message }}</div>
                             @enderror
@@ -587,6 +587,97 @@
 
 
 </div>
+
+
+<!-- --------------------------- -->
+<!-- Imagenes del evento -->
+<!-- Imagenes del evento -->
+<!-- --------------------------- -->
+@if (count($evento->multimedias))
+<div class="container mt-5">
+    <div class="row card-columnss talleres my-2">
+        @foreach ($evento->multimedias as $imagen)
+            
+            <div id="contenedor-imagen-de-evento-{{$imagen->id}}" class="card m-1 mb-3">
+                <div class="card-body row">
+                    <div class="col-md-3">
+                        <img src="{{$imagen->url}}" class="card-img-top" alt="{{ $imagen->descripcion }}">
+                        <p><small class="">Id: {{$imagen->id}}</small></p>
+                    </div>
+                
+                    <div class="col-md-9">
+                        
+                        @livewire('editar-imagen-de-evento', [$imagen])
+
+                        {{--<form class="" action="{{route('banner.update', $imagen)}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="descripcion">Descripción</label>
+                                        <textarea required class="form-control" id="descripcion" name="descripcion" rows="3">{{ $imagen->descripcion }}</textarea>
+                                        @error('descripcion')
+                                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+    
+                                        <div class="form-check mb-2">
+                                            <input type="checkbox" class="form-check-input" id="imagen_con_info" name="imagen_con_info" value="1" @checked( $imagen->imagen_con_info )>
+                                            <label class="form-check-label" for="imagen_con_info">¿La imagen contiene información del evento?</label>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="relevancia">Relevancia <small>(determina el orden en el que aparecen las imagenes)</small></label>
+                                        <input type="number" class="form-control" id="relevancia" name="relevancia" placeholder="..." value="{{ $imagen->relevancia }}" min="1">
+                                        @error('relevancia')
+                                        <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    
+                                    <div class="form-check mb-2">
+                                        <input type="checkbox" class="form-check-input" id="activo" name="activo" value="1" @checked( $imagen->activo )>
+                                        <label class="form-check-label" for="activo">Publicar</label>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <button type="submit" class="btn btn-outline-secondary btn-block btn-sm spin-procesando-imagen-individual">Actualizar imagen</button>
+    
+                        </form>
+    
+    
+                        <form action="{{ route('banner.destroy', $imagen) }}" method="POST" class="alerta_antes_de_eliminar">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-outline-danger mt-3 float-right btn-sm">Eliminar imagen</button>
+                        </form>--}}
+    
+    
+                    </div>
+                </div>
+            </div>  
+
+
+        @endforeach
+        
+    </div>
+</div>
+
+<script>
+    function borrar(id){
+        document.getElementById('contenedor-imagen-de-evento-'+id).style = 'display:none';
+    }
+</script>
+
+@endif
+
+
+
 
 
 <script>

@@ -225,7 +225,7 @@ class EventoController extends Controller
             'responsable' => 'required|max:100',
             'descripcion' => 'required|max:255',
             'lugar' => 'max:100',
-            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+            //'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);
 
         //return $request->all();
@@ -279,25 +279,30 @@ class EventoController extends Controller
         }
         
         if($request->file('imagen')){
-            
-            //el metodo store() debe ejecutarse en la misma linea en la que se asigna a la variable(sino no funca)
-            $imagen = $request->file('imagen')-> store('public/eventos');
-            
-            //cambia el nombre de la ruta , para que sea accesible desde la carpeta public
-            $url = Storage::url($imagen);
+            $files = $request->file('imagen');
 
-            Multimedia::create([
-                'url' => $url,
-                'descripcion' => $request->nombre,
-                'relevancia' => 1,
-                'imagen_con_info' => $imagen_con_info,
-                'resolucion' => 'TODO',
-                'tamaño' => 'TODO',
-                'multimediaable_id' => $evento->id,
-                'multimediaable_type' => 'App\Models\Evento',
-            ]);
+            foreach($files as $key=>$file){
 
-            //return 'se guardo todo';
+                //el metodo store() debe ejecutarse en la misma linea en la que se asigna a la variable(sino no funca)
+                $imagen = $file->store('public/eventos');
+                //$imagen = $request->file('imagen')-> store('public/eventos');
+                
+                //cambia el nombre de la ruta , para que sea accesible desde la carpeta public
+                $url = Storage::url($imagen);
+
+                Multimedia::create([
+                    'url' => $url,
+                    'descripcion' => $request->nombre,
+                    'relevancia' => ++$key,
+                    'imagen_con_info' => $imagen_con_info,
+                    'resolucion' => 'TODO',
+                    'tamaño' => 'TODO',
+                    'multimediaable_id' => $evento->id,
+                    'multimediaable_type' => 'App\Models\Evento',
+                ]);
+
+            }
+
         }else{
             
             if(count( $evento->multimedias )){
