@@ -68,28 +68,29 @@
                     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
 
-                <form action="{{route('propuesta')}}" method="POST" {{--onsubmit="return validarPropuesta()"--}} class="was-validatedd">
+                <form action="{{route('propuesta')}}" method="POST" {{--onsubmit="return validarPropuesta()"--}} class="was-validatedd" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
 
+                    <!--Input Nombre_del_emprendimiento -->
+                    <div class="form-group">
+                        {{--<label for="nombre_del_emprendimiento">Nombre del emprendimiento: </label>--}}
+                        <input required type="text" class="form-control" id="nombre_del_emprendimiento" name="nombre_del_emprendimiento" value="{{old('nombre_del_emprendimiento')}}" placeholder="Nombre del emprendimiento">
+                        @error('nombre_del_emprendimiento')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
                     <!-- Input nombre -->
                     <div class="form-group">
-                        {{--<label for="nombre">Nombre: </label>--}}
+                        {{--<label for="nombre">Nombre del referente: </label>--}}
                         <input required type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
                         @error('nombre')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
                     </div>
 
-                    {{--<!--Input apellido -->
-                    <div class="form-group">
-                        <label for="apellido">Apellido: </label>
-                        <input required type="text" class="form-control" id="apellido" name="apellido" value="{{old('apellido')}}" placeholder="Apellido">
-                        @error('apellido')
-                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                        @enderror
-                    </div>--}}
-                    
 
                     <!--Input correo -->
                     <div class="form-group ">
@@ -100,12 +101,6 @@
                         @enderror
                     </div>
                     
-
-                    {{--<!--Input documento -->
-                    <div class="form-group">
-                        <label for="documento1">Documento: </label>
-                        <input required type="number" min="1111111" max="999999999" class="form-control" id="documento1" name="documento" value="{{old('documento')}}" placeholder="sin puntos ni guión">
-                    </div>--}}
                         
                     <!--Input telefono -->
                     <div class="form-group">
@@ -116,25 +111,36 @@
                         @enderror
                     </div>
 
+
+                    <!-- Input redes_sociales -->
+                    <div class="form-group">
+                        {{--<label for="redes_sociales">redes_sociales: </label>--}}
+                        <input required type="text" class="form-control" id="redes_sociales" name="redes_sociales" value="{{old('redes_sociales')}}" placeholder="Redes sociales">
+                        @error('redes_sociales')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
+                    <div class="form-group mb-3">
+                        <label for="imagen text-muted">Logo <small>(opcional)</small>: </label>
+                        <input type="file" class="form-control" id="imagen" name="imagen" value="{{old('imagen')}}" accept="image/*">
+                        @error('imagen')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
                     <!--Input descripción de la propuesta -->
                     <div class="form-group">
                         {{--<label for="comentario">Descripcion de la propuesta: </label>--}}
                         <textarea class="form-control" id="descripcion" name="descripcion" value="{{old('descripcion')}}"
                             placeholder="Contanos sobre tu emprendimiento y/o propuesta." rows="4"></textarea>
                     </div>
-
-                    {{--<!--Input recibir_novedades -->
-                    <div class="form-group pl-3">
-                        <div class="form check pl-1">
-                            <input type="checkbox" class="form-check-input" name="recibir_novedades" @checked(old('recibir_novedades')) value="1" id="recibir_novedades" checked>
-                            <label class="form-check-label" for="recibir_novedades">Quiero recibir las novedades</label>
-                        </div>
-                    </div>--}}
                 
-
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-tarjetas btn-block" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
-                    </div>
+                    
+                    <button type="submit" class="btn btn-tarjetas btn-block" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
+                    
                 </form>
             </div>
         </div>

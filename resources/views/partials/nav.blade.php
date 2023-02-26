@@ -55,7 +55,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('mi_perfil')}}">Mi perfil</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{route('carrar_sesion')}}">Salir</a>
+                            <a class="dropdown-item" href="{{route('cerrar_sesion')}}">Salir</a>
                         </div>
                     </li>
                 @endif
