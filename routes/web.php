@@ -100,7 +100,15 @@ Route::post('/obtener_membresia', MembresiaController::class)->name('obtener_mem
 | Esta ruta no devuelve una vista. Utiliza un controlador para recibir y 
 | gestionar los formularios de propuestas.
 */
-Route::post('/propuesta', PropuestaController::class)->name('propuesta');
+Route::controller(PropuestaController::class)->group(function () {
+    Route::get('propuestas', 'index')->name('propuestas.index')->middleware('administrador');
+    //Route::get('propuestas/create', 'create')->name('propuestas.create')->middleware('administrador');
+    Route::post('propuestas', 'store')->name('propuestas.store');
+    //Route::get('propuestas/{producto}', 'show')->name('propuestas.show')->middleware('administrador');
+    //Route::get('propuestas/{producto}/edit', 'edit')->name('propuestas.edit')->middleware('administrador');
+    //Route::put('propuestas/{producto}', 'update')->name('propuestas.update')->middleware('administrador');
+    //Route::delete('propuestas/{producto}', 'destroy')->name('propuestas.destroy')->middleware('administrador');
+});
 
 
 

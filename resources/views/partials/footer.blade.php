@@ -68,7 +68,7 @@
                     non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
 
-                <form action="{{route('propuesta')}}" method="POST" {{--onsubmit="return validarPropuesta()"--}} class="was-validatedd" enctype="multipart/form-data">
+                <form action="{{route('propuestas.store')}}" method="POST" {{--onsubmit="return validarPropuesta()"--}} class="was-validatedd" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
 

@@ -42,6 +42,7 @@
                             <a class="dropdown-item" href="{{route('usuarios.index')}}">Usuarios</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('inscripciones.index')}}">Inscripciones y solicitudes</a>
+                            <a class="dropdown-item" href="{{route('propuestas.index')}}">Propuestas de emprendedores</a>
                             <a class="dropdown-item" href="{{route('banner.index')}}">Banner de inicio</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('cerrar_sesion')}}">Salir</a>
