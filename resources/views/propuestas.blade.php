@@ -103,15 +103,19 @@
                                     <p>Nombre: <strong>{{ $propuesta->nombre }}</strong></p>
                                     <p>Nombre del emprendimiento: <strong>{{ $propuesta->nombre_del_emprendimiento }}</strong></p>
                                     <p>Descripcion: <strong>{{ $propuesta->descripcion }}</strong></p>
+                                    @if($propuesta->imagen)
                                     <hr>
-                                    <div class="text-center">
-                                        {{--<img src="{{$propuesta->multimedias->last()->url}}" style="width: 60%;" class="img-thumbnail" alt="...">--}}
-                                        <img src="{{$propuesta->imagen->url}}" style="width: 60%;" class="img-thumbnail" alt="...">
-                                    </div>
+                                        <div class="text-center">
+                                            {{--<img src="{{$propuesta->multimedias->last()->url}}" style="width: 60%;" class="img-thumbnail" alt="...">--}}
+                                            <img src="{{$propuesta->imagen->url}}" style="width: 60%;" class="img-thumbnail" alt="...">
+                                        </div>
+                                    @endif
                                     <hr>
                                     <p>Correo: <strong>{{ $propuesta->correo }}</strong></p>
                                     <p>Telefono: <strong>{{ $propuesta->telefono }}</strong></p>
-                                    <p>Redes_sociales: <strong>{{ $propuesta->redes_sociales }}</strong></p>
+                                    @if($propuesta->redes_sociales)
+                                        <p>Redes_sociales: <strong>{{ $propuesta->redes_sociales }}</strong></p>
+                                    @endif
                                 </div>
                                 
 

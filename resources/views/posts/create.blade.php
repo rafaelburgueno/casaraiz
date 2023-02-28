@@ -63,13 +63,51 @@
                     <label class="form-check-label" for="activo">Publicar</label>
                 </div>
 
-              <button type="submit" class="btn btn-secondary btn-block">Guardar</button>
+              <button type="submit" class="btn btn-secondary btn-block btn-procesando-post">Guardar</button>
               
           </form>
       </div>
   </div>
 
 </div>
+
+<script>
+    $(document).ready(function(){
+
+        $('.btn-procesando-post').click(function(){
+            if(
+                document.getElementById("titulo").value != '' &&  
+                document.getElementById("summernote").value != '' 
+            ){
+
+            
+                let timerInterval
+                Swal.fire({
+                title: 'Procesando',
+                html: 'Por favor espere.',
+                //timer: 10000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+                }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+                })
+            }
+        });
+    });
+    
+</script>
 
 
 @endsection

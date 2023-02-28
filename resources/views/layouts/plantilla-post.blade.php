@@ -30,7 +30,8 @@
     <script src="{{ asset('/js/summernote.js')}}"></script>
     {{--<link href="{{ asset('/css/index.css')}}" rel="stylesheet">--}}
     
-
+    <!-- Sweet alert 2-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!--Style-->
     <!--<link href="public/css/index.css" rel="stylesheet">-->

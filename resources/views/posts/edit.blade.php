@@ -68,11 +68,11 @@
                     <label class="form-check-label" for="activo">Publicar</label>
                 </div>
 
-                <button type="submit" class="btn btn-outline-secondary btn-block">Actualizar</button>
+                <button type="submit" class="btn btn-outline-secondary btn-block btn-procesando-post">Actualizar</button>
               
             </form>
 
-            <form action="{{ route('blog.destroy', $post) }}" method="POST">
+            <form action="{{ route('blog.destroy', $post) }}" method="POST" class="alerta-antes-de-eliminar">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-outline-danger my-1">Eliminar Post</button>
@@ -82,6 +82,78 @@
     </div>
 
 </div>
+
+<script>
+    $(document).ready(function(){
+
+        $('.btn-procesando-post').click(function(){
+            if(
+                document.getElementById("titulo").value != '' &&  
+                document.getElementById("summernote").value != '' 
+            ){
+
+            
+                let timerInterval
+                Swal.fire({
+                title: 'Procesando',
+                html: 'Por favor espere.',
+                //timer: 10000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+                }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+                })
+            }
+        });
+
+
+
+
+        /* SWEETALERT ANTES DE ELIMINAR UN ELEMENTO */
+        $('.alerta-antes-de-eliminar').submit(function(e){
+            e.preventDefault();
+
+            Swal.fire({
+                title: '¿Realmente quiere eliminar el elemento?',
+                text: "Esta acción será irreversible.",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, eliminar.',
+                cancelButtonText: 'Cancelar.'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                /*Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                );*/
+                    this.submit();
+                }
+            })
+
+        });
+
+
+
+
+
+    });
+    
+</script>
 
 
 @endsection

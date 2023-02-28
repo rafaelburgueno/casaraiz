@@ -115,7 +115,7 @@
                     <!-- Input redes_sociales -->
                     <div class="form-group">
                         {{--<label for="redes_sociales">redes_sociales: </label>--}}
-                        <input required type="text" class="form-control" id="redes_sociales" name="redes_sociales" value="{{old('redes_sociales')}}" placeholder="Redes sociales">
+                        <input type="text" class="form-control" id="redes_sociales" name="redes_sociales" value="{{old('redes_sociales')}}" placeholder="Redes sociales">
                         @error('redes_sociales')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
@@ -123,7 +123,7 @@
 
 
                     <div class="form-group mb-3">
-                        <label for="imagen text-muted">Logo <small>(opcional)</small>: </label>
+                        <label for="imagen" class="text-muted">Logo <small>(opcional)</small>: </label>
                         <input type="file" class="form-control" id="imagen" name="imagen" value="{{old('imagen')}}" accept="image/*">
                         @error('imagen')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
@@ -134,12 +134,12 @@
                     <!--Input descripción de la propuesta -->
                     <div class="form-group">
                         {{--<label for="comentario">Descripcion de la propuesta: </label>--}}
-                        <textarea class="form-control" id="descripcion" name="descripcion" value="{{old('descripcion')}}"
+                        <textarea required class="form-control" id="descripcion" name="descripcion" value="{{old('descripcion')}}"
                             placeholder="Contanos sobre tu emprendimiento y/o propuesta." rows="4"></textarea>
                     </div>
                 
                     
-                    <button type="submit" class="btn btn-tarjetas btn-block" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
+                    <button type="submit" class="btn btn-tarjetas btn-block btn-procesando" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
                     
                 </form>
             </div>
@@ -148,3 +148,44 @@
 </div>
 <!-- FIN DEL FORMULARIO DE COLABORACION -->
 
+
+<script>
+    $(document).ready(function(){
+
+        $('.btn-procesando').click(function(){
+            if(
+                document.getElementById("nombre_del_emprendimiento").value != '' &&  
+                document.getElementById("nombre").value != '' &&
+                document.getElementById("correo").value != '' &&
+                document.getElementById("telefono").value >= 10000000 &&
+                document.getElementById("descripcion").value != ''
+            ){
+
+            
+                let timerInterval
+                Swal.fire({
+                title: 'Procesando',
+                html: 'Por favor espere.',
+                //timer: 10000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                    b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+                }).then((result) => {
+                /* Read more about handling dismissals below */
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    console.log('I was closed by the timer')
+                }
+                })
+            }
+        });
+    });
+    
+</script>

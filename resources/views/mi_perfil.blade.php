@@ -140,7 +140,7 @@
                     @enderror
                 </div>
     
-                <button type="submit" class="btn btn-block btn-outline-secondary">Actualizar</button>
+                <button type="submit" class="btn btn-block btn-outline-secondary btn-procesando-perfil">Actualizar</button>
             </form>
     
         </div>
@@ -149,5 +149,39 @@
     
     
 </div>
+
+
+<script>
+    $(document).ready(function(){
+
+        $('.btn-procesando-perfil').click(function(){
+
+            let timerInterval
+            Swal.fire({
+            title: 'Procesando',
+            html: 'Por favor espere.',
+            //timer: 10000,
+            timerProgressBar: true,
+            didOpen: () => {
+                Swal.showLoading()
+                const b = Swal.getHtmlContainer().querySelector('b')
+                timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+                }, 100)
+            },
+            willClose: () => {
+                clearInterval(timerInterval)
+            }
+            }).then((result) => {
+            /* Read more about handling dismissals below */
+            if (result.dismiss === Swal.DismissReason.timer) {
+                console.log('I was closed by the timer')
+            }
+            })
+            
+        });
+    });
+    
+</script>
 
 @endsection
