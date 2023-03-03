@@ -29,9 +29,29 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->authenticate();
-
+        
         $request->session()->regenerate();
-    
+        //dd($request->session()->regenerate());
+        //dd($request->user()->hasVerifiedEmail());
+
+        /*if (!$request->user()->hasVerifiedEmail()) {
+
+            //$request->user()->sendEmailVerificationNotification();
+            
+            //estas tres lineas cierran la sesion si no esta el emailverificado 
+            //(son las miesmas que hay en el metodo destroy())
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            
+            //return redirect() -> route('home');
+
+            //return back()->with('status', 'verification-link-sent');
+            session()->flash('no_permitido', 'Debes confirmar el email para iniciar sesión.');
+
+        }*/
+
+        
         //cuando se loguea se redirige al home
         return redirect() -> route('home');
 
