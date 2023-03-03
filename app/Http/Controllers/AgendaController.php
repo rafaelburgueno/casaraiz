@@ -37,7 +37,7 @@ class AgendaController extends Controller
         $banner = Multimedia::where('multimediaable_type', 'banner')->orderBy('relevancia','asc')->get();
         
         //session()->flash('exito', 'El AgendaController si funciona.');
-        return view('agenda')->with('eventos', $eventos)->with('banner', $banner);
+        return view('agenda')->with('eventos', $eventos)->with('banner', $banner)->with('hoy', date("Y-m-d"));
         //return view('agenda', compact('eventos'));
     }
 }

@@ -64,7 +64,8 @@
                     <tr>
                         <td>{{ $evento->id }}</td>
                         <td>{{ $evento->tipo }}</td>
-                        <td>{{ $evento->created_at->format('d/m/Y') }}</td>
+                        {{--<td>{{ $evento->created_at->format('d/m/Y') }}</td>--}}
+                        <td>{{ $evento->fecha }}</td>
                         <td>
                             {{ substr($evento->dia_de_semana, 0, 10) }} de {{ $evento->hora_de_inicio }} a {{ $evento->hora_de_fin }}hs.
                             @if($evento->tiene_extenciones)

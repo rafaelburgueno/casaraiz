@@ -25,61 +25,145 @@
         </div>
         <!-- CALENDAR -->
 
+        <script>
+            const hoy = new Date().toISOString().slice(0, 10);
+            console.log(hoy);
+
+        </script>
 
         
         <!-- LISTA DESPLEGABLE DE EVENTOS -->
         <!-- LISTA DESPLEGABLE DE EVENTOS -->
         <!-- LISTA DESPLEGABLE DE EVENTOS -->
         <div class="col-md-6 mb-5">
+            <div><h5 class="text-center mostrarMasAntiguos">ver eventos antiguos</h5></div>
             <div class="accordion" id="accordionEventos">
 
                 @foreach ($eventos as $evento)
 
-                <div class="card m-1 mb-3">
-                    <div class="accordion-header" id="heading{{$evento->id}}">
-                        <h2 class="p-3">
-                            <div class=" text-left" type="button" data-toggle="collapse" data-target="#collapse{{$evento->id}}" aria-expanded="true" aria-controls="collapse{{$evento->id}}">
-                                @if(!$evento->activo)
-                                <span class="float-right m-1 badge badge-danger" style="font-size: 10px">El evento no es público</span>
-                                @endif
-                                <p class="card-text h6">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->anio}}, de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
-                                
-                                <p class="card-text mt-2 mb-0 h5"><strong>{{$evento->nombre}}</strong></p>
-                            </div>
-                        </h2>
-                    </div>
-                    
-                    <div id="collapse{{$evento->id}}" class="collapse" aria-labelledby="heading{{$evento->id}}" data-parent="#accordionEventos">
+                
                         
-                        <div class="card-body py-0">
-                            <p class="">{{$evento->descripcion}}</p>
-                            <p class="card-text"><small>Inscripcion </small>
-                                @if ($evento->costo_de_inscripcion == 0)
-                                    <span class="">Gratuita</span>
-                                @else
-                                    <strong> ${{$evento->costo_de_inscripcion}}</strong>
-                                @endif
-                            </p>
-                            <p class=""><small>{{ Str::ucfirst($evento->tipo) }} a cargo de {{$evento->responsable}}</small></p>
+                        @if($hoy > $evento->fecha)
+
+                            <div class="card m-1 mb-3 oculto" id="card-evento-{{$evento->id}}" style="display: none">
                             
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                {{--<a href="{{route('eventos.show', $evento)}}" class="">
-                                    <button class="btn btn-outline-secondary btn-sm mb-3">Ver...</button>
-                                    
-                                </a>--}}
-                                <p class=""><small>Espacio: {{ Str::ucfirst($evento->lugar) }}</small></p>
-                            
-                                <button class="btn btn-tarjetas" {{--style="background-color: rgb(220, 43, 20); color: white;"--}}
-                                    data-toggle="modal" data-target="#inscribirme-{{$evento->id}}" id="contactobtn-{{$evento->id}}">
-                                    Inscribirme
-                                </button>
+                                <div class="accordion-header" id="heading{{$evento->id}}">
+                                    <h2 class="p-3">
+                                        <div class=" text-left" type="button" data-toggle="collapse" data-target="#collapse{{$evento->id}}" aria-expanded="true" aria-controls="collapse{{$evento->id}}">
+                                            @if(!$evento->activo)
+                                            <span class="float-right m-1 badge badge-danger" style="font-size: 10px">El evento no es público</span>
+                                            @endif
+                                            <p class="card-text h6">{{$evento->dia}} de {{$evento->mes}} de {{$evento->anio}}.</p>
+                                            
+                                            <p class="card-text mt-2 mb-0 h5"><strong>{{$evento->nombre}}</strong></p>
+                                        </div>
+                                    </h2>
+                                </div>
+                                
+                                <div id="collapse{{$evento->id}}" class="collapse" aria-labelledby="heading{{$evento->id}}" data-parent="#accordionEventos">
+
+                                    <div class="card-body py-0">
+                                        
+                                        <!--  galeria de imagenes del evento-->
+                                        @if(count($evento->multimedias))
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                            
+                                                <div id="carouselExampleFade{{$evento->id}}" class="carousel slide carousel-fade align-items-center" data-ride="carousel">
+                                                    <div class="carousel-inner ">
+                                                        
+                                                        @foreach ($evento->multimedias as $imagen)
+                                                            @if($loop->index == 0)
+                                                            <div class="carousel-item active">
+                                                            @else
+                                                            <div class="carousel-item">
+                                                            @endif
+                                                                <img class="d-block w-100" src="{{$imagen->url}}" alt="{{ $imagen->descripcion }}">
+                                                            </div>
+                                                        @endforeach
+
+                                                    </div>
+                                                    <a class="carousel-control-prev" href="#carouselExampleFade{{$evento->id}}" role="button" data-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Previous</span>
+                                                    </a>
+                                                    <a class="carousel-control-next" href="#carouselExampleFade{{$evento->id}}" role="button" data-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="sr-only">Next</span>
+                                                    </a>
+                                                </div>
+                                                <script> 
+                                                $(document).ready(function(){
+                                                    $('#carouselExampleFade{{$evento->id}}').carousel({
+                                                        interval: 10,
+                                                    });
+                                                });
+                                                </script>
+
+                                            </div>
+                                        @endif
+
+                                        <p class="">{{$evento->descripcion}}</p>
+                                        
+                                    </div>
+
+                                </div>
+
                             </div>
 
-                        </div>
+                        @else
 
-                    </div>
-                </div>
+                            <div class="card m-1 mb-3" id="card-evento-{{$evento->id}}">
+                            
+                                <div class="accordion-header" id="heading{{$evento->id}}">
+                                    <h2 class="p-3">
+                                        <div class=" text-left" type="button" data-toggle="collapse" data-target="#collapse{{$evento->id}}" aria-expanded="true" aria-controls="collapse{{$evento->id}}">
+                                            @if(!$evento->activo)
+                                            <span class="float-right m-1 badge badge-danger" style="font-size: 10px">El evento no es público</span>
+                                            @endif
+                                            <p class="card-text h6">{{$evento->dia_de_semana}} {{$evento->dia}} de {{$evento->mes}} de {{$evento->anio}}, de {{$evento->hora_de_inicio}} a {{$evento->hora_de_fin}}hs.</p>
+                                            
+                                            <p class="card-text mt-2 mb-0 h5"><strong>{{$evento->nombre}}</strong></p>
+                                        </div>
+                                    </h2>
+                                </div>
+                                
+                                <div id="collapse{{$evento->id}}" class="collapse" aria-labelledby="heading{{$evento->id}}" data-parent="#accordionEventos">
+                        
+                                    <div class="card-body py-0">
+                                        <p class="">{{$evento->descripcion}}</p>
+                                        <p class="card-text"><small>Inscripcion </small>
+                                            @if ($evento->costo_de_inscripcion == 0)
+                                                <span class="">Gratuita</span>
+                                            @else
+                                                <strong> ${{$evento->costo_de_inscripcion}}</strong>
+                                            @endif
+                                        </p>
+                                        <p class=""><small>{{ Str::ucfirst($evento->tipo) }} a cargo de {{$evento->responsable}}</small></p>
+                                        
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            {{--<a href="{{route('eventos.show', $evento)}}" class="">
+                                                <button class="btn btn-outline-secondary btn-sm mb-3">Ver...</button>
+                                                
+                                            </a>--}}
+                                            <p class=""><small>Espacio: {{ Str::ucfirst($evento->lugar) }}</small></p>
+                                        
+                                            <button class="btn btn-tarjetas" {{--style="background-color: rgb(220, 43, 20); color: white;"--}}
+                                                data-toggle="modal" data-target="#inscribirme-{{$evento->id}}" id="contactobtn-{{$evento->id}}">
+                                                Inscribirme
+                                            </button>
+                                        </div>
 
+                                    </div>
+                                </div>
+
+                            </div>
+                        @endif
+                    
+
+                
+
+                {{--TODO: optimizar el codigo para que solo haya un formulario y 
+                    que las tarjetas lo llamen usando javascript--}}
                 <!--  ----------FORMULARIO DE INSCRIPCIÓN -------- ------ ----- -->
                 <!--  ----------FORMULARIO DE INSCRIPCIÓN -------- ------ ----- -->
                 <!--  ----------FORMULARIO DE INSCRIPCIÓN -------- ------ ----- -->
@@ -370,5 +454,20 @@
 
 </div>
 
+<script>
+    $(document).ready(function(){
+            
+                
+            $('.mostrarMasAntiguos').click(function(){
+                //console.log('CLICK en la funcion mostrar mas antiguos');
+                let penultimo_evento = $( ".oculto" ).last(); 
+                //console.log( penultimo_evento );
+                penultimo_evento.show(500);
+                penultimo_evento.removeClass( "oculto" );
+            });
+            
+
+        });
+</script>
 
 @endsection
