@@ -1,7 +1,8 @@
 @extends('layouts.plantilla')
 
 @section('title', 'Home')
-@section('meta-description', 'metadescripción de la pagina Home')
+@section('meta-description', 'Casa Raíz es un espacio cultural vibrante en el corazón de La Floresta, donde la creatividad y la comunidad se unen.
+En Casa Raíz, se realizan talleres y eventos culturales para todas las edades, que incluyen yoga, teatro, baile, cine, música en vivo, poesía, juegos y charlas, entre otras actividades.')
 
 
 @section('content')

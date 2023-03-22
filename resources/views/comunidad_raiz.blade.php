@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title', 'Comunidad Raiz')
-@section('meta-description', 'metadescripción de la pagina Comunidad Raíz')
+@section('meta-description', 'Explora las posibilidades culturales de Casa Raíz. Con nuestra suscripción, tendrás descuentos en talleres y eventos culturales. Además de disfrutar beneficios y promociones en nuestra tienda. ¡No esperes más y unite a Comunidad Raíz!')
 
 @section('content')
 

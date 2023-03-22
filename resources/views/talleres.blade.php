@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title', 'Talleres')
-@section('meta-description', 'metadescripción de la pagina Talleres')
+@section('meta-description', 'Explora nuestra variedad de talleres en Casa Raíz. Desde teatro y yoga hasta canto y costura, tenemos algo para todos. Aprende nuevas habilidades y desarrolla tu creatividad en un ambiente acogedor y amigable. ¡Inscríbete en uno de nuestros talleres ahora y comienza tu viaje artístico!')
 
 @section('content')
 
@@ -59,9 +59,9 @@
 
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             @if($t->costo_de_inscripcion == 0)
-                                <div class="card-text"><small>Inscripción</small> <span class="h5">sin costo</span></div>
+                                <div class="card-text"><small></small> <span class="h5">sin costo</span></div>
                             @else
-                                <div class="card-text"><small>Inscripción</small> <span class="h4">${{$t->costo_de_inscripcion}}</span></div>
+                                <div class="card-text"><small>Valor</small> <span class="h5">${{$t->costo_de_inscripcion}}</span></div>
                             @endif
                             <small class="">{{$t->cupos_totales}} cupos</small>
                         </div>

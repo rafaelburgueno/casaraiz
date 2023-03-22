@@ -10,23 +10,22 @@
             <p><a href="https://www.facebook.com/casaraizuy" target="_blank">Facebook</a></p>
             <p><a href="https://www.instagram.com/casaraizuy" target="_blank">Instagram</a></p>
             <p><a href="https://wa.me/59899303966" target="_blank">WhatsApp</a></p>
-            <p><a href="#" class="" data-toggle="modal" data-target="#cooperacion" id="contactobtn">¿Te interesa participar como emprendimiento colaborador?</a></p>
-
-
+            
+            
             <address>
-            <p>Maciel y Av. Treinta y Tres</p>
-            <p> (+598) 99 303 966</p>
-            <p><a href="mailto:casaraizuy@gmail.com">casaraizuy@gmail.com</a></p>
+                <p>Maciel y Av. Treinta y Tres</p>
+                <p> (+598) 99 303 966</p>
+                <p><a href="mailto:casaraizuy@gmail.com">casaraizuy@gmail.com</a></p>
             </address>
         </div>
-
+        
         <div class="col-sm-4 d-flex flex-column align-items-center">
             <a href="/" class="">
-            <img src="/storage/img/Raiz.logo.redondo (1).png" class="img-fluid"
+                <img src="/storage/img/Raiz.logo.redondo (1).png" class="img-fluid"
                 style="display: block;margin-left: auto;margin-right: auto;" width="60%">
             </a>
         </div>
-
+        
         <div class="col-sm-4 d-flex flex-column align-items-end">
             <p><a href="{{route('home')}}">Inicio</a></p>
             <p><a href="{{route('casa_raiz')}}">Casa Raiz</a></p>
@@ -35,6 +34,7 @@
             <p><a href="{{route('agenda')}}">Agenda</a></p>
             <p><a href="{{route('tienda')}}">Tienda</a></p>
             {{--<p><a href="{{route('blog.index')}}">Blog</a></p>--}}
+            <p><a href="#" class="" data-toggle="modal" data-target="#cooperacion" id="contactobtn">¿Te interesa ser colaborador?</a></p>
         </div>
 
     </div>
@@ -61,11 +61,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
-                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
-                    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                <p class="text-center">Sumate como emprendedor de la comunidad.
+                    Completa los datos y nos comunicamos contigo.
                 </p>
 
                 <form action="{{route('propuestas.store')}}" method="POST" {{--onsubmit="return validarPropuesta()"--}} class="was-validatedd" enctype="multipart/form-data">

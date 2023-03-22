@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title', 'Tienda')
-@section('meta-description', 'metadescripción de la pagina Tienda')
+@section('meta-description', 'Explora nuestra tienda en Casa Raíz y descubre productos únicos y artesanales. Desde semillas y plantas hasta ropa y artículos para el hogar, nuestra tienda ofrece una amplia variedad de productos hechos a mano por artistas locales. Apoya a nuestra comunidad y encuentra algo especial en nuestra tienda. ¡Compra ahora en Casa Raíz!')
 
 
 @section('content')

@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title', 'Agenda de eventos')
-@section('meta-description', 'metadescripción de la pagina Agenda')
+@section('meta-description', 'Descubre los emocionantes eventos que tenemos en Casa Raíz. Desde música en vivo y baile hasta cine y poesía, siempre hay algo nuevo y emocionante sucediendo. Únete a nuestra comunidad y disfruta de experiencias culturales únicas en un ambiente acogedor. ¡Consulta nuestro calendario de eventos ahora y no te pierdas nada!')
 
 @section('content')
 

@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title', 'Blog')
-@section('meta-description', 'metadescripción de la pagina Blog')
+@section('meta-description', 'Descubre el blog de Casa Raíz y mantente al día con las últimas noticias y eventos en nuestro espacio cultural. Lee artículos interesantes sobre arte, cultura y comunidad escritos por nuestros miembros y colaboradores. Participa en la conversación y comparte tus pensamientos e ideas. ¡Explora el blog de Casa Raíz ahora!')
 
 
 @section('content')

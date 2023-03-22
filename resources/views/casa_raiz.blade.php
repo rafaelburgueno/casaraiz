@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 
 @section('title', 'Sobre Casa Raíz')
-@section('meta-description', 'metadescripción de la pagina Sobre Casa Raíz')
+@section('meta-description', 'Conoce más sobre Casa Raíz, un espacio cultural dedicado a fomentar el arte y la cultura en nuestra comunidad. Descubre nuestra historia y misión, y explora los talleres y eventos que ofrecemos. Únete a nuestra familia cultural y sé parte de algo especial. ¡Aprende más sobre Casa Raíz ahora!')
 
 @section('content')
 
@@ -25,7 +25,7 @@
 <!-- Card principal con foto -->
 <div class="container mt-5">
     <div id="myDIV" class="card" width="18rem" style="opacity:95%;   background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 158, 98));">
-        <img class="card-img-top" src="{{asset('/storage/img/casa.png')}}" alt="Card image cap">
+        <img class="card-img-top" src="{{asset('/storage/img/CasaRaiz.jpeg')}}" alt="Card image cap">
 
         <h1 class="card-header text-center" style="color: #eaf0e4;">
             Casa Raíz es un espacio cultural,
@@ -51,10 +51,9 @@
 <div class="container px-4 my-2">
     <div class="row">
         <div class="col-sm video-responsive mt-3">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/dKoQzOjflLo"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+            {{--<iframe width="560" height="315" src="https://www.youtube.com/embed/dKoQzOjflLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--}}
+            {{--<iframe width="560" height="315" src="https://www.youtube.com/embed/Uiu7lRDmv5w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>--}}
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/K8Jw4OwHO-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
     </div>
 </div>
