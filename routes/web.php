@@ -213,10 +213,10 @@ Route::post('/lo_quiero', LoQuieroController::class)->name('lo_quiero');
 */
 //Route::resource('blog', PostController::class);
 Route::controller(PostController::class)->group(function () {
-    Route::get('blog', 'index')->name('blog.index');
+    Route::get('blog', 'index')->name('blog.index')->middleware('colaborador');
     Route::get('blog/create', 'create')->name('blog.create')->middleware('colaborador');
     Route::post('blog', 'store')->name('blog.store')->middleware('colaborador');
-    Route::get('blog/{blog}', 'show')->name('blog.show');
+    Route::get('blog/{blog}', 'show')->name('blog.show')->middleware('colaborador');
     Route::get('blog/{blog}/edit', 'edit')->name('blog.edit')->middleware('colaborador');
     Route::put('blog/{blog}', 'update')->name('blog.update')->middleware('colaborador');
     Route::delete('blog/{blog}', 'destroy')->name('blog.destroy')->middleware('colaborador');

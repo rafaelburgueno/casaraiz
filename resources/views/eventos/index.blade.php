@@ -42,15 +42,16 @@
         <table id="table_id" class="display {{--table table-striped table-hover table-sm--}}">
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>Tipo</th>
+                    {{--<th>id</th>--}}
                     <th>Fecha</th>
                     <th>Hora</th>
+                    <th>Tipo</th>
                     <th>Nombre</th>
                     <th>Activo?</th>
                     {{--<th>Extenciones?</th>--}}
-                    <th>Cupos</th>
-                    <th>Administrar</th>
+                    {{--<th>Cupos</th>--}}
+                    <th>Foto</th>
+                    <th></th>
 
                     {{--<th>Responsable</th>
                     <th>activo</th>
@@ -62,8 +63,7 @@
             
                 @foreach ($eventos as $evento)
                     <tr>
-                        <td>{{ $evento->id }}</td>
-                        <td>{{ $evento->tipo }}</td>
+                        {{--<td>{{ $evento->id }}</td>--}}
                         {{--<td>{{ $evento->created_at->format('d/m/Y') }}</td>--}}
                         <td>{{ $evento->fecha }}</td>
                         <td>
@@ -76,6 +76,7 @@
                                 @endforeach
                             @endif
                         </td>
+                        <td>{{ $evento->tipo }}</td>
                         <td>{{ $evento->nombre }}</td>
 
                         <td>
@@ -86,7 +87,14 @@
                             @endif
                         </td>
                         {{--<td>{{ $evento->tiene_extenciones }}</td>--}}
-                        <td>{{ $evento->cupos_disponibles }}</td>
+                        {{--<td>{{ $evento->cupos_disponibles }}</td>--}}
+                        <td>
+                            @if (count($evento->multimedias))
+                                {{--<a href="{{route('eventos.show', $evento)}}" class="">--}}
+                                    <img src="{{$evento->multimedias->last()->url}}" class="img-thumbnail" style="width: 150px;" alt="{{$evento->nombre}}">
+                                {{--</a>--}}
+                            @endif
+                        </td>
                         <td>
                             {{--<a href="{{route('eventos.show', $evento)}}" class="btn btn-sm btn-outline-secondary ">Ver</a>--}}
                             <a href="{{route('eventos.edit', $evento)}}" class="btn btn-sm btn-outline-secondary ">Ver ></a>
