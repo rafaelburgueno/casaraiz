@@ -34,7 +34,7 @@
             <p><a href="{{route('agenda')}}">Agenda</a></p>
             <p><a href="{{route('tienda')}}">Tienda</a></p>
             {{--<p><a href="{{route('blog.index')}}">Blog</a></p>--}}
-            <p><a href="#" class="" data-toggle="modal" data-target="#cooperacion" id="contactobtn">¿Te interesa ser colaborador?</a></p>
+            <p><a href="{{route('comunidad_raiz')}}/#membresia_agua" class="" {{--data-toggle="modal" data-target="#cooperacion" id="contactobtn"--}}>¿Te interesa ser colaborador?</a></p>
         </div>
 
     </div>
@@ -133,6 +133,21 @@
                         {{--<label for="comentario">Descripcion de la propuesta: </label>--}}
                         <textarea required class="form-control" id="descripcion" name="descripcion" value="{{old('descripcion')}}"
                             placeholder="Contanos sobre tu emprendimiento y/o propuesta." rows="4"></textarea>
+                    </div>
+
+                    <!-- selecciona la forma en que te gustaria colaborar -->
+                    <div class="form-group">
+                        <label for="forma_de_colaboracion">Forma de colaboración: </label>
+                        <select required class="form-control" id="forma_de_colaboracion" name="forma_de_colaboracion">
+                            {{--<option value="">Selecciona una opción</option>--}}
+                            <option value="Productos del emprendimiento">Productos del emprendimiento</option>
+                            <option value="Aporte económico">Aporte económico</option>
+                            <option value="Talleres">Talleres</option>
+                            <option value="Charlas">Charlas</option>
+                            <option value="Asesoramiento">Asesoramiento</option>
+                            <option value="Otro">Otro</option>
+                            
+                        </select>
                     </div>
                 
                     

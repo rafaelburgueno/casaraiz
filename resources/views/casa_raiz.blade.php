@@ -18,7 +18,18 @@
 
 
 
-
+<!-- 
+Casa Raíz es un espacio cultural autogestivo ubicado en La Floresta, Uruguay. 
+Apuntamos al desarrollo del sector artístico cultural, desde una perspectiva diversa, 
+ecológica y comunitaria. 
+El espacio resignifica un histórico restaurante del balneario, 
+potenciando su vegetación y dando lugar a distintas disciplinas artísticas, en instancias 
+de formación y difusión. 
+Nuestro rol de articuladores conecta redes locales, poniendo en diálogo distintos actores 
+del sector, buscando afianzar la participación de juventudes y la creación colaborativa. 
+La Comunidad Raíz actúa como conector entre talleristas, emprendedores, colaboradores, 
+artistas y público en general, quienes mediante una tarjeta acceden a beneficios.
+-->
 <!-- Card principal con foto -->
 <!-- Card principal con foto -->
 <!-- Card principal con foto -->
@@ -28,13 +39,30 @@
         <img class="card-img-top" src="{{asset('/storage/img/CasaRaiz.jpeg')}}" alt="Card image cap">
 
         <h1 class="card-header text-center" style="color: #eaf0e4;">
-            Casa Raíz es un espacio cultural,
+            Casa Raíz es un espacio cultural autogestivo ubicado en La Floresta, Uruguay.
         </h1>
         <div class="card-body text-center">
-            <h3 class="card-title " style="color: #f0b6be">ubicado en La Floresta, Uruguay</h3><br>
-            <h3 class="card-text " style="color: #f8f0f1">en el cual se
-                desarrollan <br>diversos talleres y eventos culturales.
-            </h3><br>
+            <h3 class="card-title " style="color: #f0b6be">
+				Apuntamos al desarrollo del sector artístico cultural, desde una perspectiva diversa, 
+				ecológica y comunitaria.
+			</h3>
+			<br>
+            <h3 class="card-text " style="color: #f8f0f1">
+				El espacio resignifica un histórico restaurante del balneario, 
+				potenciando su vegetación y dando lugar a distintas disciplinas artísticas, en instancias 
+				de formación y difusión.
+			</h3>
+			<br>
+			<h3 class="card-title " style="color: #f0b6be">
+				Nuestro rol de articuladores conecta redes locales, poniendo en diálogo distintos actores 
+				del sector, buscando afianzar la participación de juventudes y la creación colaborativa. 
+			</h3>
+			<br>
+            <h3 class="card-text " style="color: #f8f0f1">
+				La Comunidad Raíz actúa como conector entre talleristas, emprendedores, colaboradores, 
+				artistas y público en general, quienes mediante una tarjeta acceden a beneficios.
+            </h3>
+			<br>
 
         </div>
     </div><br>

@@ -35,6 +35,10 @@
             <li>Descripción de la propuesta: {{ $propuesta['descripcion'] }}</li>
         @endif
 
+        @if( isset($propuesta['forma_de_colaboracion']) )
+            <li>Forma de colaboración: {{ $propuesta['forma_de_colaboracion'] }}</li>
+        @endif
+
 
     </ul>
 

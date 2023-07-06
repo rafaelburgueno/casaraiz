@@ -89,40 +89,40 @@ color: black;
 
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
   }
+}
   
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo-2 {
-      animation: App-logo infinite 10s linear;
-    }
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo-2 {
+    animation: App-logo infinite 10s linear;
   }
+}
   
-  @keyframes App-logo-spin {
-    from {
-      transform: rotateX(0deg);
-    }
-  
-    to {
-      transform: rotateX(360deg);
-    }
+@keyframes App-logo-spin {
+  from {
+    transform: rotateX(0deg);
   }
-  
-  @keyframes App-logo {
-    from {
-      transform: rotate(0deg);
-    }
-  
-    to {
-      transform: rotate(360deg);
-    }
+
+  to {
+    transform: rotateX(360deg);
   }
+}
+  
+@keyframes App-logo {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 
 #cb {
-    font-size: 1.5cm;
+  font-size: 1.5cm;
   border: 2px solid #d5dadf;
   border-radius: 1px;
   box-shadow: 4px 4px 2px #07101a;
@@ -244,24 +244,24 @@ body {
 }
 
 .tabla2 {
-    margin-top: 2em;
-  }
+  margin-top: 2em;
+}
   
-  .tabla2 th,
-  .tabla2 td {
-    text-align: center;
-    padding: .2em .5em;
-    color: rgb(12, 0, 0);
-    border: 1px solid rgb(7, 7, 7);
-  }
+.tabla2 th,
+.tabla2 td {
+  text-align: center;
+  padding: .2em .5em;
+  color: rgb(12, 0, 0);
+  border: 1px solid rgb(7, 7, 7);
+}
   
-  .tabla2 caption {
-    text-align: left;
-    margin-bottom: 5px;
-    font-variant: small-caps;
-    font-size: 30px;
-    letter-spacing: 5px;
-  }
+.tabla2 caption {
+  text-align: left;
+  margin-bottom: 5px;
+  font-variant: small-caps;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
   
   .tabla2 td {
     text-align: left;
@@ -282,20 +282,20 @@ body {
 /* Start: Video Responsive */
 /* Start: Video Responsive */
 .video-responsive {
-    overflow: hidden;
-    padding-bottom: 400px;
-    /* Adecua este valor para controlar la altura del video */
-    position: relative;
-    height: 0;
-  }
+  overflow: hidden;
+  padding-bottom: 400px;
+  /* Adecua este valor para controlar la altura del video */
+  position: relative;
+  height: 0;
+}
   
-  .video-responsive iframe {
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-  }
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
 
 /* End: Video Responsive */
 
@@ -381,44 +381,56 @@ body {
 /*MEMBRESIAS MEMBRESIAS CARD DIV! DIV" DIV#*/
 /*MEMBRESIAS MEMBRESIAS CARD DIV! DIV" DIV#*/
 
-.div1 h5, .div2 h5, .div3 h5 {
-    color:rgb(220, 43, 20)
-  }
-  .div1 button, .div2 button, .div3 button {
-    background-color:rgb(220, 43, 20);
-  }
+.div1 h5, .div2 h5, .div3 h5, .div4 h5 {
+  color:rgb(220, 43, 20)
+}
+.div1 button, .div2 button, .div3 button, .div4 button {
+  background-color:rgb(220, 43, 20);
+}
   
   
-  .div1 h4, .div2 h4, .div3 h4 {
-    
-    border-bottom: 0.8px solid rgb(220, 43, 20);
-    
+.div1 h4, .div2 h4, .div3 h4, .div4 h4 {
   
-  }
-  .div1 {
-    background: url(/storage/img/semilla.png);
-    background-position: right bottom, left top;
-    background-size: 100px 80px;
-    background-repeat: no-repeat;
-    background-color: white;
-    opacity: 70%;
-  }
-  .div2{
-    background: url(/storage/img/raiz.png);
-    background-position: right bottom, left top;
-    background-size: 100px 80px;
-    background-repeat: no-repeat;
-    background-color: white;
-    opacity: 70%;
-  }
+  border-bottom: 0.8px solid rgb(220, 43, 20);
+  
+
+}
+.div1 {
+  background: url(/storage/img/semilla.png);
+  background-position: right bottom, left top;
+  background-size: 100px 80px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  opacity: 70%;
+}
+.div2{
+  background: url(/storage/img/raiz.png);
+  background-position: right bottom, left top;
+  background-size: 100px 80px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  opacity: 70%;
+}
   .div3{
     background: url(/storage/img/arbol.png);
     background-position: right bottom, left top;
     background-size: 100px 80px;
     background-repeat: no-repeat;
-    background-color: white;
+    background-color: #fff;
     opacity: 70%;
   }
+  .div4{
+    background: url(/storage/img/agua.png);
+    background-position: right bottom, left top;
+    background-size: 130px 105px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    opacity: 70%;
+  }
+  /*MEMBRESIAS MEMBRESIAS CARD DIV! DIV" DIV#*/
+  /*MEMBRESIAS MEMBRESIAS CARD DIV! DIV" DIV#*/
+  /*MEMBRESIAS MEMBRESIAS CARD DIV! DIV" DIV#*/
+
   .talleres img {
     max-width: 600px;
      max-height: 400px;
@@ -449,10 +461,10 @@ input[name="telefono"]::-webkit-inner-spin-button {
 }
 
 /* Firefox */ /* esta directiva parece que no funciona*/
-input[name="documento"],
+/*input[name="documento"],
 input[name="telefono"] {
   -moz-appearance: textfield;
-}
+}*/
 
 
 

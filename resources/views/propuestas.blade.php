@@ -103,6 +103,9 @@
                                     <p>Nombre: <strong>{{ $propuesta->nombre }}</strong></p>
                                     <p>Nombre del emprendimiento: <strong>{{ $propuesta->nombre_del_emprendimiento }}</strong></p>
                                     <p>Descripcion: <strong>{{ $propuesta->descripcion }}</strong></p>
+
+                                    <p>Forma de colaboracion: <strong>{{ $propuesta->forma_de_colaboracion }}</strong></p>
+
                                     @if($propuesta->imagen)
                                     <hr>
                                         <div class="text-center">

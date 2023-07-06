@@ -52,6 +52,7 @@ class PropuestaController extends Controller
             'redes_sociales' => 'max:100', 
             'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096|nullable', // TODO: guardar la imagen // multimedia
             'descripcion' => 'required|max:255', // TODO: no estoy seguro del max:255
+            'forma_de_colaboracion' => 'nullable|max:150',
         ]);
 
         // se crea usuario y se almacena en la BD
@@ -64,6 +65,11 @@ class PropuestaController extends Controller
             'descripcion' => $request->descripcion,
         ]);
 
+        //si llega forma_de_colaboracion en la $request, se guarda en la BD
+        if($request->forma_de_colaboracion){
+            $propuesta->forma_de_colaboracion = $request->forma_de_colaboracion;
+            $propuesta->save();
+        }
 
 
         //IMAGEN
@@ -92,6 +98,6 @@ class PropuestaController extends Controller
 
         session()->flash('exito', 'La propuesta fue enviada correctamente, en breve nos pondremos en contacto ;D');
         //return $request->all();
-        return redirect() -> route('home');
+        return redirect() -> route('comunidad_raiz');
     }
 }
