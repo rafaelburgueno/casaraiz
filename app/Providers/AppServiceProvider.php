@@ -13,7 +13,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //las siguientes tres lineas deben ser descomentadas para el deploy
+        //las siguientes tres lineas fueron agregadas para el deploy
+        /* si estamos en entorno de produccion, entonces ejecuta las siguientes lineas */
+        if ($this->app->environment() == 'production') {
+            $this->app->bind('path.public', function() {
+                return base_path().'/../public_html';
+            });
+        }
         /*$this->app->bind('path.public', function() {
             return base_path().'/../public_html';
         });*/

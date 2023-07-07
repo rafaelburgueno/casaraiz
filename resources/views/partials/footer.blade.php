@@ -71,8 +71,8 @@
 
                     <!--Input Nombre_del_emprendimiento -->
                     <div class="form-group">
-                        {{--<label for="nombre_del_emprendimiento">Nombre del emprendimiento: </label>--}}
-                        <input required type="text" class="form-control" id="nombre_del_emprendimiento" name="nombre_del_emprendimiento" value="{{old('nombre_del_emprendimiento')}}" placeholder="Nombre del emprendimiento">
+                        <label for="nombre_del_emprendimiento">Nombre del emprendimiento: </label>
+                        <input required type="text" class="form-control" id="nombre_del_emprendimiento" name="nombre_del_emprendimiento" value="{{old('nombre_del_emprendimiento')}}" placeholder="...">
                         @error('nombre_del_emprendimiento')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
@@ -81,8 +81,8 @@
 
                     <!-- Input nombre -->
                     <div class="form-group">
-                        {{--<label for="nombre">Nombre del referente: </label>--}}
-                        <input required type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="Nombre">
+                        <label for="nombre">Nombre del referente: </label>
+                        <input required type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="...">
                         @error('nombre')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
@@ -91,8 +91,8 @@
 
                     <!--Input correo -->
                     <div class="form-group ">
-                        {{--<label for="correo">Correo: </label>--}}
-                        <input required type="email" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="Correo">
+                        <label for="correo">Correo: </label>
+                        <input required type="email" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="...">
                         @error('correo')
                             <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
@@ -101,8 +101,8 @@
                         
                     <!--Input telefono -->
                     <div class="form-group">
-                        {{--<label for="telefono">Teléfono: </label>--}}
-                        <input required type="number" class="form-control" min="1111111" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="Teléfono">
+                        <label for="telefono">Teléfono: </label>
+                        <input required type="number" class="form-control" min="1111111" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="09XXXXXXX">
                         @error('telefono')
                         <div class="alert alert-danger mt-1">{{ $message }}</div>
                         @enderror
@@ -110,12 +110,17 @@
 
 
                     <!-- Input redes_sociales -->
-                    <div class="form-group">
-                        {{--<label for="redes_sociales">redes_sociales: </label>--}}
-                        <input type="text" class="form-control" id="redes_sociales" name="redes_sociales" value="{{old('redes_sociales')}}" placeholder="Redes sociales">
-                        @error('redes_sociales')
-                            <div class="alert alert-danger mt-1">{{ $message }}</div>
-                        @enderror
+                    <div class="form-group mb-3">
+                        <label for="redes_sociales">Redes sociales: </label>
+                        <div class="input-group ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input type="text" class="form-control" id="redes_sociales" name="redes_sociales" value="{{old('redes_sociales')}}" placeholder="...">
+                            @error('redes_sociales')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
 
 

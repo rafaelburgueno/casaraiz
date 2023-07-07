@@ -17,6 +17,7 @@ use App\Http\Controllers\InscripcionesController;
 use App\Http\Controllers\MiPerfilController;
 use App\Http\Controllers\CasaRaizController;
 use App\Http\Controllers\PropuestaController;
+use App\Http\Controllers\ComunidadRaizController;
 
 
 use Illuminate\Support\Facades\Artisan;
@@ -74,9 +75,10 @@ Route::get('/casa_raiz', CasaRaizController::class)->name('casa_raiz');
 | Esta ruta solo devuelve una vista, por lo tanto no es 
 | necesario utilizar un controlador.
 */
-Route::get('/comunidad', function () {
+Route::get('/comunidad', ComunidadRaizController::class)->name('comunidad_raiz');
+/*Route::get('/comunidad', function () {
     return view('comunidad_raiz');
-})->name('comunidad_raiz');
+})->name('comunidad_raiz');*/
 
 
 
@@ -104,10 +106,10 @@ Route::controller(PropuestaController::class)->group(function () {
     Route::get('propuestas', 'index')->name('propuestas.index')->middleware('administrador');
     //Route::get('propuestas/create', 'create')->name('propuestas.create')->middleware('administrador');
     Route::post('propuestas', 'store')->name('propuestas.store');
-    //Route::get('propuestas/{producto}', 'show')->name('propuestas.show')->middleware('administrador');
-    //Route::get('propuestas/{producto}/edit', 'edit')->name('propuestas.edit')->middleware('administrador');
-    //Route::put('propuestas/{producto}', 'update')->name('propuestas.update')->middleware('administrador');
-    //Route::delete('propuestas/{producto}', 'destroy')->name('propuestas.destroy')->middleware('administrador');
+    //Route::get('propuestas/{propuesta}', 'show')->name('propuestas.show')->middleware('administrador');
+    Route::get('propuestas/{propuesta}/edit', 'edit')->name('propuestas.edit')->middleware('administrador');
+    Route::put('propuestas/{propuesta}', 'update')->name('propuestas.update')->middleware('administrador');
+    Route::delete('propuestas/{propuesta}', 'destroy')->name('propuestas.destroy')->middleware('administrador');
 });
 
 

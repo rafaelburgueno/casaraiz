@@ -25,7 +25,7 @@ class PropuestaController extends Controller
     {
         $propuestas = Propuesta::get();
         
-        return view('propuestas', compact('propuestas'));
+        return view('propuestas.index', compact('propuestas'));
 
     }
 
@@ -100,4 +100,127 @@ class PropuestaController extends Controller
         //return $request->all();
         return redirect() -> route('comunidad_raiz');
     }
+
+
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Propuesta  $propuesta
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Propuesta $propuesta)
+    {
+        //return 'el propuesta a editar es '.$propuesta->nombre;
+        return view('propuestas.edit', compact('propuesta'));
+        //return view('propuestas.edit')->with('propuesta', $propuesta);
+    }
+
+
+
+
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  Illuminate\Http\Request  $request
+     * @param  \App\Models\Propuesta  $tienda
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, Propuesta $propuesta)
+    {
+        //debe llamarse tienda porque es el nombre especificado en la ruta (php artisan route:list)
+        //return $request->all();
+        $request->validate([
+            'nombre' => 'required|max:100',
+            'nombre_del_emprendimiento' => 'max:100|nullable',
+            'correo' => 'required|max:100',
+            'telefono' => 'max:20|nullable',
+            'redes_sociales' => 'max:100|nullable',
+            'descripcion' => 'required|max:1000', 
+            'forma_de_colaboracion' => 'max:150|nullable',
+            'beneficio' => 'max:255|nullable',
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096',
+        ]);
+
+        
+        $propuesta->nombre = $request->nombre;
+        $propuesta->nombre_del_emprendimiento = $request->nombre_del_emprendimiento;
+        $propuesta->correo = $request->correo;
+        $propuesta->telefono = $request->telefono;
+        $propuesta->redes_sociales = $request->redes_sociales;
+        $propuesta->descripcion = $request->descripcion;
+        $propuesta->forma_de_colaboracion = $request->forma_de_colaboracion;
+        $propuesta->beneficio = $request->beneficio;
+        
+        if($request->publico){
+            $propuesta->publico = $request->publico;
+        }else{
+            $propuesta->publico = 0;
+        }
+
+        
+
+        //return $propuesta;
+        $propuesta -> save();
+        
+        if($request->file('imagen')){
+            
+            //el metodo store() debe ejecutarse en la misma linea en la que se asigna a la variable(sino no funca)
+            $imagen = $request->file('imagen')-> store('public/propuestas');
+            
+            //cambia el nombre de la ruta , para que sea accesible desde la carpeta public
+            $url = Storage::url($imagen);
+
+            //eliminamos la imagen anterior
+            if($propuesta->imagen){
+                //
+                Storage::delete(str_replace('storage', 'public', $propuesta->imagen->url));
+                $propuesta->imagen->delete();
+            }
+
+            Multimedia::create([
+                'url' => $url,
+                'descripcion' => $propuesta->nombre_del_emprendimiento,
+                'multimediaable_id' => $propuesta->id,
+                'multimediaable_type' => 'App\Models\Propuesta',
+            ]);
+
+            //return 'se guardo todo';
+        }
+
+        
+        session()->flash('exito', 'La propuesta fue editada.');
+        return redirect() -> route('propuestas.index');
+    }
+
+
+
+
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Propuesta  $propuesta
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Propuesta $propuesta)
+    {
+        if($propuesta->imagen){
+            Storage::delete(str_replace('storage', 'public', $propuesta->imagen->url));
+            $propuesta->imagen->delete();
+        }
+
+        $propuesta->delete();
+
+        session()->flash('exito', 'La propuesta fue eliminada.');
+        return redirect() -> route('propuestas.index');
+    }
+
+
+
+
+
 }

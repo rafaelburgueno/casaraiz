@@ -38,30 +38,30 @@ artistas y público en general, quienes mediante una tarjeta acceden a beneficio
     <div id="myDIV" class="card" width="18rem" style="opacity:95%;   background-image: linear-gradient(to bottom right, rgb(48, 66, 60), rgb(198, 98, 103), rgb(198, 158, 98));">
         <img class="card-img-top" src="{{asset('/storage/img/CasaRaiz.jpeg')}}" alt="Card image cap">
 
-        <h1 class="card-header text-center" style="color: #eaf0e4;">
+        <h1 class="card-header text-center h2" style="color: #eaf0e4;">
             Casa Raíz es un espacio cultural autogestivo ubicado en La Floresta, Uruguay.
         </h1>
         <div class="card-body text-center">
-            <h3 class="card-title " style="color: #f0b6be">
+            <h4 class="card-text " style="color: #f0b6be">
 				Apuntamos al desarrollo del sector artístico cultural, desde una perspectiva diversa, 
 				ecológica y comunitaria.
-			</h3>
+			</h4>
 			<br>
-            <h3 class="card-text " style="color: #f8f0f1">
+            <h4 class="card-text " style="color: #f8f0f1">
 				El espacio resignifica un histórico restaurante del balneario, 
 				potenciando su vegetación y dando lugar a distintas disciplinas artísticas, en instancias 
 				de formación y difusión.
-			</h3>
+			</h4>
 			<br>
-			<h3 class="card-title " style="color: #f0b6be">
+			<h4 class="card-text " style="color: #f0b6be">
 				Nuestro rol de articuladores conecta redes locales, poniendo en diálogo distintos actores 
 				del sector, buscando afianzar la participación de juventudes y la creación colaborativa. 
-			</h3>
+			</h4>
 			<br>
-            <h3 class="card-text " style="color: #f8f0f1">
+            <h4 class="card-text " style="color: #f8f0f1">
 				La Comunidad Raíz actúa como conector entre talleristas, emprendedores, colaboradores, 
 				artistas y público en general, quienes mediante una tarjeta acceden a beneficios.
-            </h3>
+            </h4>
 			<br>
 
         </div>

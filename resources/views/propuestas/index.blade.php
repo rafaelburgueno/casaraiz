@@ -22,7 +22,7 @@
     $(document).ready( function () {
         $('#tabla_de_propuestas').DataTable({
 			order: [
-				[4, 'desc']
+				[5, 'desc']
 			]
 		});
     } );
@@ -38,9 +38,11 @@
                     <tr>
                         <th></th>
                         <th>id</th>
+                        <th>Publico</th>
                         <th>Nombre</th>
                         <th>Emprendimiento</th>
                         <th>Fecha</th>
+                        <th>Administrar</th>
                         {{--<th>Email</th>
                         <th>Teléfono</th>
                         <th>Redes sociales</th>
@@ -54,9 +56,17 @@
                         <tr>
                             <td><a class="btn btn-light" data-toggle="modal" data-target="#info_de_la_propuesta_{{ $propuesta->id }}">Ver</a></td>
                             <td>{{ $propuesta->id }}</td>
+                            <td>
+                                @if($propuesta->publico)
+                                    <p><strong>SI</strong></p>
+                                @else
+                                    <p><strong>NO</strong></p>
+                                @endif
+                            </td>
                             <td>{{ $propuesta->nombre }}</td>
                             <td>{{ $propuesta->nombre_del_emprendimiento }}</td>
                             <td>{{ $propuesta->created_at }}</td>
+                            <td><a href="{{route('propuestas.edit', $propuesta)}}" class="btn btn-sm btn-outline-secondary ">Editar</a></td>
                             {{--<td>{{ $propuesta->correo }}</td>
                             <td>{{ $propuesta->telefono }}</td>
                             <td>{{ $propuesta->redes_sociales }}</td>
@@ -101,10 +111,17 @@
 
                                 <div class="modal-body ">
                                     <p>Nombre: <strong>{{ $propuesta->nombre }}</strong></p>
-                                    <p>Nombre del emprendimiento: <strong>{{ $propuesta->nombre_del_emprendimiento }}</strong></p>
+                                    <p>Emprendimiento: <strong>{{ $propuesta->nombre_del_emprendimiento }}</strong></p>
                                     <p>Descripcion: <strong>{{ $propuesta->descripcion }}</strong></p>
 
                                     <p>Forma de colaboracion: <strong>{{ $propuesta->forma_de_colaboracion }}</strong></p>
+                                    <p>Beneficio: <strong>{{ $propuesta->beneficio }}</strong></p>
+                                    <p>Fecha: <strong>{{ $propuesta->created_at }}</strong></p>
+                                    @if($propuesta->publico)
+                                        <p><strong>La propuesta es publica </strong><small>(aparece en la seccion de emprendimientos de comunidad raíz)</small></p>
+                                    @else
+                                        <p><strong>La propuesta es privada </strong><small>(no aparece en la seccion de emprendimientos de comunidad raíz)</small></p>
+                                    @endif
 
                                     @if($propuesta->imagen)
                                     <hr>
@@ -119,6 +136,7 @@
                                     @if($propuesta->redes_sociales)
                                         <p>Redes_sociales: <strong>{{ $propuesta->redes_sociales }}</strong></p>
                                     @endif
+
                                 </div>
                                 
 
