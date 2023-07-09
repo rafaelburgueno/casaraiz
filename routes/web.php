@@ -358,6 +358,7 @@ Route::controller(InscripcionesController::class)->group(function () {
 | En produccion se debe desactivar despues de usar
 | La ruta para ejecutar las migraciones debe verse 
 | asi -> https://www.casaraiz.uy/artisan/migrate
+| o asi -> https://www.casaraiz.uy/artisan/list // para testear
 | Como medida extra de seguridad, utiliza el middelware 'administrador'
 */
 Route::get('/artisan/{command}', function ($command) {

@@ -3,6 +3,11 @@
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 
+/* si estamos en entorno de produccion, entonces ejecuta la linea 'define(...' */
+if (getenv('APP_ENV') === 'production') {
+    define('STDIN',fopen("php://stdin","r"));
+}
+
 define('LARAVEL_START', microtime(true));
 
 /*

@@ -1,6 +1,11 @@
 #!/usr/bin/env php
 <?php
 
+/* si estamos en entorno de produccion, entonces ejecuta la siguiente linea 'define(...'*/
+if (App::environment('production')) {
+    define('STDIN',fopen("php://stdin","r"));
+}
+
 define('LARAVEL_START', microtime(true));
 
 /*
