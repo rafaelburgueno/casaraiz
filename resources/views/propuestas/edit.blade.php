@@ -8,7 +8,7 @@
 
 
 <div class="text-center my-4">
-    <h1 id="in" class="text-center pt-2">Id:{{$propuesta->id}} | {{$propuesta->nombre}}</h1>
+    <h1 id="in" class="text-center pt-2">Id:{{$propuesta->id}} | {{$propuesta->nombre_del_emprendimiento}}</h1>
 </div>
 
 
@@ -78,7 +78,7 @@
                                 </div>
                                 @endif
 
-                                <input type="file" class="form-control pt-3 pb-5" id="imagen" name="imagen" value="{{old('imagen')}}" accept="image/*">
+                                <input type="file" class="form-control p-1" id="imagen" name="imagen" value="{{old('imagen')}}" accept="image/*">
                                 @error('imagen')
                                     <div class="alert alert-danger mt-1">{{ $message }}</div>
                                 @enderror

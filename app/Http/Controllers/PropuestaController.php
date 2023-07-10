@@ -48,10 +48,10 @@ class PropuestaController extends Controller
             'nombre' => 'required|max:100', 
             'nombre_del_emprendimiento' => 'required|max:100',
             'correo' => 'required|email', 
-            'telefono' => 'required|numeric', 
-            'redes_sociales' => 'max:100', 
-            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096|nullable', // TODO: guardar la imagen // multimedia
-            'descripcion' => 'required|max:255', // TODO: no estoy seguro del max:255
+            'telefono' => 'nullable|min:8', 
+            'redes_sociales' => 'nullable|max:100', 
+            'imagen' => 'image|mimes:jpeg,png,jpg,gif,svg|max:4096|nullable', 
+            'descripcion' => 'required|max:1000', 
             'forma_de_colaboracion' => 'nullable|max:150',
         ]);
 

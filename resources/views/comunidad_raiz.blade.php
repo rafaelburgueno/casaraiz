@@ -531,7 +531,190 @@
         </div>
         --}}
 
-    </div><br>
+    </div>
+    <br>
+
+    <!-- MODAL FORMULARIO DE COLABORACION -->
+    <!-- MODAL FORMULARIO DE COLABORACION -->
+    <!-- MODAL FORMULARIO DE COLABORACION -->
+    <div class="modal fade" id="cooperacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Emprendimiento Colaborador</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Sumate como emprendedor de la comunidad.
+                        Completa los datos y nos comunicamos contigo.
+                    </p>
+
+                    <form action="{{route('propuestas.store')}}" method="POST" {{--onsubmit="return validarPropuesta()"--}} class="was-validatedd" enctype="multipart/form-data">
+                        @csrf
+                        @method('POST')
+
+                        <!--Input Nombre_del_emprendimiento -->
+                        <div class="form-group">
+                            <label for="nombre_del_emprendimiento">Nombre del emprendimiento <small>(Obligatorio)</small>: </label>
+                            <input required pattern="[A-Za-z0-9 ÁáÉéÍíÓóÚúÜüÑñ]{6,100}" type="text" class="form-control" id="nombre_del_emprendimiento" name="nombre_del_emprendimiento" value="{{old('nombre_del_emprendimiento')}}" placeholder="...">
+                            @error('nombre_del_emprendimiento')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+
+                        <!-- Input nombre -->
+                        <div class="form-group">
+                            <label for="nombre">Nombre del referente <small>(Obligatorio)</small>: </label>
+                            <input required pattern="[A-Za-z0-9 ÁáÉéÍíÓóÚúÜüÑñ]{6,100}" type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="...">
+                            @error('nombre')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+
+                        <!--Input correo -->
+                        <div class="form-group ">
+                            <label for="correo">Correo <small>(Obligatorio)</small>: </label>
+                            <input required type="email" class="form-control" id="correo" name="correo" value="{{old('correo')}}" placeholder="...">
+                            @error('correo')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        
+                            
+                        <!--Input telefono -->
+                        <div class="form-group">
+                            <label for="telefono">Teléfono: </label>
+                            <input type="text" class="form-control" pattern="(?=^.{8,15}$)\+?\d{1,4}[-\s]?\d{1,4}[-\s]?\d{1,4}" id="telefono" name="telefono" value="{{old('telefono')}}" placeholder="09XXXXXXX">
+                            @error('telefono')
+                            <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+
+                        <!-- Input redes_sociales -->
+                        <div class="form-group mb-3">
+                            <label for="redes_sociales">Redes sociales: </label>
+                            <div class="input-group ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">@</span>
+                                </div>
+                                <input pattern="^[^@]{5,100}$" type="text" class="form-control" id="redes_sociales" name="redes_sociales" value="{{old('redes_sociales')}}" placeholder="...">
+                                @error('redes_sociales')
+                                    <div class="alert alert-danger mt-1">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group mb-3">
+                            <label for="imagen" class="text-muted">Logo: </label>
+                            <input type="file" class="form-control p-1" id="imagen" name="imagen" value="{{old('imagen')}}" accept="image/*">
+                            @error('imagen')
+                                <div class="alert alert-danger mt-1">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+
+                        <!--Input descripción de la propuesta -->
+                        <div class="form-group">
+                            <label for="comentario">Contanos sobre tu emprendimiento y/o propuesta <small>(Obligatorio)</small>: </label>
+                            <textarea required max="1000" class="form-control" id="descripcion" name="descripcion" placeholder="{{old('descripcion', '...')}}" rows="4"></textarea>
+                        </div>
+
+                        <!-- selecciona la forma en que te gustaria colaborar -->
+                        <div class="form-group">
+                            <label for="forma_de_colaboracion">Forma de colaboración: </label>
+                            <select required class="form-control" id="forma_de_colaboracion" name="forma_de_colaboracion">
+                                {{--<option value="">Selecciona una opción</option>--}}
+                                <option value="Productos del emprendimiento">Productos del emprendimiento</option>
+                                <option value="Aporte económico">Aporte económico</option>
+                                <option value="Talleres">Talleres</option>
+                                <option value="Charlas">Charlas</option>
+                                <option value="Asesoramiento">Asesoramiento</option>
+                                <option value="Otro">Otro</option>
+                                
+                            </select>
+                        </div>
+                    
+                        
+                        <button type="submit" class="btn btn-tarjetas btn-block btn-procesando" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FIN DEL FORMULARIO DE COLABORACION -->
+
+
+    <script>
+        $(document).ready(function(){
+
+            $('.btn-procesando').click(function(){
+                if(
+                    document.getElementById("nombre_del_emprendimiento").validity.valid &&  
+                    document.getElementById("nombre").validity.valid && 
+                    document.getElementById("correo").validity.valid &&
+                    //document.getElementById("telefono").validity.valid &&
+                    document.getElementById("descripcion").validity.valid &&
+                    document.getElementById("forma_de_colaboracion").validity.valid
+                ){
+
+                
+                    let timerInterval
+                    Swal.fire({
+                    title: 'Procesando',
+                    html: 'Por favor espere.',
+                    timer: 18000,
+                    timerProgressBar: true,
+                    didOpen: () => {
+                        Swal.showLoading()
+                        const b = Swal.getHtmlContainer().querySelector('b')
+                        timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                        }, 100)
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                    }).then((result) => {
+                    /* Read more about handling dismissals below */
+                    if (result.dismiss === Swal.DismissReason.timer) {
+                        console.log('I was closed by the timer')
+                    }
+                    })
+                }
+            });
+        });
+        
+    </script>
+
+    <!--MODAL DATOS SUSCRIPCIÓN -- MODAL DATOS SUSCRIPCIÓN--MODAL DATOS SUSCRIPCIÓN--MODAL DATOS SUSCRIPCIÓN--MODAL DATOS SUSCRIPCIÓN-->
+    <!--MODAL DATOS SUSCRIPCIÓN -- MODAL DATOS SUSCRIPCIÓN--MODAL DATOS SUSCRIPCIÓN--MODAL DATOS SUSCRIPCIÓN--MODAL DATOS SUSCRIPCIÓN-->
+    @if ($errors->any())
+    <script>
+        //sweet alert informando que hay errores en el formulario del club macanudo
+        var errores = @json($errors->all());
+        //console.log(errores);
+        var erroresStr = "";
+        // itero el array de errores y lo agrego a la variable erroresStr
+        errores.forEach(function(elemento, indice, array) {
+            erroresStr += '* ' + elemento + ". ";
+        });
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Hay errores en los datos ingesados en el formulario.',
+            text: erroresStr
+        })
+
+    </script>
+
+    @endif
 
 
 
