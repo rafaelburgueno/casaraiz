@@ -360,10 +360,10 @@
                         <div class="modal-header">
 
                             <div class="px-4">
-                                <h3 id="modalMisDatosLabel" class="text-lg">Información del perfil</h3>
-                                <p class="mt-1 text-sm">
+                                <h3 id="modalMisDatosLabel" class="text-lg">Completa tus datos</h3>
+                                {{--<p class="mt-1 text-sm">
                                     Actualice la información de perfil de su cuenta.
-                                </p>
+                                </p>--}}
                             </div>
                         
 
