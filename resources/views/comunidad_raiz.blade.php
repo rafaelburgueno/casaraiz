@@ -190,7 +190,7 @@
             <!--  ----------FORMULARIO DATOS MEMBRESIA -------- ------ ----- -->
             <!--  ----------FORMULARIO DATOS MEMBRESIA -------- ------ ----- -->
             <!--  ----------FORMULARIO DATOS MEMBRESIA -------- ------ ----- -->
-            <div class="modal fade" id="contacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {{--<div class="modal fade" id="contacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -340,14 +340,60 @@
 
                             </div>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-tarjetas" {{--style="background-color: coral; color: #e9e2e2;"--}} id="enviar">Enviar</button>
+                                <button type="submit" class="btn btn-tarjetas" id="enviar">Enviar</button>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
+            </div>--}}
             <!--  ----------FIN DEL FORMULARIO DATOS MEMBRESIA -------- ------ ----- -->
 
+            
+
+            <!--  ----------NUEVO FORMULARIO DE MEMBRESIA -------- ------ ----- -->
+            <!--  ----------NUEVO FORMULARIO DE MEMBRESIA -------- ------ ----- -->
+            <!--  ----------NUEVO FORMULARIO DE MEMBRESIA -------- ------ ----- -->
+            <!--  ----------NUEVO FORMULARIO DE MEMBRESIA -------- ------ ----- -->
+            <div class="modal fade" id="contacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+
+                            <div class="px-4">
+                                <h3 id="modalMisDatosLabel" class="text-lg">Información del perfil</h3>
+                                <p class="mt-1 text-sm">
+                                    Actualice la información de perfil de su cuenta.
+                                </p>
+                            </div>
+                        
+
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="borrar()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+
+                        </div>
+
+                        <div class="modal-body ">
+
+
+                            @livewire('formulario-de-membresia')
+                            {{-- EDICION DE DATOS DEL USUARIO --}}
+                            
+
+                            {{--
+                            <button class="btn shadown" style="color:#f04643;">Modificar</button>
+                            <button class="btn btn-outline shadown " style="color: #4554a4; ">Guardar</button>
+                            --}}
+                        </div>
+                        
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- ----------FIN DEL NUEVO FORMULARIO DE MEMBRESIA  -------- ------ ----- -->
+
+            
 
         </div>
 
