@@ -121,7 +121,7 @@
                                 todos los beneficios de la comunidad.</p>
                             <h4 class="text-center"><strong>$700 </strong><span style="font-size: 50%;">( anual )</span></h4><br>
                             <div class="text-center">
-                                <button type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                                <button onclick="seleccionaMembresia('semilla');" type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="membresia-semilla">
                                     OBTENER</button><br><br>
                             </div>
                         </div>
@@ -138,7 +138,7 @@
                             </p>
                             <h4 class="text-center"><strong>$1100 </strong><span style="font-size: 50%;">( anual )</span></h4><br>
                             <div class="text-center">
-                                <button type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                                <button onclick="seleccionaMembresia('raiz');" type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="membresia-raiz">
                                     OBTENER
                                 </button><br><br>
                             </div>
@@ -154,7 +154,7 @@
                                 con todos los beneficios para cada uno.</p>
                             <h4 class="text-center"><strong>$2000 </strong><span style="font-size: 50%;">( anual )</span></h4><br>
                             <div class="text-center">
-                                <button type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="contactobtn">
+                                <button onclick="seleccionaMembresia('arbol');" type="button" class="btn btn-tarjetas" data-toggle="modal" data-target="#contacto" id="membresia-arbol">
                                     OBTENER
                                 </button><br><br>
                             </div>
@@ -393,6 +393,59 @@
             </div>
             <!-- ----------FIN DEL NUEVO FORMULARIO DE MEMBRESIA  -------- ------ ----- -->
 
+            <script>
+                
+                    
+                function seleccionaMembresia(opcion){
+                    //console.log("seleccionaMembresia()"+opcion);
+                    //$("#tipo_de_membresia")select.val(opcion);
+                    /*var select = document.querySelector("#tipo_de_membresia");
+                    // Establecer la opción seleccionada a la opción con el valor "semilla"
+                    //select.find("option[value='"+opcion+"']").prop("selected", true);
+                    if(opcion == "semilla"){
+                        select.options[0].selected = true;
+                    }else if(opcion == "raiz"){
+                        select.options[1].selected = true;
+                    }else if(opcion == "arbol"){
+                        select.options[2].selected = true;
+                    }*/
+
+                    /*if(opcion == "semilla"){
+                        $("#checkbox-semilla").prop("checked", true);
+                        $("#checkbox-raiz").prop("checked", false);
+                        $("#checkbox-arbol").prop("checked", false);
+                    }else if(opcion == "raiz"){
+                        $("#checkbox-semilla").prop("checked", false);
+                        $("#checkbox-raiz").prop("checked", true);
+                        $("#checkbox-arbol").prop("checked", false);
+                    }else if(opcion == "arbol"){
+                        $("#checkbox-semilla").prop("checked", false);
+                        $("#checkbox-raiz").prop("checked", false);
+                        $("#checkbox-arbol").prop("checked", true);
+                    }*/
+                }
+
+                function definirBotonDeSubmit(){
+                    //obtiene el valor del input tipo_de_membresia
+                    /*var tipo_de_membresia = $("input[name='tipo_de_membresia']:checked").val();
+                    
+                    //obtiene el valor del input medio_de_pago
+                    var medio_de_pago = $("input[name='medio_de_pago']:checked").val();
+
+                    //si el medio de pago es mercadopago se le agrega al boton de submit el atributo href y el atributo target="_blank"
+                    if(medio_de_pago == "mercadopago"){
+                        //$("#link-solicitar").show();
+                        //$("#btn-solicitar").hide();
+
+                        $("#link-solicitar").attr("href", "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=471581581-0f0e2f1e-2f4e-4b1e-8b1a-2b2b2b2b2b2b");
+                        $("#link-solicitar").attr("target", "_blank");
+                    }*/
+                    
+                    //console.log("definirBoton: medio_de_pago: "+medio_de_pago);
+                    //console.log("definirBoton: tipo_de_membresia: "+tipo_de_membresia);
+                }
+
+            </script>
             
 
         </div>
@@ -403,7 +456,7 @@
 
     <!--EMPRENDIMIENTOS--EMPRENDIMIENTOS---EMPRENDIMIENTOS---EMPRENDIMIENTOS-->
     <div>
-        <h2 id="cb" class="text-center">EMPRENDIMIENTOS</h2><br><br>
+        <h2 id="cb" class="text-center variar-el-tamaño-de-un-titulo">EMPRENDIMIENTOS</h2><br><br>
     </div>
 
     <div>
@@ -762,7 +815,27 @@
 
     @endif
 
+    <script>
+        $(document).ready(function() {
+        // Obtener el ancho de la pantalla
+        var anchoPantalla = $(window).width();
 
+        // Asignar un tamaño inicial al texto
+        var tamañoTexto = "50px";
+
+        // Ajustar el tamaño del texto según el ancho de la pantalla
+        if (anchoPantalla < 768) {
+            tamañoTexto = "50px";
+        } else if (anchoPantalla < 576) {
+            tamañoTexto = "30px";
+        } else if (anchoPantalla < 360) {
+            tamañoTexto = "20px";
+        }
+
+        // Aplicar el tamaño al texto
+        $(".variar-el-tamaño-de-un-titulo").css("font-size", tamañoTexto);
+        });
+    </script>
 
 </div>
 

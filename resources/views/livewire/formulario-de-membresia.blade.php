@@ -5,7 +5,7 @@
 
         <!-- Nombre -->
         <div class="form-group mb-3">
-            <label for="nombre" class="negro">Nombre completo: </label>
+            <label for="nombre" class="negro">Nombre completo <small>(Obligatorio)</small>: </label>
             <input type="text" pattern="[A-Za-z0-9 ÁáÉéÍíÓóÚúÜüÑñ]{3,100}" class="form-control" name="nombre" wire:model="nombre" id="nombre" placeholder="Ingrese su nombre">
             @error('nombre') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
@@ -27,66 +27,113 @@
 
         <!-- Telefono -->
         <div class="form-group mb-3">
-            <label for="telefono">Teléfono: </label>
+            <label for="telefono">Teléfono <small>(Obligatorio)</small>: </label>
             <input type="text" pattern="^(09\d{7}|[42]\d{7})$" class="form-control" name="telefono" wire:model="telefono" id="telefono" placeholder="Ingrese su número de telefono" 
             title="El número de teléfono debe comenzar con '09', '2' o '4' segiodo de 7 numeros."required>
             @error('telefono') <span class="text-danger">{{ $message }}</span> @enderror
         </div>
 
         <!-- Documento -->
-        <div class="form-group mb-3">
-            <label for="documento">Documento: </label>
+        {{--<div class="form-group mb-3">
+            <label for="documento">Documento <small>(Obligatorio)</small>: </label>
             <input type="text" class="form-control" name="documento" wire:model="documento" id="documento" placeholder="sin puntos ni guión" required>
             @error('documento') <span class="text-danger">{{ $message }}</span> @enderror
-        </div>
+        </div>--}}
 
 
 
-        <!--Input tipo_de_membresia -->
-        <div class="form-group">
-            <label for="">Tipo de membresia: </label>
+        <!--Input type select tipo_de_membresia -->
+        {{--<div class="form-group mb-3">
+            <label for="tipo_de_membresia">Tipo de membresía <small>(Obligatorio)</small>: </label>
+            <select class="form-control mb-3" wire:model.defer="tipo_de_membresia" name="tipo_de_membresia" id="tipo_de_membresia" required>
+                <option value="semilla">Semilla $700 (1 usuario)</option>
+                <option value="raiz">Raiz $1100 (2 usuarios)</option>
+                <option value="arbol">Árbol $2000 (grupo familiar hasta 6 usuarios)</option>
+            </select>
+        </div>--}}
+
+        <div class="form-group mb-3">
+            <label for="tipo_de_membresia">Tipo de membresía <small>(Obligatorio)</small>: </label>
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="tipo_de_membresia" wire:model="tipo_de_membresia" @checked(old('tipo_de_membresia')) id="semilla" value="semilla">
-                <label class="form-check-label" for="semilla">Semilla $700 (1 usuario)</label>
+                <input required class="form-check-input" type="radio" name="tipo_de_membresia" wire:model="tipo_de_membresia" wire:change="onMedioDePagoChange" @checked(old('tipo_de_membresia')) id="checkbox-semilla" value="semilla">
+                <label class="form-check-label" for="checkbox-semilla">Semilla $700 (1 usuario)</label>
             </div>
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="tipo_de_membresia" wire:model="tipo_de_membresia" @checked(old('tipo_de_membresia')) id="raiz" value="raiz">
-                <label class="form-check-label" for="raiz">Raiz $1100 (2 usuarios)</label>
+                <input required class="form-check-input" type="radio" name="tipo_de_membresia" wire:model="tipo_de_membresia" wire:change="onMedioDePagoChange" @checked(old('tipo_de_membresia')) id="checkbox-raiz" value="raiz">
+                <label class="form-check-label" for="checkbox-raiz">Raiz $1100 (2 usuarios)</label>
             </div>
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="tipo_de_membresia" wire:model="tipo_de_membresia" @checked(old('tipo_de_membresia')) id="arbol" value="arbol">
-                <label class="form-check-label" for="arbol">Árbol $2000 (grupo familiar hasta 6 usuarios)</label>
+                <input required class="form-check-input" type="radio" name="tipo_de_membresia" wire:model="tipo_de_membresia" wire:change="onMedioDePagoChange" @checked(old('tipo_de_membresia')) id="checkbox-arbol" value="arbol">
+                <label class="form-check-label" for="checkbox-arbol">Árbol $2000 (grupo familiar hasta 6 usuarios)</label>
             </div>
             @error('tipo_de_membresia') <span class="text-danger">{{ $message }}</span> @enderror
-        </div><br>
+        </div>
 
         <!--Input medio_de_pago -->
-        <div class="form-group">
-            <label for="comentario">Medio de pago: </label>
+        <div class="form-group mb-3">
+            <label for="comentario">Medio de pago <small>(Obligatorio)</small>: </label>
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" @checked(old('medio_de_pago')) id="efectivo" value="efectivo">
+                <input onclick="definirBotonDeSubmit()" required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" wire:change="onMedioDePagoChange" @checked(old('medio_de_pago')) id="efectivo" value="efectivo">
                 <label class="form-check-label" for="efectivo">Efectivo</label>
             </div>
             {{--<div class="form-check">
-                <input required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" @checked(old('medio_de_pago')) id="midinero" value="midinero">
+                <input onclick="definirBotonDeSubmit()" required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" @checked(old('medio_de_pago')) id="midinero" value="midinero">
                 <label class="form-check-label" for="midinero">MiDinero</label>
             </div>--}}
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" @checked(old('medio_de_pago')) id="mercadopago" value="mercadopago">
+                <input onclick="definirBotonDeSubmit()" required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" wire:change="onMedioDePagoChange" @checked(old('medio_de_pago')) id="mercadopago" value="mercadopago">
                 <label class="form-check-label" for="mercadopago">Pagar online</label>
             </div>
-            {{--<div class="form-check">
-                <input required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" @checked(old('medio_de_pago')) id="prex" value="prex">
-                <label class="form-check-label" for="prex">Prex</label>
-            </div>--}}
             <div class="form-check">
-                <input required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" @checked(old('medio_de_pago')) id="canje/sorteo" value="canje/sorteo">
+                <input onclick="definirBotonDeSubmit()" required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" wire:change="onMedioDePagoChange" @checked(old('medio_de_pago')) id="prex" value="prex">
+                <label class="form-check-label" for="prex">Prex / MiDinero</label>
+            </div>
+            <div class="form-check">
+                <input onclick="definirBotonDeSubmit()" required class="form-check-input" type="radio" name="medio_de_pago" wire:model="medio_de_pago" wire:change="onMedioDePagoChange" @checked(old('medio_de_pago')) id="canje/sorteo" value="canje/sorteo">
                 <label class="form-check-label" for="canje/sorteo">Canje/Sorteo</label>
             </div>
             @error('medio_de_pago') <span class="text-danger">{{ $message }}</span> @enderror
-        </div><br>
+        </div>
 
 
+        {{--<script>
+            $(document).ready(function() {
+                /*$('#boton_de_mercadopago').hide();
+                $('#boton_de_efectivo').hide();*/
+
+                $('input[type=radio][name=medio_de_pago]').click(function(event) {
+                    event.stopPropagation();
+                    var medioPago = $("input[name='medio_pago']:checked").val();
+
+                    /*if (medioPago == 'mercadopago') {
+                        $('#boton_de_mercadopago').fadeIn();
+                        $('#boton_de_efectivo').fadeOut();
+                    }
+                    else if (medioPago == 'efectivo') {
+                        $('#boton_de_efectivo').fadeIn();
+                        $('#boton_de_mercadopago').fadeOut();
+                    }*/
+
+
+
+                    // Obtener el valor del radio button
+                    var medioPago = $("input[name='medio_pago']:checked").val();
+
+                    // Mostrar el botón de enviar según el medio de pago seleccionado
+                    if (medioPago == "mercadopago") {
+                    $("#boton_de_mercadopago").show();
+                    $("#boton_de_efectivo").hide();
+                    } else {
+                    $("#boton_de_mercadopago").hide();
+                    $("#boton_de_efectivo").show();
+                    }
+
+
+
+
+                });
+            });
+        </script>--}}
 
 
 
@@ -102,12 +149,21 @@
             @error('password') <span class="mx-1 text-danger">{{ $message }}</span> @enderror
         </div>--}}
         
-        <hr class="w-50 mt-4">
+        <hr class="w-50 mt-44">
 
         <div class="text-center">
+
+            {{--<button id="btn-solicitar" type="submit" class="btn btn-tarjetas" wire:click="guardar">Solicitar membresía</button>--}}
+            
             @if($ver_boton_de_guardar)
-                <button type="submit" class="btn btn-tarjetas" wire:click="guardar">Guardar</button>
+                <a id="link-solicitar" wire:click="guardar"  class="btn btn-tarjetas">SOLICITAR MEMBRESÍA</a>
+                {{--<button type="submit" class="btn btn-tarjetas" wire:click="guardar">Guardar</button>--}}
             @endif
+
+            @if($abilitar_boton_de_pago)
+                {!! $respuesta !!}
+            @endif
+            {!! $respuesta !!}
 
             @if (session()->has('exito'))
                 <div class="my-3 alert alert-success">
@@ -115,9 +171,10 @@
                 </div>
             @endif
 
-            @if($abilitar_boton_de_pago)
-                {!! $respuesta !!}
-            @endif
+            
+
+            {{--<button type="submit" class="btn btn-tarjetas" wire:click="guardar">Guardar</button>--}}
+
 
             
         </div>

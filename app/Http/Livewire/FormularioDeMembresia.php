@@ -14,6 +14,7 @@ use App\Mail\ContactoMailable;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Inscripcion;
 
+
 class FormularioDeMembresia extends Component
 {
 
@@ -21,7 +22,7 @@ class FormularioDeMembresia extends Component
     //public $apellido;
     public $correo;
     
-    public $documento;
+    //public $documento;
     public $telefono;
     public $tipo_de_membresia;
     public $medio_de_pago;
@@ -44,7 +45,7 @@ class FormularioDeMembresia extends Component
             //'apellido' => 'required|max:100',
             'correo' => 'required|email',
             
-            'documento' => 'required|numeric|min:7',
+            //'documento' => 'required|numeric|min:7',
             'telefono' => 'required|numeric|min:8',
 
             'tipo_de_membresia' => 'required',
@@ -58,6 +59,7 @@ class FormularioDeMembresia extends Component
 
     public function mount()
     {
+        
         //$this->abilitar_boton_de_pago = false;
         //$this->usuario = User::find(auth()->id());
         /*$usuario = Auth::user();
@@ -73,7 +75,34 @@ class FormularioDeMembresia extends Component
     }
  
 
+    public function onMedioDePagoChange()
+    {
 
+        
+        $medioPago = $this->medio_de_pago;
+        $tipoDeMembresia = $this->tipo_de_membresia;
+        if($medioPago == 'mercadopago'){
+            $this->validate();
+
+            if($tipoDeMembresia == 'semilla'){
+                $this->respuesta = '<div class="my-3 text-success"><a type="submit" href="'.env('LINK_DE_PAGO_SEMILLA').'" target="_blank" class="btn btn-lg btn-tarjetas">Pagar online $700</a></div>';
+            }elseif($tipoDeMembresia == 'raiz'){
+                $this->respuesta = '<div class="my-3 text-success"><a type="submit" href="'.env('LINK_DE_PAGO_RAIZ').'" target="_blank" class="btn btn-lg btn-tarjetas">Pagar online $1100</a></div>';
+            }elseif($tipoDeMembresia == 'arbol'){
+                $this->respuesta = '<div class="my-3 text-success"><a type="submit" href="'.env('LINK_DE_PAGO_ARBOL').'" target="_blank" class="btn btn-lg btn-tarjetas">Pagar online $2000</a></div>';
+            }
+
+            //$this->abilitar_boton_de_pago = true;
+
+            //$this->respuesta = '<div class="my-3 text-success"><a wire:click="guardar" href="#" target="_blank" class="btn btn-lg btn-tarjetas">Hace click acá para pagar con mercadopago</a></div>';
+            $this->ver_boton_de_guardar = false;
+        }else{
+            $this->ver_boton_de_guardar = true;
+            $this->respuesta = '';
+            //$this->respuesta = '<div class="my-3 text-success"><a href="#" wire:click="guardar" target="_blank" class="btn btn-lg btn-tarjetas">Hace click acá para pagar en efectivo</a></div>';
+            
+        }
+    }
 
 
 
@@ -130,7 +159,7 @@ class FormularioDeMembresia extends Component
             //'nombre' => $this->nombre.' '.$this->apellido,
             'nombre' => $this->nombre,
             'correo' => $this->correo,
-            'documento_de_identidad' => $this->documento,
+            //'documento_de_identidad' => $this->documento,
             'telefono' => $this->telefono,
             'inscripcionable_id' => $membresia,
             'inscripcionable_type' => 'membresia',
