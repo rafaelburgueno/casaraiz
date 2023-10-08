@@ -96,6 +96,14 @@
         </div>
 
 
+        <!--Aceptar terminos y condiciones -->
+        <div class="form-group mb-3">
+            <input @checked(old('terminos_y_condiciones')) required type="checkbox"  class="h1" wire:model="terminos_y_condiciones" name="terminos_y_condiciones" value="1" id="terminos_y_condiciones" checked>
+            <label class="mb-0" for="terminos_y_condiciones">Acepto los <a href="#" data-toggle="modal" data-target="#modal_terminos_y_condiciones">términos y condiciones</a>.</label>
+            @error('terminos_y_condiciones') <p class="p-0 m-0 text-danger">{{ $message }}</p> @enderror
+        </div>
+
+
         {{--<script>
             $(document).ready(function() {
                 /*$('#boton_de_mercadopago').hide();
@@ -153,16 +161,14 @@
 
         <div class="text-center">
 
-            {{--<button id="btn-solicitar" type="submit" class="btn btn-tarjetas" wire:click="guardar">Solicitar membresía</button>--}}
+            <div wire:loading>
+                <div class="spinner-border my-3" style="width: 50px; height: 50px;" role="status">
+                    <span class="sr-only">Cargando...</span>
+                </div>
+            </div>
             
-            @if($ver_boton_de_guardar)
-                <a id="link-solicitar" wire:click="guardar"  class="btn btn-tarjetas">SOLICITAR MEMBRESÍA</a>
-                {{--<button type="submit" class="btn btn-tarjetas" wire:click="guardar">Guardar</button>--}}
-            @endif
-
-            @if($abilitar_boton_de_pago)
-                {!! $respuesta !!}
-            @endif
+            <a id="link-solicitar" wire:click="guardar" {!! $atributos_del_link_de_pago !!} class="btn btn-tarjetas text-light btn-block">Guardar</a>
+        
             {!! $respuesta !!}
 
             @if (session()->has('exito'))
@@ -170,10 +176,6 @@
                     {{ session('exito') }}
                 </div>
             @endif
-
-            
-
-            {{--<button type="submit" class="btn btn-tarjetas" wire:click="guardar">Guardar</button>--}}
 
 
             

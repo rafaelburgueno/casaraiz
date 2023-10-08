@@ -10,13 +10,15 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
-use App\Mail\ContactoMailable;
+//use App\Mail\ContactoMailable;
 use Illuminate\Support\Facades\Mail;
 use App\Models\Inscripcion;
+use App\Mail\MailMembresiaCliente;
 
 
 class FormularioDeMembresia extends Component
 {
+    public $inscripcion;
 
     public $nombre;
     //public $apellido;
@@ -26,16 +28,39 @@ class FormularioDeMembresia extends Component
     public $telefono;
     public $tipo_de_membresia;
     public $medio_de_pago;
+    public $terminos_y_condiciones;
     public $recibir_novedades;
     public $password;
     public $password_confirmation;
 
-    public $abilitar_boton_de_pago = false;
-    public $ver_boton_de_guardar = true;
 
     public $respuesta = '';
-    
 
+    public $link_del_boton = 'javascript:void(0);';
+
+    public $atributos_del_link_de_pago = '';
+    
+    protected $listeners = ['updated'];
+
+    public function updated(){
+        $this->atributos_del_link_de_pago = '';
+        $this->validate();
+        
+        $medioPago = $this->medio_de_pago;
+        $tipoDeMembresia = $this->tipo_de_membresia;
+        
+        if($medioPago == 'mercadopago'){
+
+            if($tipoDeMembresia == 'semilla'){
+                $this->atributos_del_link_de_pago = 'href="'.env('LINK_DE_PAGO_SEMILLA') . '" target="_blank"';
+            }elseif($tipoDeMembresia == 'raiz'){
+                $this->atributos_del_link_de_pago = 'href="'.env('LINK_DE_PAGO_RAIZ') . '" target="_blank"';
+            }elseif($tipoDeMembresia == 'arbol'){
+                $this->atributos_del_link_de_pago = 'href="'.env('LINK_DE_PAGO_ARBOL') . '" target="_blank"';
+            }
+
+        }
+    }
     
 
     protected function rules()
@@ -50,6 +75,7 @@ class FormularioDeMembresia extends Component
 
             'tipo_de_membresia' => 'required',
             'medio_de_pago' => 'required',
+            'terminos_y_condiciones' => 'required|accepted',
             
             //'password' => 'required|same:password_confirmacion',
             //'password' => 'nullable|min:8|confirmed',
@@ -60,7 +86,6 @@ class FormularioDeMembresia extends Component
     public function mount()
     {
         
-        //$this->abilitar_boton_de_pago = false;
         //$this->usuario = User::find(auth()->id());
         /*$usuario = Auth::user();
 
@@ -78,37 +103,47 @@ class FormularioDeMembresia extends Component
     public function onMedioDePagoChange()
     {
 
-        
+        //$this->respuesta = '<div class="my-33 text-success"><span>Procesando...</span></div>';
+        /*
         $medioPago = $this->medio_de_pago;
         $tipoDeMembresia = $this->tipo_de_membresia;
         if($medioPago == 'mercadopago'){
-            $this->validate();
+            //$this->validate();
 
             if($tipoDeMembresia == 'semilla'){
-                $this->respuesta = '<div class="my-3 text-success"><a type="submit" href="'.env('LINK_DE_PAGO_SEMILLA').'" target="_blank" class="btn btn-lg btn-tarjetas">Pagar online $700</a></div>';
+                $this->respuesta = '<div class="my-33 text-success"><a wire:click="guardar" type="submit" href="'.env('LINK_DE_PAGO_SEMILLA').'" target="_blank" class="btn btn-block btn-tarjetas btn-procesandoo">Pagar online</a></div>';
+                $this->link_del_boton = env('LINK_DE_PAGO_SEMILLA');
+                $this->atributos_del_link_de_pago = 'href="'.env('LINK_DE_PAGO_SEMILLA') . '" target="_blank"';
             }elseif($tipoDeMembresia == 'raiz'){
-                $this->respuesta = '<div class="my-3 text-success"><a type="submit" href="'.env('LINK_DE_PAGO_RAIZ').'" target="_blank" class="btn btn-lg btn-tarjetas">Pagar online $1100</a></div>';
+                $this->respuesta = '<div class="my-33 text-success"><a wire:click="guardar" type="submit" href="'.env('LINK_DE_PAGO_RAIZ').'" target="_blank" class="btn btn-block btn-tarjetas btn-procesandoo">Pagar online</a></div>';
+                $this->link_del_boton = env('LINK_DE_PAGO_RAIZ');
+                $this->atributos_del_link_de_pago = 'href="'.env('LINK_DE_PAGO_RAIZ') . '" target="_blank"';
             }elseif($tipoDeMembresia == 'arbol'){
-                $this->respuesta = '<div class="my-3 text-success"><a type="submit" href="'.env('LINK_DE_PAGO_ARBOL').'" target="_blank" class="btn btn-lg btn-tarjetas">Pagar online $2000</a></div>';
+                $this->respuesta = '<div class="my-33 text-success"><a wire:click="guardar" type="submit" href="'.env('LINK_DE_PAGO_ARBOL').'" target="_blank" class="btn btn-block btn-tarjetas btn-procesandoo">Pagar online</a></div>';
+                $this->link_del_boton = env('LINK_DE_PAGO_ARBOL');
+                $this->atributos_del_link_de_pago = 'href="'.env('LINK_DE_PAGO_ARBOL') . '" target="_blank"';
             }
 
-            //$this->abilitar_boton_de_pago = true;
-
             //$this->respuesta = '<div class="my-3 text-success"><a wire:click="guardar" href="#" target="_blank" class="btn btn-lg btn-tarjetas">Hace click acá para pagar con mercadopago</a></div>';
-            $this->ver_boton_de_guardar = false;
+            
         }else{
-            $this->ver_boton_de_guardar = true;
+            
             $this->respuesta = '';
+            $this->link_del_boton = '#';
+            $this->atributos_del_link_de_pago = '';
             //$this->respuesta = '<div class="my-3 text-success"><a href="#" wire:click="guardar" target="_blank" class="btn btn-lg btn-tarjetas">Hace click acá para pagar en efectivo</a></div>';
             
-        }
+        }*/
     }
 
 
 
     public function guardar()
     {
+
         $this->validate();
+
+        //$this->respuesta = '<div class="my-33 text-success"><span>Procesando...</span></div>';
 
         $user = NULL;
         if(auth()){
@@ -154,7 +189,7 @@ class FormularioDeMembresia extends Component
 
 
         // se crea el objeto Inscripcion y se almacena en la BD
-        Inscripcion::create([
+        $this->inscripcion = Inscripcion::create([
             'user_id' => $user,
             //'nombre' => $this->nombre.' '.$this->apellido,
             'nombre' => $this->nombre,
@@ -169,32 +204,29 @@ class FormularioDeMembresia extends Component
             'recibir_novedades' => $recibir_novedades,
         ]);
 
-        $this->ver_boton_de_guardar = false;
+
+        // se envia un email al usuario con los datos de la inscripcion
+        $correo = new MailMembresiaCliente($this->inscripcion);
+        //Mail::to('casaraizuy@gmail.com')->send($correo);
+        Mail::to($this->correo)->cc(env('MAIL_RECEPTOR_DE_NOTIFICACIONES', 'rafaelburg@gmail.com'))->send($correo);
 
 
+        
         if($this->medio_de_pago == 'mercadopago'){
-            $this->abilitar_boton_de_pago = true;
-            $this->respuesta = '<div class="my-3 text-success"><a href="'. $link_al_pago .'" target="_blank" class="btn btn-lg btn-tarjetas">Hace click acá para pagar online</a></div>';
             
-            session()->flash('exito', 'La solicitud de membresía fue enviada correctamente, solo falta realizar el pago ;P');
+            $this->respuesta = '';
+            //$this->respuesta = '<div class="my-3 text-success"><a href="'. $link_al_pago .'" target="_blank" class="btn btn-lg btn-tarjetas">Hace click acá para pagar online</a></div>';
+            
+            session()->flash('exito', 'La solicitud de membresía fue enviada correctamente y quedara activa cuando se verifique el pago.');
+            return redirect()->to('/comunidad/#membresias_ruta');
         }else{
-            session()->flash('exito', 'La solicitud de membresía fue enviada correctamente, en breve nos pondremos en contacto ;P');
-
+            $this->respuesta = '';
+            session()->flash('exito', 'La solicitud de membresía fue enviada correctamente, en breve nos pondremos en contacto.');
+            return redirect()->to('/comunidad/#membresias_ruta');
+            //return redirect() -> route('comunidad_raiz');
         }
 
-        //$correo = new ContactoMailable($request->all());
 
-        // la direccion de email hay que cambiarla por casaraizuy@gmail.com al momento definalizar el proyecto
-        //Mail::to('casaraizuy@gmail.com')->send($correo);
-        //Mail::to(env('MAIL_RECEPTOR_DE_NOTIFICACIONES', 'rafaelburg@gmail.com'))->send($correo);
-
-        //return $request->all();
-
-
-        
-        //$this->respuesta = '<div class="my-3 text-success"><strong>La solicitud de membresía fue enviada correctamente.</strong></div>';
-    
-        
     }
 
 

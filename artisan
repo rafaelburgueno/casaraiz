@@ -2,6 +2,7 @@
 <?php
 
 /* si estamos en entorno de produccion, entonces ejecuta la siguiente linea 'define(...'*/
+// en local aparece un error al usar comandos artisan, por eso se comentan las siguientes lineas
 if (App::environment('production')) {
     define('STDIN',fopen("php://stdin","r"));
 }

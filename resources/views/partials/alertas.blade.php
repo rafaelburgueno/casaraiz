@@ -13,22 +13,41 @@
 
 
     <script>
-        const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 4000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-            toast.addEventListener('mouseenter', Swal.stopTimer)
-            toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
+        /*const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
         })
 
         Toast.fire({
         icon: 'success',
         title: '{{session('exito')}}'
+        })*/
+
+        Swal.fire({
+            title: '{{session('exito')}}',
+            //text: "You won't be able to revert this!",
+            icon: 'success',
+            //showCancelButton: true,
+            //confirmButtonColor: '#3085d6',
+            //cancelButtonColor: '#d33',
+            confirmButtonText: 'OK'
+            }).then((result) => {
+            if (result.isConfirmed) {
+                //Swal.fire(
+                //  'Deleted!',
+                //  'Your file has been deleted.',
+                //  'success'
+                //)
+            }
         })
+
     </script>
 
 

@@ -46,60 +46,68 @@
 
 
     <div class="">
-        <h2 id="cb" class="text-center">CLUB DE BENEFICIOS</h2>
+        <h2 id="cb" class="text-center variar-el-tamaño-de-un-titulo">CLUB DE BENEFICIOS</h2>
     </div>
 
-    <div class="card-group">
+    <div class="card-groupp row p-0 m-0">
+        
+        <div class="col-lg-4 p-0 m-0">
         <div class="card text-center card-beneficioss" width="8rem" 
         style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to bottom left, rgb(198, 98, 103),rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
                 <h5 class="card-title">TALLERES</h5>
                 <p class="card-text">-10%<br> en todos los talleres<br> de la grilla semanal.</p>
             </div>
-        </div>
+        </div></div>
 
+        <div class="col-lg-4 p-0 m-0">
         <div class="card text-center card-beneficioss" 
         style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to bottom right,rgb(198, 98, 103),rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
                 <h5 class="card-title">EVENTOS</h5>
                 <p class="card-text">-20% <br>para programar tu evento en el espacio.</p>
             </div>
-        </div>
+        </div></div>
 
+        <div class="col-lg-4 p-0 m-0">
         <div class="card text-center card-beneficioss" 
         style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to bottom left, rgb(198, 98, 103),rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
                 <h5 class="card-title">TIENDA</h5>
                 <P class="card-text text-center"> -20%<br> en los productos<br>de la tienda raíz.</P>
             </div>
-        </div>
+        </div></div>
 
     </div>
     
-    <div class="card-group">
+    <div class="card-groupp row p-0 m-0">
+
+        <div class="col-lg-4 p-0 m-0">
         <div class="card text-center card-beneficioss" 
         style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to top left,rgb(198, 98, 103), rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
                 <h5 class="card-title">ENTRADAS</h5>
                 <P class="card-text text-center">-15% <br>en todos los eventos con entrada.</P>
             </div>
-        </div>
+        </div></div>
 
+        <div class="col-lg-4 p-0 m-0">
         <div class="card text-center card-beneficioss" width="10rem" 
         style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to top right,rgb(198, 98, 103), rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
                 <h5 class="card-title">LUDOTECA</h5>
-                <p class="card-text">Podes usar todos los juegos de nuestra ludoteca.</p>
+                <p class="card-text">Podes usar todos los juegos de nuestra ludoteca.</p><p></p>
             </div>
-        </div>
+        </div></div>
 
+        <div class="col-lg-4 p-0 m-0">
         <div class="card text-center card-beneficioss" 
         style="box-shadow: 4px 4px 2px #e9e2e2; background-image: linear-gradient(to top left, rgb(198, 98, 103),rgb(198, 98, 103), rgb(198, 98, 103), rgb(48, 66, 60));">
             <div class="card-body">
                 <h5 class="card-title">BIBLIOTECA</h5>
-                <p class="card-text">Tenés acceso a todos nuestros libros y textos.</p>
+                <p class="card-text">Tenés acceso a todos nuestros libros y textos.</p><p></p>
             </div>
-        </div>
+        </div></div>
         
     </div>
     <br id="membresias_ruta">
@@ -109,7 +117,7 @@
 
 
     <div>
-        <h2 id="cb" class="text-center">MEMBRESÍAS</h2><br>
+        <h2 id="cb" class="text-center variar-el-tamaño-de-un-titulo">MEMBRESÍAS</h2><br>
         <div class="container border border-3">
             <div class="row">
 
@@ -395,6 +403,47 @@
 
             <script>
                 
+                $('.btn-procesando').click(function(){
+                    if( 
+                        //el input nombre no puede estar vacio y debe tener mas de 5 caracteres
+                        //document.getElementById("nombre").value != '' && 
+                        //document.getElementById("nombre").value.length > 5 &&
+                        /*document.getElementById("nombre").value != '' && 
+                        document.getElementById("email").value != '' && 
+                        document.getElementById("telefono").value != '' && 
+                        document.getElementById("tipo_de_membresia").value != '' && */
+                        $("input[name='medio_de_pago']:checked").val() != '' &&
+                        //document.getElementById("medio_de_pago").value != '' && 
+                        ///document.getElementById("password").validity.valid &&
+                        //document.getElementById("password_confirmacion").validity.valid &&
+                        //document.getElementById("password").value == document.getElementById("password_confirmacion").value &&
+
+                        document.getElementById("terminos_y_condiciones").checked == true
+                    ){
+                        let timerInterval
+                        Swal.fire({
+                        title: 'Procesando',
+                        html: 'Por favor espere.',
+                        timer: 10000,
+                        timerProgressBar: true,
+                        didOpen: () => {
+                            Swal.showLoading()
+                            const b = Swal.getHtmlContainer().querySelector('b')
+                            timerInterval = setInterval(() => {
+                            b.textContent = Swal.getTimerLeft()
+                            }, 100)
+                        },
+                        willClose: () => {
+                            clearInterval(timerInterval)
+                        }
+                        }).then((result) => {
+                        /* Read more about handling dismissals below */
+                        if (result.dismiss === Swal.DismissReason.timer) {
+                            console.log('I was closed by the timer')
+                        }
+                        })
+                    }
+                });
                     
                 function seleccionaMembresia(opcion){
                     //console.log("seleccionaMembresia()"+opcion);
@@ -427,7 +476,7 @@
 
                 function definirBotonDeSubmit(){
                     //obtiene el valor del input tipo_de_membresia
-                    /*var tipo_de_membresia = $("input[name='tipo_de_membresia']:checked").val();
+                    var tipo_de_membresia = $("input[name='tipo_de_membresia']:checked").val();
                     
                     //obtiene el valor del input medio_de_pago
                     var medio_de_pago = $("input[name='medio_de_pago']:checked").val();
@@ -439,7 +488,7 @@
 
                         $("#link-solicitar").attr("href", "https://www.mercadopago.com.ar/checkout/v1/redirect?pref_id=471581581-0f0e2f1e-2f4e-4b1e-8b1a-2b2b2b2b2b2b");
                         $("#link-solicitar").attr("target", "_blank");
-                    }*/
+                    }
                     
                     //console.log("definirBoton: medio_de_pago: "+medio_de_pago);
                     //console.log("definirBoton: tipo_de_membresia: "+tipo_de_membresia);
@@ -796,7 +845,7 @@
     <!--MODAL DATOS SUSCRIPCIÓN -- MODAL DATOS SUSCRIPCIÓN--MODAL DATOS SUSCRIPCIÓN--MODAL DATOS SUSCRIPCIÓN--MODAL DATOS SUSCRIPCIÓN-->
     @if ($errors->any())
     <script>
-        //sweet alert informando que hay errores en el formulario del club macanudo
+        //sweet alert informando que hay errores en el formulario
         var errores = @json($errors->all());
         //console.log(errores);
         var erroresStr = "";
@@ -817,25 +866,140 @@
 
     <script>
         $(document).ready(function() {
-        // Obtener el ancho de la pantalla
-        var anchoPantalla = $(window).width();
+            // Obtener el ancho de la pantalla
+            var anchoPantalla = $(window).width();
 
-        // Asignar un tamaño inicial al texto
-        var tamañoTexto = "50px";
+            // Asignar un tamaño inicial al texto
+            var tamañoTexto = "";
 
-        // Ajustar el tamaño del texto según el ancho de la pantalla
-        if (anchoPantalla < 768) {
-            tamañoTexto = "50px";
-        } else if (anchoPantalla < 576) {
-            tamañoTexto = "30px";
-        } else if (anchoPantalla < 360) {
-            tamañoTexto = "20px";
-        }
+            // Ajustar el tamaño del texto según el ancho de la pantalla
+            console.log("tamaño: " + anchoPantalla + "px");
+            if (anchoPantalla < 768 && anchoPantalla >= 576) {
+                tamañoTexto = "40px";
+                console.log("menor a 768");
+            } else if (anchoPantalla < 576 && anchoPantalla >= 360) {
+                tamañoTexto = "30px";
+                console.log("menor a 576");
+            } else if (anchoPantalla < 360) {
+                tamañoTexto = "25px";
+                console.log("menor a 360");
+            }
 
-        // Aplicar el tamaño al texto
-        $(".variar-el-tamaño-de-un-titulo").css("font-size", tamañoTexto);
+            // Aplicar el tamaño al texto
+            $(".variar-el-tamaño-de-un-titulo").css("font-size", tamañoTexto);
         });
     </script>
+
+
+    <!--MODAL TERMINOS Y CONDICIONES -- MODAL TERMINOS Y CONDICIONES--MODAL TERMINOS Y CONDICIONES--MODAL TERMINOS Y CONDICIONES--MODAL TERMINOS Y CONDICIONES-->
+    <!--MODAL TERMINOS Y CONDICIONES -- MODAL TERMINOS Y CONDICIONES--MODAL TERMINOS Y CONDICIONES--MODAL TERMINOS Y CONDICIONES--MODAL TERMINOS Y CONDICIONES-->
+    <div class="modal fade" id="modal_terminos_y_condiciones" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="modal_terminos_y_condicionesLabel" aria-hidden="true">
+        <div class="modal-dialog negro" role="document">
+            <div class="modal-content align-items-center">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="borrar()">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <h5 class="modal-title text-center" id="modal_terminos_y_condicionesLabel">Términos y condiciones de Casa Raíz</h5>
+                <div class="modal-body">
+                    <h6>ACEPTACIÓN</h6>
+                    <p>El uso de este sitio web, {{env('APP_URL')}} y todas las páginas de este dominio, 
+                        constituye la aceptación de los siguientes términos y condiciones. Casa Raíz se reserva 
+                        el derecho de buscar todos los recursos disponibles por ley por cualquier violación 
+                        de estos términos de uso, incluida cualquier violación de los derechos del nombre y 
+                        logotipo de Casa Raíz y sus derechos en relación con la información, texto, video, 
+                        audio o imágenes (juntos o separados) de este sitio web. El uso no autorizado está 
+                        prohibido. No puede copiarse ni reproducirse de ninguna manera sin el permiso previo 
+                        por escrito de Casa Raíz.</p>
+
+                    <h6>USUARIO</h6>
+                    <p>Se considera usuario a los efectos de estos Términos y Condiciones  cualquier persona 
+                        física, jurídica o entidad pública, estatal o no, que ingrese al sitio para recorrer, 
+                        conocer, informarse, realizar una compra, o utilice la página web y su contenido, 
+                        directamente o a través de una aplicación.</p>
+
+                    <h6>EL SITIO WEB</h6>
+                    <p>La utilización del sitio web tiene carácter gratuito para el usuario, (exceptuando la 
+                        realización de una compra), quien se obliga a utilizarlo respetando la normativa 
+                        nacional vigente, las buenas costumbres y el orden público.</p>
+
+                    <p>Casa Raíz es creador y se hace responsable por todo el contenido,  texto, imágenes, 
+                        audios, fotos y videos incluidos en este sitio web. </p>
+
+                    <p>Todas las marcas, nombres comerciales o signos distintivos de cualquier clase que 
+                        eventualmente aparezcan en este sitio web son propiedad de Casa Raíz o  de terceros, 
+                        sin que pueda entenderse que el uso o acceso al sitio atribuye al usuario derecho 
+                        alguno sobre las citadas marcas, nombres comerciales o signos distintivos de cualquier 
+                        clase.</p>
+
+                    <p>Casa Raíz se reserva la facultad de modificar, en cualquier momento y sin previo aviso, 
+                        la presentación, configuración, contenidos y servicios del sitio web, pudiendo 
+                        interrumpir, desactivar y/o cancelar cualquiera de los contenidos y/o servicios 
+                        presentados, por tiempo parcial o definitivo,  integrados o incorporados a este, 
+                        sin expresión de causa y sin responsabilidad.</p>
+
+                    <h6>DATOS PERSONALES</h6>
+                    <p>Los datos personales proporcionados en el sitio web serán tratados por Casa Raíz según 
+                        lo establecido en la Ley Nº 18.331 del 11 de agosto de 2008 y su decreto reglamentario 
+                        Nº 414/2009 del 31 de agosto de 2009. link a la ley de proteccion de datos 
+                        https://www.impo.com.uy/bases/leyes/18331-2008</p>
+
+                    <p>Casa Raíz podrá utilizar cookies cuando se utilice el sitio web. No obstante, el usuario 
+                        podrá configurar su navegador para ser avisado de la recepción de las cookies e impedir 
+                        en caso de considerarlo adecuado.</p>
+
+                    <h6>ENLACES</h6>
+                    <p>Este sitio ocasionalmente podría contener enlaces de hipertexto a otros sitios.</p>
+                    <p>Casa Raíz no asume ninguna 
+                        responsabilidad por esos sitios, incluidas las prácticas de privacidad o 
+                        el contenido de dichos sitios web</p>
+
+                    <h6>OBLIGACIONES DEL USUARIO</h6>
+                    <p>El usuario se compromete a:</p>
+                    <p>NO incumplir todas las leyes, reglamentos y normas aplicables a nivel local, regional y 
+                        nacional; NO dañar, inutilizar o deteriorar los sistemas informáticos que sustentan el 
+                        sitio web {{env('APP_URL')}} y  de otros usuarios o de terceros, ni los contenidos 
+                        incorporados y/o almacenados en estos; NO modificar los sistemas de ninguna manera y no 
+                        utilizar versiones de sistemas modificados con el fin de obtener acceso no autorizado a 
+                        cualquier contenido y/o servicios del sitio; NO interferir ni interrumpir el acceso y 
+                        utilización del sitio web, servidores o redes conectados a este o incumplir los 
+                        requisitos, procedimientos y regulaciones de la política de conexión de redes; NO 
+                        infringir los derechos de propiedad intelectual y de privacidad, entre otros, los 
+                        derechos de patente (copyright), los derechos sobre la base de datos, las marcas 
+                        registradas o el know how de terceros; NO acceder o intentar acceder a la cuenta o al 
+                        login de terceras personas o empresas que sean usuarias de este sitio web; NO copiar, 
+                        modificar, reproducir, eliminar, distribuir, descargar, almacenar, transmitir, vender, 
+                        revender, publicar, invertir el proceso de creación o crear productos derivados a partir 
+                        del contenido del sitio web; NO hacerse pasar por otra persona o empresa: NO utilizar 
+                        el Sitio Web de forma no autorizada o para alguna actividad delictiva;NO falsear los 
+                        datos sobre sí mismo, sobre su asociación con terceros o sobre su empresa.</p>
+
+                    <h6>COMO DENUNCIAR CONTENIDOS</h6>
+                    <p>En caso de contenido erróneo, incompleto, desactualizado, que vulnere derechos de 
+                        propiedad intelectual o ante cualquier otra situación irregular de hecho o de derecho, 
+                        el usuario podrá comunicarse a través del correo electrónico: 
+                        <a href="mailto:{{env('MAIL_FROM_ADDRESS')}}">{{env('MAIL_FROM_ADDRESS')}}</a></p>
+
+                    <h6>CONTACTO</h6>
+                    <p>Por cualquier queja, sugerencia o propuesta de colaboración, puede comunicarse a 
+                        <a href="mailto:{{env('MAIL_FROM_ADDRESS')}}">{{env('MAIL_FROM_ADDRESS')}}</a> o a cualquier dato de contacto proporcionado en este sitio 
+                        web.</p>
+
+                </div>
+                {{--<div class="modal-footer">
+                    <button class="btn1 btn-azul shadown" data-toggle="modal"
+                        data-target="#suscribirme_al_club">Unirme</button>
+                </div>--}}
+
+            </div>
+
+
+        </div>
+    </div>
+
+
 
 </div>
 
